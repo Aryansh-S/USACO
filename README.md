@@ -6,6 +6,7 @@ You can find the latest version of my contest programming template (ongoing modi
 before use in-contest. 
 If you want to #include <bits/stdc++.h> but your compiler does not allow you to do so, simply go to the file "stdc++.h" and
 follow the unofficial directions at the top. 
+The "src" folder just contains source files and images that are integrated elsewhere; you can ignore it. 
 
 # Time Complexity
 Design Efficient Algorithms 
