@@ -40,6 +40,9 @@ typedef vector<int> vi;
 #define what(x) out((#x),"is",(x))
 #define big (int)1e5
 #define bigg (int)(1e9+7)
+#define INF 0x3f3f3f3f
+#define INFLL 0x3f3f3f3f3f3f3f3f
+#define EPS 1e-8
 
 void in(){} void outln(){} void out_(){cout << "\n";} //for fast, easy IO
 template<typename T, typename...Types> void in(T& var1, Types&...var2){cin >> var1; in(var2...);}
