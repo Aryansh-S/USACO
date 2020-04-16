@@ -31,7 +31,7 @@ void dfs(int v){
 int main(){
   cin.tie(0)->sync_with_stdio(0); 
   //build adjacency list given information
-  cin >> q; F0R(i,q){int a,b; cin >> a >> b; a--,b--; adj[a].pb(b); adj[b].pb(a);}
+  int q; cin >> q; F0R(i,q){int a,b; cin >> a >> b; a--,b--; adj[a].pb(b); adj[b].pb(a);}
   dfs(0); //start dfs at 0
   return 0;
 }
