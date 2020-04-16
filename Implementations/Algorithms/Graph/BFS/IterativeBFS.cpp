@@ -22,9 +22,10 @@ int main(){
   while(!line.empty()){
     int v = line.front(); line.pop(); 
     if(!visit[v]){
+      visit[v]=1;
       //process
-      trav(a,adj[v]) line.push(a);
     }
+    trav(a,adj[v]) if(!visit[a]) line.push(a);
   }
   return 0;
 }
