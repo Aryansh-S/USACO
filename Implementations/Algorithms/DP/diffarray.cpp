@@ -1,5 +1,6 @@
 #include <bits/stdc++.h>
 using namespace std;
+//level: basic silver
 
 //objective: use difference arrays (aka +1/-1 trick) to support point queries with range increment updates 
 
