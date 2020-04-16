@@ -1,6 +1,8 @@
 #include <bits/stdc++.h>
 using namespace std;
 
+//objective: design a worst case O(n^2) sort by swapping adjacent elements 
+
 typedef vector<int> vi; 
 #define FOR(i,a,b) for(__typeof(b)i=(a)-((a)>(b));i!=(b)-((a)>(b));i+=((a)>(b))?-1:1) //go from i=lb to i=ub-1
 #define F0R(i,b) FOR(i,0,b)
