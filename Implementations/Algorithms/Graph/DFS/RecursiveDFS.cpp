@@ -23,8 +23,8 @@ void dfs(int v){
  //v represents the current vertex we are at
  if(!visit[v]){ //only DFS if not yet visited; otherwise, will do nothing and return
   visit[v]=1; //mark the vertex as visited
-  //process vertex
-  trav(a,adj[v]) dfs(a); 
+  //process vertex 
+  trav(a,adj[v]) dfs(a); //visit neighbors
  }
 }
 
