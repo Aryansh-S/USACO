@@ -1,7 +1,7 @@
 /*
  * Aryansh Shrivastava 
  * USACO Template 
- * Last Updated: 4/15/20
+ * Last Updated: 4/16/20
  */
 
 #include <bits/stdc++.h> 
