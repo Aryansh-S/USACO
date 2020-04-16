@@ -26,7 +26,7 @@ int main(){
       visited[v]=1;
       //process
     }
-    trav(a,adj[v]) pile.push(a);
+    trav(a,adj[v]) if(!visit[a]) pile.push(a);
   }
   return 0;
 }
