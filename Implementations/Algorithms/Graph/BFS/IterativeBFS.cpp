@@ -1,5 +1,6 @@
 #include <bits/stdc++.h>
 using namespace std;
+//level: basic silver
 
 //objective: perform BFS on an adjacency list graph 
 //BFS is inherently an iterative process, using a queue
