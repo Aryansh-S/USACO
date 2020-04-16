@@ -1,5 +1,6 @@
 #include <bits/stdc++.h>
 using namespace std;
+//level: upper bronze
 
 //objective: design a worst case O(n^2) sort by swapping adjacent elements 
 
