@@ -1,5 +1,6 @@
 #include <bits/stdc++.h>
 using namespace std;
+//level: basic silver
 
 //objective: given an array, find a pair of elements that sums to a given sum in O(n log n) total runtime or less
 //we can't just brute force with two nested for loops -- that would be O(n^2); instead we use two pointers
