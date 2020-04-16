@@ -1,3 +1,9 @@
+/* 
+Unofficial note on use:
+For the sake of contest programming, create a folder called "bits" and move this header file into it. 
+Then, you can simply #include <bits/stdc++.h> at the top of any source file. 
+*/
+
 // C++ includes used for precompiling -*- C++ -*-
 
 // Copyright (C) 2003-2020 Free Software Foundation, Inc.
