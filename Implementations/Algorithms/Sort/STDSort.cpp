@@ -1,5 +1,6 @@
 #include <bits/stdc++.h>
 using namespace std;
+//level: basic silver (sometimes handy in bronze)
 
 typedef vector<int> vi; 
 #define FOR(i,a,b) for(__typeof(b)i=(a)-((a)>(b));i!=(b)-((a)>(b));i+=((a)>(b))?-1:1) //go from i=lb to i=ub-1
