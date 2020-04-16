@@ -10,6 +10,7 @@ typedef vector<int> vi;
 vi v; int n; 
 
 int main(){
+  cin.tie(0)->sync_with_stdio(0);
   cin >> n; F0R(i,n){int x; cin >> x; v.pb(x);}
   sort(all(v)); //sorts in O(n log n)
   return 0;
