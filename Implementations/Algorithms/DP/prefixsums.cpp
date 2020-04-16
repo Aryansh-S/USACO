@@ -1,5 +1,6 @@
 #include <bits/stdc++.h>
 using namespace std;
+//level: basic silver
 
 //objective: use prefix sums to answer static range sum queries
 
