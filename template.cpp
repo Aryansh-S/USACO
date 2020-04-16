@@ -1,5 +1,20 @@
-#include <bits/stdc++.h>
-using namespace std;
+/*
+ * Aryansh Shrivastava 
+ * USACO Template 
+ * Last Updated: 4/15/20
+ */
+
+#include <bits/stdc++.h> 
+using namespace std; //STL 
+
+/* Policy Based Data Structures (GCC)
+#include <ext/pb_ds/assoc_container.hpp>
+#include <ext/pb_ds/tree_policy.hpp>
+#include <ext/rope>
+using namespace __gnu_pbds;
+using namespace __gnu_cxx;
+template <class T> using Tree = tree<T, null_type, less<T>, rb_tree_tag,tree_order_statistics_node_update>;
+*/
 
 typedef long long ll;
 typedef pair<int,int> pii;
