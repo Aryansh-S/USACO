@@ -15,7 +15,7 @@ Bronze: basic data structures (int, bool, char, string, array, vector), basic if
 
 Silver: time complexity analysis (and pruning to amortize), binary search, two pointer concept search, stacks/(priority/heap) queues/deques, DFS/BFS/floodfill/connected components (iterative/recursive) with graphs as adjacency lists, DSU union find data structure (optional but recommended), advanced recursive methods, basic DP (prefix/suffix and difference arrays aka +1/-1 trick), basic concept of greedy, basic line sweep processing (more on the harder side), sliding window minimums, sorting (conceptually and using std::sort), binary search tree data structures (sets, maps, etc.), basic bitwise XOR; hash tables like unordered_set and unordered_map are optional
 
-Gold: DSU union find data structure (cycle finding, connected components, etc.), segment tree, Fenwick tree (BIT), priority queues as heaps (in-depth), topological sort and Euler tour, DFS/BFS (multisource BFS), Dijkstra's (multisource also), Floyd-Warshall, Kruskal's/Prim's (Minimum Spanning Tree), HLD (Heavy-Light Decomposition), LCA (lowest common ancestor), advanced greedy methods, standard DP (knapsack, coin change, basic state transitions, etc.), bitmasks and bitsets, in-depth two pointer search, sliding window minimum, advanced line sweep processing, more binary search, combinatorics (PIE, linearity of expectation), advanced bitwise XOR manipulations
+Gold: DSU union find data structure (cycle finding, connected components, etc.), segment tree, Fenwick tree (BIT), priority queues as heaps (in-depth), topological sort and Euler tour, DFS/BFS (multisource BFS), Dijkstra's (multisource also), Floyd-Warshall, Kruskal's/Prim's (Minimum Spanning Tree), HLD (Heavy-Light Decomposition), LCA (lowest common ancestor), advanced greedy methods, standard DP (knapsack, coin change, top-down, bottom-up, recursive, iterative, memoized, basic state transitions, etc.), bitmasks and bitsets, in-depth two pointer search, sliding window minimum, advanced line sweep processing, more binary search, combinatorics (PIE, linearity of expectation), advanced bitwise XOR manipulations
 
 Platinum: all of the above, advanced DP, interactives, computational geometry, matrix exponentiation, etc. 
 
@@ -39,7 +39,7 @@ Gauge time and remember partial credit for test cases
 Move on to another problem/take a break and come back with a fresh mind
 
 # Other Resources
-I discourage the training gate offered by USACO, as it is outdated and problem quality is not the best as of now. 
+I discourage the training gate offered by USACO, as it is outdated and problem quality is not the best as of now, but if you are willing to get past that, it does cover algorithms necessary.  
 
 Competitive Programmer's Handbook
 
@@ -47,11 +47,13 @@ Guide to Competitive Programming
 
 Competitive Programming 3: The New Lower Bound of Programming Contests
 
-Past Problems
+Past Problems (the best resource around)
 
 YouTube Tutorials (none in particular, but just look for good series of videos)
 
-CodeForces, CodeChef, etc.
+CodeForces, CodeChef, etc. (stylistic differences but good content)
+
+CSES Problem Set (good for practice with standard setups) 
 
 # Time Complexity
 Design Efficient Algorithms 
