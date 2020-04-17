@@ -6,7 +6,7 @@ using namespace std;
 
 //this can be done in two ways -- the std::next_permutation function and blatant recursion
 
-void permute(string s, int it, array<char,s.size()> pe r= array<char,s.size()>()){ //call permute(s,0)
+void permute(string s, int it, array<char,s.size()> per = array<char,s.size()>()){ //call permute(s,0)
   //it is more convenient to deal with a char array 
   //int it stores the iteration
   if(it==n-1) {for(char c:per) cout << c; cout << "\n";} 
