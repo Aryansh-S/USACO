@@ -45,9 +45,20 @@ Move on to another problem/take a break and come back with a fresh mind
 
 Look out for edge cases! If things are 1-indexed, you can either leave them be by just increasing the array size (usually a good habit to have regardless), or you can 0-index them as necessary
 
+Look out for integer overflow! Use long long (64-bit integer type) if necessary (usually indicated by the problem)
+
+Try small cases or special cases
+
 Add single or multiline comments to keep track of what you are doing
 
 Debugging: add print statements (use what(x) in the template or some variant), watch out for segmentation faults (accessing out of bounds memory or too much memory), literally rewrite code as a last resort
+
+Stay organized and do not panic
+
+# Maximize
+How to get the most of what you have
+
+Do not forgo partial credit offered in test cases -- it can make all the difference to qualify. Feel free to use the system clock to opt into a different process before you are going to time out so that you can process those cases separately (with something close to a solution based on some manipulation -- modular residues, etc.) -- at worst, this changes a TLE to a WA, but at best, this changes a TLE to the correct answer. 
 
 # Other Resources
 I discourage the training gate offered by USACO, as it is outdated and problem quality is not the best as of now, but if you are willing to get past that, it does cover algorithms necessary.  
@@ -67,6 +78,12 @@ YouTube Tutorials (none in particular, but just look for good series of videos)
 CodeForces, CodeChef, etc. (stylistic differences but good content)
 
 CSES Problem Set (good for practice with standard setups) 
+
+https://www.dropbox.com/s/z2lur71042pjaet/guide.pdf?dl=0 (a well-designed handout that is clear and cuts to the chase for algorithms)
+
+Go further: http://www.csc.kth.se/~jsannemo/slask/main.pdf
+
+Problems by topic and difficulty: https://codeforces.com/blog/entry/55274
 
 # Time Complexity
 Design Efficient Algorithms 
