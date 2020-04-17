@@ -1,5 +1,5 @@
 # USACO
-Competitive Programming Resources &amp; Implementations
+Competitive Programming Resources &amp; Implementations (C++ Based)
 
 This is a compilation of resources and implementations for contest programming -- algorithms and past problems for USACO.
 You can find the latest version of my contest programming template (ongoing modification) in "template.cpp"; please credit
