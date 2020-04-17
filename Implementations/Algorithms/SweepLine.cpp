@@ -61,7 +61,7 @@ int main(){
     //keep track of the current 
   }
   
-  cout << curr_closest.f.f << curr_closest.f.s << "\n";
-  cout << curr_closest.s.f << curr_closest.s.s << "\n";
+  cout << curr_closest.f.f << " " <<  curr_closest.f.s << "\n";
+  cout << curr_closest.s.f << " " << curr_closest.s.s << "\n";
   return 0;
 }
