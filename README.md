@@ -25,10 +25,15 @@ These can actually change each year depending on what is tested by problem write
 I discourage the training gate offered by USACO, as it is outdated and problem quality is not the best as of now. 
 
 Competitive Programmer's Handbook
+
 Guide to Competitive Programming 
+
 Competitive Programming 3: The New Lower Bound of Programming Contests
+
 Past Problems
-YouTube Tutorials
+
+YouTube Tutorials (none in particular, but just look for good series of videos)
+
 CodeForces, CodeChef, etc.
 
 # Time Complexity
