@@ -47,12 +47,18 @@ int main(){
     }
     auto ylow = lb(all(s),mp(curr.f,curr.s-dist)); 
     auto yhi = ub(all(s),mp(curr.f,curr.s+dist));
-    set<pts> //design set still
+    set<pt> track; //keep running track of candidates for closest pair
+    bool change=0; //keep track if change is necessary for closest pair
     for(auto it=ylow; it!=yhi; it++){ //bounded by a maximum constant (avoids increase in runtime degree)
       int dx=curr.f-*it.f;
       int dy=curr.s-*it.s;
-      if(sqrt(dx*dx+dy*dy)<=);
+      if(curr_dist>sqrt(dx*dx+dy*dy)) change=1;
+      curr_dist=min(curr_dist,sqrt(dx*dx+dy*dy));
     }
+    if(change) trav(a,track) if(sqrt((a.f-curr.f)*(a.f-curr.f)+(a.s-curr.s)*(a.s-curr.s))){ 
+      curr_closest.f=a,curr_closest.s=curr;
+    } 
+    //keep track of the current 
   }
   
   cout << curr_closest.f.f << curr_closest.f.s << "\n";
