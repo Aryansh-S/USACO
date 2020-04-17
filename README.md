@@ -19,7 +19,20 @@ Gold: DSU union find data structure (cycle finding, connected components, etc.),
 
 Platinum: all of the above, advanced DP, interactives, computational geometry, matrix exponentiation, etc. 
 
-These can actually change each year depending on what is tested by problem writers and the type of problem, but these lists should suffice as of late. 
+These can actually change each year depending on what is tested by problem writers and the type of problem, but these lists should suffice as of late. The general trend is that contests are getting harder. 
+
+# Stuck? 
+Try the following.
+
+Analyze bounds and time complexity to reverse-engineer potential algorithms in the problem
+
+Draw a picture
+
+Work out the sample case
+
+Approach the problem from a different angle (backwards, sideways, etc.)
+
+Gauge time and remember partial credit for test cases
 
 # Other Resources
 I discourage the training gate offered by USACO, as it is outdated and problem quality is not the best as of now. 
