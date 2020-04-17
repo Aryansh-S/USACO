@@ -32,7 +32,11 @@ Work out the sample case
 
 Approach the problem from a different angle (backwards, sideways, etc.)
 
+Start with brute force and work toward pruning optimizations (even go for amortized analysis because heuristic solutions might suffice for the test cases)
+
 Gauge time and remember partial credit for test cases
+
+Move on to another problem/take a break and come back with a fresh mind
 
 # Other Resources
 I discourage the training gate offered by USACO, as it is outdated and problem quality is not the best as of now. 
