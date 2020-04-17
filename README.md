@@ -41,13 +41,15 @@ Move on to another problem/take a break and come back with a fresh mind
 # Other Resources
 I discourage the training gate offered by USACO, as it is outdated and problem quality is not the best as of now, but if you are willing to get past that, it does cover algorithms necessary.  
 
-Competitive Programmer's Handbook
+Competitive Programmer's Handbook (a good place to start)
 
-Guide to Competitive Programming 
+Guide to Competitive Programming (somewhere to continue)
 
-Competitive Programming 3: The New Lower Bound of Programming Contests
+Competitive Programming 3: The New Lower Bound of Programming Contests (full of good content, ignore problems for the most part)
 
 Past Problems (the best resource around)
+
+Older Contests Predating 2011-2012: https://contest.usaco.org/DEC05.htm (change the ID around for more)
 
 YouTube Tutorials (none in particular, but just look for good series of videos)
 
