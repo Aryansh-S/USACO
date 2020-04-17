@@ -5,8 +5,13 @@ This is a compilation of resources and implementations for contest programming -
 You can find the latest version of my contest programming template (ongoing modification) in "template.cpp"; please credit
 before use in-contest. 
 If you want to #include <bits/stdc++.h> but your compiler does not allow you to do so, simply go to the file "stdc++.h" and
-follow the unofficial directions at the top. 
+follow the unofficial directions at the top (there is a myth that this reduces performance, but do not buy that). 
 The "src" folder just contains source files and images that are integrated elsewhere; you can ignore it. 
+
+# Language
+What to code in
+
+Although Python is considered to be a simple language, it is often too slow for the sake of competitive programming; some problems may become unsolvable as such. Therefore, I recommend you use either Java or C++. I prefer C++ because it is less verbose and allows for macros, with a rich STL providing numerous data structures and functions. 
 
 # Topics
 What to learn for each division
@@ -38,6 +43,12 @@ Gauge time and remember partial credit for test cases
 
 Move on to another problem/take a break and come back with a fresh mind
 
+Look out for edge cases! If things are 1-indexed, you can either leave them be by just increasing the array size (usually a good habit to have regardless), or you can 0-index them as necessary
+
+Add single or multiline comments to keep track of what you are doing
+
+Debugging: add print statements (use what(x) in the template or some variant), watch out for segmentation faults (accessing out of bounds memory or too much memory), literally rewrite code as a last resort
+
 # Other Resources
 I discourage the training gate offered by USACO, as it is outdated and problem quality is not the best as of now, but if you are willing to get past that, it does cover algorithms necessary.  
 
@@ -67,6 +78,11 @@ In general, by way of notation, define the time complexity ![O(f(n_1, n_2, \dots
 USACO allows roughly ![10^8](https://render.githubusercontent.com/render/math?math=10%5E8) operations per second. This means that ![10^8](https://render.githubusercontent.com/render/math?math=10%5E8) is the upper bound on the number of operations your implementation should execute. 
 
 Below is helpful information in the context of contest programming (credit~CP3): 
+
 ![](https://github.com/Aryansh-S/USACO/blob/master/src/Screen%20Shot%202020-04-16%20at%204.10.43%20PM.png)
 ![](https://github.com/Aryansh-S/USACO/blob/master/src/Screen%20Shot%202020-04-16%20at%204.11.02%20PM.png)
 ![](https://github.com/Aryansh-S/USACO/blob/master/src/Screen%20Shot%202020-04-16%20at%204.11.23%20PM.png)
+
+# Questions
+
+Email me at sendtoaryansh@gmail.com in the event that you have a detailed question that has not already been addressed here or elsewhere completely. Otherwise, the above and general resources (Google) should be more than enough. 
