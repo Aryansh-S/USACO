@@ -1,7 +1,7 @@
 /*
  * Aryansh Shrivastava 
  * USACO Template 
- * Last Updated: 4/16/20
+ * Last Updated: 4/18/20
  */
 
 #include <bits/stdc++.h> 
@@ -18,6 +18,7 @@ template <class T> using Tree = tree<T, null_type, less<T>, rb_tree_tag,tree_ord
 
 typedef long long ll;
 typedef pair<int,int> pii;
+typedef pair<ll,ll> pll;
 typedef vector<int> vi;
 #define pb push_back
 #define ins insert
@@ -25,8 +26,7 @@ typedef vector<int> vi;
 #define f first
 #define s second
 #define sz(x) (int)(x).size()
-#define rsz(x,n) (x).resize(n)
-#define rszz(x,n,val) (x).resize(n,val)
+#define rsz resize
 #define lb lower_bound
 #define ub upper_bound
 #define all(x) begin(x),end(x)
