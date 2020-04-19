@@ -7,7 +7,7 @@ using namespace std;
 
 int main(){
   cin.tie(0)->sync_with_stdio(0); //make cin/cout as fast as printf/scanf
-  freopen(PNAME ".in", "r", stdin); freopen(PNAME ".out", "w", stdout); //redirect standard I/O to file
+  if(fopen(PNAME ".in","r",stdin)){freopen(PNAME ".in", "r", stdin); freopen(PNAME ".out", "w", stdout);} //redirect standard I/O to file
   //solve
   return 0;
 }
