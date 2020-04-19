@@ -40,6 +40,10 @@ typedef vector<int> vi;
 #define F0R_(i,b,d) FOR_(i,0,b,d)
 #define R0F(i,n) FOR(i,n,0)
 #define R0F_(i,b,d) FOR_(i,b,0,d)
+#define F1R(i,b) FOR(i,1,b+1)
+#define R1F(i,b) FOR(i,b+1,1)
+#define F1R_(i,b,d) FOR_(i,1,b+1,d)
+#define R1F_(i,b,d) FOR_(i,b+1,1,d)
 #define what(x) out((#x),"is",(x))
 #define big (int)1e5
 #define bigg (int)(1e9+7)
