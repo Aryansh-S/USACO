@@ -1,5 +1,8 @@
 #include <bits/stdc++.h>
 using namespace std;
+//level: silver 
+
+//objective: given a value of n specifying a discrete search space [0,n) for a variable k, search for optimal k that works
 
 int n,ans;
 
