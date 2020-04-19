@@ -20,6 +20,9 @@ typedef long long ll;
 typedef pair<int,int> pii;
 typedef pair<ll,ll> pll;
 typedef vector<int> vi;
+#define maxpq priority_queue
+#define maxpqi priority_queue<int> 
+#define minpqi priority_queue<int, vi, greater<int> >
 #define pb push_back
 #define ins insert
 #define mp make_pair
