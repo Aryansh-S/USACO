@@ -8,6 +8,10 @@ If you want to #include <bits/stdc++.h> but your compiler does not allow you to 
 follow the unofficial directions at the top (there is a myth that this reduces performance, but do not buy that). 
 The "src" folder just contains source files and images that are integrated elsewhere; you can ignore it. 
 
+# Book
+
+[Here](https://www.overleaf.com/read/vxkkgmmrmckv) is the latest version of a book I am writing on competitive programming so far (a work in progress). 
+
 # Language
 What to code in
 
