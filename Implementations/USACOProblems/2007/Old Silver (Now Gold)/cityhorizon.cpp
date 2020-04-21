@@ -1,5 +1,6 @@
 #include <bits/stdc++.h>
 using namespace std;
+
 //level: advanced silver, basic gold
 //source: https://contest.usaco.org/OPEN07.htm
 
