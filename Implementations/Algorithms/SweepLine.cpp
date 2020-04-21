@@ -45,8 +45,8 @@ int main(){
       active.erase(pts[j]); //erase the unsatisfactory point
       j++; //move the left pointer forward
     }
-    auto ylow = lb(all(s),mp(curr.f,curr.s-dist)); 
-    auto yhi = ub(all(s),mp(curr.f,curr.s+dist));
+    auto ylow = active.lb(mp(curr.f,curr.s-dist)); 
+    auto yhi = active.ub(mp(curr.f,curr.s+dist));
     set<pt> track; //keep running track of candidates for closest pair
     bool change=0; //keep track if change is necessary for closest pair
     for(auto it=ylow; it!=yhi; it++){ //bounded by a maximum constant (avoids increase in runtime degree)
