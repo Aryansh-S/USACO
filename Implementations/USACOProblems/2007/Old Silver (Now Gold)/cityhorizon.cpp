@@ -7,6 +7,7 @@ using namespace std;
 typedef long long ll; 
 
 map<ll,vector<ll>> m; //map x to height + if start, - if end
+//this map m is built by extending difference array logic to maps
 int n; 
 multiset<ll,greater<ll> > H; //keep heights running so far
 ll ans; ll prevmax, currmax, prevstart, prevend; 
