@@ -1,7 +1,7 @@
 /*
  * Aryansh Shrivastava 
  * USACO Template 
- * Last Updated: 4/18/20
+ * Last Updated: 4/22/20
  */
 
 #include <bits/stdc++.h> 
@@ -25,6 +25,7 @@ typedef vector<int> vi;
 #define minpqi maxpq<int, vi, greater<int> >
 #define pb push_back
 #define ins insert
+#define ers erase
 #define mp make_pair
 #define f first
 #define s second
