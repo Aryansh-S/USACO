@@ -1,0 +1,15 @@
+01:07:55 **** Incremental Build of configuration Debug for project cowhomework ****
+make all 
+Building file: ../code.cpp
+Invoking: Cross G++ Compiler
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"code.d" -MT"code.o" -o "code.o" "../code.cpp"
+Finished building: ../code.cpp
+ 
+Building target: cowhomework
+Invoking: Cross G++ Linker
+g++  -o "cowhomework"  ./code.o   
+Finished building target: cowhomework
+ 
+
+01:07:55 Build Finished. 0 errors, 0 warnings. (took 663ms)
+

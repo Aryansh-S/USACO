@@ -1,0 +1,15 @@
+14:29:08 **** Incremental Build of configuration Debug for project milk_pails ****
+make all 
+Building file: ../milkpails.cpp
+Invoking: Cross G++ Compiler
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"milkpails.d" -MT"milkpails.o" -o "milkpails.o" "../milkpails.cpp"
+Finished building: ../milkpails.cpp
+ 
+Building target: milk_pails
+Invoking: Cross G++ Linker
+g++  -o "milk_pails"  ./milkpails.o   
+Finished building target: milk_pails
+ 
+
+14:29:09 Build Finished. 0 errors, 0 warnings. (took 727ms)
+

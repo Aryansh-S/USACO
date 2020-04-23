@@ -1,0 +1,15 @@
+14:29:02 **** Incremental Build of configuration Debug for project bucketlist ****
+make all 
+Building file: ../blist.cpp
+Invoking: Cross G++ Compiler
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"blist.d" -MT"blist.o" -o "blist.o" "../blist.cpp"
+Finished building: ../blist.cpp
+ 
+Building target: bucketlist
+Invoking: Cross G++ Linker
+g++  -o "bucketlist"  ./blist.o   
+Finished building target: bucketlist
+ 
+
+14:29:03 Build Finished. 0 errors, 0 warnings. (took 937ms)
+

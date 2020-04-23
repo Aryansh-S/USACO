@@ -1,0 +1,20 @@
+16:14:23 **** Build of configuration Debug for project silv1 ****
+make all 
+Building file: ../cod1.cpp
+Invoking: Cross G++ Compiler
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"cod1.d" -MT"cod1.o" -o "cod1.o" "../cod1.cpp"
+../cod1.cpp:1:21: warning: extra tokens at end of #include directive [-Wextra-tokens]
+#include <iostream> #include <cstdio>
+                    ^
+                    //
+1 warning generated.
+Finished building: ../cod1.cpp
+ 
+Building target: silv1
+Invoking: Cross G++ Linker
+g++  -o "silv1"  ./cod1.o   
+Finished building target: silv1
+ 
+
+16:14:24 Build Finished. 0 errors, 1 warnings. (took 891ms)
+

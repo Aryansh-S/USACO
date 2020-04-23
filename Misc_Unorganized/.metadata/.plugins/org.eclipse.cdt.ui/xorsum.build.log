@@ -1,0 +1,6 @@
+17:08:53 **** Incremental Build of configuration Debug for project xorsum ****
+make all 
+make: Nothing to be done for `all'.
+
+17:08:53 Build Finished. 0 errors, 0 warnings. (took 110ms)
+

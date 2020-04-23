@@ -1,0 +1,1 @@
+lazy.o: ../lazy.cpp

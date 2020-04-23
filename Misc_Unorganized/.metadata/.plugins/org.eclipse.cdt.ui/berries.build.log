@@ -1,0 +1,15 @@
+13:59:14 **** Incremental Build of configuration Debug for project berries ****
+make all 
+Building file: ../berries.cpp
+Invoking: Cross G++ Compiler
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"berries.d" -MT"berries.o" -o "berries.o" "../berries.cpp"
+Finished building: ../berries.cpp
+ 
+Building target: berries
+Invoking: Cross G++ Linker
+g++  -o "berries"  ./berries.o   
+Finished building target: berries
+ 
+
+13:59:14 Build Finished. 0 errors, 0 warnings. (took 659ms)
+

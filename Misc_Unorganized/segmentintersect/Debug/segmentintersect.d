@@ -1,0 +1,1 @@
+segmentintersect.o: ../segmentintersect.cpp

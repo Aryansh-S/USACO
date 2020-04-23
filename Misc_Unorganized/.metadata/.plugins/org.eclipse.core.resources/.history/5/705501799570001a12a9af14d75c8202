@@ -1,0 +1,30 @@
+#include <iostream>
+#include <cstdio>
+#include <utility>
+#include <algorithm>
+using namespace std;
+
+typedef long long ll;
+typedef pair<int,int> pii;
+#define pb push_back
+#define mp make_pair
+#define f first
+#define s second
+
+#define problemname "socdist"
+#define maxn 100000
+#define maxm 100000
+
+int n,m,d; pii loc[maxm];
+
+int main(){
+	ios_base::sync_with_stdio(0); cin.tie(0);
+	//freopen(problemname ".in", "r", stdin); freopen(problemname ".out", "w", stdout);
+
+	cin >> n >> m;
+	for(int i=0; i<m; i++){int a,b; cin >> a >> b; loc[i]=mp(a,b);}
+	sort(loc,loc+m); //binary search for d
+
+
+	return 0;
+}

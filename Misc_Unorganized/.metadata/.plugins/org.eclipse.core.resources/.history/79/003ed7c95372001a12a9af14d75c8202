@@ -1,0 +1,128 @@
+#include <iostream>
+#include <cstdio>
+#include <utility>
+#include <set>
+using namespace std;
+
+typedef long long ll;
+typedef pair<int,int> pii;
+#define pb push_back
+#define mp make_pair
+#define f first
+#define s second
+
+#define problemname "cereal"
+#define maxn 100000
+#define maxm 100000
+
+int n,m,ans[maxn]; bool cereal[maxm]; pii prefs[maxn]; //prefs[i] are the prefs of cow i
+set<int> s; //0 there, 1 taken
+
+int main(){
+	ios_base::sync_with_stdio(0); cin.tie(0);
+	//freopen(problemname ".in", "r", stdin); freopen(problemname ".out", "w", stdout);
+
+	cin >> n >> m;
+	for(int i=0; i<n; i++) cin >> prefs[i].f >> prefs[i].s;
+	for(int i=n-1; i>=0; i--){
+		if(!cereal[prefs[i].f]){cereal[prefs[i].f]=1; s.insert(prefs[i].f);}
+		else if(!cereal[prefs[i].s]){cereal[prefs[i].s]=1; s.insert(prefs[i].s);}
+		ans[i]=s.size();
+	}
+	for(int i=0; i<n; i++) cout << ans[i] << "\n";
+
+	return 0;
+}
+
+
+
+/*
+ * #include<iostream>
+#include<fstream>
+#include<cmath>
+#include<set>
+using namespace std;
+#define f first
+#define s second
+int n;
+int counter[10000];
+pair<int, int> types[10000];
+int typesleft[10000];
+set<int> a;
+int k;
+int main(){
+    cin>>n>>k;
+    for(int i=1;i<=n;i++){
+        cin>>types[i].f>>types[i].s;
+    }
+    for(int i=n;i>=1;i--){
+        a.insert(types[i].f);
+        a.insert(types[i].s);
+        typesleft[i]=a.size();
+    }
+    for(int i=1;i<=n;i++){
+        int left=n-i+1;
+        cout<<min(left, typesleft[i])<<'\n';
+    }
+}
+*/
+
+
+
+
+
+/*
+ #include <iostream>
+#include <queue>
+#include <utility>
+using namespace std;
+
+#define maxn 100000
+#define maxm 100000
+typedef pair<int,int> pii;
+#define f first
+#define s second
+int n,m,ans,choice[maxn]; queue<int> cereal[maxm],cows; pair<int,int> cowvals[maxn];
+bool firstcheck[maxm]; //look at cow i
+
+int main(){
+  cin >> n >> m;
+  for(int i=0; i<n; i++){
+    int a,b; cin >> a >> b; a--,b--; cows.push(i);
+    cowvals[i].f=a; cowvals[i].s=b;
+    cereal[a].push(i); cereal[b].push(i);
+    if(!firstcheck[a]){
+      firstcheck[a]=1;
+      choice[i]=1; ans++;
+
+    }
+    else if(!firstcheck[b]){
+      firstcheck[b]=1;
+      choice[i]=2; ans++;
+    }
+    else choice[i]=3;
+  }
+  while(!cows.empty()){
+    cout << ans << "\n";
+    ans--; //cereals has cow number
+    cereal[cowvals[cows.front()].f].pop(); //update for leave
+    //choice[cereal[cowvals[cows.front()].f].front()]
+    if(choice[cereal[cowvals[cows.front()].f].front()]==3){
+      //figure out if it's first or second choice
+      if(cowvals[cereal[cowvals[cows.front()].f].front()].f==cowvals[cows.front()].f){
+        choice[cereal[cowvals[cows.front()].f].front()]=1;
+        //revive the first cow for second choice
+        if(choice[cereal[cowvals[cereal[cowvals[cows.front()].f].front()].s].front()]==3){
+          ans++;
+          choice[cereal[cowvals[cereal[cowvals[cows.front()].f].front()].s].front()]=2;
+        }
+      }
+      else choice[cereal[cowvals[cows.front()].f].front()]=2;
+      ans++;
+    }
+    cows.pop();
+  }
+  return 0; //if not at the front, doesn't get cereal
+}
+ * /
+ */

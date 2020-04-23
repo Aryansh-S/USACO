@@ -1,0 +1,1 @@
+triangles.o: ../triangles.cpp

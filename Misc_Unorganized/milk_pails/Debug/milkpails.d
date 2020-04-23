@@ -1,0 +1,1 @@
+milkpails.o: ../milkpails.cpp

@@ -1,0 +1,15 @@
+19:21:39 **** Incremental Build of configuration Debug for project problem3d ****
+make all 
+Building file: ../p3d.cpp
+Invoking: Cross G++ Compiler
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"p3d.d" -MT"p3d.o" -o "p3d.o" "../p3d.cpp"
+Finished building: ../p3d.cpp
+ 
+Building target: problem3d
+Invoking: Cross G++ Linker
+g++  -o "problem3d"  ./p3d.o   
+Finished building target: problem3d
+ 
+
+19:21:40 Build Finished. 0 errors, 0 warnings. (took 1s.162ms)
+

@@ -1,0 +1,1 @@
+twovalsum.o: ../twovalsum.cpp

@@ -1,0 +1,1 @@
+socdist.o: ../socdist.cpp

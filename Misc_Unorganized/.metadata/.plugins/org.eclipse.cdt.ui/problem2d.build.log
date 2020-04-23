@@ -1,0 +1,23 @@
+19:35:54 **** Incremental Build of configuration Debug for project problem2d ****
+make all 
+Building file: ../2d.cpp
+Invoking: Cross G++ Compiler
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"2d.d" -MT"2d.o" -o "2d.o" "../2d.cpp"
+../2d.cpp:27:13: warning: variable 'i' is uninitialized when used here [-Wuninitialized]
+      while(i < n && j < m ){
+            ^
+../2d.cpp:26:12: note: initialize the variable 'i' to silence this warning
+      int i,j = 0;
+           ^
+            = 0
+1 warning generated.
+Finished building: ../2d.cpp
+ 
+Building target: problem2d
+Invoking: Cross G++ Linker
+g++  -o "problem2d"  ./2d.o   
+Finished building target: problem2d
+ 
+
+19:35:55 Build Finished. 0 errors, 1 warnings. (took 849ms)
+

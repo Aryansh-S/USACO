@@ -1,0 +1,1 @@
+crosspairs.o: ../crosspairs.cpp

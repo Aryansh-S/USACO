@@ -1,0 +1,19 @@
+14:29:05 **** Incremental Build of configuration Debug for project chickencross ****
+make all 
+Building file: ../chickencross.cpp
+Invoking: Cross G++ Compiler
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"chickencross.d" -MT"chickencross.o" -o "chickencross.o" "../chickencross.cpp"
+../chickencross.cpp:28:3: warning: 'auto' type specifier is a C++11 extension [-Wc++11-extensions]
+                auto chicken=chickens.lower_bound(cows[i].second);
+                ^
+1 warning generated.
+Finished building: ../chickencross.cpp
+ 
+Building target: chickencross
+Invoking: Cross G++ Linker
+g++  -o "chickencross"  ./chickencross.o   
+Finished building target: chickencross
+ 
+
+14:29:06 Build Finished. 0 errors, 1 warnings. (took 911ms)
+

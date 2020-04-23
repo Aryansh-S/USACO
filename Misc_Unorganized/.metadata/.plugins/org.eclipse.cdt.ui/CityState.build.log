@@ -1,0 +1,15 @@
+14:28:55 **** Incremental Build of configuration Debug for project CityState ****
+make all 
+Building file: ../citystate.cpp
+Invoking: Cross G++ Compiler
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"citystate.d" -MT"citystate.o" -o "citystate.o" "../citystate.cpp"
+Finished building: ../citystate.cpp
+ 
+Building target: CityState
+Invoking: Cross G++ Linker
+g++  -o "CityState"  ./citystate.o   
+Finished building target: CityState
+ 
+
+14:28:56 Build Finished. 0 errors, 0 warnings. (took 1s.130ms)
+

@@ -1,0 +1,15 @@
+20:18:52 **** Incremental Build of configuration Debug for project socdist ****
+make all 
+Building file: ../socdist.cpp
+Invoking: Cross G++ Compiler
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"socdist.d" -MT"socdist.o" -o "socdist.o" "../socdist.cpp"
+Finished building: ../socdist.cpp
+ 
+Building target: socdist
+Invoking: Cross G++ Linker
+g++  -o "socdist"  ./socdist.o   
+Finished building target: socdist
+ 
+
+20:18:52 Build Finished. 0 errors, 0 warnings. (took 658ms)
+

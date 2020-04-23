@@ -1,0 +1,38 @@
+16:48:45 **** Incremental Build of configuration Debug for project multimoo ****
+make all 
+Building file: ../multimoo.cpp
+Invoking: Cross G++ Compiler
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"multimoo.d" -MT"multimoo.o" -o "multimoo.o" "../multimoo.cpp"
+../multimoo.cpp:48:41: warning: suggest braces around initialization of subobject [-Wmissing-braces]
+        array<array<bool,maxn>, maxn> visitor={0};
+                                               ^
+                                               {}
+../multimoo.cpp:50:6: warning: 'auto' type specifier is a C++11 extension [-Wc++11-extensions]
+        for(auto i:launch) {
+            ^
+../multimoo.cpp:50:12: warning: range-based for loop is a C++11 extension [-Wc++11-extensions]
+        for(auto i:launch) {
+                  ^
+../multimoo.cpp:54:6: warning: 'auto' type specifier is a C++11 extension [-Wc++11-extensions]
+        for(auto i:launch) for(auto j:launch) if(i!=j){
+            ^
+../multimoo.cpp:54:12: warning: range-based for loop is a C++11 extension [-Wc++11-extensions]
+        for(auto i:launch) for(auto j:launch) if(i!=j){
+                  ^
+../multimoo.cpp:54:25: warning: 'auto' type specifier is a C++11 extension [-Wc++11-extensions]
+        for(auto i:launch) for(auto j:launch) if(i!=j){
+                               ^
+../multimoo.cpp:54:31: warning: range-based for loop is a C++11 extension [-Wc++11-extensions]
+        for(auto i:launch) for(auto j:launch) if(i!=j){
+                                     ^
+7 warnings generated.
+Finished building: ../multimoo.cpp
+ 
+Building target: multimoo
+Invoking: Cross G++ Linker
+g++  -o "multimoo"  ./multimoo.o   
+Finished building target: multimoo
+ 
+
+16:48:46 Build Finished. 0 errors, 7 warnings. (took 764ms)
+

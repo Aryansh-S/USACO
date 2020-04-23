@@ -1,0 +1,15 @@
+15:47:39 **** Incremental Build of configuration Debug for project prob3 ****
+make all 
+Building file: ../code3.cpp
+Invoking: Cross G++ Compiler
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"code3.d" -MT"code3.o" -o "code3.o" "../code3.cpp"
+Finished building: ../code3.cpp
+ 
+Building target: prob3
+Invoking: Cross G++ Linker
+g++  -o "prob3"  ./code3.o   
+Finished building target: prob3
+ 
+
+15:47:40 Build Finished. 0 errors, 0 warnings. (took 1s.287ms)
+

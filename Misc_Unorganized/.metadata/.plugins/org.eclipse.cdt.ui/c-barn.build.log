@@ -1,0 +1,15 @@
+14:29:03 **** Build of configuration Debug for project c-barn ****
+make all 
+Building file: ../feb20162.cpp
+Invoking: Cross G++ Compiler
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"feb20162.d" -MT"feb20162.o" -o "feb20162.o" "../feb20162.cpp"
+Finished building: ../feb20162.cpp
+ 
+Building target: c-barn
+Invoking: Cross G++ Linker
+g++  -o "c-barn"  ./feb20162.o   
+Finished building target: c-barn
+ 
+
+14:29:04 Build Finished. 0 errors, 0 warnings. (took 749ms)
+

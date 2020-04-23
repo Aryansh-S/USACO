@@ -1,0 +1,15 @@
+20:12:52 **** Incremental Build of configuration Debug for project mountainview ****
+make all 
+Building file: ../mountainview.cpp
+Invoking: Cross G++ Compiler
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"mountainview.d" -MT"mountainview.o" -o "mountainview.o" "../mountainview.cpp"
+Finished building: ../mountainview.cpp
+ 
+Building target: mountainview
+Invoking: Cross G++ Linker
+g++  -o "mountainview"  ./mountainview.o   
+Finished building target: mountainview
+ 
+
+20:12:53 Build Finished. 0 errors, 0 warnings. (took 667ms)
+

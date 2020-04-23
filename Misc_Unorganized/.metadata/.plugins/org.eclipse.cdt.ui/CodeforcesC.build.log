@@ -1,0 +1,15 @@
+14:28:56 **** Incremental Build of configuration Debug for project CodeforcesC ****
+make all 
+Building file: ../mainfile.cpp
+Invoking: Cross G++ Compiler
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -std=c++11 -MMD -MP -MF"mainfile.d" -MT"mainfile.d" -o "mainfile.o" "../mainfile.cpp"
+Finished building: ../mainfile.cpp
+ 
+Building target: CodeforcesC
+Invoking: Cross G++ Linker
+g++  -o "CodeforcesC"  ./mainfile.o   
+Finished building target: CodeforcesC
+ 
+
+14:28:57 Build Finished. 0 errors, 0 warnings. (took 949ms)
+

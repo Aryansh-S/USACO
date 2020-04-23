@@ -1,0 +1,6 @@
+00:59:17 **** Incremental Build of configuration Debug for project deltas ****
+make all 
+make: Nothing to be done for `all'.
+
+00:59:17 Build Finished. 0 errors, 0 warnings. (took 131ms)
+

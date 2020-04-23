@@ -1,0 +1,54 @@
+18:58:22 **** Incremental Build of configuration Debug for project problem3 ****
+make all 
+Building file: ../p3.cpp
+Invoking: Cross G++ Compiler
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"p3.d" -MT"p3.o" -o "p3.o" "../p3.cpp"
+../p3.cpp:76:2: warning: 'auto' type specifier is a C++11 extension [-Wc++11-extensions]
+        auto it=worstmilks.begin();
+        ^
+../p3.cpp:57:14: warning: variable 'p' is uninitialized when used here [-Wuninitialized]
+                two b; b.x=p; b.y=t;
+                           ^
+../p3.cpp:56:8: note: initialize the variable 'p' to silence this warning
+                int p,t;
+                     ^
+                      = 0
+../p3.cpp:57:21: warning: variable 't' is uninitialized when used here [-Wuninitialized]
+                two b; b.x=p; b.y=t;
+                                  ^
+../p3.cpp:56:10: note: initialize the variable 't' to silence this warning
+                int p,t;
+                       ^
+                        = 0
+../p3.cpp:52:16: warning: variable 'p' is uninitialized when used here [-Wuninitialized]
+                three a; a.x=p; a.y=m; a.z=t;
+                             ^
+../p3.cpp:51:8: note: initialize the variable 'p' to silence this warning
+                int p,m,t;
+                     ^
+                      = 0
+../p3.cpp:52:23: warning: variable 'm' is uninitialized when used here [-Wuninitialized]
+                three a; a.x=p; a.y=m; a.z=t;
+                                    ^
+../p3.cpp:51:10: note: initialize the variable 'm' to silence this warning
+                int p,m,t;
+                       ^
+                        = 0
+../p3.cpp:52:30: warning: variable 't' is uninitialized when used here [-Wuninitialized]
+                three a; a.x=p; a.y=m; a.z=t;
+                                           ^
+../p3.cpp:51:12: note: initialize the variable 't' to silence this warning
+                int p,m,t;
+                         ^
+                          = 0
+6 warnings generated.
+Finished building: ../p3.cpp
+ 
+Building target: problem3
+Invoking: Cross G++ Linker
+g++  -o "problem3"  ./p3.o   
+Finished building target: problem3
+ 
+
+18:58:24 Build Finished. 0 errors, 6 warnings. (took 1s.508ms)
+

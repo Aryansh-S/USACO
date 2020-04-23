@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<plugin>
+    	
+    <extension id="GASErrorParser" name="CDT GNU Assembler Error Parser" point="org.eclipse.cdt.core.ErrorParser">
+        		
+        <errorparser class="org.eclipse.cdt.internal.errorparsers.GASErrorParser" id="org.eclipse.cdt.core.GASErrorParser" name="CDT GNU Assembler Error Parser"/>
+        	
+    </extension>
+    	
+    <extension id="GCCErrorParser" name="CDT GNU C/C++ Error Parser" point="org.eclipse.cdt.core.ErrorParser">
+        		
+        <errorparser class="org.eclipse.cdt.core.errorparsers.RegexErrorParser" id="org.eclipse.cdt.core.GCCErrorParser" name="CDT GNU C/C++ Error Parser">
+            			
+            <pattern description-expr="" eat-processed-line="true" file-expr="" line-expr="" regex="(.*?):(\d+):(\d+:)? .*\(Each undeclared identifier is reported only once.*" severity="Ignore"/>
+            			
+            <pattern description-expr="" eat-processed-line="true" file-expr="" line-expr="" regex="(.*?):(\d+):(\d+:)? .*for each function it appears in.\).*" severity="Ignore"/>
+            			
+            <pattern description-expr="" eat-processed-line="true" file-expr="" line-expr="" regex="(.*?):(\d+):(\d+:)? .*this will be reported only once per input file.*" severity="Ignore"/>
+            			
+            <pattern description-expr="$4" eat-processed-line="true" file-expr="$1" line-expr="$2" regex="(.*?):(\d+):(\d+:)? [Ee]rror: ([`'&quot;](.*)['&quot;] undeclared .*)" severity="Error"/>
+            			
+            <pattern description-expr="$4" eat-processed-line="true" file-expr="$1" line-expr="$2" regex="(.*?):(\d+):(\d+:)? [Ee]rror: (conflicting types for .*[`'&quot;](.*)['&quot;].*)" severity="Error"/>
+            			
+            <pattern description-expr="$4" eat-processed-line="true" file-expr="$1" line-expr="$2" regex="(.*?):(\d+):(\d+:)? (parse error before.*[`'&quot;](.*)['&quot;].*)" severity="Error"/>
+            			
+            <pattern description-expr="$4" eat-processed-line="true" file-expr="$1" line-expr="$2" regex="(.*?):(\d+):(\d+:)? [Ww]arning: ([`'&quot;](.*)['&quot;] defined but not used.*)" severity="Warning"/>
+            			
+            <pattern description-expr="$4" eat-processed-line="true" file-expr="$1" line-expr="$2" regex="(.*?):(\d+):(\d+:)? [Ww]arning: (conflicting types for .*[`'&quot;](.*)['&quot;].*)" severity="Warning"/>
+            			
+            <pattern description-expr="$5" eat-processed-line="true" file-expr="$1" line-expr="$2" regex="(.*?):(\d+):(\d+:)? ([Ww]arning:)?\s*(the use of [`'&quot;](.*)['&quot;] is dangerous, better use [`'&quot;](.*)['&quot;].*)" severity="Warning"/>
+            			
+            <pattern description-expr="$4" eat-processed-line="true" file-expr="$1" line-expr="$2" regex="(.*?):(\d+):(\d+:)?\s*(.*instantiated from .*)" severity="Info"/>
+            			
+            <pattern description-expr="$7" eat-processed-line="true" file-expr="$1" line-expr="$2" regex="(.*?):(\d+):(\d+:)?\s*(([Ee]rror)|(ERROR)): (.*)" severity="Error"/>
+            			
+            <pattern description-expr="$7" eat-processed-line="true" file-expr="$1" line-expr="$2" regex="(.*?):(\d+):(\d+:)?\s*(([Ww]arning)|(WARNING)): (.*)" severity="Warning"/>
+            			
+            <pattern description-expr="$9" eat-processed-line="true" file-expr="$1" line-expr="$2" regex="(.*?):(\d+):(\d+:)?\s*(([Nn]ote)|(NOTE)|([Ii]nfo)|(INFO)): (.*)" severity="Info"/>
+            			
+            <pattern description-expr="$4" eat-processed-line="true" file-expr="$1" line-expr="$2" regex="(.*?):(\d+):(\d+:)? (.*)" severity="Error"/>
+            		
+        </errorparser>
+        	
+    </extension>
+    	
+    <extension id="GLDErrorParser" name="CDT GNU Linker Error Parser" point="org.eclipse.cdt.core.ErrorParser">
+        		
+        <errorparser class="org.eclipse.cdt.core.errorparsers.RegexErrorParser" id="org.eclipse.cdt.core.GLDErrorParser" name="CDT GNU Linker Error Parser">
+            			
+            <pattern description-expr="$3" eat-processed-line="true" file-expr="$1" line-expr="" regex="(.*?):?(\(\.\w+\+.*\))?:\s*(In function [`'&quot;](.*)['&quot;]:)" severity="Ignore"/>
+            			
+            <pattern description-expr="$5" eat-processed-line="true" file-expr="$1" line-expr="$2" regex="(.*?):(\d+):(\d+:)? ([Ww]arning:)?\s*(the use of [`'&quot;](.*)['&quot;] is dangerous, better use [`'&quot;](.*)['&quot;].*)" severity="Warning"/>
+            			
+            <pattern description-expr="$2" eat-processed-line="true" file-expr="$1" line-expr="" regex="(.*?):?\(\.\w+\+.*\): [Ww]arning:? (.*)" severity="Warning"/>
+            			
+            <pattern description-expr="$2" eat-processed-line="true" file-expr="$1" line-expr="" regex="(.*?):?\(\.\w+\+.*\): (.*)" severity="Error"/>
+            			
+            <pattern description-expr="$3" eat-processed-line="true" file-expr="" line-expr="" regex="(.*[/\\])?ld(\.exe)?: [Ww]arning:? (.*)" severity="Warning"/>
+            			
+            <pattern description-expr="$3" eat-processed-line="true" file-expr="" line-expr="" regex="(.*[/\\])?ld(\.exe)?: (.*)" severity="Error"/>
+            		
+        </errorparser>
+        	
+    </extension>
+    	
+    <extension id="GmakeErrorParser" name="CDT GNU Make Error Parser 7.0" point="org.eclipse.cdt.core.ErrorParser">
+        		
+        <errorparser class="org.eclipse.cdt.core.errorparsers.RegexErrorParser" id="org.eclipse.cdt.core.GmakeErrorParser" name="CDT GNU Make Error Parser 7.0">
+            			
+            <pattern description-expr="$0" eat-processed-line="true" file-expr="" line-expr="" regex=".*make.*:.*Error.*\(ignored\)" severity="Info"/>
+            			
+            <pattern description-expr="make: $3" eat-processed-line="true" file-expr="$1" line-expr="$2" regex="(.*):(\d*): (\*\*\* .*)" severity="Error"/>
+            			
+            <pattern description-expr="$0" eat-processed-line="true" file-expr="" line-expr="" regex=".*make.*: \*\*\* .*" severity="Error"/>
+            			
+            <pattern description-expr="$0" eat-processed-line="true" file-expr="" line-expr="" regex=".*make.*: Target (.*) not remade because of errors." severity="Error"/>
+            			
+            <pattern description-expr="make: $3" eat-processed-line="true" file-expr="$1" line-expr="$2" regex="(.*[Mm]akefile):(\d*): warning: (.*)" severity="Warning"/>
+            			
+            <pattern description-expr="$0" eat-processed-line="true" file-expr="" line-expr="" regex=".*make.*\[.*\] Error [-]{0,1}\d*.*" severity="Warning"/>
+            			
+            <pattern description-expr="make: $3" eat-processed-line="true" file-expr="$1" line-expr="$2" regex="(.*):(\d*): (\S*: No such file or directory)" severity="Warning"/>
+            			
+            <pattern description-expr="$0" eat-processed-line="true" file-expr="" line-expr="" regex=".*make.*: Circular .* dependency dropped." severity="Warning"/>
+            		
+        </errorparser>
+        	
+    </extension>
+    	
+    <extension id="VCErrorParser" name="CDT Visual C Error Parser" point="org.eclipse.cdt.core.ErrorParser">
+        		
+        <errorparser class="org.eclipse.cdt.internal.errorparsers.VCErrorParser" id="org.eclipse.cdt.core.VCErrorParser" name="CDT Visual C Error Parser"/>
+        	
+    </extension>
+    	
+    <extension id="CWDLocator" name="CDT pushd/popd CWD Locator" point="org.eclipse.cdt.core.ErrorParser">
+        		
+        <errorparser class="org.eclipse.cdt.internal.errorparsers.CWDLocator" id="org.eclipse.cdt.core.CWDLocator" name="CDT pushd/popd CWD Locator"/>
+        	
+    </extension>
+    	
+    <extension id="MakeErrorParser" name="CDT GNU Make Error Parser 6.0 (Deprecated)" point="org.eclipse.cdt.core.ErrorParser">
+        		
+        <errorparser class="org.eclipse.cdt.internal.errorparsers.MakeErrorParser" id="org.eclipse.cdt.core.MakeErrorParser" name="CDT GNU Make Error Parser 6.0 (Deprecated)"/>
+        	
+    </extension>
+    
+</plugin>

@@ -1,0 +1,1 @@
+mainfile.o: ../mainfile.cpp

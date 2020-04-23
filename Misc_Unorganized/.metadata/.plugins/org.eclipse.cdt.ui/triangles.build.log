@@ -1,0 +1,15 @@
+18:54:38 **** Incremental Build of configuration Debug for project triangles ****
+make all 
+Building file: ../stri.cpp
+Invoking: Cross G++ Compiler
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"stri.d" -MT"stri.o" -o "stri.o" "../stri.cpp"
+Finished building: ../stri.cpp
+ 
+Building target: triangles
+Invoking: Cross G++ Linker
+g++  -o "triangles"  ./stri.o   
+Finished building target: triangles
+ 
+
+18:54:39 Build Finished. 0 errors, 0 warnings. (took 656ms)
+

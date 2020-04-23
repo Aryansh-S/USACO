@@ -1,0 +1,1 @@
+sequence.o: ../sequence.cpp

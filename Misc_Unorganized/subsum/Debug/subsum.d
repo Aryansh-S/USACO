@@ -1,0 +1,1 @@
+subsum.o: ../subsum.cpp

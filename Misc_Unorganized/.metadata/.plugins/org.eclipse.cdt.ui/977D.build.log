@@ -1,0 +1,20 @@
+14:28:54 **** Incremental Build of configuration Debug for project 977D ****
+make all 
+Building file: ../mainfile.cpp
+Invoking: Cross G++ Compiler
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -std=c++11 -MMD -MP -MF"mainfile.d" -MT"mainfile.d" -o "mainfile.o" "../mainfile.cpp"
+Finished building: ../mainfile.cpp
+ 
+Building target: 977D
+Invoking: Cross G++ Linker
+g++  -o "977D"  ./mainfile.o   
+Undefined symbols for architecture x86_64:
+  "_main", referenced from:
+     implicit entry/start for main executable
+ld: symbol(s) not found for architecture x86_64
+clang: error: linker command failed with exit code 1 (use -v to see invocation)
+make: *** [977D] Error 1
+"make all" terminated with exit code 2. Build might be incomplete.
+
+14:28:54 Build Failed. 2 errors, 0 warnings. (took 600ms)
+

@@ -1,0 +1,15 @@
+23:40:57 **** Incremental Build of configuration Debug for project haybales ****
+make all 
+Building file: ../haybales.cpp
+Invoking: Cross G++ Compiler
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"haybales.d" -MT"haybales.o" -o "haybales.o" "../haybales.cpp"
+Finished building: ../haybales.cpp
+ 
+Building target: haybales
+Invoking: Cross G++ Linker
+g++  -o "haybales"  ./haybales.o   
+Finished building target: haybales
+ 
+
+23:40:58 Build Finished. 0 errors, 0 warnings. (took 1s.64ms)
+

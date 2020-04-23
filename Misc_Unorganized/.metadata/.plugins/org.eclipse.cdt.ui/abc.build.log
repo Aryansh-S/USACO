@@ -1,0 +1,25 @@
+11:30:49 **** Build of configuration Debug for project abc ****
+make all 
+Building file: ../src/abc.cpp
+Invoking: GCC C++ Compiler
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/abc.d" -MT"src/abc.o" -o "src/abc.o" "../src/abc.cpp"
+../src/abc.cpp:29:9: warning: 'auto' type specifier is a C++11 extension [-Wc++11-extensions]
+    for(auto el:m){
+        ^
+../src/abc.cpp:29:16: warning: range-based for loop is a C++11 extension [-Wc++11-extensions]
+    for(auto el:m){
+               ^
+../src/abc.cpp:30:14: warning: 'auto' type specifier is a C++11 extension [-Wc++11-extensions]
+             auto ell=el.first;
+             ^
+3 warnings generated.
+Finished building: ../src/abc.cpp
+ 
+Building target: abc
+Invoking: MacOS X C++ Linker
+g++  -o "abc"  ./src/abc.o   
+Finished building target: abc
+ 
+
+11:30:50 Build Finished. 0 errors, 3 warnings. (took 1s.89ms)
+

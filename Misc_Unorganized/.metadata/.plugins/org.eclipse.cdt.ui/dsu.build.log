@@ -1,0 +1,6 @@
+18:06:24 **** Incremental Build of configuration Debug for project dsu ****
+make all 
+make: Nothing to be done for `all'.
+
+18:06:24 Build Finished. 0 errors, 0 warnings. (took 77ms)
+

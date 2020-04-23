@@ -1,0 +1,15 @@
+14:29:01 **** Incremental Build of configuration Debug for project beginDP ****
+make all 
+Building target: beginDP
+Invoking: Cross G++ Linker
+g++  -o "beginDP"  ./mainfile.o   
+Undefined symbols for architecture x86_64:
+  "_main", referenced from:
+     implicit entry/start for main executable
+ld: symbol(s) not found for architecture x86_64
+clang: error: linker command failed with exit code 1 (use -v to see invocation)
+make: *** [beginDP] Error 1
+"make all" terminated with exit code 2. Build might be incomplete.
+
+14:29:02 Build Failed. 2 errors, 0 warnings. (took 325ms)
+

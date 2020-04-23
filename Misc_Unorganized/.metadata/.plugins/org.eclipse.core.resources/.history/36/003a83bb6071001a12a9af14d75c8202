@@ -1,0 +1,31 @@
+#include <iostream>
+#include <cstdio>
+#include <utility>
+using namespace std;
+
+typedef pair<int,int> pii;
+typedef long long ll;
+#define pb push_back
+#define mp make_pair
+#define f first
+#define s second
+
+#define problemname "cereal"
+#define maxm 100000
+#define maxn 100000
+
+int n,m,cleft,cstate[maxm]; pii favs[maxn]; //min(#cows left, #diff favs left)
+
+int main(){
+	ios_base::sync_with_stdio(0); cin.tie(0);
+	//freopen(problemname ".in", "r", stdin); freopen(problemname ".out", "w", stdout);
+
+	cin >> n >> m;
+	for(int i=0; i<n; i++){
+		int a,b; cin >> a >> b; a--,b--; cstate[a]++,cstate[b]++; cleft+=2;
+		favs[i]=mp(a,b);
+	}
+
+
+	return 0;
+}

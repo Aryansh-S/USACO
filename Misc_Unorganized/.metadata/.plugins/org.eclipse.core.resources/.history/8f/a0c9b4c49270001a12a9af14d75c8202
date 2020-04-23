@@ -1,0 +1,20 @@
+#include <iostream>
+#include <cstdio>
+#include <algorithm>
+using namespace std;
+
+typedef long long ll;
+typedef pair<int,int> pii;
+#define pb push_back
+#define mp make_pair
+#define f first
+#define s second
+
+#define problemname ""
+
+int main(){
+	ios_base::sync_with_stdio(0); cin.tie(0);
+	//freopen(problemname ".in", "r", stdin); freopen(problemname ".out", "w", stdout);
+
+	return 0;
+}

@@ -1,0 +1,15 @@
+14:29:01 **** Build of configuration Debug for project balancing ****
+make all 
+Building file: ../feb20163.cpp
+Invoking: Cross G++ Compiler
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"feb20163.d" -MT"feb20163.o" -o "feb20163.o" "../feb20163.cpp"
+Finished building: ../feb20163.cpp
+ 
+Building target: balancing
+Invoking: Cross G++ Linker
+g++  -o "balancing"  ./feb20163.o   
+Finished building target: balancing
+ 
+
+14:29:01 Build Finished. 0 errors, 0 warnings. (took 795ms)
+

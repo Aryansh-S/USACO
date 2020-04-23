@@ -1,0 +1,75 @@
+#include <iostream>
+#include <cstdio>
+#include <utility>
+#include <algorithm>
+using namespace std;
+
+typedef long long ll;
+typedef pair<int,int> pii;
+#define pb push_back
+#define mp make_pair
+#define f first
+#define s second
+#define lb lower_bound
+#define ub upper_bound
+
+#define problemname "moop"
+
+struct pt{int x,y;}; pt mpt(int x,int y){pt ret; ret.x=x; ret.y=y; return ret;}
+bool operator==(const pt&p1, const pt&p2){return (p1.x<=p2.x&&p1.y<=p2.y) || (p2.x<=p1.x&&p2.y<=p1.y);}
+bool operator<(const pt&p1, const pt&p2){return !(p1==p2);}
+
+#define maxn 100000
+int n,ans; pt pts[maxn]; pii lr[maxn]; //f,s
+
+void dfs(int v, int id){ //v goes from 0 to n
+	//put them in the same connected component
+
+}
+
+int main(){
+	ios_base::sync_with_stdio(0); cin.tie(0);
+	//freopen(problemname ".in", "r", stdin); freopen(problemname ".out", "w", stdout);
+
+	cin >> n;
+	//for(int i=0; i<n; i++) lr[i]=mp(-1,-1);
+	for(int i=0; i<n; i++) cin >> pts[i].x >> pts[i].y;
+	sort(pts,pts+n);
+	for(int i=0; i<n; i++){
+		if(lb(pts,pts+n,pts[i])-pts!=n) if(*lb(pts,pts+n,pts[i])==pts[i]) lr[i].f=lb(pts,pts+n,pts[i])-pts;
+		if(ub(pts,pts+n,pts[i])-pts!=n) if(*ub(pts,pts+n,pts[i])==pts[i]) lr[i].s=ub(pts,pts+n,pts[i])-pts;
+	}
+	cout << ans << "\n";
+	return 0; //now dsu?
+	//no, actually, intersect intervals that look like [l,r)
+
+}
+ //you want to make a lower bound that uses strictly =
+/*
+
+ #include <iostream>
+#include <algorithm>
+using namespace std;
+
+struct pt{int x,y;}; pt mpt(int x,int y){
+  pt ret; ret.x=x; ret.y=y; return ret;}
+bool operator==(const pt&p1, const pt&p2){
+  return (p1.x<=p2.x&&p1.y<=p2.y) || (p2.x<=p1.x&&p2.y<=p1.y);
+}
+bool operator<(const pt&p1, const pt&p2){
+  return !(p1==p2);
+}
+ //dfs connected components given range [l,r) but != whatever the thing is
+ //basically just dfs with an id attached to it
+int main() {
+  int n; cin >> n;
+  pt pts[n];
+  for(int i=0; i<n; i++) cin >> pts[i].x >> pts[i].y;
+  sort(pts,pts+n);
+  int l=lower_bound(pts,pts+n,mpt(-1,0))-pts;
+  int r=upper_bound(pts,pts+n,mpt(-1,0))-pts;
+  for(int i=l; i<r; i++) cout << pts[i].x << " " << pts[i].y << "\n";
+  return 0;
+}
+
+ */

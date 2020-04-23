@@ -1,0 +1,50 @@
+Building file: ../s.cpp
+Invoking: Cross G++ Compiler
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"s.d" -MT"s.o" -o "s.o" "../s.cpp"
+../s.cpp:41:30: warning: variadic templates are a C++11 extension [-Wc++11-extensions]
+template<typename T, typename...Types> void in(T& var1, Types&...var2){cin >> var1; in(var2...);}
+                             ^
+../s.cpp:43:30: warning: variadic templates are a C++11 extension [-Wc++11-extensions]
+template<typename T, typename...Types> void out(T var1, Types...var2){cout << var1 << " "; out(var2...);}
+                             ^
+../s.cpp:44:30: warning: variadic templates are a C++11 extension [-Wc++11-extensions]
+template<typename T, typename...Types> void outln(T var1, Types...var2){cout << var1 << "\n"; outln(var2...);}
+                             ^
+../s.cpp:71:13: warning: in-class initialization of non-static data member is a C++11 extension [-Wc++11-extensions]
+        const T orz=-10*big;
+                   ^
+../s.cpp:72:13: warning: in-class initialization of non-static data member is a C++11 extension [-Wc++11-extensions]
+        char choice='s'; //'m' is min, 'M' is max, 's' is sum
+                   ^
+../s.cpp:152:24: warning: variadic templates are a C++11 extension [-Wc++11-extensions]
+template <class T, int ...Ns> struct BIT{ //UPD only adds!!
+                       ^
+../s.cpp:154:8: warning: in-class initialization of non-static data member is a C++11 extension [-Wc++11-extensions]
+        T val = 0; void upd(T v) {val += v;} //map<int,BIT> preferable to BIT array
+              ^
+../s.cpp:157:30: warning: variadic templates are a C++11 extension [-Wc++11-extensions]
+template <class T, int N, int... Ns> struct BIT<T, N, Ns...> { //general format (l1,r1,l2,r2,...) for queries
+                             ^
+../s.cpp:159:19: warning: variadic templates are a C++11 extension [-Wc++11-extensions]
+        template<typename... Args> void upd(int pos, Args... args) { //general format (pos1,pos2,...,val) for upd
+                         ^
+../s.cpp:161:19: warning: variadic templates are a C++11 extension [-Wc++11-extensions]
+        template<typename... Args> T sum(int r, Args... args) {
+                         ^
+../s.cpp:164:19: warning: variadic templates are a C++11 extension [-Wc++11-extensions]
+        template<typename... Args> T query(int l, int r, Args...
+                         ^
+11 warnings generated.
+Finished building: ../s.cpp
+ 
+Building target: hilocard
+Invoking: Cross G++ Linker
+g++  -o "hilocard"  ./s.o   
+Finished building target: hilocard
+ 
+
+00:35:26 Build Finished. 0 errors, 11 warnings. (took 886ms)
+
+00:35:27 **** Incremental Build of configuration Debug for project hilocard ****
+make all 
+make: Nothing to be done for `all'.
