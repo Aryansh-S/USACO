@@ -5,9 +5,8 @@ typedef long long ll;
 typedef pair<int,int> pii;
 typedef pair<ll,ll> pll;
 typedef vector<int> vi;
-#define maxpq priority_queue
-#define maxpqi maxpq<int>
-#define minpqi maxpq<int, vi, greater<int> >
+template<class T> using minpq = priority_queue<T, vector<T>, greater<T> >;
+template<class T> using maxpq = priority_queue<T>;
 #define pb push_back
 #define ins insert
 #define mp make_pair
@@ -35,6 +34,8 @@ typedef vector<int> vi;
 #define INF 0x3f3f3f3f
 #define INFLL 0x3f3f3f3f3f3f3f3f
 #define EPS 1e-8
+#define ckmin(a,b) a=min(a,b)
+#define ckmax(a,b) a=max(a,b)
 
 void in(){} void outln(){} void out_(){cout << "\n";} //for fast, easy IO
 template<typename T, typename...Types> void in(T& var1, Types&...var2){cin >> var1; in(var2...);}
