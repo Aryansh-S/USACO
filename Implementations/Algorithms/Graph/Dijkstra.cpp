@@ -28,6 +28,7 @@ int main(){
     int a,b,w; cin >> a >> b >> w; a--,b--; adj[a].pb(mp(w,b)); adj[b].pb(mp(w,a));
   }
   minpq<pii> q; //weight, node
+  q.push(mp(0,start));
   while(!q.empty()){
     pii curr=q.top(); q.pop();
     vis[curr.s]=1;
