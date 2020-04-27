@@ -36,9 +36,9 @@ int main(){
     for(pii ptr:adj[closest]){
       int v=ptr.s, weight=ptr.f;
       //if shorter path to v thru closest
-      if(dist[v]>dist[u]+weight){
+      if(dist[v]>dist[closest]+weight){
         if(dist[v]!=INF) curr.ers(mp(dist[v],v)); //v is in our set so remove it 
-        dist[v]=dist[u]+weight; //a shorter distance has been found
+        dist[v]=dist[closest]+weight; //a shorter distance has been found
         curr.ins(mp(dist[v],v));
       }
     }
