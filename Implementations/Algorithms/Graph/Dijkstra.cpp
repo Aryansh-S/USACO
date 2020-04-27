@@ -7,9 +7,8 @@ using namespace std;
 //with weights (if not weighted, standard BFS works)
 //NO NEGATIVE WEIGHTED EDGES, cycles are fine
 
-//set is easy to use but priority_queue works fine as well
-
 typedef pair<int,int> pii; 
+template<class T> minpq using priority_queue<T, vector<T>, greater<T>>; 
 #define INF 0x3f3f3f3f
 #define pb push_back
 #define ins insert
@@ -17,35 +16,29 @@ typedef pair<int,int> pii;
 #define mp make_pair
 #define f first
 #define s second
-const int sz=1e5; 
+const int sz=1e5;
 
-vector<pii> adj[sz]; int n,m,start,dist[sz]; //store dist from start to all other vertices
-set<pii> curr; 
+int n,m,start,dist[sz]; vector<pii> adj[sz]; //weight, node
+bool vis[sz];
 
 int main(){
   cin.tie(0)->sync_with_stdio(0);
-  cin >> n >> m >> start; start--; 
+  cin >> n >> m >> start; start--; for(int i=0; i<n; i++) dist[i]=INF;
   for(int i=0; i<m; i++){
-    int a,b,w; cin >> a >> b >> w; a--,b--; adj[a].pb(mp(b,w)); adj[b].pb(mp(a,w));
+    int a,b,w; cin >> a >> b >> w; a--,b--; adj[a].pb(mp(w,b)); adj[b].pb(mp(w,a));
   }
-  for(int i=0; i<n; i++) dist[i]=INF; 
-  curr.ins(mp(0,start));
-  while(!curr.empty()){
-    pii tmp=*curr.begin(); curr.erase(curr.begin());
-    int closest=tmp.s; 
-    for(pii ptr:adj[closest]){
-      int v=ptr.s, weight=ptr.f;
-      //if shorter path to v thru closest
-      if(dist[v]>dist[closest]+weight){
-        if(dist[v]!=INF) curr.ers(mp(dist[v],v)); //v is in our set so remove it 
-        dist[v]=dist[closest]+weight; //a shorter distance has been found
-        curr.ins(mp(dist[v],v));
+  minpq<pii> q; //weight, node
+  while(!q.empty()){
+    pii curr=q.top(); q.pop();
+    vis[curr.s]=1;
+    for(pii v:adj[curr]){
+      if(!vis[v.s]&&dist[curr.s]>dist[v.s]+v.f){
+        dist[curr.s]=dist[v.s]+v.f;
+        q.push(mp(dist[curr.s],curr.s));
       }
     }
   }
-  cout << "distance from " << start+1 << " to\n";
-  for(int i=0; i<n; i++){
-    cout << "vertex " << i+1 << " is " << dist[i] << "\n";
-  }
+  cout << "The shortest distance from " << start+1 << " to\n"
+  for(int i=0; i<n; i++) cout << "vertex " << i+1 << " is " << dist[i] << "\n";
   return 0;
 }
