@@ -33,7 +33,8 @@ int main(){
     pii curr=q.top(); q.pop();
     vis[curr.s]=1;
     for(pii v:adj[curr.s]){
-      if(!vis[v.s]&&dist[v.s]>dist[curr.s]+v.f){
+      if(vis[v.s]) continue;
+      if(dist[v.s]>dist[curr.s]+v.f){
         dist[v.s]=dist[curr.s]+v.f;
         q.push(mp(dist[v.s],v.s));
       }
