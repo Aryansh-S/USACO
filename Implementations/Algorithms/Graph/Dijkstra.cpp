@@ -8,7 +8,7 @@ using namespace std;
 //NO NEGATIVE WEIGHTED EDGES, cycles are fine
 
 typedef pair<int,int> pii; 
-template<class T> minpq using priority_queue<T, vector<T>, greater<T>>; 
+template<class T> using minpq=priority_queue<T, vector<T>, greater<T>>; 
 #define INF 0x3f3f3f3f
 #define pb push_back
 #define ins insert
