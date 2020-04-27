@@ -31,14 +31,14 @@ int main(){
   while(!q.empty()){
     pii curr=q.top(); q.pop();
     vis[curr.s]=1;
-    for(pii v:adj[curr]){
+    for(pii v:adj[curr.s]){
       if(!vis[v.s]&&dist[curr.s]>dist[v.s]+v.f){
         dist[curr.s]=dist[v.s]+v.f;
         q.push(mp(dist[curr.s],curr.s));
       }
     }
   }
-  cout << "The shortest distance from " << start+1 << " to\n"
+  cout << "The shortest distance from " << start+1 << " to\n";
   for(int i=0; i<n; i++) cout << "vertex " << i+1 << " is " << dist[i] << "\n";
   return 0;
 }
