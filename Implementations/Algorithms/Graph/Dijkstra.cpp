@@ -23,7 +23,7 @@ bool vis[sz];
 
 int main(){
   cin.tie(0)->sync_with_stdio(0);
-  cin >> n >> m >> start; start--; for(int i=0; i<n; i++) dist[i]=INF;
+  cin >> n >> m >> start; start--; for(int i=0; i<n; i++) if(i!=start) dist[i]=INF;
   for(int i=0; i<m; i++){
     int a,b,w; cin >> a >> b >> w; a--,b--; adj[a].pb(mp(w,b)); adj[b].pb(mp(w,a));
   }
