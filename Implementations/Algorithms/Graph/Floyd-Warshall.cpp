@@ -20,6 +20,6 @@ int main(){
     ckmin(dist[i][j],dist[i][k]+dist[k][j]);
   }
   for(int i=0; i<n; i++) for(int j=i; j<n; j++) if(i!=j) 
-    cout << "The shortest distance between vertices " << i+1 << " and " << j+1 << " is " << dist[i][j]; 
+    cout << "The shortest distance between vertices " << i+1 << " and " << j+1 << " is " << dist[i][j] << "\n"; 
   return 0;
 }
