@@ -1,7 +1,7 @@
 /*
  * Aryansh Shrivastava 
  * USACO Template 
- * Last Updated: 4/24/20
+ * Last Updated: 4/28/20
  */
 
 #include <bits/stdc++.h> 
@@ -80,6 +80,29 @@ struct DSU{ //from 0 to n
 		F0R(i,sz(e)-1) if(get(i)!=get(i+1)) ret++;
 		return ret;
 	}
+};
+
+template <class T, int SZ> struct Dijk{ //class T is the type of weight being used
+	vector<pair<T,int> > adj[SZ]; T dist[SZ]; bool vis[SZ];
+	void add(int a, int b, T w){adj[a].pb(mp(w,b)); adj[b].pb(mp(w,a));}
+	void add_(int a, int b, T w){adj[a].pb(mp(w,b));} //if edge is directed
+	void upd(int start){
+		F0R(i,SZ) dist[i]=(i!=start)?INF:0, vis[i]=0;
+		minpq<pair<T,int> > q;
+		q.push(mp(0,start));
+		while(!q.empty()){
+			auto curr=q.top(); q.pop(); vis[curr.s]=1;
+			trav(v,adj[curr.s]){
+				if(vis[v.s]) continue;
+				if(dist[v.s]>dist[curr.s]+v.f){
+				   dist[v.s]=dist[curr.s]+v.f;
+				   q.push(mp(dist[v.s],v.s));
+				}
+			}
+		}
+	}
+	T query(int v){return dist[v];}
+	T query_(int st, int v){upd(st); return query(v);}
 };
 
 template<class T> struct SEG{ //UPD literally updates!!
