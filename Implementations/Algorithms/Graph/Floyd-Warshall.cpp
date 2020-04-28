@@ -14,8 +14,8 @@ int adj[sz][sz], n, m;
 int main(){
   cin.tie(0)->sync_with_stdio(0);
   cin >> n >> m; 
-  for(int i=0; i<n; i++) for(int j=0; j<n; j++) adj[i][j]=INF; 
-  for(int i=0; i<m; i++){int x,y,d; cin >> x >> y >> d; x--,y--; adj[x][y]=adj[y][x]=d;}
+  for(int i=0; i<n; i++) for(int j=0; j<n; j++) dist[i][j]=INF; 
+  for(int i=0; i<m; i++){int x,y,d; cin >> x >> y >> d; x--,y--; dist[x][y]=dist[y][x]=d;}
   for(int k=0; k<n; k++) for(int i=0; i<n; i++) for(int j=0; j<n; j++){
     ckmin(dist[i][j],dist[i][k]+dist[k][j]);
   }
