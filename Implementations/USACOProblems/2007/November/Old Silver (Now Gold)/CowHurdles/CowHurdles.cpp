@@ -1,5 +1,7 @@
 #include <bits/stdc++.h>
 using namespace std;
+//level: easy gold
+//source: https://contest.usaco.org/NOV07.htm
 
 typedef long long ll;
 typedef pair<int,int> pii;
