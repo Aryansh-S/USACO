@@ -15,9 +15,9 @@ barn. Thus, all cows have a path to the barn and they always know
 the shortest path. Of course, cows can go either direction on a 
 path and they all walk at the same speed.
 
-The pastures are labeled `a'..`z' and `A'..`Y'. One cow is in each 
+The pastures are labeled 'a'..'z' and 'A'..'Y'. One cow is in each 
 pasture labeled with a capital letter. No cow is in a pasture 
-labeled with a lower case letter. The barn's label is `Z'; no 
+labeled with a lower case letter. The barn's label is 'Z'; no 
 cows are in the barn, though.
 
 PROGRAM NAME: comehome
