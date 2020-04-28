@@ -9,7 +9,7 @@ using namespace std;
 #define INF 0x3f3f3f3f
 #define ckmin(a,b) a=min(a,b)
 const int sz=1e3;
-int adj[sz][sz], n, m; 
+int dist[sz][sz], n, m; 
 
 int main(){
   cin.tie(0)->sync_with_stdio(0);
