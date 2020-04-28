@@ -82,7 +82,7 @@ struct DSU{ //from 0 to n
 	}
 };
 
-template <class T, int SZ> struct Dijk{ //class T is the type of weight being used
+template <class T, int SZ> struct Dijk{ //class T is the type of weight being used, works in O(E log V)
 	vector<pair<T,int> > adj[SZ]; T dist[SZ]; bool vis[SZ];
 	void add(int a, int b, T w){adj[a].pb(mp(w,b)); adj[b].pb(mp(w,a));}
 	void add_(int a, int b, T w){adj[a].pb(mp(w,b));} //if edge is directed
@@ -104,6 +104,18 @@ template <class T, int SZ> struct Dijk{ //class T is the type of weight being us
 	T query(int v){return dist[v];}
 	T query_(int st, int v){upd(st); return query(v);}
 };
+
+template <class T, int SZ> struct Floyd{ //class T is for weight, works in O(V^3)
+	T dist[SZ][SZ];
+	Floyd(){F0R(i,SZ) F0R(j,SZ) dist[i][j]=INF;}
+	void add(int a, int b, T w){dist[a][b]=dist[b][a]=w;}
+	void add_(int a, int b, T w){dist[a][b]=w;}
+	void upd(){
+		F0R(k,SZ) F0R(i,SZ) F0R(j,SZ) ckmin(dist[i][j],dist[i][k]+dist[k][j]);
+	}
+	T query(int a, int b){return dist[a][b];}
+};
+
 
 template<class T> struct SEG{ //UPD literally updates!!
 	const T orz=-10*big;
