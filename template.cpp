@@ -157,6 +157,7 @@ template<class T, int SZ> struct Prim{ // T is type weight
         F0R(i,SZ) if(mom[i]!=-1) {ret[mom[i]].pb(i); ret[mom[i]].pb(i);}
         return ret;
     }
+    T sum(){T ret=0; F0R(i,SZ) if(vis[i] && key[i]!=INF) ret+=key[i]; return ret;}
 };
 
 template<class T> struct SEG{ //UPD literally updates!!
