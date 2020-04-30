@@ -101,9 +101,11 @@ int main(){
 	
 	in(n); F0R(i,n) F0R(j,n) in(mat[i][j]),p.add_(i,j,mat[i][j]);
 	p.upd(); out(p.sum());
+	
+	//we can also get the sum directly from the MST adj list, as below
 	/*auto a=p.dirMST();
 	F0R(i,n) trav(j,a[i]) ans+=mat[i][j];
-	out(ans);*/ we can also get the sum directly from the MST adj list 
+	out(ans);*/ 
 	
 	return 0;
 }
