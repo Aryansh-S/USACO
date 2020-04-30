@@ -19,6 +19,12 @@ The general idea as far as contests go is to have "templatemedium.cpp" written o
 
 Of course, the key is to have a good idea of what you can and cannot code in a contest setting. You should obviously not create a struct for everything (an extreme example is making a struct for a fundamental process like DFS/BFS: both of them can be simply implemented anyway -- just use a recursion or stack/queue).
 
+# Macros (typedef, define)
+
+Macros exist to shorten coding time (among various other things). As such, coding time should never be a bottleneck in-contest: write macros that work for you. If you do not work well with macros, do not use them! They are always an option, not a requirement.
+
+A good thing to remember is that you should only use macros in contest programming. In other applications of programming -- the general workplace is a good example -- macros can be irritating (they can make your code look cryptic to people other than you), especially during collaborations, and should thus be used sparingly (if at all).  
+
 # Book
 
 [Here](https://www.overleaf.com/read/vxkkgmmrmckv) is the latest version of a book I am writing on competitive programming so far (a work in progress). 
