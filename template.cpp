@@ -1,7 +1,7 @@
 /*
  * Aryansh Shrivastava 
  * USACO Template 
- * Last Updated: 4/28/20
+ * Last Updated: 4/29/20
  */
 
 #include <bits/stdc++.h> 
@@ -80,7 +80,7 @@ struct DSU{ //from 0 to n
 		F0R(i,sz(e)-1) if(get(i)!=get(i+1)) ret++;
 		return ret;
 	}
-};
+}; 
 
 template <class T, int SZ> struct Dijk{ //class T is the type of weight being used, works in O(E log V)
 	vector<pair<T,int> > adj[SZ]; T dist[SZ]; bool vis[SZ];
