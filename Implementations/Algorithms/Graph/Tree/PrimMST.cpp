@@ -53,6 +53,7 @@ template<class T, int SZ> struct Prim{ // T is type weight
         F0R(i,SZ) if(mom[i]!=-1) {ret[mom[i]].pb(i); ret[mom[i]].pb(i);}
         return ret;
     }
+    T sum(){T ret=0; F0R(i,SZ) if(vis[i] && key[i]!=INF) ret+=key[i]; return ret;}
 };
 
 Prim<double,10> g;
@@ -70,6 +71,7 @@ int main(){
     F0R(i,10){ if(a[i].size()!=0) cout << i << " has children \n"; 
     for(auto x:a[i]){  cout << x << " ";
     }if(a[i].size()!=0) cout << "\n\n";}
-
+    
+    cout << "Our total cost is " << g.sum() << "\n";
     return 0;
 }
