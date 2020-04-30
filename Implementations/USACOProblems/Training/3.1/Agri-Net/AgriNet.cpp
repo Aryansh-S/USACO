@@ -90,6 +90,7 @@ template<class T, int SZ> struct Prim{ // T is type weight
         F0R(i,SZ) if(mom[i]!=-1) {ret[mom[i]].pb(i); ret[mom[i]].pb(i);}
         return ret;
     }
+    T sum(){T ret=0; F0R(i,SZ) if(vis[i] && key[i]!=INF) ret+=key[i]; return ret;}
 };
 
 const int mx=105;
@@ -99,9 +100,10 @@ int main(){
 	cin.tie(0)->sync_with_stdio(0); if(fopen(PNAME ".in","r")){freopen(PNAME ".in","r",stdin); freopen(PNAME ".out","w",stdout);}
 	
 	in(n); F0R(i,n) F0R(j,n) in(mat[i][j]),p.add_(i,j,mat[i][j]);
-	p.upd(); auto a=p.dirMST();
+	p.upd(); out(p.sum());
+	/*auto a=p.dirMST();
 	F0R(i,n) trav(j,a[i]) ans+=mat[i][j];
-	out(ans);
+	out(ans);*/ we can also get the sum directly from the MST adj list 
 	
 	return 0;
 }
