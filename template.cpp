@@ -160,6 +160,30 @@ template<class T, int SZ> struct Prim{ // T is type weight
     T sum(){T ret=0; F0R(i,SZ) if(vis[i] && key[i]!=INF) ret+=key[i]; return ret;}
 };
 
+template<class T, int SZ> struct Krus{ //also get DSU
+    DSU d; T weight; Krus(){d.init(SZ);} 
+    vector<pair<int,pii>> edge,MST; 
+    void add(int a, int b, int w){
+        edge.pb(mp(w,mp(a,b)));
+        edge.pb(mp(w,mp(b,a)));
+    }
+    void add_(int a, int b, int w){
+        edge.pb(mp(w,mp(a,b)));
+    }
+    void upd(){
+        sort(begin(edge),end(edge));
+        F0R(i,edge.size()){
+            int urep=d.get(edge[i].s.f), 
+            vrep=d.get(edge[i].s.s);
+            if(urep!=vrep){
+                MST.pb(edge[i]); d.unite(edge[i].s.f,edge[i].s.s); weight+=edge[i].f;
+            }
+        }
+    }
+    T sum(){return weight;}
+    vector<pair<int,pii>> getMST(){return MST;}
+};
+
 template<class T> struct SEG{ //UPD literally updates!!
 	const T orz=-10*big;
 	char choice='s'; //'m' is min, 'M' is max, 's' is sum
