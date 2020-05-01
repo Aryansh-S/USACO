@@ -88,7 +88,7 @@ template <class T, int SZ> struct Dijk{ //class T is the type of weight being us
 	void add(int a, int b, T w){adj[a].pb(mp(w,b)); adj[b].pb(mp(w,a));}
 	void add_(int a, int b, T w){adj[a].pb(mp(w,b));} //if edge is directed
 	void upd(int start){
-		F0R(i,SZ) dist[i]=(i!=start)?INF:0, vis[i]=0, mom[i]=i,child[i]=i;
+		F0R(i,SZ) dist[i]=(i!=start)?INF:0, vis[i]=0, mom[i]=i;
 		minpq<pair<T,int> > q;
 		q.push(mp(0,start));
 		while(!q.empty()){
