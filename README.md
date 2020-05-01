@@ -7,6 +7,10 @@ If you want to #include <bits/stdc++.h> but your compiler does not allow you to 
 follow the unofficial directions at the top (there is a myth that this reduces performance, but do not buy that). 
 The "src" folder just contains source files and images that are integrated elsewhere; you can ignore it. 
 
+# Book
+
+[Here](https://www.overleaf.com/read/vxkkgmmrmckv) is the latest version of a book I am writing on competitive programming so far (a work in progress). 
+
 # Template (\& A First on Structs) 
 You can find the latest version of my contest programming template (ongoing modification) in "template.cpp"; please credit
 before any use in-contest. More specifically, I have coded and put together some nifty structs for various algorithms and problem types; these continue to be updated. 
@@ -19,15 +23,17 @@ The general idea as far as contests go is to have "templatemedium.cpp" written o
 
 Of course, the key is to have a good idea of what you can and cannot code in a contest setting. You should obviously not create a struct for everything (an extreme example is making a struct for a fundamental process like DFS/BFS: both of them can be simply implemented anyway -- just use a recursion or stack/queue).
 
+# Floating Precision
+
+Sometimes USACO and other contest platforms are picky about this and ask for an unrounded answer to a certain number of significant digits at the end. The general resolution is to use either double or long double along with the following line of code in C++ at the head of the main() function (change the 2 to however many significant digits you need):
+
+cout.precision(2); cout.setf(ios::fixed,ios::floatfield); 
+
 # Macros (typedef, define)
 
 Macros exist to shorten coding time (among various other things). As such, coding time should never be a bottleneck in-contest: write macros that work for you. If you do not work well with macros, do not use them! They are always an option, not a requirement.
 
 A good thing to remember is that you should only use macros in contest programming. In other applications of programming -- the general workplace is a good example -- macros can be irritating (they can make your code look cryptic to people other than you), especially during collaborations, and should thus be used sparingly (if at all).  
-
-# Book
-
-[Here](https://www.overleaf.com/read/vxkkgmmrmckv) is the latest version of a book I am writing on competitive programming so far (a work in progress). 
 
 # Language
 What to code in
