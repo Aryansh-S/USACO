@@ -25,8 +25,8 @@ int main(){
    int v=q.front(); q.pop_front(); 
    for(int i=0; i<n; i++) if(adj[i][v]){
     if(dist[i]>dist[v]+adj[i][v]) dist[i]=dist[v]+adj[i][v]; //greedily relax dist if poss (similar to dijk)
-    if(adj[i][v]) q.push_back(i);
-    else q.push_front(i);
+    if(adj[i][v]) q.push_back(i); //push back if dist 1
+    else q.push_front(i); //push front if dist 0
    }
   }
   
