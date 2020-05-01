@@ -162,12 +162,12 @@ template<class T, int SZ> struct Prim{ // T is type weight
 
 template<class T, int SZ> struct Krus{ //also get DSU
     DSU d; T weight; Krus(){d.init(SZ);}
-    vector<pair<int,pii> > edge,MST;
-    void add(int a, int b, int w){
+    vector<pair<T,pii> > edge,MST;
+    void add(int a, int b, T w){
         edge.pb(mp(w,mp(a,b)));
         edge.pb(mp(w,mp(b,a)));
     }
-    void add_(int a, int b, int w){
+    void add_(int a, int b, T w){
         edge.pb(mp(w,mp(a,b)));
     }
     void upd(){
@@ -181,8 +181,9 @@ template<class T, int SZ> struct Krus{ //also get DSU
         }
     }
     T sum(){return weight;}
-    vector<pair<int,pii> > getMST(){return MST;}
+    vector<pair<T,pii> > getMST(){return MST;}
 };
+
 
 template<class T> struct SEG{ //UPD literally updates!!
 	const T orz=-10*big;
