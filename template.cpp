@@ -84,7 +84,7 @@ struct DSU{ //from 0 to n
 
 template <class T, int SZ> struct Dijk{ //class T is the type of weight being used, works in O(E log V)
 	vector<pair<T,int> > adj[SZ]; T dist[SZ]; bool vis[SZ];
-    int mom[SZ],child[SZ];
+    int mom[SZ];
 	void add(int a, int b, T w){adj[a].pb(mp(w,b)); adj[b].pb(mp(w,a));}
 	void add_(int a, int b, T w){adj[a].pb(mp(w,b));} //if edge is directed
 	void upd(int start){
