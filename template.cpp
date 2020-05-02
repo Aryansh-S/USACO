@@ -74,31 +74,31 @@ void rsort(int*l,int*r,int msb=31){
 
 struct DSU{ //from 0 to n-1
 	vi e; void init(int n) { e = vi(n,-1); }
-    bool rollback; vector<array<int,4>> mod;
+    bool rollback; vector<pair<pii,pii> > mod;
 	int get(int x) { return e[x] < 0 ? x : e[x] = get(e[x]); }
 	bool sameSet(int a, int b) { return get(a) == get(b); }
 	int size(int x) { return -e[get(x)]; }
 	bool unite(int x, int y) { // union-by-rank
-		x = get(x), y = get(y); 
+		x = get(x), y = get(y);
         if(x==y){
-            if(rollback) mod.pb(array<int,4>{bigg,bigg,bigg,bigg});
+            if(rollback) mod.pb(mp(mp(bigg,bigg),mp(bigg,bigg)));
             return 0;
         }
 		if (e[x] > e[y]) swap(x,y);
-        if(rollback) mod.pb(array<int,4>{x,y,e[x],e[y]});
+        if(rollback) mod.pb(mp(mp(x,y),mp(e[x],e[y])));
 		e[x] += e[y]; e[y] = x; return 1;
 	}
     void setrb(){rollback=1;}
     void rb(){
         auto a = mod.back(); mod.pop_back();
-		if (a[0] != bigg) e[a[0]] = a[2], e[a[1]] = a[3];
+		if (a.f.f!= bigg) e[a.f.f]=a.s.f, e[a.f.s]= a.s.s;
     }
 	int compnum(){ //return the number of components
 		int ret=1;
 		F0R(i,sz(e)-1) if(get(i)!=get(i+1)) ret++;
 		return ret;
 	}
-}; 
+};
 
 template <class T, int SZ> struct Dijk{ //class T is the type of weight being used, works in O(E log V)
 	vector<pair<T,int> > adj[SZ]; T dist[SZ]; bool vis[SZ];
