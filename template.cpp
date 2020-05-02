@@ -72,12 +72,13 @@ void rsort(int*l,int*r,int msb=31){
     if(l!=r&&msb>=0){vi::iterator m=partition(l,r,radix(msb)); msb--;rsort(l,m,msb),rsort(m,r,msb);}
 }
 
-struct DSU{ //from 0 to n-1
+struct DSU{ //from 0 to n
 	vi e; void init(int n) { e = vi(n,-1); }
     bool rollback; vector<pair<pii,pii> > mod;
 	int get(int x) { return e[x] < 0 ? x : e[x] = get(e[x]); }
 	bool sameSet(int a, int b) { return get(a) == get(b); }
 	int size(int x) { return -e[get(x)]; }
+    DSU(int SZ=0){init(SZ);}
 	bool unite(int x, int y) { // union-by-rank
 		x = get(x), y = get(y);
         if(x==y){
@@ -99,6 +100,7 @@ struct DSU{ //from 0 to n-1
 		return ret;
 	}
 };
+
 
 template <class T, int SZ> struct Dijk{ //class T is the type of weight being used, works in O(E log V)
 	vector<pair<T,int> > adj[SZ]; T dist[SZ]; bool vis[SZ];
