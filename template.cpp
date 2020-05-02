@@ -65,6 +65,13 @@ bool operator()(const int&a, const pii&b){return(a!=b.f)?(a<b.f):(a<b.s);}};
 struct intpairs{bool operator()(const pii&a, const int&b){return(a.s!=b)?(a.s<b):(a.f<b);}
 bool operator()(const int&a, const pii&b){return(a!=b.s)?(a<b.s):(a<b.f);}};
 
+struct radix{const int bit;public:radix(int off):bit(off){}bool operator()(int val)const{return (bit==31)?(val<0):(!(val&(1<<bit)));}}; //concise linear radix sort
+void rsort(int*l,int*r,int msb=31){
+    if(l!=r&&msb>=0){int*m=partition(l,r,radix(msb)); msb--;rsort(l,m,msb),rsort(m,r,msb);}
+}void rsort(vi::iterator l, vi::iterator r, int msb=31){
+    if(l!=r&&msb>=0){vi::iterator m=partition(l,r,radix(msb)); msb--;rsort(l,m,msb),rsort(m,r,msb);}
+}
+
 struct DSU{ //from 0 to n
 	vi e; void init(int n) { e = vi(n,-1); }
 	int get(int x) { return e[x] < 0 ? x : e[x] = get(e[x]); }
