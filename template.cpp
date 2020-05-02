@@ -127,7 +127,9 @@ template <class T, int SZ> struct Floyd{
 	bool negcyc(){F0R(i,SZ) if(dist[i][i]<0) return 1; return 0;}
 };
 
-template <class T, int SZ> struct Bell{};
+template <class T, int SZ> struct SPFA{ //optimized Bellman-Ford that *may* run linear time for some cases
+
+};
 
 template<class T, int SZ> struct Prim{ // T is type weight
     minpq<pair<T,int> > temp; //key,vertex
