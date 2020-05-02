@@ -88,7 +88,7 @@ struct DSU{ //from 0 to n-1
         if(rollback) mod.pb(array<int,4>{x,y,e[x],e[y]});
 		e[x] += e[y]; e[y] = x; return 1;
 	}
-    void setrb(){rollback=1; DSU();}
+    void setrb(){rollback=1;}
     void rb(){
         auto a = mod.back(); mod.pop_back();
 		if (a[0] != bigg) e[a[0]] = a[2], e[a[1]] = a[3];
