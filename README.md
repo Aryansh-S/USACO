@@ -23,6 +23,10 @@ The general idea as far as contests go is to have "templatemedium.cpp" written o
 
 Of course, the key is to have a good idea of what you can and cannot code in a contest setting. You should obviously not create a struct for everything (an extreme example is making a struct for a fundamental process like DFS/BFS: both of them can be simply implemented anyway -- just use a recursion or stack/queue).
 
+Specifics:
+- For shortest path, use Dijkstra when possible. If some edges are negative, use SPFA (significantly faster than Bellman-Ford, even replacing it in the template). You can multisource them if sources change within the problem. Use Floyd-Warshall only when it seems palatable to solve the problem in cubic time (not often). 
+- If sorting is truly the bottleneck for an algorithm (rare), use the radix sort function rsort(). Most of the time, std::sort will suffice, of course. 
+
 # Floating Precision
 
 Sometimes, USACO and other contest platforms are picky about this and ask for an unrounded answer to a certain number of significant digits at the end; thankfully, this is now rare as far as USACO is concerned (distance is modified to square distance and such). The general resolution is to use either double or long double along with the following line of code in C++ at the head of the main() function (change the 2 to however many significant digits you need):
