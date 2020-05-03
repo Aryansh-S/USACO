@@ -248,6 +248,34 @@ template<class T, int SZ> struct Krus{ //also get DSU
     vector<pair<T,pii> > getMST(){return MST;}
 };
 
+template <int SZ> struct TLCA{ //offline tarjan LCA with in-built DSU 
+    struct query{int x,y,lca;}; vector<query> queries;
+    struct node{int mom,ancestor; bool seen; vi adj,qs;} nodes[SZ]; 
+    //DSU
+    int get(int x){return nodes[x].mom=(nodes[x].mom!=x)?get(nodes[x].mom):x;}
+    void unite(int x, int y){nodes[get(x)].mom=get(y);}
+    TLCA(){F0R(i,SZ) nodes[i].mom=nodes[i].ancestor=i;} 
+    //add edges and queries
+    void add(int a, int b){nodes[a].adj.pb(b); nodes[b].adj.pb(a);}
+    void add_(int a, int b){nodes[a].adj.pb(b);}
+    void addq(int x, int y){ //push in queries before next linear upd
+        nodes[x].qs.pb(sz(queries)); nodes[y].qs.pb(sz(queries)); 
+        query q; q.x=x,q.y=y,q.lca=-1; queries.pb(q);
+    }
+    //find lca recursive
+    void findlca(int curr, int prev){
+        trav(i,nodes[curr].adj) if(i!=prev){
+            findlca(i,curr); unite(i,curr); nodes[get(curr)].ancestor=curr;
+        }
+        nodes[curr].seen=1; trav(i,nodes[curr].qs){
+            int other_endpt=queries[i].x==curr?queries[i].y:queries[i].x;
+            if(nodes[other_endpt].seen) queries[i].lca=get(other_endpt);
+        }
+    }
+    void upd(int rt){findlca(rt,-1);}
+    int lca(int qry){return queries[qry].lca;} //find LCA query by query number
+};
+
 template<int SZ> struct TopSort{ //works for DAG
     //pls 0 index
     //topological sort and detect cycles
