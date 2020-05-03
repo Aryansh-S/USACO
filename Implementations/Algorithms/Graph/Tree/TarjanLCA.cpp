@@ -88,8 +88,8 @@ int main(){
 	cin.tie(0)->sync_with_stdio(0); if(fopen(PNAME ".in","r")){freopen(PNAME ".in","r",stdin); freopen(PNAME ".out","w",stdout);}
 
     t.add(0,1); t.add(0,2); t.add(1,3); t.add(1,4);
-    t.addq(0,1);
-    t.upd(0); out(t.lca(0));
+    t.addq(0,1); //add query (id number 0)
+    t.upd(0); out(t.lca(0)); //print 0th query
 
 	return 0;
 }
