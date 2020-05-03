@@ -64,7 +64,7 @@ template <int SZ> struct TLCA{ //offline tarjan LCA with in-built DSU
     //add edges and queries
     void add(int a, int b){nodes[a].adj.pb(b); nodes[b].adj.pb(a);}
     void add_(int a, int b){nodes[a].adj.pb(b);}
-    void addq(int x, int y){
+    void addq(int x, int y){ //push in queries before next linear upd
         nodes[x].qs.pb(sz(queries)); nodes[y].qs.pb(sz(queries)); 
         query q; q.x=x,q.y=y,q.lca=-1; queries.pb(q);
     }
@@ -79,7 +79,7 @@ template <int SZ> struct TLCA{ //offline tarjan LCA with in-built DSU
         }
     }
     void upd(int rt){findlca(rt,-1);}
-    int lca(int qry){return queries[qry].lca;}
+    int lca(int qry){return queries[qry].lca;} //find LCA query by query number
 };
 
 TLCA<5> t;
