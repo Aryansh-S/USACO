@@ -60,7 +60,7 @@ template <int SZ> struct TLCA{ //offline tarjan LCA with in-built DSU
     //DSU
     int get(int x){return nodes[x].mom=(nodes[x].mom!=x)?get(nodes[x].mom):x;}
     void unite(int x, int y){nodes[get(x)].mom=get(y);}
-    TLCA(){F0R(i,SZ) nodes[i].mom=nodes[i].ancestor=i;} void redo(){TLCA();}
+    TLCA(){F0R(i,SZ) nodes[i].mom=nodes[i].ancestor=i;} 
     //add edges and queries
     void add(int a, int b){nodes[a].adj.pb(b); nodes[b].adj.pb(a);}
     void add_(int a, int b){nodes[a].adj.pb(b);}
