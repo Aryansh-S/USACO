@@ -1,7 +1,7 @@
 #include <bits/stdc++.h>
 using namespace std;
 //level: advanced gold
-//objective: use Tarjan's offline LCA algorithm with DSU to find O(Q) lowest common ancestors in linear time
+//objective: use Tarjan's offline LCA algorithm with DSU to find O(Q) lowest common ancestors in any tree/DAG in linear time
 
 typedef long long ll;
 typedef pair<int,int> pii;
