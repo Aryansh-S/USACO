@@ -1,5 +1,7 @@
 #include <bits/stdc++.h>
 using namespace std;
+//level: gold
+//objective: euler tour a tree/DAG, visiting every node through edges starting from a root and working down, up, etc.
 
 typedef long long ll;
 typedef pair<int,int> pii;
