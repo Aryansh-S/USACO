@@ -54,7 +54,7 @@ bool operator()(const int&a, const pii&b){return(a!=b.s)?(a<b.s):(a<b.f);}};
 
 #define PNAME ""
 
-template <int SZ> struct BLCA{ //lca with binary lifting
+template <int SZ> struct BLCA{ //lca with binary lifting -- O(log n) query with O(n) preprocess
     vi adj[SZ]; const static int lg=32-__builtin_clz(SZ);
     int dp[SZ][lg],lvl[SZ]; BLCA(){F0R(i,SZ) memset(dp[i],-1,sizeof(dp[i]));}
     void add(int a, int b){adj[a].pb(b); adj[b].pb(a);}
