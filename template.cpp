@@ -177,7 +177,7 @@ template <class T, int SZ> struct SPFA{ //average O(E), wc bell-ford, check for 
     vector<pii> path(int v){
         vector<pii> ret; int i=v; 
         while(mom[i]!=i){ret.pb(mp(mom[i],i)); i=mom[i];}
-        reverse(all(ret)); return
+        reverse(all(ret)); return ret;
     }
     vector<pii> path_(int st, int v){upd(st); return path(v);}
     bool negcyc(){return negcycbad;}
