@@ -248,6 +248,26 @@ template<class T, int SZ> struct Krus{ //also get DSU
     vector<pair<T,pii> > getMST(){return MST;}
 };
 
+template <int SZ> struct BLCA{ //lca with binary lifting -- O(log n) query with O(n) preprocess
+    vi adj[SZ]; const static int lg=32-__builtin_clz(SZ);
+    int dp[SZ][lg],lvl[SZ]; BLCA(){F0R(i,SZ) memset(dp[i],-1,sizeof(dp[i]));}
+    void add(int a, int b){adj[a].pb(b); adj[b].pb(a);}
+    void add_(int a, int b){adj[a].pb(b);}
+    void dfs(int u, int p){
+        dp[u][0]=p; for(int i=1; i<lg; i++) dp[u][i]=dp[dp[u][i-1]][i-1];
+        trav(v,adj[u]) if(v!=p) lvl[v]=lvl[u]+1,dfs(v,u);
+    }
+    int lca(int a, int b){
+        if(lvl[a]<lvl[b]) swap(a,b);
+        for(int i=lg-1; i>=0; i--) if(lvl[a]-pow(2,i)>=lvl[b]) a=dp[a][i];
+        if(a==b) return a; for(int i=lg-1; i>=0; i--) if(dp[a][i]!=dp[b][i]) a=dp[a][i],b=dp[b][i]; return dp[a][0];
+    }
+    void upd(int rt=0){dfs(rt,0);}
+    int dist(int a, int b){ //# of edges between a and b
+        return lvl[a]+lvl[b]-2*lvl[lca(a,b)];
+    }
+};
+
 template <int SZ> struct TLCA{ //offline tarjan LCA with in-built DSU 
     struct query{int x,y,lca;}; vector<query> queries;
     struct node{int mom,ancestor; bool seen; vi adj,qs;} nodes[SZ]; 
