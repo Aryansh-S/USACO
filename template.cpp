@@ -74,7 +74,7 @@ void rsort(int*l,int*r,int msb=31){
 
 struct DSU{ //from 0 to n-1
 	vi e; void init(int n) { e = vi(n,-1); }
-    bool rollback; vector<pair<pii,pii> > mod;
+    bool rollback,cycfind; vector<pair<pii,pii> > mod;
 	int get(int x) { return e[x] < 0 ? x : e[x] = get(e[x]); }
 	bool sameSet(int a, int b) { return get(a) == get(b); }
 	int size(int x) { return -e[get(x)]; }
@@ -83,7 +83,7 @@ struct DSU{ //from 0 to n-1
 		x = get(x), y = get(y);
         if(x==y){
             if(rollback) mod.pb(mp(mp(bigg,bigg),mp(bigg,bigg)));
-            return 0;
+            cycfind=1; return 0;
         }
 		if (e[x] > e[y]) swap(x,y);
         if(rollback) mod.pb(mp(mp(x,y),mp(e[x],e[y])));
@@ -100,6 +100,7 @@ struct DSU{ //from 0 to n-1
 		F0R(i,sz(e)-1) if(get(i)!=get(i+1)) ret++;
 		return ret;
 	}
+	bool cyc(){return cycfind;}
 };
 
 template <class T, int SZ> struct Dijk{ //class T is the type of weight being used, works in O(E log V)
