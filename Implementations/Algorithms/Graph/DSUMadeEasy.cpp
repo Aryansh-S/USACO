@@ -8,7 +8,7 @@ int e[mx];
 
 int get(int x){return e[x]<0?x:e[x]=get(e[x]);} //want parent, use path compression
 void merge(int x, int y){
-    x=get(x),y=get(y); if(x==y) return; //already united
+    x=get(x),y=get(y); if(x==y) return; //already united (prevent union to prevent cycle -- can also use for cycle counting)
     if(e[x]>e[y]) swap(x,y); 
     e[x]+=e[y]; e[y]=x; //merge with union by rank
     //modifying our ranks as such allows us to do this neatly
