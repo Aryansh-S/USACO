@@ -335,6 +335,23 @@ template <int SZ> struct Euler{ //tree euler tour
     }
 };
 
+struct StaticRMQ{ //uses DSU, offline avg O(1) w/o sparse table
+    DSU d; stack<int> s; struct query{int l,r,idx;};
+    vi v,ans; vector<vector<query> > cont;
+    StaticRMQ(vi _v){v=_v; cont.rsz(sz(v)); d.init(sz(v));}
+    void addq(int l, int r){
+        int idx=sz(ans); query q; q.l=l,q.r=r,q.idx=idx;
+        cont[q.r].pb(q); ans.pb(0);
+    } 
+    void upd(){
+        F0R(i,sz(v)){
+            while(!s.empty()&&v[s.top()]>v[i]) {d.setpar(s.top(),i);s.pop();}
+            s.push(i); trav(q,cont[i]) ans[q.idx]=v[d.get(q.l)]; 
+        }
+    }
+    int rmq(int id){return ans[id];}
+};
+
 template<class T> struct SEG{ //UPD literally updates!!
 	const T orz=-10*big;
 	char choice='s'; //'m' is min, 'M' is max, 's' is sum
