@@ -89,7 +89,7 @@ struct DSU{ //from 0 to n-1
         if(rollback) mod.pb(mp(mp(x,y),mp(e[x],e[y])));
 		e[x] += e[y]; e[y] = x; return 1;
 	}
-    void setpar(int a, int b){e[a]=b;}
+    void setpar(int a, int b){e[a]=b,e[b]=-1;}
     void setrb(){rollback=1;}
     void rb(){
         auto a = mod.back(); mod.pop_back();
