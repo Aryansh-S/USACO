@@ -17,7 +17,7 @@ bool sameSet(int x, int y){return get(x)==get(y);}
 //check if in same set
 
 int main(){
-    memset(e,-1,sizeof(e));
+    memset(e,-1,sizeof(e)); //init values 
     merge(0,1);
     merge(1,2); 
     merge(2,10); 
