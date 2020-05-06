@@ -22,7 +22,7 @@ But, the larger the size of the locus, the less likely quadratic time is to cut 
 
 We first make the following observations: 
 - Imagine sorting the points by first coordinate and laying them across a line; disregard the notion of height for now. For each point, we can choose to consider only points behind (or to the left) of it. This will prune by merely a constant factor, but it is progress. How can we prune further?
-- There will be numerous points to the left of our current point that no longer matter, for these points are simply too far away even when just considering the first coordinate. We can omit these from the set of points we care about. If we keep this set running throughout our search, since each point will only be added and removed at most once in our sorting scheme, this is an amortized constant operation. 
+- There will be numerous points to the left of our current point that no longer matter, for these points are simply too far away even when just considering the first coordinate. We can omit these from the set of points we care about. If we keep this set running throughout our search, since each point will only be added and removed at most once in our sorting scheme, this is an amortized average logarithmic operation on each iteration, which would be log-linear overall. 
 
 This is significant progress, but now we must account for height. For this, we might keep an "active" set of points within a satisfactory range above and below the current point. For instance, given the metric of distance and a current point with height Y, we need to consider heights from only Y-D to Y+D. Of course, we can find our range if we binary search the set. 
 
