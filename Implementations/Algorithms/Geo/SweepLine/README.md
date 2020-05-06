@@ -26,8 +26,10 @@ We first make the following observations:
 
 This is significant progress, but now we must account for height. For this, we might keep an "active" set of points within a satisfactory range above and below the current point. For instance, given the metric of distance and a current point with height Y, we need to consider heights from only Y-D to Y+D. Of course, we can find our range if we binary search the set. 
 
-This gives us the following: 
+This gives us the following overall approach: 
 - Sort the points in the locus by first coordinate in a separate linear container initially. This container can be a vector or an array, for instance. 
 - Maintain an "active" balanced binary search tree (or set in this case) with sorting comparison operator based on the second coordinate of the points in the locus. To see how sorting comparison operators work in C++, look at the struct "cmps" towards the top of my implementation code. 
 - We will always remove all points too far left of the current point from our active set, binary search from the bottom to top of our height-based active set for a certain metric (possibly closest distance), and keep a running tally of the closest distance. 
 - At most, each point can enter the active set once and exit once. This means that we achieve log-linear time given the insertion specifics of a balanced binary search tree. 
+
+The name "sweep line" comes from the metaphor of having a line sweep through the plane from left to right (or sometimes top to bottom, or even angularly) to critical processing points, maintaining active points as it processes through. 
