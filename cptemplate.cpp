@@ -43,7 +43,8 @@ template<class T> using maxpq = priority_queue<T>;
 
 auto TIME0=chrono::steady_clock::now(); //lim=2000ms, use TIME for curr time
 //srand(SEED) to set SEED, rand() to get 
-random_device rd;mt19937 mt(rd());uniform_int_distribution<int> unifd(-INF,INF);
+random_device rd;mt19937 mt(rd()+std::chrono::steady_clock::now().time_since_epoch().count());
+uniform_int_distribution<int> unifd(-INF,INF);
 #define RAND unifd(mt)
 //can be negative
 
