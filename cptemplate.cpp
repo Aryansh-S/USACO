@@ -53,6 +53,7 @@ struct intpairf{bool operator()(const pii&a, const int&b){return(a.f!=b)?(a.f<b)
 bool operator()(const int&a, const pii&b){return(a!=b.f)?(a<b.f):(a<b.s);}};
 struct intpairs{bool operator()(const pii&a, const int&b){return(a.s!=b)?(a.s<b):(a.f<b);}
 bool operator()(const int&a, const pii&b){return(a!=b.s)?(a<b.s):(a<b.f);}};
+//in some cases, change a raw function above to bool operator() and put in struct
 
 auto TIME0=chrono::steady_clock::now(); //lim=2000ms, use TIME for curr time
 //srand(SEED) to set SEED, rand() to get 
