@@ -51,7 +51,7 @@ bool operator()(const int&a, const pii&b){return(a!=b.f)?(a<b.f):(a<b.s);}};
 struct intpairs{bool operator()(const pii&a, const int&b){return(a.s!=b)?(a.s<b):(a.f<b);}
 bool operator()(const int&a, const pii&b){return(a!=b.s)?(a<b.s):(a<b.f);}};
 
-auto TIME0=chrono::steady_clock::now();
+auto TIME0=chrono::steady_clock::now(); //lim=2000ms, use TIME for curr time
 
 #define PNAME ""
 
