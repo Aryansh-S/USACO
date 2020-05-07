@@ -32,7 +32,7 @@ int main(){
         while(x-pts[l].f>=d) act.ers(pts[l]),l++;
         auto L=act.lb(mp(x,y-ceil(sqrt(d)))),R=act.ub(mp(x,y+ceil(sqrt(d)))),it=L;
         while(it!=R) ckmin(d,dist(*it,curr)),++it;
-        act.ins(pts[i]);
+        act.ins(curr);
     }
 
     ans(d);
