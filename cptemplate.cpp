@@ -20,6 +20,7 @@ template<class T> using maxpq = priority_queue<T>;
 #define lb lower_bound
 #define ub upper_bound
 #define all(x) begin(x),end(x)
+#define rall(x) end(x),begin(x)
 #define trav(a,x) for(auto&(a):(x))
 #define FOR(i,a,b) for(__typeof(b)i=(a)-((a)>(b));i!=(b)-((a)>(b));i+=((a)>(b))?-1:1) //go from i=lb to i=ub-1
 #define F0R(i,b) FOR(i,0,b)
