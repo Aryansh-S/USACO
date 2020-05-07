@@ -32,7 +32,7 @@ template<class T> using maxpq = priority_queue<T>;
 #define R1F_(i,b,d) FOR_(i,b+1,1,d)
 #define what(x) out((#x),"is",(x))
 #define big (int)1e5
-#define bigg (int)(1e9+7)
+#define MOD (int)(1e9+7)
 #define INF 0x3f3f3f3f
 #define INFLL 0x3f3f3f3f3f3f3f3f
 #define EPS 1e-8
