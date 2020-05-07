@@ -58,3 +58,4 @@ int main(){
 }
 //do something!
 //check 0-index, use exit(0) for segfault tests and what() to debug
+//look to amortize, use stacks/queues, binary search for ans if monotonic, etc.
