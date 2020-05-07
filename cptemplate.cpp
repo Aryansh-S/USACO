@@ -41,6 +41,11 @@ template<class T> using maxpq = priority_queue<T>;
 #define TIME chrono::duration<double, milli>(chrono::steady_clock::now()-TIME0).count()
 #define PRES(d) cout.precision(d);cout.setf(ios::fixed,ios::floatfield)
 
+auto TIME0=chrono::steady_clock::now(); //lim=2000ms, use TIME for curr time
+//srand(SEED) to set SEED, rand() to get 
+mt19937 mt(TIME); uniform_int_distribution<int> unifd(0,INF);
+#define RAND unifd(mt)
+
 void in(){} void outln(){} void out_(){cout << "\n";} //for fast, easy IO
 template<typename T, typename...Types> void in(T& var1, Types&...var2){cin >> var1; in(var2...);}
 template<typename T> void out(T var1){cout << var1 << "\n";}
@@ -48,15 +53,13 @@ template<typename T, typename...Types> void out(T var1, Types...var2){cout << va
 template<typename T, typename...Types> void outln(T var1, Types...var2){cout << var1 << "\n"; outln(var2...);}
 template<typename T> void out_(T var1){cout << var1 << " ";}
 
-bool comps(const pii&p1, const pii&p2){return (p1.s!=p2.s)?(p1.s<p2.s):(p1.f<p2.f);} //sort and search with special pair conditions & compare int-pair
+struct comps{bool operator()(const pii&p1, const pii&p2){return (p1.s!=p2.s)?(p1.s<p2.s):(p1.f<p2.f);}}; 
+//sort and search with special pair conditions & compare int-pair
 struct intpairf{bool operator()(const pii&a, const int&b){return(a.f!=b)?(a.f<b):(a.s<b);}
 bool operator()(const int&a, const pii&b){return(a!=b.f)?(a<b.f):(a<b.s);}};
 struct intpairs{bool operator()(const pii&a, const int&b){return(a.s!=b)?(a.s<b):(a.f<b);}
 bool operator()(const int&a, const pii&b){return(a!=b.s)?(a<b.s):(a<b.f);}};
-//in some cases, change a raw function above to bool operator() and put in struct
-
-auto TIME0=chrono::steady_clock::now(); //lim=2000ms, use TIME for curr time
-//srand(SEED) to set SEED, rand() to get 
+//in some cases use struct() and other cases use struct
 
 #define PNAME ""
 
