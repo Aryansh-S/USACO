@@ -12,6 +12,9 @@ The "src" folder just contains source files and images that are integrated elsew
 [Here](https://www.overleaf.com/read/vxkkgmmrmckv) is the latest version of a book I am writing on competitive programming so far (a work in progress). 
 
 # Template (\& A First on Structs) 
+
+My template for CP is "cptemplate.cpp" along with algorithms from "algotemplate.cpp" as useful. 
+
 You can find the latest version of my contest programming template (ongoing modification) in "algotemplate.cpp"; please credit before any use in-contest. More specifically, I have coded and put together some nifty structs for various algorithms and problem types; these continue to be updated. Structs I design are meant to be some of the most efficient possible implementations of algorithms, as they are tested for large cases and efficiency. 
 
 There are macros specifically used during contest programming (regarding runtime and random number generation) that I do not add to the algorithm template but rather include in "cptemplate.cpp".
