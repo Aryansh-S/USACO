@@ -39,7 +39,7 @@ template<class T> using maxpq = priority_queue<T>;
 #define ckmin(a,b) a=min(a,b)
 #define ckmax(a,b) a=max(a,b)
 #define TIME chrono::duration<double, milli>(chrono::steady_clock::now()-TIME0).count()
-#define PRES(d) cout.precision(d); cout.setf(ios::fixed,ios::floatfield);
+#define PRES(d) cout.precision(d);cout.setf(ios::fixed,ios::floatfield)
 
 void in(){} void outln(){} void out_(){cout << "\n";} //for fast, easy IO
 template<typename T, typename...Types> void in(T& var1, Types&...var2){cin >> var1; in(var2...);}
