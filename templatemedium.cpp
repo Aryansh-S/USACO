@@ -56,3 +56,5 @@ int main(){
 	cin.tie(0)->sync_with_stdio(0); if(fopen(PNAME ".in","r")){freopen(PNAME ".in","r",stdin); freopen(PNAME ".out","w",stdout);}
 	return 0;
 }
+//do something!
+//check 0-index, use exit(0) for segfault tests and what() to debug
