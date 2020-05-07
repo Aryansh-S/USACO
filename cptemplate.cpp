@@ -55,9 +55,9 @@ template<typename T> void out_(T var1){cout << var1 << " ";}
 
 struct comps{bool operator()(const pii&p1, const pii&p2){return (p1.s!=p2.s)?(p1.s<p2.s):(p1.f<p2.f);}}; 
 //sort and search with special pair conditions & compare int-pair
-struct intpairf{bool operator()(const pii&a, const int&b){return(a.f!=b)?(a.f<b):(a.s<b);}
+struct ipf{bool operator()(const pii&a, const int&b){return(a.f!=b)?(a.f<b):(a.s<b);}
 bool operator()(const int&a, const pii&b){return(a!=b.f)?(a<b.f):(a<b.s);}};
-struct intpairs{bool operator()(const pii&a, const int&b){return(a.s!=b)?(a.s<b):(a.f<b);}
+struct ips{bool operator()(const pii&a, const int&b){return(a.s!=b)?(a.s<b):(a.f<b);}
 bool operator()(const int&a, const pii&b){return(a!=b.s)?(a<b.s):(a<b.f);}};
 //in some cases use struct() and other cases use struct
 
