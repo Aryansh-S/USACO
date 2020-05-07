@@ -15,6 +15,7 @@ template<class T> using maxpq = priority_queue<T>;
 #define f first
 #define s second
 #define sz(x) (int)(x).size()
+#define sq(x) (x)*(x)
 #define rsz resize
 #define lb lower_bound
 #define ub upper_bound
