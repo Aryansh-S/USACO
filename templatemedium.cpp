@@ -36,6 +36,7 @@ template<class T> using maxpq = priority_queue<T>;
 #define EPS 1e-8
 #define ckmin(a,b) a=min(a,b)
 #define ckmax(a,b) a=max(a,b)
+#define TIME chrono::duration<double, milli>(chrono::steady_clock::now()-TIME0).count()
 
 void in(){} void outln(){} void out_(){cout << "\n";} //for fast, easy IO
 template<typename T, typename...Types> void in(T& var1, Types&...var2){cin >> var1; in(var2...);}
@@ -49,6 +50,8 @@ struct intpairf{bool operator()(const pii&a, const int&b){return(a.f!=b)?(a.f<b)
 bool operator()(const int&a, const pii&b){return(a!=b.f)?(a<b.f):(a<b.s);}};
 struct intpairs{bool operator()(const pii&a, const int&b){return(a.s!=b)?(a.s<b):(a.f<b);}
 bool operator()(const int&a, const pii&b){return(a!=b.s)?(a<b.s):(a<b.f);}};
+
+auto TIME0=chrono::steady_clock::now();
 
 #define PNAME ""
 
