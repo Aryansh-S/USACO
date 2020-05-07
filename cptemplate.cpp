@@ -60,6 +60,6 @@ int main(){
 	cin.tie(0)->sync_with_stdio(0); if(fopen(PNAME ".in","r")){freopen(PNAME ".in","r",stdin); freopen(PNAME ".out","w",stdout);}
 	return 0;
 }
-//do something! 
+//do something! use ll if int overflow, analyze time complexity
 //check 0-index, use exit(0) for segfault tests, check array index, use what() to debug
-//look to amortize, use stacks/queues, binary search for ans if monotonic, etc.
+//look to amortize, use stacks/queues, heuristic, binary search for ans if monotonic, etc.
