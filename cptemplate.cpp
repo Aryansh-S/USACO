@@ -52,6 +52,7 @@ struct intpairs{bool operator()(const pii&a, const int&b){return(a.s!=b)?(a.s<b)
 bool operator()(const int&a, const pii&b){return(a!=b.s)?(a<b.s):(a<b.f);}};
 
 auto TIME0=chrono::steady_clock::now(); //lim=2000ms, use TIME for curr time
+//srand(SEED) to set SEED, rand() to get 
 
 #define PNAME ""
 
