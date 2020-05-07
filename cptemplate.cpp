@@ -11,6 +11,7 @@ template<class T> using minpq = priority_queue<T, vector<T>, greater<T> >;
 template<class T> using maxpq = priority_queue<T>;
 #define pb push_back
 #define ins insert
+#define ers erase
 #define mp make_pair
 #define f first
 #define s second
