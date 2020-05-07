@@ -43,8 +43,9 @@ template<class T> using maxpq = priority_queue<T>;
 
 auto TIME0=chrono::steady_clock::now(); //lim=2000ms, use TIME for curr time
 //srand(SEED) to set SEED, rand() to get 
-mt19937 mt(TIME); uniform_int_distribution<int> unifd(0,INF);
+mt19937 mt(TIME); uniform_int_distribution<int> unifd(-INF,INF);
 #define RAND unifd(mt)
+//can be negative
 
 void in(){} void outln(){} void out_(){cout << "\n";} //for fast, easy IO
 template<typename T, typename...Types> void in(T& var1, Types&...var2){cin >> var1; in(var2...);}
