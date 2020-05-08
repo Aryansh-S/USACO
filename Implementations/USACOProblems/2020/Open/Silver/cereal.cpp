@@ -1,16 +1,15 @@
 #include <iostream>
 #include <cstdio>
-#include <deque>
+#include <queue>
 #include <utility>
 using namespace std;
-//result: 10/10
 
 #define maxn 100000
 #define maxm 100000
 typedef pair<int,int> pii;
 #define f first
 #define s second
-int n,m,ans,choice[maxn]; deque<int> cereal[maxm]; pii cowvals[maxn];
+int n,m,ans,choice[maxn]; queue<int> cereal[maxm]; pii cowvals[maxn];
 bool firstcheck[maxm]; //look at cow i
 
 #define problemname "cereal"
@@ -29,10 +28,10 @@ int main(){
       choice[i]=1; ans++;
     }
     else if(!firstcheck[b]){
-      firstcheck[b]=1; cereal[a].push_back(i);
+      firstcheck[b]=1; cereal[a].push(i);
       choice[i]=2; ans++;
     }
-    else {choice[i]=3; cereal[a].push_back(i); cereal[b].push_back(i);}
+    else {choice[i]=3; cereal[a].push(i); cereal[b].push(i);}
   } cout << ans << "\n";
   //process
   for(int i=0; i<n-1; i++){
@@ -43,9 +42,9 @@ int main(){
     	//deque<int> first_cereal_q=cereal[firstchoice];
 		if(!first_cereal_q.empty()){//nxt needs to update
             nxt=first_cereal_q.front();
-			first_cereal_q.pop_front();
+			first_cereal_q.pop();
 			while(nxt<=i || choice[nxt]<=((cowvals[nxt].f==firstchoice)?1:((cowvals[nxt].s==firstchoice)?2:3))){
-				if(!first_cereal_q.empty()) {nxt=first_cereal_q.front(); first_cereal_q.pop_front();}
+				if(!first_cereal_q.empty()) {nxt=first_cereal_q.front(); first_cereal_q.pop();}
                 else{break;}
 			}
 		} else {break;}
