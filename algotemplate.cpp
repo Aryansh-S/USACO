@@ -1,6 +1,6 @@
 /*
  * Aryansh Shrivastava 
- * USACO Template 
+ * USACO Algorithm Template 
  * Last Updated: 5/4/20
  */
 
