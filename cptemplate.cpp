@@ -46,6 +46,7 @@ template<class T> using maxpq = priority_queue<T>;
 #define ckmax(a,b) a=max(a,b)
 #define TIME chrono::duration<double, milli>(chrono::steady_clock::now()-TIME0).count()
 #define PRES(d) cout.precision(d);cout.setf(ios::fixed,ios::floatfield)
+#define NL cout << "\n"
 
 #include <random>
 auto TIME0=chrono::steady_clock::now(); //lim=2000ms, use TIME for curr time
@@ -55,12 +56,23 @@ uniform_int_distribution<int> unifd(-INF,INF);
 #define RAND unifd(mt)
 //can be negative
 
-void in(){} void outln(){} void out_(){cout << "\n";} //for fast, easy IO
+void in(){} void outln(){} void out_(){} //for fast, easy IO
 template<typename T, typename...Types> void in(T& var1, Types&...var2){cin >> var1; in(var2...);}
 template<typename T> void out(T var1){cout << var1 << "\n";}
 template<typename T, typename...Types> void out(T var1, Types...var2){cout << var1 << " "; out(var2...);}
 template<typename T, typename...Types> void outln(T var1, Types...var2){cout << var1 << "\n"; outln(var2...);}
-template<typename T> void out_(T var1){cout << var1 << " ";}
+template<typename T,typename...Types> void out_(T var1, Types...var2){cout << var1 << " "; out_(var2...);}
+template<class T1, class T2> void in(pair<T1,T2>&pt){in(pt.f,pt.s);} 
+template<class T1, class T2> void out(pair<T1,T2> pt){out(pt.f,pt.s);}
+template<class T1, class T2> void out_(pair<T1,T2> pt){out_(pt.f,pt.s);}
+template<class T> void in(vector<T>&v,int sz){F0R(i,sz){T x; in(x); v.pb(x);}}
+template<typename T> void in(T*a,int sz){F0R(i,sz) in(a[i]);}
+template<class T> void out(vector<T> v){trav(t,v) out(t);}
+template<class T> void out(vector<T> v,int sz){trav(t,v) out(t);}
+template<class T> void out_(vector<T> v){trav(t,v) out_(t);}
+template<class T> void out_(vector<T> v,int sz){trav(t,v) out_(t);}
+template<class T> void out(T*a,int sz){F0R(i,sz) out(a[i]);}
+template<class T> void out_(T*a,int sz){F0R(i,sz) out_(a[i]);}
 
 struct comps{bool operator()(const pii&p1, const pii&p2){return (p1.s!=p2.s)?(p1.s<p2.s):(p1.f<p2.f);}}; 
 //sort and search with special pair conditions & compare int-pair
