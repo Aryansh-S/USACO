@@ -5,6 +5,7 @@ using namespace std;
 typedef long long ll; //only use above for test
 typedef long double ld;
 typedef double db;
+typedef string str;
 typedef pair<int,int> pii;
 typedef pair<ll,ll> pll;
 typedef vector<int> vi;
