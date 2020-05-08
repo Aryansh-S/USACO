@@ -1,6 +1,7 @@
 #include <bits/stdc++.h>
 using namespace std;
 
+//#define int ll
 typedef long long ll;
 typedef long double ld;
 typedef double db;
@@ -72,7 +73,7 @@ bool operator()(const int&a, const pii&b){return(a!=b.s)?(a<b.s):(a<b.f);}};
 
 int n,ans,minl[big],maxr[big]; pii pts[big];  //store min to left, max to right
 
-int main(){
+signed main(){
 	cin.tie(0)->sync_with_stdio(0); if(fopen(PNAME ".in","r")){freopen(PNAME ".in","r",stdin); freopen(PNAME ".out","w",stdout);}
 
     in(n); 
