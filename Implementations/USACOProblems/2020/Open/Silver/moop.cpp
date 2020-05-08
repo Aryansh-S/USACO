@@ -1,5 +1,6 @@
 #include <bits/stdc++.h>
 using namespace std;
+//upsolved after contest (rip the O(n^2) bf)
 
 //#define int ll
 typedef long long ll;
