@@ -1,5 +1,6 @@
 #include <bits/stdc++.h>
 using namespace std;
+//#define int ll
 
 typedef long long ll;
 typedef long double ld;
@@ -67,7 +68,6 @@ bool operator()(const int&a, const pii&b){return(a!=b.f)?(a<b.f):(a<b.s);}};
 struct ips{bool operator()(const pii&a, const int&b){return(a.s!=b)?(a.s<b):(a.f<b);}
 bool operator()(const int&a, const pii&b){return(a!=b.s)?(a<b.s):(a<b.f);}};
 //in some cases use struct() and other cases use struct
-//#define int ll
 
 #define PNAME ""
 
