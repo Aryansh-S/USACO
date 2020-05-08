@@ -1,8 +1,8 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-//#define int ll
-typedef long long ll; 
+//#define int ll 
+typedef long long ll; //only use above for test
 typedef long double ld;
 typedef double db;
 typedef pair<int,int> pii;
