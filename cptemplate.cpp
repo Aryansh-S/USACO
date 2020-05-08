@@ -73,9 +73,6 @@ bool operator()(const int&a, const pii&b){return(a!=b.s)?(a<b.s):(a<b.f);}};
 
 signed main(){
 	cin.tie(0)->sync_with_stdio(0); if(fopen(PNAME ".in","r")){freopen(PNAME ".in","r",stdin); freopen(PNAME ".out","w",stdout);}
-	
-	
-	
 	return 0; //read the bottom
 }
 
