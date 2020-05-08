@@ -67,7 +67,7 @@ template<class T1, class T2> void in(pair<T1,T2>&pt){in(pt.f,pt.s);}
 template<class T1, class T2> void out(pair<T1,T2> pt){out(pt.f,pt.s);}
 template<class T1, class T2> void out_(pair<T1,T2> pt){out_(pt.f,pt.s);}
 template<class T> void in(vector<T>&v,int sz){F0R(i,sz){T x; in(x); v.pb(x);}}
-template<typename T> void in(T*a,int sz){F0R(i,sz) in(a[i]);}
+template<class T> void in(T*a,int sz){F0R(i,sz) in(a[i]);}
 template<class T> void out(vector<T> v){trav(t,v) out(t);}
 template<class T> void out(vector<T> v,int sz){trav(t,v) out(t);}
 template<class T> void out_(vector<T> v){trav(t,v) out_(t);}
