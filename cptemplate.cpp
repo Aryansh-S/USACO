@@ -67,15 +67,18 @@ bool operator()(const int&a, const pii&b){return(a!=b.f)?(a<b.f):(a<b.s);}};
 struct ips{bool operator()(const pii&a, const int&b){return(a.s!=b)?(a.s<b):(a.f<b);}
 bool operator()(const int&a, const pii&b){return(a!=b.s)?(a<b.s):(a<b.f);}};
 //in some cases use struct() and other cases use struct
+//#define int ll
 
 #define PNAME ""
 
-int main(){
+signed main(){
 	cin.tie(0)->sync_with_stdio(0); if(fopen(PNAME ".in","r")){freopen(PNAME ".in","r",stdin); freopen(PNAME ".out","w",stdout);}
-	return 0;
+	return 0; //read the bottom
 }
 
-//do something! use ll if int overflow, analyze time complexity
+//do something! use ll if int overflow, analyze time complexity 
+//-- ~10^6 usually, at most 10^7, 10^8 is pushing it, i.e. n=10^5 is O(n log n) -- if(TIME>2000ms) -> TLE
+//careful on sorting global arrays! the zeroes can mess things up, so if using array, instead of all(a) use a,a+n
 //check 0-index, use exit(0) for segfault tests, check array index, use what() to debug
 //look to amortize, use stacks/queues, heuristic, binary search for ans if monotonic, etc.
 //if using double/ld use PRES(d)
