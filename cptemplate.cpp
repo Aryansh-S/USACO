@@ -19,6 +19,7 @@ template<class T> using OST = tree<T, null_type, less<T>, rb_tree_tag,tree_order
 #define fbo find_by_order
 #define ofk order_of_key
 #define pb push_back
+#define eb emplace_back
 #define ins insert
 #define ers erase
 #define mp make_pair
