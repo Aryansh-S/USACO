@@ -3,7 +3,7 @@
 #include <ext/pb_ds/tree_policy.hpp>
 #include <ext/rope>
 using namespace std; using namespace __gnu_pbds; using namespace __gnu_cxx;
-//C++ Template (Aryansh Shrivastava)
+//C++ Template (Aryansh Shrivastava) -- run w/ cmd+shift+r
 
 //#define int ll 
 typedef long long ll; //only use above for test
@@ -53,7 +53,6 @@ template<class T> using Tree = tree<T, null_type, less<T>, rb_tree_tag,tree_orde
 #define PRES(d) cout.precision(d);cout.setf(ios::fixed,ios::floatfield)
 #define NL cout << "\n"
 
-#include <random> //for clang
 auto TIME0=chrono::steady_clock::now(); //lim=2000ms, use TIME for curr time
 //srand(SEED) to set SEED, rand() to get 
 random_device rd;mt19937 mt(rd()+std::chrono::steady_clock::now().time_since_epoch().count());
