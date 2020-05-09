@@ -16,6 +16,8 @@ typedef vector<int> vi;
 template<class T> using minpq = priority_queue<T, vector<T>, greater<T> >;
 template<class T> using maxpq = priority_queue<T>;
 template<class T> using Tree = tree<T, null_type, less<T>, rb_tree_tag,tree_order_statistics_node_update>;
+#define fbo find_by_order
+#define ofk order_of_key
 #define pb push_back
 #define ins insert
 #define ers erase
