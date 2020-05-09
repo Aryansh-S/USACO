@@ -82,7 +82,6 @@ template<class T> void out(T*a,int sz){F0R(i,sz) out(a[i]);}
 template<class T> void out_(T*a,int sz){F0R(i,sz) out_(a[i]);}
 
 template <class T1, class T2> struct comps{bool operator()(const pair<T1,T2>&p1, const pair<T1,T2>&p2){return (p1.s!=p2.s)?(p1.s<p2.s):(p1.f<p2.f);}};
-//sort and search with special pair conditions & compare int-pair
 template <class T1, class T2> struct cpf{bool operator()(const pair<T1,T2>&a, const T1&b){return(a.f!=b)?(a.f<b):(a.s<b);}
 bool operator()(const T1&a, const pair<T1,T2>&b){return(a!=b.f)?(a<b.f):(a<b.s);}};
 template <class T1, class T2> struct cps{bool operator()(const pair<T1,T2>&a, const T2&b){return(a.s!=b)?(a.s<b):(a.f<b);}
@@ -91,8 +90,13 @@ bool operator()(const T2&a, const pair<T1,T2>&b){return(a!=b.s)?(a<b.s):(a<b.f);
 
 #define PNAME ""
 
+
+
 signed main(){
 	cin.tie(0)->sync_with_stdio(0); if(fopen(PNAME ".in","r")){freopen(PNAME ".in","r",stdin); freopen(PNAME ".out","w",stdout);}
+	
+	
+	
 	return 0; //read the bottom
 }
 
