@@ -48,6 +48,17 @@ What to code in
 
 Although Python is considered to be a simple language, it is often too slow for the sake of competitive programming; some problems may become unsolvable as such. Therefore, I recommend you use either Java or C++. I prefer C++ because it is less verbose and allows for macros, with a rich STL providing numerous data structures and functions. 
 
+# Compilation
+How to run the code you write
+
+Compilation is one of the hardest parts of the initial programming setup. There are many ways to do this. For Mac, many users opt for Xcode's Clang LLVM in conjunction with an IDE like Eclipse CDT. But there are numerous problems with this. 
+
+For one, Clang LLVM runs fairly inefficiently compared to other compilers. In fact, Xcode even tricks you into thinking you are using GCC/G++ for compilation but compiles internally with Clang. If that is not enough, Clang also has very limited C++ support: it does not support initializer lists, it bombards the user with C++11 usage warnings, does not support policy-based data structures or emplace operations, and has some deprecations -- do not use it. 
+
+What to use instead? I recommend that, instead of going for Xcode's compiler settings, you use Homebrew. Downloading Homebrew is very easy for Mac, whereafter you simply type "brew install gcc" to get the latest version of GCC/G++ as a compiler. Then, it will likely be installed under a file path like "/usr/local/bin/g++-9." Finally, install Atom or an elegant text edior of your choice and download a C++ execution plugin, specifying the path to this compiler. Using Atom has the additional benefit of creating keyboard shortcuts -- I use cmd+shift+r to run my code, for instance. 
+
+You do not need an IDE. Atom really does do the trick. As a plus, you can choose color themes to suit your style. 
+
 # Topics
 What to learn for each division
 
