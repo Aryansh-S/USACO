@@ -57,7 +57,7 @@ For one, Clang LLVM runs fairly inefficiently compared to other compilers. In fa
 
 What to use instead? I recommend that, instead of going for Xcode's compiler settings, you use Homebrew. Downloading Homebrew is very easy for Mac, whereafter you simply type "brew install gcc" to get the latest version of GCC/G++ as a compiler. Then, it will likely be installed under a file path like "/usr/local/bin/g++-9." Finally, install Atom or an elegant text edior of your choice and download a C++ execution plugin, specifying the path to this compiler. Using Atom has the additional benefit of creating keyboard shortcuts -- I use cmd+shift+r to run my code, for instance. 
 
-You do not need an IDE. Atom really does do the trick. As a plus, you can choose color themes to suit your style. 
+You do not need an IDE. Atom really does do the trick. As a plus, you can choose color themes to suit your style. Extensibility with Atom is amazing: you can use it on Windows and Linux as well, as long as you install GCC/G++ in a known path. 
 
 # Topics
 What to learn for each division
