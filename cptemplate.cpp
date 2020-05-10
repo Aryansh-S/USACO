@@ -55,7 +55,7 @@ template<class T> using OST = tree<T, null_type, less<T>, rb_tree_tag,tree_order
 #define TIME chrono::duration<double, milli>(chrono::steady_clock::now()-TIME0).count()
 #define PRES(d) cout.precision(d);cout.setf(ios::fixed,ios::floatfield)
 #define NL cout << "\n"
-#define IO(PNAME) if(fopen((PNAME) ".in","r")){freopen((PNAME) ".in","r",stdin); freopen((PNAME) ".out","w",stdout);} cin.tie(0)->sync_with_stdio(0)
+#define IO(PNAME) if(fopen(PNAME ".in","r")){freopen(PNAME ".in","r",stdin);freopen(PNAME ".out","w",stdout);}cin.tie(0)->sync_with_stdio(0)
 
 auto TIME0=chrono::steady_clock::now(); //lim=2000ms, use TIME for curr time
 //srand(SEED) to set SEED, rand() to get 
