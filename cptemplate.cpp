@@ -4,7 +4,7 @@
 #include <ext/rope>
 using namespace std; using namespace __gnu_pbds; using namespace __gnu_cxx;
 
-//:pray: :fishy15: :pray: :summitiosity: :pray: :prodakcin: 
+//:pray: :fishy15: :pray: :summitosity: :pray: :prodakcin: 
 
 //C++ Template (Aryansh Shrivastava) -- run w/ cmd+shift+r
 
