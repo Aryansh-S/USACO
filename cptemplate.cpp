@@ -103,8 +103,6 @@ signed main(){
 	return 0; 
 }
 
-
-
 ///////////////////////////////////////////////////READ BELOW///////////////////////////////////////////////////////////////
 //do something! use ll if int overflow, analyze time complexity 
 //-- ~10^7 usually, at most 10^8, 2*10^8 is pushing it, i.e. n=10^5 is O(n log n) -- if(TIME>2000ms) -> TLE
