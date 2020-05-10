@@ -57,12 +57,10 @@ template<class T> using OST = tree<T, null_type, less<T>, rb_tree_tag,tree_order
 #define NL cout << "\n"
 #define IO(PNAME) if(fopen(PNAME ".in","r")){freopen(PNAME ".in","r",stdin);freopen(PNAME ".out","w",stdout);}cin.tie(0)->sync_with_stdio(0)
 
-auto TIME0=chrono::steady_clock::now(); //lim=2000ms, use TIME for curr time
-//srand(SEED) to set SEED, rand() to get 
+auto TIME0=chrono::steady_clock::now(); //srand(SEED) to set SEED, rand() to get 
 random_device rd;mt19937 mt(rd()+std::chrono::steady_clock::now().time_since_epoch().count());
 uniform_int_distribution<int> unifd(-INF,INF);
 #define RAND unifd(mt)
-//can be negative
 
 void in(){} void outln(){} void out_(){} //for fast, easy IO
 template<typename T, typename...Types> void in(T& var1, Types&...var2){cin >> var1; in(var2...);}
@@ -82,12 +80,13 @@ template<class T> void out_(vector<T> v,int sz){trav(t,v) out_(t);}
 template<class T> void out(T*a,int sz){F0R(i,sz) out(a[i]);}
 template<class T> void out_(T*a,int sz){F0R(i,sz) out_(a[i]);}
 
-template <class T1, class T2> struct comps{bool operator()(const pair<T1,T2>&p1, const pair<T1,T2>&p2){return (p1.s!=p2.s)?(p1.s<p2.s):(p1.f<p2.f);}};
-template <class T1, class T2> struct cpf{bool operator()(const pair<T1,T2>&a, const T1&b){return(a.f!=b)?(a.f<b):(a.s<b);}
+template<class T1, class T2> struct comps{bool operator()(const pair<T1,T2>&p1, const pair<T1,T2>&p2){return (p1.s!=p2.s)?(p1.s<p2.s):(p1.f<p2.f);}};
+template<class T1, class T2> struct cpf{bool operator()(const pair<T1,T2>&a, const T1&b){return(a.f!=b)?(a.f<b):(a.s<b);}
 bool operator()(const T1&a, const pair<T1,T2>&b){return(a!=b.f)?(a<b.f):(a<b.s);}};
-template <class T1, class T2> struct cps{bool operator()(const pair<T1,T2>&a, const T2&b){return(a.s!=b)?(a.s<b):(a.f<b);}
+template<class T1, class T2> struct cps{bool operator()(const pair<T1,T2>&a, const T2&b){return(a.s!=b)?(a.s<b):(a.f<b);}
 bool operator()(const T2&a, const pair<T1,T2>&b){return(a!=b.s)?(a<b.s):(a<b.f);}};
-//in some cases use struct() and other cases use struct
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 
 
@@ -96,9 +95,10 @@ signed main(){
 	
 	
 	
-	return 0; //read the bottom
+	return 0; 
 }
 
+///////////////////////////////////////////////////READ BELOW///////////////////////////////////////////////////////////////
 //do something! use ll if int overflow, analyze time complexity 
 //-- ~10^7 usually, at most 10^8, 2*10^8 is pushing it, i.e. n=10^5 is O(n log n) -- if(TIME>2000ms) -> TLE
 //careful on sorting global arrays! the zeroes can mess things up, so if using array, instead of all(a) use a,a+n
