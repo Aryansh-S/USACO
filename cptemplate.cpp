@@ -54,6 +54,7 @@ template<class T> using OST = tree<T, null_type, less<T>, rb_tree_tag,tree_order
 #define ckmax(a,b) a=max(a,b)
 #define TIME chrono::duration<double, milli>(chrono::steady_clock::now()-TIME0).count()
 #define PRES(d) cout.precision(d);cout.setf(ios::fixed,ios::floatfield)
+#define MEM(a,k) memset((a),(k),sizeof(a))
 #define NL cout << "\n"
 
 auto TIME0=chrono::steady_clock::now(); //lim=2000ms, use TIME for curr time
