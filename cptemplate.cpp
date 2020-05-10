@@ -1,9 +1,14 @@
-#include <bits/stdc++.h>
+#include <bits/stdc++.h> 
 #include <ext/pb_ds/assoc_container.hpp>
 #include <ext/pb_ds/tree_policy.hpp>
 #include <ext/rope>
 using namespace std; using namespace __gnu_pbds; using namespace __gnu_cxx;
+
+//:pray: :fishy15: :pray: :summitiosity: :pray: :prodakcin: 
+
 //C++ Template (Aryansh Shrivastava) -- run w/ cmd+shift+r
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 //#define int ll 
 typedef long long ll; //only use above for test
@@ -97,6 +102,8 @@ signed main(){
 	
 	return 0; 
 }
+
+
 
 ///////////////////////////////////////////////////READ BELOW///////////////////////////////////////////////////////////////
 //do something! use ll if int overflow, analyze time complexity 
