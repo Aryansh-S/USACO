@@ -10,8 +10,8 @@ using namespace std; using namespace __gnu_pbds; using namespace __gnu_cxx;
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-//#define int ll 
-typedef long long ll; //only use above for test
+//#define int ll //only use for test
+typedef long long ll; 
 typedef long double ld;
 typedef double db;
 typedef string str;
