@@ -54,8 +54,8 @@ template<class T> using OST = tree<T, null_type, less<T>, rb_tree_tag,tree_order
 #define ckmax(a,b) a=max(a,b)
 #define TIME chrono::duration<double, milli>(chrono::steady_clock::now()-TIME0).count()
 #define PRES(d) cout.precision(d);cout.setf(ios::fixed,ios::floatfield)
-#define MEM(a,k) memset((a),(k),sizeof(a))
 #define NL cout << "\n"
+#define IO if(fopen(PNAME ".in","r")){freopen(PNAME ".in","r",stdin); freopen(PNAME ".out","w",stdout);} cin.tie(0)->sync_with_stdio(0)
 
 auto TIME0=chrono::steady_clock::now(); //lim=2000ms, use TIME for curr time
 //srand(SEED) to set SEED, rand() to get 
@@ -94,7 +94,7 @@ bool operator()(const T2&a, const pair<T1,T2>&b){return(a!=b.s)?(a<b.s):(a<b.f);
 
 
 signed main(){
-	cin.tie(0)->sync_with_stdio(0); if(fopen(PNAME ".in","r")){freopen(PNAME ".in","r",stdin); freopen(PNAME ".out","w",stdout);}
+	IO;
 	
 	
 	
