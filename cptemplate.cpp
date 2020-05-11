@@ -1,13 +1,8 @@
 #include <bits/stdc++.h> 
-using namespace std; 
-
-#if defined(__GNUC__)
 #include <ext/pb_ds/assoc_container.hpp>
 #include <ext/pb_ds/tree_policy.hpp>
 #include <ext/rope>
-using namespace __gnu_pbds; using namespace __gnu_cxx;
-template<class T> using OST = tree<T, null_type, less<T>, rb_tree_tag,tree_order_statistics_node_update>; //change for map
-#endif
+using namespace std; using namespace __gnu_pbds; using namespace __gnu_cxx;
 
 //:pray: :fishy15: :pray: :summitosity: :pray: :prodakcin: 
 
@@ -25,6 +20,7 @@ typedef pair<ll,ll> pll;
 typedef vector<int> vi;
 template<class T> using minpq = priority_queue<T, vector<T>, greater<T> >;
 template<class T> using maxpq = priority_queue<T>;
+template<class T> using OST = tree<T, null_type, less<T>, rb_tree_tag,tree_order_statistics_node_update>; //change for map
 #define fbo find_by_order
 #define ofk order_of_key
 #define pb push_back
