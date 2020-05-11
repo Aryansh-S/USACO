@@ -60,7 +60,8 @@ template<class T> using OST = tree<T, null_type, less<T>, rb_tree_tag,tree_order
 #define TIME chrono::duration<double, milli>(chrono::steady_clock::now()-TIME0).count()
 #define PRES(d) cout.precision(d);cout.setf(ios::fixed,ios::floatfield)
 #define NL cout << "\n"
-#define IO(PNAME) if(fopen(PNAME ".in","r")){freopen(PNAME ".in","r",stdin);freopen(PNAME ".out","w",stdout);}cin.tie(0)->sync_with_stdio(0)
+#define IO cin.tie(0)->sync_with_stdio(0)
+#define FIO(PNAME) if(fopen(PNAME ".in","r")){freopen(PNAME ".in","r",stdin);freopen(PNAME ".out","w",stdout);}
 
 auto TIME0=chrono::steady_clock::now(); //srand(SEED) to set SEED, rand() to get 
 random_device rd;mt19937 mt(rd()+std::chrono::steady_clock::now().time_since_epoch().count());
@@ -95,8 +96,8 @@ bool operator()(const T2&a, const pair<T1,T2>&b){return(a!=b.s)?(a<b.s):(a<b.f);
 
 
 
-signed main(){
-	IO("");
+signed main(){ IO;
+	FIO(""); 
 	
 	
 	
