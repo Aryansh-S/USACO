@@ -9,7 +9,7 @@ Undergraduate Topics in CS : Guide to Competitive Programming -- built upon CSES
 
 CLRS -- a must have for all intents and purposes in algorithmic learning; certainly a good starting point for problem solving skills
 
-KACTL -- meant as more of a technique & implementation reference guide (more so than a "textbook"); extremely dense but comprehenensive and well-written
+KACTL -- meant as more of a technique & implementation reference guide (more so than a "textbook"); extremely dense but comprehensive and well-written
 
 You choose what you want to start with, but pace yourself through the content and focus on building intuition. 
 
