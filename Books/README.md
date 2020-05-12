@@ -4,7 +4,7 @@ First and foremost: the problem sets -- you need to develop intuition; you can a
 
 - https://github.com/SuprDewd/T-414-AFLV (a rigorous, open source course that guides you through a proper treatment of competitive programming)
 
-- https://cses.fi/problemset/ (an amazing problem set that guides you through algorithmic concepts in competitive programming -- great for standardized concept exposition)
+- https://cses.fi/problemset/ (an amazing problem set that guides you through algorithmic concepts in competitive programming -- great for standardized concept exposition; goes well in combo with the book linked in this directory)
 
 - USACO Past Problems (always your best bet if you know the theory -- remember to upsolve and work on implementation even if you decide to resort to editorials + even if you solve a problem yourself, read the editorial anyway -- you might learn something)
 
