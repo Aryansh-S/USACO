@@ -11,6 +11,8 @@ The "src" folder just contains source files and images that are integrated elsew
 
 [Here](https://www.overleaf.com/read/vxkkgmmrmckv) is the latest version of a book I am writing on competitive programming so far (a work in progress). 
 
+You should check out the sources provided in the "Books" folder -- they are particularly good for competitive programming.
+
 # Template (\& A First on Structs) 
 
 My template for CP is "cptemplate.cpp" along with algorithms from "algotemplate.cpp" as useful. 
