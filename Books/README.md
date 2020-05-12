@@ -7,4 +7,6 @@ CSES -- a well-developed coverage of algorithmic CS in competitive context
 
 Undergraduate Topics in CS : Guide to Competitive Programming -- built upon CSES but more advanced and thorough on a conceptual level, this book provides a more detailed exposition into contest programming 
 
+CLRS -- a must have for all intents and purposes in algorithmic learning; certainly a good starting point for problem solving skills
+
 
