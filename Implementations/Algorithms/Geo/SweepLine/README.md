@@ -33,3 +33,8 @@ This gives us the following overall approach:
 - At most, each point can enter the active set once and exit once. This means that we achieve log-linear time given the insertion specifics of a balanced binary search tree. 
 
 The name "sweep line" comes from the metaphor of having a line sweep through the plane from left to right (or sometimes top to bottom, or even angularly) to critical processing points, maintaining active points as it processes through. 
+
+Good references for extra reading on this approach:
+- https://www.topcoder.com/community/competitive-programming/tutorials/line-sweep-algorithms/
+- https://www.hackerearth.com/practice/math/geometry/line-sweep-technique/tutorial/
+- https://www.geeksforgeeks.org/given-a-set-of-line-segments-find-if-any-two-segments-intersect/
