@@ -99,9 +99,7 @@ signed main(){
 	IO("min_coin_change_dp"); //goal: form a sum of n using minimum coins possible from set of coin values
 	
 	in(n,sz),in(coins,sz); 
-	F1R(x,n){
- 		val[x]=INF; trav(c,coins) if(x-c) ckmin(val[x],val[x-c]+1);
- 	}
+	F1R(x,n){val[x]=INF; trav(c,coins) if(x-c) ckmin(val[x],val[x-c]+1);}
   	out(val[n]);
   
 	return 0; 
