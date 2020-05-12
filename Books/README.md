@@ -9,4 +9,5 @@ Undergraduate Topics in CS : Guide to Competitive Programming -- built upon CSES
 
 CLRS -- a must have for all intents and purposes in algorithmic learning; certainly a good starting point for problem solving skills
 
+You choose what you want to start with, but pace yourself through the content and focus on building intuition. 
 
