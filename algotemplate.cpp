@@ -72,7 +72,7 @@ void rsort(int*l,int*r,int msb=31){
     if(l!=r&&msb>=0){vi::iterator m=partition(l,r,radix(msb)); msb--;rsort(l,m,msb),rsort(m,r,msb);}
 }
 
-struct DSU{ //from 0 to n-1
+struct DSURB{ //from 0 to n-1
 	vi e; void init(int n) { e = vi(n,-1); }
     bool rollback,cycfind; vector<pair<pii,pii> > mod;
 	int get(int x) { return e[x] < 0 ? x : e[x] = get(e[x]); }
