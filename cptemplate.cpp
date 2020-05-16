@@ -95,7 +95,7 @@ bool operator()(const T2&a, const pair<T1,T2>&b){return(a!=b.s)?(a<b.s):(a<b.f);
 
 
 
-signed main(){
+int main(){
 	IO(""); 
 	
 	
