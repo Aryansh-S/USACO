@@ -1,7 +1,7 @@
 #include <bits/stdc++.h> 
 using namespace std; 
 //union-find data structure made easy & efficient
-//keep an array of parents (e below)
+//keep an array of rankings (e below)
 
 const int mx=1e5; 
 int e[mx]; 
