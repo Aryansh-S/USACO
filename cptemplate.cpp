@@ -61,7 +61,7 @@ template<class T> using OST = tree<T, null_type, less<T>, rb_tree_tag,tree_order
 #define NL cout << "\n"
 #define IO(PNAME) if(fopen(PNAME ".in","r")){freopen(PNAME ".in","r",stdin);freopen(PNAME ".out","w",stdout);}cin.tie(0)->sync_with_stdio(0)
 
-auto TIME0=chrono::steady_clock::now(); 
+auto TIME0 = chrono::steady_clock::now(); 
 
 mt19937 mt(std::chrono::steady_clock::now().time_since_epoch().count());
 uniform_int_distribution<int> unifd(-INF,INF);
@@ -98,7 +98,7 @@ bool operator()(const T2&a, const pair<T1,T2>&b){return(a!=b.s)?(a<b.s):(a<b.f);
 int main(){
 	IO(""); 
 
-
+	
 
 	return 0; 
 }
