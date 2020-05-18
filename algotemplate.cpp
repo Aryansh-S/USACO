@@ -1,7 +1,8 @@
 /*
  * Aryansh Shrivastava 
  * USACO Algorithm Template 
- * Last Updated: 5/4/20
+ * Last Updated: 5/17/20
+ * No longer updating macros/formulations other than those strictly mandated by specific algorithms here
  */
 
 #include <bits/stdc++.h> 
