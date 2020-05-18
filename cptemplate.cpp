@@ -61,8 +61,9 @@ template<class T> using OST = tree<T, null_type, less<T>, rb_tree_tag,tree_order
 #define NL cout << "\n"
 #define IO(PNAME) if(fopen(PNAME ".in","r")){freopen(PNAME ".in","r",stdin);freopen(PNAME ".out","w",stdout);}cin.tie(0)->sync_with_stdio(0)
 
-auto TIME0=chrono::steady_clock::now(); //srand(SEED) to set SEED, rand() to get 
-random_device rd;mt19937 mt(rd()+std::chrono::steady_clock::now().time_since_epoch().count());
+auto TIME0=chrono::steady_clock::now(); 
+
+mt19937 mt(std::chrono::steady_clock::now().time_since_epoch().count());
 uniform_int_distribution<int> unifd(-INF,INF);
 #define RAND unifd(mt)
 
