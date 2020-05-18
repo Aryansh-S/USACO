@@ -487,7 +487,7 @@ template<class T, int SZ> struct BIT_r{ //range update, range query
 	T sum(int x) { return bit[1].sum(x)*x+bit[0].sum(x); }
 	T query(int x, int y) { return sum(y)-sum(x-1); }
 };
-template <const int maxN> struct OST{ //goal: alternative to R&B ordered statistic tree policy -- operations rank & find kth smallest
+template <const int maxN> struct OSTSlow{ //slower OST with Fenwick
 	BIT<int, maxN> tree;
 	void ins(int x){if(!tree.query(x,x)) tree.upd(x,1);}
 	void del(int x){if(tree.query(x,x)) tree.upd(x,-1);}
