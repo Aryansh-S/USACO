@@ -10,7 +10,6 @@ using namespace std; using namespace __gnu_pbds; using namespace __gnu_cxx;
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-//#define int ll //only use for test (change int main to signed)
 typedef long long ll; 
 typedef long double ld;
 typedef double db;
