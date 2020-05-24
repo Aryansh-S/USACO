@@ -2,13 +2,13 @@
 using namespace std;
 
 struct node{
-  int val; node* prev = NULL, nxt = NULL; 
+  int val; node *prev = NULL, *nxt = NULL; 
 };
 
 struct LL{
-  node* head, tail; 
+  node *head, *tail; 
   void push_back(int val){
-    node* tmp = new node; 
+    node *tmp = new node; 
     tmp->val = val; tmp->nxt = NULL; tmp->prev = tail; 
     if(head == NULL){
       head = tail = tmp; 
@@ -18,7 +18,7 @@ struct LL{
     }
   }
   void push_front(int val){
-    node* tmp = new node; 
+    node *tmp = new node; 
     tmp->val = val; tmp->nxt = head; tmp->prev = NULL; 
     if(tail == NULL){
       head = tail = tmp; 
@@ -28,7 +28,7 @@ struct LL{
     }
   }
   int operator[](int n){
-    node* tptr = head; 
+    node *tptr = head; 
     while(n--) tptr = tptr->nxt; 
     return tptr->val;
   }
