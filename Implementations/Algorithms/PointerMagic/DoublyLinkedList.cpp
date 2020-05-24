@@ -29,6 +29,14 @@ struct LL{
       head->prev = tmp; head = head->prev; 
     }
   }
+  void pop_back(){
+    tail = tail->prev; 
+    tail->nxt = NULL; 
+  }
+  void pop_front(){
+    head = head->nxt;
+    head->prev = NULL; 
+  }
   int operator[](int n){
     node *tptr = head; 
     while(n--) tptr = tptr->nxt; 
