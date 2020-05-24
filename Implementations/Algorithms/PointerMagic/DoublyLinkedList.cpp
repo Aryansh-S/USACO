@@ -48,7 +48,11 @@ LL test;
 
 int main(){
   
-  test.push_back(1); test.push_back(2); cout << test[1] << "\n";
+  test.push_back(1); test.push_back(2); test.push_back(3); cout << test[1] << "\n";
+  
+  test.pop_front(); cout << test[1] << "\n";
+  
+  test.push_front(0); test.pop_back(); cout << test[0] << "\n";
   
   return 0;
 }
