@@ -8,7 +8,7 @@ struct node{
 };
 
 struct LL{
-  node *head, *tail; 
+  node *head, *tail; int SZ; 
   void push_back(int val){
     node *tmp = new node; 
     tmp->val = val; tmp->nxt = NULL; tmp->prev = tail; 
@@ -18,6 +18,7 @@ struct LL{
     else{
       tail->nxt = tmp; tail = tail->nxt; 
     }
+    ++SZ;
   }
   void push_front(int val){
     node *tmp = new node; 
@@ -28,19 +29,25 @@ struct LL{
     else{
       head->prev = tmp; head = head->prev; 
     }
+    ++SZ;
   }
   void pop_back(){
     tail = tail->prev; 
     tail->nxt = NULL; 
+    --SZ;
   }
   void pop_front(){
     head = head->nxt;
     head->prev = NULL; 
+    --SZ;
   }
   int operator[](int n){
     node *tptr = head; 
     while(n--) tptr = tptr->nxt; 
     return tptr->val;
+  }
+  int size(){
+    return SZ; 
   }
 };
 
