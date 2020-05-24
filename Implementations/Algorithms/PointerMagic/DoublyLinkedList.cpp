@@ -1,6 +1,8 @@
 #include <bits/stdc++.h>
 using namespace std;
 
+//a simple, effective implementation of a doubly linked list in C++
+
 struct node{
   int val; node *prev = NULL, *nxt = NULL; 
 };
