@@ -3,9 +3,9 @@ using namespace std;
 
 //a simple, effective implementation of a doubly linked list in C++
 
-struct DLL{
+template<class T> struct DLL{
   struct node{
-    int val; node *prev = NULL, *nxt = NULL; 
+    T val; node *prev = NULL, *nxt = NULL; 
   };
   node *head, *tail; int SZ; 
   void push_back(int val){
@@ -50,7 +50,7 @@ struct DLL{
   }
 };
 
-DLL test;
+DLL<int> test;
 
 int main(){
   
