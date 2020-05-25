@@ -3,7 +3,7 @@ using namespace std;
 
 //a simple, efficient segment tree to support point update, range query for min, max, sum, etc.
 
-template<class T> struct SEG{ //UPD literally updates!!
+template<class T> struct SEG{ //UPD literally updates!!, but you can modify this easily
 	const T orz=-10*big;
 	char choice='s'; //'m' is min, 'M' is max, 's' is sum
 	void choose(char ch){choice=ch;}
