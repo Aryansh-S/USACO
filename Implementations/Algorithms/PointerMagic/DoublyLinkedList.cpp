@@ -7,7 +7,7 @@ struct node{
   int val; node *prev = NULL, *nxt = NULL; 
 };
 
-struct LL{
+struct DLL{
   node *head, *tail; int SZ; 
   void push_back(int val){
     node *tmp = new node; 
@@ -51,7 +51,7 @@ struct LL{
   }
 };
 
-LL test;
+DLL test;
 
 int main(){
   
