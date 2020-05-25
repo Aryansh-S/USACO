@@ -3,7 +3,7 @@ using namespace std;
 
 //a simple, efficient segment tree to support point update, range query for min, max, sum, etc.
 
-#define big INT_MAX
+#define big 1e8+69
 
 template<class T> struct SEG{ //UPD literally updates!!, but you can modify this easily
 	const T orz=-10*big;
