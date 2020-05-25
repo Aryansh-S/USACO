@@ -1,6 +1,5 @@
 struct frac{
   int num = 0, den = 1; 
-  frac(int n = 0, int d = 1){num = n, den = d;}
   void simp(){
     int gcd = __gcd(num,den); num/=gcd, den/=gcd;
   }
