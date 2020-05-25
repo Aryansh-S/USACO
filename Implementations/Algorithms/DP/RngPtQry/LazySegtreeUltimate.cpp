@@ -70,6 +70,9 @@ int main(){
   test.upd(1,2,10.2);
   test.upd(2,4,12.3);
   cout << test.query(1,4) << "\n";
+	
+  test.choose('M');
+  cout << test.query(1,4) << "\n";
 
   return 0;
 }
