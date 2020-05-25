@@ -3,11 +3,10 @@ using namespace std;
 
 //a simple, effective implementation of a doubly linked list in C++
 
-struct node{
-  int val; node *prev = NULL, *nxt = NULL; 
-};
-
 struct DLL{
+  struct node{
+    int val; node *prev = NULL, *nxt = NULL; 
+  };
   node *head, *tail; int SZ; 
   void push_back(int val){
     node *tmp = new node; 
