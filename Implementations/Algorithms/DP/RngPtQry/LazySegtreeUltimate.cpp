@@ -3,8 +3,27 @@ using namespace std;
 
 //an adaptive lazy segtree that supports any kind of query 
 
+#define pb push_back
+#define eb emplace_back
+#define ins insert
+#define ers erase
+#define mp make_pair
 #define f first
 #define s second
+#define sz(x) (int)(x).size()
+#define sq(x) (x)*(x)
+#define rsz resize
+#define lb lower_bound
+#define ub upper_bound
+#define all(x) begin(x),end(x)
+#define rall(x) end(x),begin(x)
+#define trav(a,x) for(auto&(a):(x))
+#define FOR(i,a,b) for(__typeof(b)i=(a)-((a)>(b));i!=(b)-((a)>(b));i+=((a)>(b))?-1:1) //go from i=lb to i=ub-1
+#define F0R(i,b) FOR(i,0,b)
+#define FOR_(i,a,b,d) for(__typeof(b)i=(a)-((a)>(b));(a>b)?(i>b-1):(i<b);i+=(((a)>(b))?-1:1)*abs(d)) //go from i=lb to i=ub-1 by size d increments
+#define F0R_(i,b,d) FOR_(i,0,b,d)
+#define R0F(i,n) FOR(i,n,0)
+#define R0F_(i,b,d) FOR_(i,b,0,d)
 
 char /*global*/ bevvlazy='s'; //controls query type
 int IDENN=0;
