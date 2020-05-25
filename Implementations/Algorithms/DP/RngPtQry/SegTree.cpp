@@ -5,7 +5,7 @@ using namespace std;
 
 #define big 1e8+69
 
-template<class T> struct SEG{ //UPD literally updates!!, but you can modify this easily
+template<class T> struct SEG{ //UPD literally updates!!
 	const T orz=-10*big;
 	char choice='s'; //'m' is min, 'M' is max, 's' is sum
 	void choose(char ch){choice=ch;}
@@ -15,6 +15,7 @@ template<class T> struct SEG{ //UPD literally updates!!, but you can modify this
 		if(choice=='m') return min(a,b);
 		if(choice=='s') return a+b;
 		if(choice=='M') return max(a,b);
+        exit(0); //bc wth
 	}
 	int n; vector<T> seg;
 		void init(int _n) { n = _n; seg.assign(4*n+1,orz); }
