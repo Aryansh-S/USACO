@@ -17,4 +17,5 @@ struct frac{
   frac operator/(frac f){
     frac ret = {num * f.den, den * f.num}; ret.simp(); return ret;
   }
+  long double val(){return (long double)num / (long double)den;}
 };
