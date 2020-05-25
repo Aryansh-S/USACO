@@ -388,6 +388,7 @@ template<class T> struct SEG{ //UPD literally updates!!
 		if(choice=='m') return min(a,b);
 		if(choice=='s') return a+b;
 		if(choice=='M') return max(a,b);
+        	exit(0); //bc wth
 	}
 	int n; vector<T> seg;
 		void init(int _n) { n = _n; seg.assign(4*n+1,orz); }
