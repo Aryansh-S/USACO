@@ -24,6 +24,13 @@ using namespace std;
 #define F0R_(i,b,d) FOR_(i,0,b,d)
 #define R0F(i,n) FOR(i,n,0)
 #define R0F_(i,b,d) FOR_(i,b,0,d)
+#define bigg (int)(1e9+7)
+#define MOD (int)(1e9+7)
+#define INF 0x3f3f3f3f
+#define INFLL 0x3f3f3f3f3f3f3f3f
+#define EPS 1e-8
+#define ckmin(a,b) a=min(a,b)
+#define ckmax(a,b) a=max(a,b)
 
 char /*global*/ bevvlazy='s'; //controls query type
 int IDENN=0;
@@ -80,14 +87,14 @@ template<class T, int SZ> struct LSEG{ //updates by adding, 1 indexed
 	}
 };
 
-LSEG<double,10> test; 
+LSEG<int,10> test; 
 
 int main(){
 
   test.choose('s'); //choose query
   
-  test.upd(1,2,10.2);
-  test.upd(2,4,12.3);
+  test.upd(1,2,10);
+  test.upd(2,4,12);
   cout << test.query(1,4) << "\n";
 	
   test.choose('M');
