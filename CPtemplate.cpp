@@ -57,9 +57,6 @@ template<class T> using OST = tree<T, null_type, less<T>, rb_tree_tag,tree_order
 #define ckmin(a,b) a=min(a,b)
 #define ckmax(a,b) a=max(a,b)
 #define TIME chrono::duration<double, milli>(chrono::steady_clock::now()-TIME0).count()
-#define PRES(d) cout.precision(d);cout.setf(ios::fixed,ios::floatfield)
-#define NL cout << "\n"
-#define IO(PNAME) if(fopen(PNAME ".in","r")){freopen(PNAME ".in","r",stdin);freopen(PNAME ".out","w",stdout);}cin.tie(0)->sync_with_stdio(0)
 
 auto TIME0 = chrono::steady_clock::now(); 
 
@@ -67,23 +64,30 @@ mt19937 mt(std::chrono::steady_clock::now().time_since_epoch().count());
 uniform_int_distribution<int> unifd(-INF,INF);
 #define RAND unifd(mt)
 
-void in(){} void outln(){} void out_(){} //for fast, easy IO
-template<typename T, typename...Types> void in(T& var1, Types&...var2){cin >> var1; in(var2...);}
-template<typename T> void out(T var1){cout << var1 << "\n";}
-template<typename T, typename...Types> void out(T var1, Types...var2){cout << var1 << " "; out(var2...);}
-template<typename T, typename...Types> void outln(T var1, Types...var2){cout << var1 << "\n"; outln(var2...);}
-template<typename T,typename...Types> void out_(T var1, Types...var2){cout << var1 << " "; out_(var2...);}
-template<class T1, class T2> void in(pair<T1,T2>&pt){in(pt.f,pt.s);} 
-template<class T1, class T2> void out(pair<T1,T2> pt){out(pt.f,pt.s);}
-template<class T1, class T2> void out_(pair<T1,T2> pt){out_(pt.f,pt.s);}
-template<class T> void in(vector<T>&v,int sz){F0R(i,sz){T x; in(x); v.pb(x);}}
-template<class T> void in(T*a,int sz){F0R(i,sz) in(a[i]);}
-template<class T> void out(vector<T> v){trav(t,v) out(t);}
-template<class T> void out(vector<T> v,int sz){trav(t,v) out(t);}
-template<class T> void out_(vector<T> v){trav(t,v) out_(t);}
-template<class T> void out_(vector<T> v,int sz){trav(t,v) out_(t);}
-template<class T> void out(T*a,int sz){F0R(i,sz) out(a[i]);}
-template<class T> void out_(T*a,int sz){F0R(i,sz) out_(a[i]);}
+namespace io{
+	#define PRES(d) cout.precision(d);cout.setf(ios::fixed,ios::floatfield)
+	#define NL cout << "\n"
+	#define IO(PNAME) if(fopen(PNAME ".in","r")){freopen(PNAME ".in","r",stdin);freopen(PNAME ".out","w",stdout);}cin.tie(0)->sync_with_stdio(0)
+	void in(){} void outln(){} void out_(){} //for fast, easy IO
+	template<typename T, typename...Types> void in(T& var1, Types&...var2){cin >> var1; in(var2...);}
+	template<typename T> void out(T var1){cout << var1 << "\n";}
+	template<typename T, typename...Types> void out(T var1, Types...var2){cout << var1 << " "; out(var2...);}
+	template<typename T, typename...Types> void outln(T var1, Types...var2){cout << var1 << "\n"; outln(var2...);}
+	template<typename T,typename...Types> void out_(T var1, Types...var2){cout << var1 << " "; out_(var2...);}
+	template<class T1, class T2> void in(pair<T1,T2>&pt){in(pt.f,pt.s);} 
+	template<class T1, class T2> void out(pair<T1,T2> pt){out(pt.f,pt.s);}
+	template<class T1, class T2> void out_(pair<T1,T2> pt){out_(pt.f,pt.s);}
+	template<class T> void in(vector<T>&v,int sz){F0R(i,sz){T x; in(x); v.pb(x);}}
+	template<class T> void in(T*a,int sz){F0R(i,sz) in(a[i]);}
+	template<class T> void out(vector<T> v){trav(t,v) out(t);}
+	template<class T> void out(vector<T> v,int sz){trav(t,v) out(t);}
+	template<class T> void out_(vector<T> v){trav(t,v) out_(t);}
+	template<class T> void out_(vector<T> v,int sz){trav(t,v) out_(t);}
+	template<class T> void out(T*a,int sz){F0R(i,sz) out(a[i]);}
+	template<class T> void out_(T*a,int sz){F0R(i,sz) out_(a[i]);}
+}
+
+using namespace io;
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
