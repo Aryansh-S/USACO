@@ -3,8 +3,9 @@ using namespace std;
 
 //bounded type for simple floodfill
 
-template<class T, int l = 0, int r> bd{ 
-  T v; 
+template<class T> struct bd{ 
+  T v; int l,r;
+  bd(int _l, int _r){l=_l,r=_r;}
   operator int(){return v;}
   bd operator++(){
     bd tmp; tmp.v = v + 1 > r ? r : ++v; return tmp; 
@@ -13,18 +14,3 @@ template<class T, int l = 0, int r> bd{
     bd tmp; tmp.v = v - 1 < l ? l : --v; return tmp;
   }
 };
-
-int n;
-
-void dfs(bd<int, n> i, bd<int, n> j){
-  if(!vis[(int)i][(int)j]){
-    vis[(int)i][(int)j]) = 1;
-  }
-}
-
-int main(){
-  
-  
-  
-  return 0;
-}
