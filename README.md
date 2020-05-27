@@ -7,6 +7,8 @@ If you want to #include <bits/stdc++.h> but your compiler does not allow you to 
 follow the unofficial directions at the top (there is a myth that this reduces performance, but do not buy that). 
 The "src" folder just contains source files and images that are integrated elsewhere; you can ignore it. 
 
+- Unfortunately, most versions of clang do not support pb_ds as of late, which is why I always recommend gcc for compilation. However, repl.it has recently moved to a better version of clang that does provide support for pb_ds, so it's still a great online compiler.
+
 # Book
 
 [Here](https://www.overleaf.com/read/vxkkgmmrmckv) is the latest version of a book I am writing on competitive programming so far (a work in progress). 
