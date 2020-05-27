@@ -73,7 +73,7 @@ namespace template_lib {
 	namespace math_macros {
 		#define ckmin(a,b) a=min(a,b)
 		#define ckmax(a,b) a=max(a,b)
-		ll pow(ll a, ll b) { //log
+		ll POW(ll a, ll b) { //log
 			ll res = 1; while(b) res *= (b & 1)? a : 1, a*=a, b>>=1;
 			return res;
 		}
