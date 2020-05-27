@@ -1,7 +1,6 @@
 #include <bits/stdc++.h>  
 #include <ext/pb_ds/assoc_container.hpp>
 #include <ext/pb_ds/tree_policy.hpp>
-#include <ext/rope>
 using namespace std; using namespace __gnu_pbds; 
 
 // :pray: :fishy15: :pray: :summitosity: :pray: :prodakcin: 
