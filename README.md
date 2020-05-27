@@ -66,6 +66,8 @@ What to use instead? I recommend that, instead of going for Xcode's compiler set
 
 You do not need an IDE. Atom really does do the trick. As a plus, you can choose color themes to suit your style. Extensibility with Atom is amazing: you can use it on Windows and Linux as well, as long as you install GCC/G++ in a known path. 
 
+Or go the repl.it route because it supports a better version of clang that does not run into these issues!
+
 # Topics
 What to learn for each division
 
