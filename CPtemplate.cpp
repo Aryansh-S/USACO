@@ -64,7 +64,7 @@ mt19937 mt(std::chrono::steady_clock::now().time_since_epoch().count());
 uniform_int_distribution<int> unifd(-INF,INF);
 #define RAND unifd(mt)
 
-namespace io {
+namespace io{
 	#define PRES(d) cout.precision(d);cout.setf(ios::fixed,ios::floatfield)
 	#define NL cout << "\n"
 	#define IO(PNAME) if(fopen(PNAME ".in","r")){freopen(PNAME ".in","r",stdin);freopen(PNAME ".out","w",stdout);}cin.tie(0)->sync_with_stdio(0)
@@ -93,7 +93,7 @@ using namespace io;
 
 
 
-int main(){
+int main() {
 	IO(""); 
 
 	
