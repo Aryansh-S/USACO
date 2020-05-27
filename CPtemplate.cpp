@@ -45,9 +45,9 @@ namespace template_lib {
 
 	namespace loop_macros {
 		#define trav(a,x) for(auto&(a):(x))
-		#define FOR(i,a,b) for(__typeof(b)i=(a)-((a)>(b));i!=(b)-((a)>(b));i+=((a)>(b))?-1:1) //go from i=lb to i=ub-1
+		#define FOR(i,a,b) for(auto i=decltype(b){(a)-((a)>(b))};i!=(b)-((a)>(b));i+=((a)>(b))?-1:1) //go from i=lb to i=ub-1
 		#define F0R(i,b) FOR(i,0,b)
-		#define FOR_(i,a,b,d) for(__typeof(b)i=(a)-((a)>(b));(a>b)?(i>b-1):(i<b);i+=(((a)>(b))?-1:1)*abs(d)) //go from i=lb to i=ub-1 by size d increments
+		#define FOR_(i,a,b,d) for(auto i=decltype(b){(a)-((a)>(b))};(a>b)?(i>b-1):(i<b);i+=(((a)>(b))?-1:1)*abs(d)) //go from i=lb to i=ub-1 by size d increments
 		#define F0R_(i,b,d) FOR_(i,0,b,d)
 		#define R0F(i,n) FOR(i,n,0)
 		#define R0F_(i,b,d) FOR_(i,b,0,d)
