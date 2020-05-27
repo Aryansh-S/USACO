@@ -124,7 +124,7 @@ namespace template_lib {
 	
 	namespace grid_macros {
 		const int xd[4] = {0,1,0,-1}, yd[4] = {1,0,-1,0}; 
-		template<class T> struct bd{ //bdi for bounded int
+		template<class T> struct bd{ //bdi for inclusive bounded int
 			  T v = 0; int l = 0, r = 1;
 			  bd(int _v, int _l, int _r){l=_l,r=_r,v=_v;}
 			  operator int(){return v;}
