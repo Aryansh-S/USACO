@@ -74,7 +74,7 @@ namespace template_lib {
 			ll res = 1; while(b) res *= (b & 1)? a : 1, a*=a, b>>=1;
 			return res;
 		}
-		struct mi {
+		struct mi { //modular int
 			typedef decay<decltype(MOD)>::type T;
 			T val; 
 			explicit operator T() const { return val; }
@@ -124,7 +124,7 @@ namespace template_lib {
 	
 	namespace grid_macros {
 		const int xd[4] = {0,1,0,-1}, yd[4] = {1,0,-1,0}; 
-		template<class T> struct bd{ //bdi for int
+		template<class T> struct bd{ //bdi for bounded int
 			  T v = 0; int l = 0, r = 1;
 			  bd(int _v, int _l, int _r){l=_l,r=_r,v=_v;}
 			  operator int(){return v;}
