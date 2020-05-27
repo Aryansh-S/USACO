@@ -64,9 +64,6 @@ uniform_int_distribution<int> unifd(-INF,INF);
 #define RAND unifd(mt)
 
 namespace io {
-	#define PRES(d) cout.precision(d);cout.setf(ios::fixed,ios::floatfield)
-	#define NL cout << "\n"
-	#define IO(PNAME) if(fopen(PNAME ".in","r")){freopen(PNAME ".in","r",stdin);freopen(PNAME ".out","w",stdout);}cin.tie(0)->sync_with_stdio(0)
 	void in(){} void outln(){} void out_(){} //for fast, easy IO
 	template<typename T, typename...Types> void in(T& var1, Types&...var2){cin >> var1; in(var2...);}
 	template<typename T> void out(T var1){cout << var1 << "\n";}
@@ -85,6 +82,9 @@ namespace io {
 	template<class T> void out(T*a,int sz){F0R(i,sz) out(a[i]);}
 	template<class T> void out_(T*a,int sz){F0R(i,sz) out_(a[i]);}
 	#define what(x) out((#x),"is",(x))
+	#define PRES(d) cout.precision(d);cout.setf(ios::fixed,ios::floatfield)
+	#define NL cout << "\n"
+	#define IO(PNAME) if(fopen(PNAME ".in","r")){freopen(PNAME ".in","r",stdin);freopen(PNAME ".out","w",stdout);}cin.tie(0)->sync_with_stdio(0)
 }
 
 using namespace io;
