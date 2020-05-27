@@ -10,16 +10,21 @@ using namespace std; using namespace __gnu_pbds; using namespace __gnu_cxx;
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-typedef long long ll; 
-typedef long double ld;
-typedef double db;
-typedef string str;
-typedef pair<int,int> pii;
-typedef pair<ll,ll> pll;
-typedef vector<int> vi;
-template<class T> using minpq = priority_queue<T, vector<T>, greater<T> >;
-template<class T> using maxpq = priority_queue<T>;
-template<class T> using OST = tree<T, null_type, less<T>, rb_tree_tag,tree_order_statistics_node_update>; //change for map
+namespace type_macros {
+	typedef long long ll; 
+	typedef long double ld;
+	typedef double db;
+	typedef string str;
+	typedef pair<int,int> pii;
+	typedef pair<ll,ll> pll;
+	typedef vector<int> vi;
+	template<class T> using minpq = priority_queue<T, vector<T>, greater<T> >;
+	template<class T> using maxpq = priority_queue<T>;
+	template<class T> using OST = tree<T, null_type, less<T>, rb_tree_tag,tree_order_statistics_node_update>; //change for map
+}
+
+using namespace type_macros; 
+
 #define fbo find_by_order
 #define ofk order_of_key
 #define pb push_back
