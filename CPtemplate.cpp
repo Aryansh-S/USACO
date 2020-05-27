@@ -25,48 +25,71 @@ namespace type_macros {
 
 using namespace type_macros; 
 
-#define fbo find_by_order
-#define ofk order_of_key
-#define pb push_back
-#define eb emplace_back
-#define ins insert
-#define ers erase
-#define mp make_pair
-#define f first
-#define s second
-#define sz(x) (int)(x).size()
-#define sq(x) (x)*(x)
-#define rsz resize
-#define lb lower_bound
-#define ub upper_bound
-#define all(x) begin(x),end(x)
-#define rall(x) end(x),begin(x)
-#define trav(a,x) for(auto&(a):(x))
-#define FOR(i,a,b) for(__typeof(b)i=(a)-((a)>(b));i!=(b)-((a)>(b));i+=((a)>(b))?-1:1) //go from i=lb to i=ub-1
-#define F0R(i,b) FOR(i,0,b)
-#define FOR_(i,a,b,d) for(__typeof(b)i=(a)-((a)>(b));(a>b)?(i>b-1):(i<b);i+=(((a)>(b))?-1:1)*abs(d)) //go from i=lb to i=ub-1 by size d increments
-#define F0R_(i,b,d) FOR_(i,0,b,d)
-#define R0F(i,n) FOR(i,n,0)
-#define R0F_(i,b,d) FOR_(i,b,0,d)
-#define F1R(i,b) FOR(i,1,b+1)
-#define R1F(i,b) FOR(i,b+1,1)
-#define F1R_(i,b,d) FOR_(i,1,b+1,d)
-#define R1F_(i,b,d) FOR_(i,b+1,1,d)
-#define big (int)1e5
-#define bigg (int)(1e9+7)
-#define MOD (int)(1e9+7)
-#define INF 0x3f3f3f3f
-#define INFLL 0x3f3f3f3f3f3f3f3f
-#define EPS 1e-8
+namespace operator_macros {
+	#define fbo find_by_order
+	#define ofk order_of_key
+	#define pb push_back
+	#define eb emplace_back
+	#define ins insert
+	#define ers erase
+	#define mp make_pair
+	#define f first
+	#define s second
+	#define sz(x) (int)(x).size()
+	#define sq(x) (x)*(x)
+	#define rsz resize
+	#define lb lower_bound
+	#define ub upper_bound
+	#define all(x) begin(x),end(x)
+	#define rall(x) end(x),begin(x)
+}
+
+using namespace operator_macros;
+
+namespace loop_macros {
+	#define trav(a,x) for(auto&(a):(x))
+	#define FOR(i,a,b) for(__typeof(b)i=(a)-((a)>(b));i!=(b)-((a)>(b));i+=((a)>(b))?-1:1) //go from i=lb to i=ub-1
+	#define F0R(i,b) FOR(i,0,b)
+	#define FOR_(i,a,b,d) for(__typeof(b)i=(a)-((a)>(b));(a>b)?(i>b-1):(i<b);i+=(((a)>(b))?-1:1)*abs(d)) //go from i=lb to i=ub-1 by size d increments
+	#define F0R_(i,b,d) FOR_(i,0,b,d)
+	#define R0F(i,n) FOR(i,n,0)
+	#define R0F_(i,b,d) FOR_(i,b,0,d)
+	#define F1R(i,b) FOR(i,1,b+1)
+	#define R1F(i,b) FOR(i,b+1,1)
+	#define F1R_(i,b,d) FOR_(i,1,b+1,d)
+	#define R1F_(i,b,d) FOR_(i,b+1,1,d)
+}
+
+using namespace loop_macros;
+
+namespace const_macros {
+	#define big (int)1e5
+	#define bigg (int)(1e9+7)
+	#define MOD (int)(1e9+7)
+	#define INF 0x3f3f3f3f
+	#define INFLL 0x3f3f3f3f3f3f3f3f
+	#define EPS 1e-8
+}
+
+using namespace const_macros;
+
 #define ckmin(a,b) a=min(a,b)
 #define ckmax(a,b) a=max(a,b)
-#define TIME chrono::duration<double, milli>(chrono::steady_clock::now()-TIME0).count()
 
-auto TIME0 = chrono::steady_clock::now(); 
+namespace time_macros {
+	auto TIME0 = chrono::steady_clock::now(); 
+	#define TIME chrono::duration<double, milli>(chrono::steady_clock::now()-TIME0).count()
+}
 
-mt19937 mt(std::chrono::steady_clock::now().time_since_epoch().count());
-uniform_int_distribution<int> unifd(-INF,INF);
-#define RAND unifd(mt)
+using namespace time_macros;
+
+namespace rand_macros {
+	mt19937 mt(std::chrono::steady_clock::now().time_since_epoch().count());
+	uniform_int_distribution<int> unifd(-INF,INF);
+	#define RAND unifd(mt)
+}
+
+using namespace rand_macros;
 
 namespace io_macros {
 	void in(){} void outln(){} void out_(){} //for fast, easy IO
