@@ -5,7 +5,7 @@ using namespace std;
 
 template<class T> struct bd{ 
   T v; int l,r;
-  bd(int _l = 0, int _r, int _v){l=_l,r=_r,v=_v;}
+  bd(int _l, int _r, int _v){l=_l,r=_r,v=_v;}
   operator int(){return v;}
   bd operator++(){
     bd tmp(l,r,v); tmp.v = v + 1 > r ? r : ++v; return tmp; 
