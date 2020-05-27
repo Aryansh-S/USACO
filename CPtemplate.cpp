@@ -93,7 +93,7 @@ using namespace io;
 
 
 
-int main() {
+int main(){
 	IO(""); 
 
 	
