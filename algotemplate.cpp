@@ -507,9 +507,6 @@ template <const int maxN> struct OSTSlow{ //slower OST with Fenwick
 	} //coordinate compression is a good idea when possible!!
 };
 
-#define PNAME ""
-
-int main(){
-	cin.tie(0)->sync_with_stdio(0); if(fopen(PNAME ".in","r")){freopen(PNAME ".in","r",stdin); freopen(PNAME ".out","w",stdout);}
-	return 0;
+int main() {
+	//code
 }
