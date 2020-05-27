@@ -47,7 +47,6 @@ template<class T> using OST = tree<T, null_type, less<T>, rb_tree_tag,tree_order
 #define R1F(i,b) FOR(i,b+1,1)
 #define F1R_(i,b,d) FOR_(i,1,b+1,d)
 #define R1F_(i,b,d) FOR_(i,b+1,1,d)
-#define what(x) out((#x),"is",(x))
 #define big (int)1e5
 #define bigg (int)(1e9+7)
 #define MOD (int)(1e9+7)
@@ -64,7 +63,7 @@ mt19937 mt(std::chrono::steady_clock::now().time_since_epoch().count());
 uniform_int_distribution<int> unifd(-INF,INF);
 #define RAND unifd(mt)
 
-namespace io{
+namespace _io_ {
 	#define PRES(d) cout.precision(d);cout.setf(ios::fixed,ios::floatfield)
 	#define NL cout << "\n"
 	#define IO(PNAME) if(fopen(PNAME ".in","r")){freopen(PNAME ".in","r",stdin);freopen(PNAME ".out","w",stdout);}cin.tie(0)->sync_with_stdio(0)
@@ -85,9 +84,10 @@ namespace io{
 	template<class T> void out_(vector<T> v,int sz){trav(t,v) out_(t);}
 	template<class T> void out(T*a,int sz){F0R(i,sz) out(a[i]);}
 	template<class T> void out_(T*a,int sz){F0R(i,sz) out_(a[i]);}
+	#define what(x) out((#x),"is",(x))
 }
 
-using namespace io;
+using namespace _io_;
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
