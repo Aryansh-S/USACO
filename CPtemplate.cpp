@@ -191,10 +191,9 @@ using namespace template_lib;
 
 int main() {
 	IO(""); 
-
 	
-
-	return 0; 
+	
+	
 }
 
 
