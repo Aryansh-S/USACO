@@ -5,7 +5,7 @@ const int xd[4] = {0,1,0,-1}, yd[4] = {1,0,-1,0};
 
 //bounded type for simple floodfill
 
-template<class T> struct bd{ 
+template<class T> struct bd{ //bdi for int
   T v = 0; int l = 0, r = 1;
   bd(int _v, int _l, int _r){l=_l,r=_r,v=_v;}
   operator int(){return v;}
