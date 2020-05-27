@@ -22,7 +22,7 @@ namespace template_lib {
 	}
 	using namespace type_macros; 
 
-	namespace operator_macros {
+	namespace func_macros {
 		#define fbo find_by_order
 		#define ofk order_of_key
 		#define pb push_back
@@ -40,7 +40,7 @@ namespace template_lib {
 		#define all(x) begin(x),end(x)
 		#define rall(x) end(x),begin(x)
 	}
-	using namespace operator_macros;
+	using namespace func_macros;
 
 	namespace loop_macros {
 		#define trav(a,x) for(auto&(a):(x))
