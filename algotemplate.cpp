@@ -128,151 +128,157 @@ struct DSURB{ //from 0 to n-1 -> make sure to set rollback if needed
 	bool cyc(){return cycfind;}
 };
 
-template <class T, int SZ> struct Dijk{ //class T is the type of weight being used, works in O(E log V)
-	vector<pair<T,int> > adj[SZ]; T dist[SZ]; bool vis[SZ];
-    int mom[SZ];
-	void add(int a, int b, T w){adj[a].pb(mp(w,b)); adj[b].pb(mp(w,a));}
-	void add_(int a, int b, T w){adj[a].pb(mp(w,b));} //if edge is directed
-	void upd(int start){
-		F0R(i,SZ) dist[i]=(i!=start)?INF:0, vis[i]=0, mom[i]=i;
-		minpq<pair<T,int> > q;
-		q.push(mp(0,start));
-		while(!q.empty()){
-			auto curr=q.top(); q.pop(); vis[curr.s]=1;
-			trav(v,adj[curr.s]){
-				if(vis[v.s]) continue;
-				if(dist[v.s]>dist[curr.s]+v.f){
-				   dist[v.s]=dist[curr.s]+v.f;
-                   mom[v.s]=curr.s;
-				   q.push(mp(dist[v.s],v.s));
+namespace SHORTEST_PATH {
+	template <class T, int SZ> struct Dijk{ //class T is the type of weight being used, works in O(E log V)
+		vector<pair<T,int> > adj[SZ]; T dist[SZ]; bool vis[SZ];
+	    int mom[SZ];
+		void add(int a, int b, T w){adj[a].pb(mp(w,b)); adj[b].pb(mp(w,a));}
+		void add_(int a, int b, T w){adj[a].pb(mp(w,b));} //if edge is directed
+		void upd(int start){
+			F0R(i,SZ) dist[i]=(i!=start)?INF:0, vis[i]=0, mom[i]=i;
+			minpq<pair<T,int> > q;
+			q.push(mp(0,start));
+			while(!q.empty()){
+				auto curr=q.top(); q.pop(); vis[curr.s]=1;
+				trav(v,adj[curr.s]){
+					if(vis[v.s]) continue;
+					if(dist[v.s]>dist[curr.s]+v.f){
+					   dist[v.s]=dist[curr.s]+v.f;
+			   mom[v.s]=curr.s;
+					   q.push(mp(dist[v.s],v.s));
+					}
 				}
 			}
 		}
-	}
-	T query(int v){return dist[v];}
-	T query_(int st, int v){upd(st); return query(v);}
-    vector<pii> path(int st, int v){
-        vector<pii> ret; int i=v;
-        while(mom[i]!=i){ret.pb(mp(mom[i],i)),i=mom[i];}
-        reverse(all(ret)); return ret;
-    }
-    vector<pii> path_(int st, int v){
-        upd(st); return path(st,v);
-    }
-};
+		T query(int v){return dist[v];}
+		T query_(int st, int v){upd(st); return query(v);}
+	    vector<pii> path(int st, int v){
+		vector<pii> ret; int i=v;
+		while(mom[i]!=i){ret.pb(mp(mom[i],i)),i=mom[i];}
+		reverse(all(ret)); return ret;
+	    }
+	    vector<pii> path_(int st, int v){
+		upd(st); return path(st,v);
+	    }
+	};
 
-template <class T, int SZ> struct Floyd{
-	T dist[SZ][SZ];
-	Floyd(){F0R(i,SZ) F0R(j,SZ) dist[i][j]=INF;}
-	void add(int a, int b, T w){dist[a][b]=dist[b][a]=w;}
-	void add_(int a, int b, T w){dist[a][b]=w;}
-	void upd(){
-		F0R(k,SZ) F0R(i,SZ) F0R(j,SZ) ckmin(dist[i][j],dist[i][k]+dist[k][j]);
-	}
-	T query(int a, int b){return dist[a][b];}
-	bool negcyc(){F0R(i,SZ) if(dist[i][i]<0) return 1; return 0;}
-};
+	template <class T, int SZ> struct Floyd{
+		T dist[SZ][SZ];
+		Floyd(){F0R(i,SZ) F0R(j,SZ) dist[i][j]=INF;}
+		void add(int a, int b, T w){dist[a][b]=dist[b][a]=w;}
+		void add_(int a, int b, T w){dist[a][b]=w;}
+		void upd(){
+			F0R(k,SZ) F0R(i,SZ) F0R(j,SZ) ckmin(dist[i][j],dist[i][k]+dist[k][j]);
+		}
+		T query(int a, int b){return dist[a][b];}
+		bool negcyc(){F0R(i,SZ) if(dist[i][i]<0) return 1; return 0;}
+	};
 
-template <class T, int SZ> struct SPFA{ //average O(E), wc bell-ford, check for negcyc
-    vector<pair<T,int> > adj[SZ]; int mom[SZ],r[SZ]; T dist[SZ]; bool negcycbad;
-    bool inq[SZ];
-    void add(int a, int b, T w){
-        adj[a].pb(mp(w,b)); adj[b].pb(mp(w,a));
-    }
-    void add_(int a, int b, T w){adj[a].pb(mp(w,b));}
-    void upd(int start=0){
-        F0R(i,SZ) dist[i]=(i!=start)?INF:0, mom[i]=i, inq[i]=0;
-        deque<int> q; q.pb(start); inq[start]=1;
-        while(!q.empty()){
-            int curr=q.front(); q.pop_front(); inq[curr]=0;
-            trav(v,adj[curr]){
-                if(dist[v.s]>dist[curr]+v.f){
-                    dist[v.s]=dist[curr]+v.f; mom[v.s]=curr; r[v.s]++;
-                    if(r[v.s]==SZ){negcycbad=1; break;} //can't relax so much
-                    if(!inq[v.s]){
-                        if(q.empty()) q.pb(v.s);
-                        if(dist[q.front()]>dist[v.s]) q.push_front(v.s);
-                        else q.pb(v.s);
-                    }
-                }
-            }
-        }
-    }
-    T query(int v){return dist[v];}
-    T query_(int st, int v){upd(st); return query(v);}
-    vector<pii> path(int v){
-        vector<pii> ret; int i=v; 
-        while(mom[i]!=i){ret.pb(mp(mom[i],i)); i=mom[i];}
-        reverse(all(ret)); return ret;
-    }
-    vector<pii> path_(int st, int v){upd(st); return path(v);}
-    bool negcyc(){return negcycbad;}
-};
+	template <class T, int SZ> struct SPFA{ //average O(E), wc bell-ford, check for negcyc
+	    vector<pair<T,int> > adj[SZ]; int mom[SZ],r[SZ]; T dist[SZ]; bool negcycbad;
+	    bool inq[SZ];
+	    void add(int a, int b, T w){
+		adj[a].pb(mp(w,b)); adj[b].pb(mp(w,a));
+	    }
+	    void add_(int a, int b, T w){adj[a].pb(mp(w,b));}
+	    void upd(int start=0){
+		F0R(i,SZ) dist[i]=(i!=start)?INF:0, mom[i]=i, inq[i]=0;
+		deque<int> q; q.pb(start); inq[start]=1;
+		while(!q.empty()){
+		    int curr=q.front(); q.pop_front(); inq[curr]=0;
+		    trav(v,adj[curr]){
+			if(dist[v.s]>dist[curr]+v.f){
+			    dist[v.s]=dist[curr]+v.f; mom[v.s]=curr; r[v.s]++;
+			    if(r[v.s]==SZ){negcycbad=1; break;} //can't relax so much
+			    if(!inq[v.s]){
+				if(q.empty()) q.pb(v.s);
+				if(dist[q.front()]>dist[v.s]) q.push_front(v.s);
+				else q.pb(v.s);
+			    }
+			}
+		    }
+		}
+	    }
+	    T query(int v){return dist[v];}
+	    T query_(int st, int v){upd(st); return query(v);}
+	    vector<pii> path(int v){
+		vector<pii> ret; int i=v; 
+		while(mom[i]!=i){ret.pb(mp(mom[i],i)); i=mom[i];}
+		reverse(all(ret)); return ret;
+	    }
+	    vector<pii> path_(int st, int v){upd(st); return path(v);}
+	    bool negcyc(){return negcycbad;}
+	};
+}
+using namespace SHORTEST_PATH;
 
-template<class T, int SZ> struct Prim{ // T is type weight
-    minpq<pair<T,int> > temp; //key,vertex
-    bool vis[SZ]; int mom[SZ]; T key[SZ];
-    Prim(){F0R(i,SZ) mom[i]=-1;}
-    vector<pair<T,int> > adj[SZ]; //store weight first
-    void add(int a, int b, T w){
-        adj[a].pb(mp(w,b)); adj[b].pb(mp(w,a));
-    }
-    void add_(int a, int b, T w){ //directed edge
-        adj[a].pb(mp(w,b));
-    }
-    void upd(int rt=0){ //root the MST at rt
-        mom[rt]=rt; //let the root be its own mom
-        F0R(i,SZ) if(i!=rt) key[i]=INF;
-        temp.push(mp(0,rt));
-        F0R(i,SZ) if(i!=rt) temp.push(mp(INF,i));
-        while(!temp.empty()){
-            auto curr=temp.top(); temp.pop(); vis[curr.s]=1;
-            for(auto v:adj[curr.s]){
-                if(!vis[v.s] && key[v.s]>v.f){
-                    key[v.s]=v.f; temp.push(mp(key[v.s],v.s));
-                    mom[v.s]=curr.s;
-                }
-            }
-        }
-    }
-    int par(int v){return mom[v];} //get parent
-    array<vi,SZ> dirMST(){
-        //want parent to contain all children
-        array<vi,SZ> ret;
-        F0R(i,SZ) if(mom[i]!=-1) ret[mom[i]].pb(i);  
-        return ret; 
-    }
-    array<vi,SZ> undirMST(){
-        array<vi,SZ> ret;
-        F0R(i,SZ) if(mom[i]!=-1) {ret[mom[i]].pb(i); ret[mom[i]].pb(i);}
-        return ret;
-    }
-    T sum(){T ret=0; F0R(i,SZ) if(vis[i] && key[i]!=INF) ret+=key[i]; return ret;}
-};
+namespace MST {
+	template<class T, int SZ> struct Prim{ // T is type weight
+	    minpq<pair<T,int> > temp; //key,vertex
+	    bool vis[SZ]; int mom[SZ]; T key[SZ];
+	    Prim(){F0R(i,SZ) mom[i]=-1;}
+	    vector<pair<T,int> > adj[SZ]; //store weight first
+	    void add(int a, int b, T w){
+		adj[a].pb(mp(w,b)); adj[b].pb(mp(w,a));
+	    }
+	    void add_(int a, int b, T w){ //directed edge
+		adj[a].pb(mp(w,b));
+	    }
+	    void upd(int rt=0){ //root the MST at rt
+		mom[rt]=rt; //let the root be its own mom
+		F0R(i,SZ) if(i!=rt) key[i]=INF;
+		temp.push(mp(0,rt));
+		F0R(i,SZ) if(i!=rt) temp.push(mp(INF,i));
+		while(!temp.empty()){
+		    auto curr=temp.top(); temp.pop(); vis[curr.s]=1;
+		    for(auto v:adj[curr.s]){
+			if(!vis[v.s] && key[v.s]>v.f){
+			    key[v.s]=v.f; temp.push(mp(key[v.s],v.s));
+			    mom[v.s]=curr.s;
+			}
+		    }
+		}
+	    }
+	    int par(int v){return mom[v];} //get parent
+	    array<vi,SZ> dirMST(){
+		//want parent to contain all children
+		array<vi,SZ> ret;
+		F0R(i,SZ) if(mom[i]!=-1) ret[mom[i]].pb(i);  
+		return ret; 
+	    }
+	    array<vi,SZ> undirMST(){
+		array<vi,SZ> ret;
+		F0R(i,SZ) if(mom[i]!=-1) {ret[mom[i]].pb(i); ret[mom[i]].pb(i);}
+		return ret;
+	    }
+	    T sum(){T ret=0; F0R(i,SZ) if(vis[i] && key[i]!=INF) ret+=key[i]; return ret;}
+	};
 
-template<class T, int SZ> struct Krus{ //also get DSU
-    DSU d; T weight; Krus(){d.init(SZ);}
-    vector<pair<T,pii> > edge,MST;
-    void add(int a, int b, T w){
-        edge.pb(mp(w,mp(a,b)));
-        edge.pb(mp(w,mp(b,a)));
-    }
-    void add_(int a, int b, T w){
-        edge.pb(mp(w,mp(a,b)));
-    }
-    void upd(){
-        sort(begin(edge),end(edge));
-        F0R(i,edge.size()){
-            int urep=d.get(edge[i].s.f),
-            vrep=d.get(edge[i].s.s);
-            if(urep!=vrep){
-                MST.pb(edge[i]); d.unite(edge[i].s.f,edge[i].s.s); weight+=edge[i].f;
-            }
-        }
-    }
-    T sum(){return weight;}
-    vector<pair<T,pii> > getMST(){return MST;}
-};
+	template<class T, int SZ> struct Krus{ //also get DSU
+	    DSU d; T weight; Krus(){d.init(SZ);}
+	    vector<pair<T,pii> > edge,MST;
+	    void add(int a, int b, T w){
+		edge.pb(mp(w,mp(a,b)));
+		edge.pb(mp(w,mp(b,a)));
+	    }
+	    void add_(int a, int b, T w){
+		edge.pb(mp(w,mp(a,b)));
+	    }
+	    void upd(){
+		sort(begin(edge),end(edge));
+		F0R(i,edge.size()){
+		    int urep=d.get(edge[i].s.f),
+		    vrep=d.get(edge[i].s.s);
+		    if(urep!=vrep){
+			MST.pb(edge[i]); d.unite(edge[i].s.f,edge[i].s.s); weight+=edge[i].f;
+		    }
+		}
+	    }
+	    T sum(){return weight;}
+	    vector<pair<T,pii> > getMST(){return MST;}
+	};
+}
+using namespace MST;
 
 template <int SZ> struct BLCA{ //lca with binary lifting -- O(log n) query with O(n) preprocess
     vi adj[SZ]; const static int lg=32-__builtin_clz(SZ);
