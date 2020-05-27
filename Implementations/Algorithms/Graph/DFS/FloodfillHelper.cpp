@@ -19,4 +19,4 @@ template<class T> struct bd{
   }
   bd<T> operator-(int d){return operator+(-1*d);}
 };
-#define bd bd<int>
+using bdi = bd<int>;
