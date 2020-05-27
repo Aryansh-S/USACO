@@ -4,9 +4,9 @@
 #include <ext/rope>
 using namespace std; using namespace __gnu_pbds; 
 
-//:pray: :fishy15: :pray: :summitosity: :pray: :prodakcin: 
+// :pray: :fishy15: :pray: :summitosity: :pray: :prodakcin: 
 
-//C++ Template (Aryansh Shrivastava) -- run w/ cmd+shift+r
+// C++ Template (Aryansh Shrivastava) -- run w/ cmd+shift+r
 
 namespace template_lib {
 	namespace type_macros {
@@ -136,11 +136,13 @@ int main() {
 }
 
 
-/* - - - - - - - - - - - - - - - - - - - - -
-do something! use ll if int overflow, analyze time complexity 
-~10^7 usually, at most 10^8, 2*10^8 is pushing it, i.e. n=10^5 is O(n log n) -- if(TIME>2000ms) -> TLE
-careful on sorting global arrays! the zeroes can mess things up, so if using array, instead of all(a) use a,a+n
-check 0-index, use exit(0) for segfault tests, check array index, use what() to debug
-look to amortize, use stacks/queues, heuristic, binary search for ans if monotonic, etc.
-if using double/ld use PRES(d) 
-*/
+// - - - - - - - - - - - - - - - - - - - - -
+	/* 
+		do something! use ll if int overflow, analyze time complexity 
+		~10^7 usually, at most 10^8, 2*10^8 is pushing it, i.e. n=10^5 is O(n log n) -- if(TIME>2000ms) -> TLE
+		careful on sorting global arrays! the zeroes can mess things up, so if using array, instead of all(a) use a,a+n
+		check 0-index, use exit(0) for segfault tests, check array index, use what() to debug
+		look to amortize, use stacks/queues, heuristic, binary search for ans if monotonic, etc.
+		if using double/ld use PRES(d) 
+	*/
+// - - - - - - - - - - - - - - - - - - - - -
