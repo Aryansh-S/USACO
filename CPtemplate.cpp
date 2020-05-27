@@ -68,7 +68,7 @@ mt19937 mt(std::chrono::steady_clock::now().time_since_epoch().count());
 uniform_int_distribution<int> unifd(-INF,INF);
 #define RAND unifd(mt)
 
-namespace io {
+namespace io_macros {
 	void in(){} void outln(){} void out_(){} //for fast, easy IO
 	template<typename T, typename...Types> void in(T& var1, Types&...var2){cin >> var1; in(var2...);}
 	template<typename T> void out(T var1){cout << var1 << "\n";}
@@ -92,7 +92,7 @@ namespace io {
 	#define IO(PNAME) if(fopen(PNAME ".in","r")){freopen(PNAME ".in","r",stdin);freopen(PNAME ".out","w",stdout);}cin.tie(0)->sync_with_stdio(0)
 }
 
-using namespace io;
+using namespace io_macros;
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
