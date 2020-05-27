@@ -1,4 +1,4 @@
-struct mi { //credit: benq
+struct mi { //modular int
 	typedef decay<decltype(MOD)>::type T;
 	T val; 
 	explicit operator T() const { return val; }
@@ -13,11 +13,8 @@ struct mi { //credit: benq
 		return !(a == b); }
 	friend bool operator<(const mi& a, const mi& b) { 
 		return a.val < b.val; }
-	friend void re(mi& a) { ll x; re(x); a = mi(x); }
-	friend void pr(const mi& a) { pr(a.val); }
 	friend ostream& operator<<(ostream& os, const mi& a) { 
 		return os << a.val; }
-   
 	mi operator-() const { return mi(-val); }
 	mi& operator+=(const mi& m) { 
 		if ((val += m.val) >= MOD) val -= MOD; 
