@@ -1,8 +1,8 @@
 /*
  * Aryansh Shrivastava 
- * USACO Algorithm Template 
- * Last Updated: 5/17/20
- * No longer updating macros/formulations other than those strictly mandated by specific algorithms here
+ * USACO Algorithm Template (Reference & Structs)
+ * Last Updated: 5/26/20 (mild cleanup)
+ * ignore "ignore_this_macro_stuff" 
  */
 
 #include <bits/stdc++.h> 
