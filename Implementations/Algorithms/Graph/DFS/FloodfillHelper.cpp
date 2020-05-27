@@ -4,7 +4,7 @@ using namespace std;
 //bounded type for simple floodfill
 
 template<class T> struct bd{ 
-  T v; int l,r;
+  T v = 0; int l = 0, r = 1;
   bd(int _l, int _r, int _v){l=_l,r=_r,v=_v;}
   operator int(){return v;}
   bd operator++(){
@@ -19,3 +19,4 @@ template<class T> struct bd{
   }
   bd operator-(int d){return operator+(-1*d);}
 };
+#define bd bd<int>
