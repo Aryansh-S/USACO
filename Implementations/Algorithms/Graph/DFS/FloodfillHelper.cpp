@@ -7,16 +7,16 @@ template<class T> struct bd{
   T v = 0; int l = 0, r = 1;
   bd(int _l, int _r, int _v){l=_l,r=_r,v=_v;}
   operator int(){return v;}
-  bd operator++(){
-    bd tmp(l,r,v); tmp.v = v + 1 > r ? r : ++v; return tmp; 
+  bd<T> operator++(){
+    bd<T> tmp(l,r,v); tmp.v = v + 1 > r ? r : ++v; return tmp; 
   }
-  bd operator--(){
-    bd tmp(l,r,v); tmp.v = v - 1 < l ? l : --v; return tmp;
+  bd<T> operator--(){
+    bd<T> tmp(l,r,v); tmp.v = v - 1 < l ? l : --v; return tmp;
   }
-  bd operator+(int d){
-    bd tmp; d ? (tmp.v = v + d > r ? r : v + d) : (tmp.v = v + d < l ? l : v + d);
+  bd<T> operator+(int d){
+    bd<T> tmp; d ? (tmp.v = v + d > r ? r : v + d) : (tmp.v = v + d < l ? l : v + d);
     return 0; 
   }
-  bd operator-(int d){return operator+(-1*d);}
+  bd<T> operator-(int d){return operator+(-1*d);}
 };
 #define bd bd<int>
