@@ -8,7 +8,7 @@ using namespace std; using namespace __gnu_pbds; using namespace __gnu_cxx;
 
 //C++ Template (Aryansh Shrivastava) -- run w/ cmd+shift+r
 
-namespace template_ {
+namespace template_lib {
 	namespace type_macros {
 		typedef long long ll; 
 		typedef long double ld;
@@ -21,7 +21,6 @@ namespace template_ {
 		template<class T> using maxpq = priority_queue<T>;
 		template<class T> using OST = tree<T, null_type, less<T>, rb_tree_tag,tree_order_statistics_node_update>; //change for map
 	}
-
 	using namespace type_macros; 
 
 	namespace operator_macros {
@@ -42,7 +41,6 @@ namespace template_ {
 		#define all(x) begin(x),end(x)
 		#define rall(x) end(x),begin(x)
 	}
-
 	using namespace operator_macros;
 
 	namespace loop_macros {
@@ -58,7 +56,6 @@ namespace template_ {
 		#define F1R_(i,b,d) FOR_(i,1,b+1,d)
 		#define R1F_(i,b,d) FOR_(i,b+1,1,d)
 	}
-
 	using namespace loop_macros;
 
 	namespace const_macros {
@@ -69,17 +66,26 @@ namespace template_ {
 		#define INFLL 0x3f3f3f3f3f3f3f3f
 		#define EPS 1e-8
 	}
-
 	using namespace const_macros;
-
-	#define ckmin(a,b) a=min(a,b)
-	#define ckmax(a,b) a=max(a,b)
+	
+	namespace math_macros {
+		#define ckmin(a,b) a=min(a,b)
+		#define ckmax(a,b) a=max(a,b)
+		ll POW(ll a, ll b) { //log
+			ll res = 1; 
+			while(b){
+				if(b & 1) res*=a;
+				a*=a; b>>=1;
+			}
+			return res;
+		}
+	}
+	using namespace math_macros;
 
 	namespace time_macros {
 		auto TIME0 = chrono::steady_clock::now(); 
 		#define TIME chrono::duration<double, milli>(chrono::steady_clock::now()-TIME0).count()
 	}
-
 	using namespace time_macros;
 
 	namespace rand_macros {
@@ -87,7 +93,6 @@ namespace template_ {
 		uniform_int_distribution<int> unifd(-INF,INF);
 		#define RAND unifd(mt)
 	}
-
 	using namespace rand_macros;
 
 	namespace io_macros {
@@ -113,11 +118,10 @@ namespace template_ {
 		#define NL cout << "\n"
 		#define IO(PNAME) if(fopen(PNAME ".in","r")){freopen(PNAME ".in","r",stdin);freopen(PNAME ".out","w",stdout);}cin.tie(0)->sync_with_stdio(0)
 	}
-
 	using namespace io_macros;
 }
 
-using namespace template_;
+using namespace template_lib;
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
