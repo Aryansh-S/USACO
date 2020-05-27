@@ -116,6 +116,16 @@ namespace template_lib {
 			friend mi operator*(mi a, const mi& b) { return a *= b; }
 			friend mi operator/(mi a, const mi& b) { return a /= b; }
 		};
+		typedef unsigned long long ull;
+		typedef __uint128_t L128;
+		struct FastMod {
+			ull b, m;
+			FastMod(ull b) : b(b), m(ull((L128(1) << 64) / b)) {}
+			ull reduce(ull a) {
+				ull q = (ull)((L128(m) * a) >> 64), r = a - q * b;
+				return r >= b ? r - b : r;
+			}
+		};
 	}
 	using namespace math_macros;
 	
