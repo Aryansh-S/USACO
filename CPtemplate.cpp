@@ -81,6 +81,11 @@ namespace template_lib {
 		}
 	}
 	using namespace math_macros;
+	
+	namespace grid_macros {
+		const int xd[4] = {0,1,0,-1}, yd[4] = {1,0,-1,0}; 
+	}
+	using namespace grid_macros;
 
 	namespace time_macros {
 		auto TIME0 = chrono::steady_clock::now(); 
