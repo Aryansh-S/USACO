@@ -17,6 +17,7 @@ You should check out the sources provided in the "Books" folder -- they are part
 # Template (\& A First on Structs) 
 
 My template for CP is "CPtemplate.cpp" along with algorithms from "algotemplate.cpp" as useful. 
+- The former is far more organized than the latter (by way of namespaces), but as I move things around in the latter, I will try to group things into namespaces there too.
 
 You can find the latest version of my contest programming template (ongoing modification) in "algotemplate.cpp"; please credit before any use in-contest. More specifically, I have coded and put together some nifty structs for various algorithms and problem types; these continue to be updated. Structs I design are meant to be some of the most efficient possible implementations of algorithms, as they are tested for large cases and efficiency. 
 
