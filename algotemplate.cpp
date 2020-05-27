@@ -6,24 +6,20 @@
  */
 
 #include <bits/stdc++.h> 
-using namespace std;  
+#include <ext/pb_ds/assoc_container.hpp>
+#include <ext/pb_ds/tree_policy.hpp>
+using namespace std; using namespace __gnu_pbds;
+
+// - - - - - - - - - - - - - - - - - - - - - - - - - - - 
 
 namespace ignore_this_macro_stuff {
-	/* 
-		Policy Based Data Structures (GCC)
-		#include <ext/pb_ds/assoc_container.hpp>
-		#include <ext/pb_ds/tree_policy.hpp>
-		#include <ext/rope>
-		using namespace __gnu_pbds;
-		using namespace __gnu_cxx;
-		template <class T> using OST = tree<T, null_type, less<T>, rb_tree_tag,tree_order_statistics_node_update>;
-	*/
 	typedef long long ll;
 	typedef pair<int,int> pii;
 	typedef pair<ll,ll> pll;
 	typedef vector<int> vi;
 	template<class T> using minpq = priority_queue<T, vector<T>, greater<T> >;
 	template<class T> using maxpq = priority_queue<T>;
+	template <class T> using OST = tree<T, null_type, less<T>, rb_tree_tag,tree_order_statistics_node_update>;
 	#define pb push_back
 	#define ins insert
 	#define mp make_pair
