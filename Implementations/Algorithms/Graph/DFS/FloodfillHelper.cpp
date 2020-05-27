@@ -3,7 +3,7 @@ using namespace std;
 
 const int xd[4] = {0,1,0,-1}, yd[4] = {1,0,-1,0}; 
 
-//bounded type for simple floodfill
+//bounded type for simple floodfill -- no need to worry about bounding!
 
 template<class T> struct bd{ //bdi for int
   T v = 0; int l = 0, r = 1;
@@ -22,3 +22,23 @@ template<class T> struct bd{ //bdi for int
   bd<T> operator-(int d){return operator+(-1*d);}
 };
 using bdi = bd<int>;
+
+bool vis[105][105];
+
+void dfs(bdi i, bdi j){
+  if(!vis[i][j]){
+    vis[i][j]=1; 
+    for(int k = 0; k < 4; ++k) dfs(i+xd[k], j+yd[k]);
+  }
+}
+
+int main() {
+  
+  dfs(bdi(1,1,100),bdi(1,1,100)); 
+  
+  for(int i = 1; i <= 100; ++i) for(int j = 1; j <= 100; ++j) if(!vis[i][j]) return 0;
+  
+  cout << "success\n";
+  
+  return 0;
+}
