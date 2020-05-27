@@ -17,5 +17,5 @@ template<class T> struct bd{
     bd tmp; d ? (tmp.v = v + d > r ? r : v + d) : (tmp.v = v + d < l ? l : v + d);
     return 0; 
   }
-  bd operator-(int d){return bd+1*d;}
+  bd operator-(int d){return operator+(-1*d);}
 };
