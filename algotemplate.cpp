@@ -384,32 +384,40 @@ struct StaticRMQ{ //uses DSU, offline avg O(1) w/o sparse table
     int rmq(int id){return ans[id];}
 };
 
-template<class T> struct SEG{ //UPD literally updates!!
-	const T orz=-10*big;
-	char choice='s'; //'m' is min, 'M' is max, 's' is sum
-	void choose(char ch){choice=ch;}
-	T comb(T a, T b){
-		if(a==orz){if(b==orz){return 0;} return b;}
-		if(b==orz) return a;
-		if(choice=='m') return min(a,b);
-		if(choice=='s') return a+b;
-		if(choice=='M') return max(a,b);
-        	exit(0); //bc wth
-	}
-	int n; vector<T> seg;
-		void init(int _n) { n = _n; seg.assign(4*n+1,orz); }
-		void pull(int p) { seg[p] = comb(seg[2*p],seg[2*p+1]); }
-		void upd(int p, T val) { // set val at position p
-			seg[p += n] = val; for (p /= 2; p; p /= 2) pull(p); }
-		T query(int l, int r) {	// query choice on interval [l, r]
-			T ra = orz, rb = orz;
-			for (l += n, r += n+1; l < r; l /= 2, r /= 2) {
-				if (l&1) ra = comb(ra,seg[l++]);
-				if (r&1) rb = comb(seg[--r],rb);
-			}
-			return comb(ra,rb);
-	}
-};
+namespace SegmentTree {
+    template<class T> class opadd {public: const T ID = 0; T comb(T a, T b){return a + b;}};
+    template<class T> class opmult {public: const T ID = 1; T comb(T a, T b){return a * b;}};
+    template<class T> class opxor {public: const T ID = 0; T comb(T a, T b){return a ^ b;}};
+    template<class T> class opmin {public: const T ID = -INF; T comb(T a, T b){return min(a, b);}};
+    template<class T> class opmax {public: const T ID = INF; T comb(T a, T b){return max(a, b);}};
+    template<class T> void upd_(T&a, T&b, string tp = "id"){
+        if(tp == "id") a = b; 
+        if(tp == "add") a += b;
+    }
+
+    template<class T = int, class U = opadd<T>> struct SegTree {
+        int n; vector<T> seg; U oper; string tp = "id"; 
+        void init(int _n) { n = _n; seg.assign(2*n,oper.ID); }
+        void initv(int _n, int val = 0){ n = _n; seg.assign(2*n, val); }
+        void pull(int p) { seg[p] = oper.comb(seg[2*p],seg[2*p+1]); }
+        void upd(int p, T val) { // set val at position p
+            upd_<T>(seg[p += n],val,tp); for (p /= 2; p; p /= 2) pull(p);
+        }
+        void change_upd(string s){tp = s;}
+        T query(int l, int r) {	// sum on interval [l, r]
+            T ra = oper.ID, rb = oper.ID; 
+            for (l += n, r += n+1; l < r; l /= 2, r /= 2) {
+                if (l&1) ra = oper.comb(ra,seg[l++]);
+                if (r&1) rb = oper.comb(seg[--r],rb);
+            }
+            return oper.comb(ra,rb);
+        }
+    };
+
+    template<typename U = int, template<typename> class T = opadd> using SEG = SegTree<U, T<U>>;
+    // i.e. SEG<int, opadd> a; 
+}
+using namespace SegmentTree;
 
 char /*global*/ bevvlazy='s';
 int IDENN=0;
