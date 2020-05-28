@@ -33,7 +33,7 @@ namespace SegmentTree {
         }
     };
 
-    template<typename U, template<typename> class T> using SEG = SegTree<U, T<U>>;
+    template<typename U = int, template<typename> class T = opadd> using SEG = SegTree<U, T<U>>;
     // i.e. SEG<int, opadd> a; 
 }
 using namespace SegmentTree;
