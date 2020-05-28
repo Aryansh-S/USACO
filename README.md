@@ -190,6 +190,6 @@ Not much to say here, but as far as USACO is concerned, your limit is 256MB unle
 
 Look into bitsets and sliding window for more memory optimization tricks. 
 
-# Questions
+# Questions/Suggestions
 
-Email me at sendtoaryansh@gmail.com in the event that you have a detailed question that has not already been addressed here or elsewhere completely. Otherwise, the above and general resources (Google) should be more than enough. 
+Email me at sendtoaryansh@gmail.com in the event that you have a detailed question that has not already been addressed here or elsewhere completely. Suggestions are welcome here as well! Otherwise, the above and general resources (Google) should be more than enough. 
