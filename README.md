@@ -14,10 +14,12 @@ The "src" folder just contains source files and images that are integrated elsew
 
 [An Efficiency-Optimizied Full-Fledged Generic Standalone Segment Tree Library](https://github.com/Aryansh-S/USACO/tree/master/Implementations/Algorithms/DP/RngPtQry/SegTreeLibrary)
 
+[Bounded Numerical Data Structures](https://github.com/Aryansh-S/USACO/blob/master/Implementations/Algorithms/Graph/DFS/FloodfillHelper.cpp)
+
 # Book
 
 [Here](https://www.overleaf.com/read/vxkkgmmrmckv) is the latest version of a book I am writing on competitive programming so far (a work in progress). 
-- At this point in time, there is also an ongoing DP handout I am creating. When done, it is expected to serve as a great reference without prerequisites. 
+- At this point in time, there is also an ongoing DP handout I am creating. When done, it is expected to serve as a great reference without prerequisites. [Here](https://www.overleaf.com/read/vgdvpkrhjdbb)
 
 You should check out the sources provided in the "Books" folder -- they are particularly good for competitive programming.
 
