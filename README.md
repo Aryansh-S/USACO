@@ -14,9 +14,11 @@ The "src" folder just contains source files and images that are integrated elsew
 
 What you probably won't find anywhere else
 
-- [An Efficiency-Optimizied Full-Fledged Generic Standalone Segment Tree Library](https://github.com/Aryansh-S/USACO/tree/master/Implementations/Algorithms/DP/RngPtQry/SegTreeLibrary)
+- [An Organized Contest Programming Template (C++)](https://github.com/Aryansh-S/USACO/blob/master/CPtemplate.cpp)
 
-- [Bounded Numerical Data Structures](https://github.com/Aryansh-S/USACO/blob/master/Implementations/Algorithms/Graph/DFS/FloodfillHelper.cpp)
+- [An Efficiency-Optimizied Full-Fledged Generic Standalone Segment Tree Library (C++)](https://github.com/Aryansh-S/USACO/tree/master/Implementations/Algorithms/DP/RngPtQry/SegTreeLibrary)
+
+- [Bounded Numerical Data Structures (C++)](https://github.com/Aryansh-S/USACO/blob/master/Implementations/Algorithms/Graph/DFS/FloodfillHelper.cpp)
 
 # Book
 
