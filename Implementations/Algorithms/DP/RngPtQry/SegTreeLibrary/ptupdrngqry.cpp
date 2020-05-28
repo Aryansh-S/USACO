@@ -9,7 +9,7 @@ namespace SegmentTree {
     template<class T> class opxor {public: const T ID = 0; T comb(T a, T b){return a ^ b;}};
     template<class T> class opmin {public: const T ID = -INF; T comb(T a, T b){return min(a, b);}};
     template<class T> class opmax {public: const T ID = INF; T comb(T a, T b){return max(a, b);}};
-    template <class T> void upd_(T&a, T&b, string tp = "id"){
+    template<class T> void upd_(T&a, T&b, string tp = "id"){
         if(tp == "id") a = b; 
         if(tp == "add") a += b;
     }
