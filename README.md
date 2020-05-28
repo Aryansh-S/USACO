@@ -10,6 +10,10 @@ The "src" folder just contains source files and images that are integrated elsew
 - Unfortunately, most versions of clang do not support pb_ds as of late, which is why I always recommend gcc for compilation. However, repl.it has recently moved to a better version of clang that does provide support for pb_ds, so it's still a great online compiler.
 - Read more on the details in the "Compilation" section below.
 
+# Novelties
+
+[A Full-Fledged Generic Standalone Segment Tree Library](https://github.com/Aryansh-S/USACO/tree/master/Implementations/Algorithms/DP/RngPtQry/SegTreeLibrary)
+
 # Book
 
 [Here](https://www.overleaf.com/read/vxkkgmmrmckv) is the latest version of a book I am writing on competitive programming so far (a work in progress). 
