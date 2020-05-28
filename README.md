@@ -12,7 +12,7 @@ The "src" folder just contains source files and images that are integrated elsew
 
 # Novelties
 
-[A Full-Fledged Generic Standalone Segment Tree Library](https://github.com/Aryansh-S/USACO/tree/master/Implementations/Algorithms/DP/RngPtQry/SegTreeLibrary)
+[An Efficiency-Optimizied Full-Fledged Generic Standalone Segment Tree Library](https://github.com/Aryansh-S/USACO/tree/master/Implementations/Algorithms/DP/RngPtQry/SegTreeLibrary)
 
 # Book
 
