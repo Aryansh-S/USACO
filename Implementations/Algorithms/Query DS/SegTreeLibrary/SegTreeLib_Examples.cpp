@@ -46,41 +46,52 @@ namespace SegmentTree { //define any operator as a functional expression with an
     template<const int n, class T = int, class U = opadd<T>> struct LazySegTree {
 	//RANGE UPDATE, RANGE QUERY
         vector<T> seg, lazy; U oper; string tp = "add"; //CHUPD BEFORE INIT
+        int segtree_size(int x){
+            if((x != 0) && ((x & (x - 1)) == 0)) {cout << "FAILURE: DO NOT USE A POWER OF 2\n"; exit(1);}
+            x -= 1;
+            x |= x >> 1;
+            x |= x >> 2;
+            x |= x >> 4;
+            x |= x >> 8;
+            x |= x >> 16;
+            return 2 * x + 1;
+        }
         void chupd(string s){tp = s;} //change update type
         void pull(int ind) {
-            seg[ind] = oper.comb(seg[2*ind],seg[2*ind+1]);
+            seg[ind] = oper.comb(seg[2*ind+1],seg[2*ind+2]);
         }
-        void init(int _n = n) {seg.assign(2*n,0); lazy.assign(2*n,getID<T>(0,tp)); for(int i = n - 1; i >= 1; --i) pull(i);}
-        void initid(int _n = n) {seg.assign(2*n,oper.ID); lazy.assign(2*n,getID<T>(0,tp)); for(int i = n - 1; i >= 1; --i) pull(i);}
-        void initv(int val = 0, int _n = n) {seg.assign(2*n,val); lazy.assign(2*n,getID<T>(0,tp)); for(int i = n - 1; i >= 1; --i) pull(i);}
+        void init(int _n = n) {seg.assign(segtree_size(n),0); lazy.assign(segtree_size(n),getID<T>(0,tp));}
+        void initid(int _n = n) {seg.assign(segtree_size(n),oper.ID); lazy.assign(segtree_size(n),getID<T>(0,tp));}
+        void initv(int val = 0, int _n = n) {seg.assign(segtree_size(n),val); lazy.assign(segtree_size(n),getID<T>(0,tp));}
         void push(int ind, int L, int R) {
-            upd_<T>(seg[ind], lazy[ind], tp);
-            if(L != R) oper.comb(lazy[2*ind],lazy[ind]), oper.comb(lazy[2*ind+1],lazy[ind]);
-            lazy[ind] = getID<T>(lazy[ind],tp);
+            if(lazy[ind] != getID<T>(lazy[ind],tp)){
+                upd_<T>(seg[ind], lazy[ind], tp);
+                if(L != R) lazy[2*ind+1] = oper.comb(lazy[2*ind+1],lazy[ind]), lazy[2*ind+2] = oper.comb(lazy[2*ind+2],lazy[ind]);
+                lazy[ind] = getID<T>(lazy[ind],tp);
+            }
         }
         void upd(int lo, int hi, T inc, int ind = 1, int L = 0, int R = n - 1) {
-            push(ind, L, R);
-            if(hi < L || R < lo) return;
-		    if(lo <= L && R <= hi) {
-			    lazy[ind] = inc; 
-			    push(ind,L,R); return;
-		    }
+            if(hi < L || R < lo) {push(ind, L, R); return;}
+	    if(lo <= L && R <= hi) {
+		    upd_(lazy[ind],inc,tp);
+		    push(ind,L,R); return;
+	    }
             int M = (L+R)/2;
-		    upd(lo,hi,inc,2*ind,L,M); upd(lo,hi,inc,2*ind+1,M+1,R);
+		    upd(lo,hi,inc,2*ind+1,L,M); upd(lo,hi,inc,2*ind+2,M+1,R);
 		    pull(ind);
         }
         T query(int lo, int hi, int ind = 1, int L = 0, int R = n - 1) {
-            push(ind, L, R);
             if(lo > R || L > hi) return oper.ID;
+            push(ind, L, R);
             if (lo <= L && R <= hi) return seg[ind];
-		    int M = (L+R)/2;
-		    return oper.comb(query(lo,hi,2*ind,L,M),query(lo,hi,2*ind+1,M+1,R));
+	    int M = (L+R)/2;
+	    return oper.comb(query(lo,hi,2*ind+1,L,M),query(lo,hi,2*ind+2,M+1,R));
         }
     };
     
     template<typename U = int, template<typename> class T = opadd> using SEG = SegTree<U, T<U>>;
     template<int sz, typename U = int, template<typename> class T = opadd> using LSEG = LazySegTree<sz, U, T<U>>;
-}
+}; 
 using namespace SegmentTree;
 
 SEG<int, opmult> s1; 
