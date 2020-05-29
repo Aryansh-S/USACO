@@ -30,11 +30,13 @@ namespace SegmentTree { //define any operator as a functional expression with an
         void initv(int _n, int val = 0){ n = _n; seg.assign(2*n, val); }
         void pull(int p) { seg[p] = oper.comb(seg[2*p],seg[2*p+1]); }
         void upd(int p, T val) { // upd position p to val
+	    if(p == 0){cout << "FAILURE: PLEASE 1-INDEX\n"; exit(1);}
             upd_<T>(seg[p += n],val,tp); for (p /= 2; p; p /= 2) pull(p);
         }
         void chupd(string s){tp = s;} //change update type
         T query(int l, int r) {	// sum on interval [l, r]
             T ra = oper.ID, rb = oper.ID; 
+	    if(l == 0){cout << "FAILURE: PLEASE 1-INDEX\n"; exit(1);}
             for (l += n, r += n+1; l < r; l /= 2, r /= 2) {
                 if (l&1) ra = oper.comb(ra,seg[l++]);
                 if (r&1) rb = oper.comb(seg[--r],rb);
@@ -71,6 +73,7 @@ namespace SegmentTree { //define any operator as a functional expression with an
             }
         }
         void upd(int lo, int hi, T inc, int ind = 0, int L = 0, int R = n - 1) {
+	    if(lo == 0) {cout << "FAILURE: PLEASE 1-INDEX\n"; exit(1);}
             if(hi < L || R < lo) {push(ind, L, R); return;}
             if(lo <= L && R <= hi) {
                 upd_(lazy[ind],inc);
@@ -81,6 +84,7 @@ namespace SegmentTree { //define any operator as a functional expression with an
 		    pull(ind);
         }
         T query(int lo, int hi, int ind = 0, int L = 0, int R = n - 1) {
+	    if(lo == 0) {cout << "FAILURE: PLEASE 1-INDEX\n"; exit(1);}
             if(lo > R || L > hi) return oper.ID;
             push(ind, L, R);
             if (lo <= L && R <= hi) return seg[ind];
