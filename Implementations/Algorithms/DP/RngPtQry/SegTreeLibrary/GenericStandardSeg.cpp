@@ -32,9 +32,7 @@ namespace SegmentTree { //define any operator as a functional expression with an
             return oper.comb(ra,rb);
         }
     };
-
     template<typename U = int, template<typename> class T = opadd> using SEG = SegTree<U, T<U>>;
-    // i.e. SEG<int, opadd> a; 
 }
 using namespace SegmentTree;
 
