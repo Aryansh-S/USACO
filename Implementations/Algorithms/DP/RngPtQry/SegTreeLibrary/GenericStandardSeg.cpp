@@ -19,7 +19,7 @@ namespace SegmentTree { //define any operator as a functional expression with an
         void init(int _n) { n = _n; seg.assign(2*n,oper.ID); }
         void initv(int _n, int val = 0){ n = _n; seg.assign(2*n, val); }
         void pull(int p) { seg[p] = oper.comb(seg[2*p],seg[2*p+1]); }
-        void upd(int p, T val) { // set val at position p
+        void upd(int p, T val) { // upd position p to val
             upd_<T>(seg[p += n],val,tp); for (p /= 2; p; p /= 2) pull(p);
         }
         void change_upd(string s){tp = s;}
