@@ -90,8 +90,8 @@ int main() {
   int n, q; cin >> n >> q; 
   s.chupd("xor"); s.init(); 
   while(q--) {
-    bool t; int a,b; cin >> t; 
-    if(t) {cin >> a >> b; cout << t.query(a,b) << '\n';}
+    bool t; int a,b; cin >> t >> a >> b; 
+    if(t) cout << t.query(a,b) << '\n';
     else t.upd(a,b,1);
   }
 }
