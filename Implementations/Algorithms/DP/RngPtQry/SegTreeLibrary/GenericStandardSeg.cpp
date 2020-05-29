@@ -22,7 +22,7 @@ namespace SegmentTree { //define any operator as a functional expression with an
         void upd(int p, T val) { // upd position p to val
             upd_<T>(seg[p += n],val,tp); for (p /= 2; p; p /= 2) pull(p);
         }
-        void change_upd(string s){tp = s;}
+        void chupd(string s){tp = s;}
         T query(int l, int r) {	// sum on interval [l, r]
             T ra = oper.ID, rb = oper.ID; 
             for (l += n, r += n+1; l < r; l /= 2, r /= 2) {
@@ -42,6 +42,6 @@ SEG<int, opmult> s1;
 
 int main(){
     s1.init(2);
-    s1.upd(1,4); s1.upd(2,5); s1.change_upd("add"); s1.upd(2,6); cout << s1.query(1,2) << '\n';
+    s1.upd(1,4); s1.upd(2,5); s1.chupd("add"); s1.upd(2,6); cout << s1.query(1,2) << '\n';
     //yields 4(5 + 6) = 44 because update type changed from id (literal assignment) to add 
 }
