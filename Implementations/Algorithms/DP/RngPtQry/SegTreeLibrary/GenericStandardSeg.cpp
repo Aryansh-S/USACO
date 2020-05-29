@@ -22,7 +22,7 @@ namespace SegmentTree { //define any operator as a functional expression with an
         void upd(int p, T val) { // upd position p to val
             upd_<T>(seg[p += n],val,tp); for (p /= 2; p; p /= 2) pull(p);
         }
-        void chupd(string s){tp = s;}
+        void chupd(string s){tp = s;} //change update type
         T query(int l, int r) {	// sum on interval [l, r]
             T ra = oper.ID, rb = oper.ID; 
             for (l += n, r += n+1; l < r; l /= 2, r /= 2) {
