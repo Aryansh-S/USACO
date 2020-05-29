@@ -83,13 +83,19 @@ namespace SegmentTree { //define any operator as a functional expression with an
 using namespace SegmentTree;
 
 SEG<int, opmult> s1; 
-//example: integer segment tree that supports multiplication queries
+//example: integer standard segment tree that supports multiplication queries
+
+LSEG<2, int, opxor> s2; 
+//example: integer lazy propagation segment tree that supports xor queries
 
 int main(){
     s1.init(2); //initialize for n = 2
     s1.upd(1,4); s1.upd(2,5); 
     s1.chupd("add"); //change to addition updates
     s1.upd(2,6); 
-    cout << s1.query(1,2) << '\n';
+    cout << "standard query: " << s1.query(1,2) << '\n';
     //yields 4(5 + 6) = 44 because update type changed from id (literal assignment) to add 
+    l.chupd("mult"); //change to multiplication updates
+    l.initv(1); l.upd(1,2,3); l.upd(1,2,18); 
+    cout << "lazy query: " << l.query(1,2) << '\n';
 }
