@@ -1,6 +1,6 @@
 #include <bits/stdc++.h>
 using namespace std;
-//example of lazy segment tree to flip coins
+//example of lazy segment tree to flip coins (range upd, range qry): https://www.codechef.com/problems/FLIPCOIN
 
 #define INF 0x3f3f3f3f
 
