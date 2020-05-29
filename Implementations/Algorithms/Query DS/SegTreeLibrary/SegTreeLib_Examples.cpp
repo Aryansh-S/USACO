@@ -106,15 +106,16 @@ LSEG<2 + 1, int, opxor> s2; //initialize for n = 2 (safety increment 1)
 
 int main(){
     s1.init(2 + 1); //initialize for n = 2 (safety increment 1)
-    s1.upd(0,4); s1.upd(1,5); 
+    s1.upd(1,4); s1.upd(2,5); 
     s1.chupd("add"); //change to addition updates
-    s1.upd(1,6); 
-    cout << "standard query: " << s1.query(0,1) << '\n';
+    s1.upd(2,6); 
+    cout << "standard query: " << s1.query(1,2) << '\n';
     //yields 4(5 + 6) = 44 because update type changed from id (literal assignment) to add 
     s2.chupd("mult"); //change to multiplication updates
-    s2.initv(1); s2.upd(0,1,3); s2.upd(0,1,18); 
-    cout << "lazy query: " << s2.query(0,1) << '\n';
+    s2.initv(1); s2.upd(1,2,3); s2.upd(1,2,18); 
+    cout << "lazy query: " << s2.query(1,2) << '\n';
     //yields (1*3*18) xor (1*3*18) = 0
 }
 
 // watch for indexing -- it's a good idea to make the size a little bigger (at least +1 or +2) than necessary
+// please 1 index and never make size a power of two for LSEG
