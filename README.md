@@ -10,7 +10,7 @@ The "src" folder just contains source files and images that are integrated elsew
 - Unfortunately, most versions of clang do not support pb_ds as of late, which is why I always recommend gcc for compilation. However, repl.it has recently moved to a better version of clang that does provide support for pb_ds, so it's still a great online compiler.
 - Read more on the details in the "Compilation" section below.
 
-# Novelties
+## Novelties
 
 What you probably won't find anywhere else
 
@@ -20,14 +20,14 @@ What you probably won't find anywhere else
 
 - [Bounded Numerical Data Structures (C++)](https://github.com/Aryansh-S/USACO/blob/master/Implementations/Algorithms/Graph/DFS/FloodfillHelper.cpp)
 
-# Book
+## Book
 
 [Here](https://www.overleaf.com/read/vxkkgmmrmckv) is the latest version of a book I am writing on competitive programming so far (a work in progress). 
 - At this point in time, there is also an ongoing DP handout I am creating. When done, it is expected to serve as a great reference without prerequisites. [Here](https://www.overleaf.com/read/vgdvpkrhjdbb)
 
 You should check out the sources provided in the "Books" folder -- they are particularly good for competitive programming.
 
-# Template (\& A First on Structs) 
+## Template (\& A First on Structs) 
 
 My template for CP is "CPtemplate.cpp" along with algorithms from "algos.cpp" as useful. 
 - The former is far more organized than the latter (by way of namespaces), but as I move things around in the latter, I will try to group things into namespaces there too.
@@ -48,24 +48,24 @@ Specifics:
 - For shortest path, use Dijkstra when possible. If some edges are negative, use SPFA (significantly faster than Bellman-Ford, even replacing it in the template). You can multisource them if sources change within the problem. Use Floyd-Warshall only when it seems palatable to solve the problem in cubic time (not often). 
 - If sorting is truly the bottleneck for an algorithm (rare), use the radix sort function rsort(). Most of the time, std::sort will suffice, of course. 
 
-# Floating Precision
+## Floating Precision
 
 Sometimes, USACO and other contest platforms are picky about this and ask for an unrounded answer to a certain number of significant digits at the end; thankfully, this is now rare as far as USACO is concerned (distance is modified to square distance and such). The general resolution is to use either double or long double along with the following line of code in C++ at the head of the main() function (change the 2 to however many significant digits you need):
 
 cout.precision(2); cout.setf(ios::fixed,ios::floatfield); 
 
-# Macros (typedef, define)
+## Macros (typedef, define)
 
 Macros exist to shorten coding time (among various other things). As such, coding time should never be a bottleneck in-contest: write macros that work for you. If you do not work well with macros, do not use them! They are always an option, not a requirement.
 
 A good thing to remember is that you should only use macros in contest programming. In other applications of programming -- the general workplace is a good example -- macros can be irritating (they can make your code look cryptic to people other than you), especially during collaborations, and should thus be used sparingly (if at all).  
 
-# Language
+## Language
 What to code in
 
 Although Python is considered to be a simple language, it is often too slow for the sake of competitive programming; some problems may become unsolvable as such. Therefore, I recommend you use either Java or C++. I prefer C++ because it is less verbose and allows for macros, with a rich STL providing numerous data structures and functions. 
 
-# Compilation
+## Compilation
 How to run the code you write
 
 Compilation is one of the hardest parts of the initial programming setup. There are many ways to do this. For Mac, many users opt for Xcode's Clang LLVM in conjunction with an IDE like Eclipse CDT. But there are numerous problems with this. 
@@ -78,7 +78,7 @@ You do not need an IDE. Atom really does do the trick. As a plus, you can choose
 
 Or go the repl.it route because it supports a better version of clang that does not run into these issues!
 
-# Topics
+## Topics
 What to learn for each division
 
 Bronze: basic data structures (int, bool, char, string, array, vector), basic if/else logic, syntax, complete search, basic iterative/recursive methods, functions (structs and objects like pairs are sometimes helpful but not necessary)
@@ -98,7 +98,7 @@ Platinum: all of the above, lazy propagation, advanced DP, interactives, computa
 
 These can actually change each year depending on what is tested by problem writers and the type of problem, but these lists should suffice as of late. The general trend is that contests are getting harder. 
 
-# Stuck? 
+## Stuck? 
 Try the following.
 
 Analyze bounds and time complexity to reverse-engineer potential algorithms in the problem
@@ -127,7 +127,7 @@ Debugging: add print statements (use what(x) in the template or some variant), w
 
 Stay organized and do not panic
 
-# Maximize
+## Maximize
 How to get the most of what you have
 
 Do not forgo partial credit offered in test cases -- it can make all the difference to qualify. Feel free to use the system clock to opt into a different process before you are going to time out so that you can process those cases separately (with something close to a solution based on some manipulation -- modular residues, etc.) -- at worst, this changes a TLE to a WA, but at best, this changes a TLE to the correct answer. 
@@ -136,7 +136,7 @@ Try heuristics and pruning to amortize. It is best to have provable heuristics, 
 
 Of course, optimize your processing with stacks, queues, and priority queues to amortize when you can (see the USACO problems "cereal", "dishwashing", and "steeplechase ii" for good examples of this). See if you can reuse previous answers with dynamic programming. 
 
-# Other Resources
+## Other Resources
 I discourage the training gate offered by USACO, as it is outdated and problem quality is not the best as of now, but if you are willing to get past that, it does cover algorithms necessary.  
 
 Competitive Programmer's Handbook (a good place to start)
@@ -161,7 +161,7 @@ Go further: http://www.csc.kth.se/~jsannemo/slask/main.pdf
 
 Problems by topic and difficulty: https://codeforces.com/blog/entry/55274
 
-# Time Complexity
+## Time Complexity
 Design Efficient Algorithms 
 
 Time complexity is usually not much of a worry for bronze, but for silver and beyond, it is critical that algorithms are designed to appropriate time complexities (adhering to the bounds of the various variables in the problem statement). 
@@ -176,7 +176,7 @@ Below is helpful information in the context of contest programming (credit~CP3):
 ![](https://github.com/Aryansh-S/USACO/blob/master/src/Screen%20Shot%202020-04-16%20at%204.11.02%20PM.png)
 ![](https://github.com/Aryansh-S/USACO/blob/master/src/Screen%20Shot%202020-04-16%20at%204.11.23%20PM.png)
 
-# Space/Memory Complexity
+## Space/Memory Complexity
 
 Not much to say here, but as far as USACO is concerned, your limit is 256MB unless otherwise noted. This means "2.46 e+8" bytes as an absolute upper bound, meaning that your memory usage should certainly be less. Here is a handy table to check what kinds of arrays you might be able to declare in terms of size. You can multiply the size in bytes of a single datatype by the number of datatypes in the overall array (essentially its size):
 
@@ -190,6 +190,6 @@ Not much to say here, but as far as USACO is concerned, your limit is 256MB unle
 
 Look into bitsets and sliding window for more memory optimization tricks. 
 
-# Questions/Suggestions
+## Questions/Suggestions
 
 Email me at sendtoaryansh@gmail.com in the event that you have a detailed question that has not already been addressed here or elsewhere completely. Suggestions are welcome here as well! Otherwise, the above and general resources (Google) should be more than enough. 
