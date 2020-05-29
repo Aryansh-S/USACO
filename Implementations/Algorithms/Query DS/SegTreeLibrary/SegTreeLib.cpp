@@ -49,7 +49,7 @@ namespace SegmentTree { //define any operator as a functional expression with an
             x |= x >> 4;
             x |= x >> 8;
             x |= x >> 16;
-            return 2 * x + 1;;
+            return 2 * x + 1;
         }
         void chupd(string s){tp = s;} //change update type
         void pull(int ind) {
