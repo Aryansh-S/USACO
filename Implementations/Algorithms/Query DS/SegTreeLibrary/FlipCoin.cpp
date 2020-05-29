@@ -92,6 +92,6 @@ int main() {
   while(q--) {
     bool t; int a,b; cin >> t >> a >> b; 
     if(t) cout << t.query(a,b) << '\n';
-    else t.upd(a,b,1);
+    else t.upd(a,b,1); //xoring with 1 is good enough: 0^1=1, 1^1=0
   }
 }
