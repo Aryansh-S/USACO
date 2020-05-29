@@ -9,6 +9,6 @@ between implementation difficulty and solution:
 The final library will be put into a single namespace and will be designed for ease of use. The beauty of such a library is that you do not even have to engage with its full spectrum of complexity if you need not! Default values are assigned to arguments based on typical contest requirements. 
 
 **RELEASE (v1.2)** check the "SegTreeLib.cpp" file!
-
+- Major bug fixes!
 - Size should *never* be a power of two in my implementation of the lazy case: I made a permanent warning for this
 - *Always* 1-index: I made a permanent warning for this
