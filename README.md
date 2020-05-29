@@ -29,10 +29,10 @@ You should check out the sources provided in the "Books" folder -- they are part
 
 # Template (\& A First on Structs) 
 
-My template for CP is "CPtemplate.cpp" along with algorithms from "algotemplate.cpp" as useful. 
+My template for CP is "CPtemplate.cpp" along with algorithms from "algos.cpp" as useful. 
 - The former is far more organized than the latter (by way of namespaces), but as I move things around in the latter, I will try to group things into namespaces there too.
 
-You can find the latest version of my contest programming template (ongoing modification) in "algotemplate.cpp"; please credit before any use in-contest. More specifically, I have coded and put together some nifty structs for various algorithms and problem types; these continue to be updated. Structs I design are meant to be some of the most efficient possible implementations of algorithms, as they are tested for large cases and efficiency. 
+You can find the latest version of my contest programming template (ongoing modification) in "algos.cpp"; please credit before any use in-contest. More specifically, I have coded and put together some nifty structs for various algorithms and problem types; these continue to be updated. Structs I design are meant to be some of the most efficient possible implementations of algorithms, as they are tested for large cases and efficiency. 
 
 There are macros specifically used during contest programming (regarding runtime and random number generation) that I do not add to the algorithm template but rather include in "CPtemplate.cpp".
 
@@ -40,7 +40,7 @@ It is important to note that the purpose of a struct is not to black-box concept
 
 Please ensure that you have an in-depth understanding of the concepts involved before using structs! Structs are convenient but never a replacement (and more so a supplement) for a strong algorithmic foundation. If possible, I encourage you to create your own structs so that you are exposed to the algorithm and its implementation as much as possible (this will also make life easier insofar as debugging is concerned). 
 
-The general idea as far as contests go is to have "CPtemplate.cpp" written out in every file in advance for convenience and then reference anything in "algotemplate.cpp" as necessary. 
+The general idea as far as contests go is to have "CPtemplate.cpp" written out in every file in advance for convenience and then reference anything in "algos.cpp" as necessary. 
 
 Of course, the key is to have a good idea of what you can and cannot code in a contest setting. You should obviously not create a struct for everything (an extreme example is making a struct for a fundamental process like DFS/BFS: both of them can be simply implemented anyway -- just use a recursion or stack/queue).
 
