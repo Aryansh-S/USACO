@@ -44,6 +44,7 @@ namespace SegmentTree { //define any operator as a functional expression with an
     };
     
     template<const int n, class T = int, class U = opadd<T>> struct LazySegTree {
+	//RANGE UPDATE, RANGE QUERY
         vector<T> seg, lazy; U oper; string tp = "add"; //CHUPD BEFORE INIT
         void chupd(string s){tp = s;} //change update type
         void pull(int ind) {
