@@ -66,21 +66,21 @@ namespace SegmentTree { //define any operator as a functional expression with an
         void push(int ind, int L, int R) {
             if(lazy[ind] != getID<T>(lazy[ind],tp)){
                 upd_<T>(seg[ind], lazy[ind], tp);
-                if(L != R) lazy[2*ind+1] = oper.comb(lazy[2*ind+1],lazy[ind]), lazy[2*ind+2] = oper.comb(lazy[2*ind+2],lazy[ind]);
+                if(L != R) upd_<T>(lazy[2*ind+1],lazy[ind],tp), upd_<T>(lazy[2*ind+2],lazy[ind],tp);
                 lazy[ind] = getID<T>(lazy[ind],tp);
             }
         }
-        void upd(int lo, int hi, T inc, int ind = 1, int L = 0, int R = n - 1) {
+        void upd(int lo, int hi, T inc, int ind = 0, int L = 0, int R = n - 1) {
             if(hi < L || R < lo) {push(ind, L, R); return;}
-	    if(lo <= L && R <= hi) {
-		    upd_(lazy[ind],inc,tp);
-		    push(ind,L,R); return;
-	    }
+            if(lo <= L && R <= hi) {
+                upd_(lazy[ind],inc);
+                push(ind,L,R); return;
+            }
             int M = (L+R)/2;
 		    upd(lo,hi,inc,2*ind+1,L,M); upd(lo,hi,inc,2*ind+2,M+1,R);
 		    pull(ind);
         }
-        T query(int lo, int hi, int ind = 1, int L = 0, int R = n - 1) {
+        T query(int lo, int hi, int ind = 0, int L = 0, int R = n - 1) {
             if(lo > R || L > hi) return oper.ID;
             push(ind, L, R);
             if (lo <= L && R <= hi) return seg[ind];
