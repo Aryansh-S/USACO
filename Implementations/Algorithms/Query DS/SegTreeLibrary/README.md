@@ -1,3 +1,5 @@
+# Ultimate Segment Tree Library
+
 The segment tree is one of the most versatile structures in all of contest programming. The intuition behind the innerworkings
 is fairly simple compared to that of a Fenwick Tree. Yet, unfortunately, segment trees are not so easy to implement. 
 
