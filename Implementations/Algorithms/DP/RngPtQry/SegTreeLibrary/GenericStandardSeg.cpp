@@ -32,11 +32,13 @@ namespace SegmentTree { //define any operator as a functional expression with an
             return oper.comb(ra,rb);
         }
     };
+    
     template<typename U = int, template<typename> class T = opadd> using SEG = SegTree<U, T<U>>;
 }
 using namespace SegmentTree;
 
-SEG<int, opmult> s1; //integer segment tree that supports multiplication queries
+SEG<int, opmult> s1; 
+//example: integer segment tree that supports multiplication queries
 
 int main(){
     s1.init(2);
