@@ -95,6 +95,7 @@ namespace SegmentTree { //define any operator as a functional expression with an
     
     template<typename U = int, template<typename> class T = opadd> using SEG = SegTree<U, T<U>>;
     template<int sz, typename U = int, template<typename> class T = opadd> using LSEG = LazySegTree<sz, U, T<U>>;
+    //1-index and never make size a power of 2
 }; 
 using namespace SegmentTree;
 
