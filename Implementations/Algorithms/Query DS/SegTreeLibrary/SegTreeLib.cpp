@@ -67,10 +67,10 @@ namespace SegmentTree { //define any operator as a functional expression with an
         }
         void upd(int lo, int hi, T inc, int ind = 1, int L = 0, int R = n - 1) {
             if(hi < L || R < lo) {push(ind, L, R); return;}
-		    if(lo <= L && R <= hi) {
-			    upd_(lazy[ind],inc,tp);
-			    push(ind,L,R); return;
-		    }
+	    if(lo <= L && R <= hi) {
+		    upd_(lazy[ind],inc,tp);
+		    push(ind,L,R); return;
+	    }
             int M = (L+R)/2;
 		    upd(lo,hi,inc,2*ind+1,L,M); upd(lo,hi,inc,2*ind+2,M+1,R);
 		    pull(ind);
@@ -79,8 +79,8 @@ namespace SegmentTree { //define any operator as a functional expression with an
             if(lo > R || L > hi) return oper.ID;
             push(ind, L, R);
             if (lo <= L && R <= hi) return seg[ind];
-		    int M = (L+R)/2;
-		    return oper.comb(query(lo,hi,2*ind+1,L,M),query(lo,hi,2*ind+2,M+1,R));
+	    int M = (L+R)/2;
+	    return oper.comb(query(lo,hi,2*ind+1,L,M),query(lo,hi,2*ind+2,M+1,R));
         }
     };
     
