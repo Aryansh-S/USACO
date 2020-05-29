@@ -15,6 +15,7 @@ namespace SegmentTree { //define any operator as a functional expression with an
     }
 
     template<class T = int, class U = opadd<T>> struct SegTree {
+        // POINT UPDATE, RANGE QUERY
         int n; vector<T> seg; U oper; string tp = "id"; 
         void init(int _n) { n = _n; seg.assign(2*n,oper.ID); }
         void initv(int _n, int val = 0){ n = _n; seg.assign(2*n, val); }
