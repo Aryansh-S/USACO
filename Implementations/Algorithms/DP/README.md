@@ -1,1 +1,5 @@
-This contains algorithm implementations for dp along with data structures supporting queries and updates (range and pt)
+This contains algorithm implementations for dp 
+
+Prefer iterative DP to recursive
+- faster (smaller const factors)
+- more concise
