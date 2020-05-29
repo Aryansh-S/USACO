@@ -96,7 +96,7 @@ int main(){
     s1.upd(2,6); 
     cout << "standard query: " << s1.query(1,2) << '\n';
     //yields 4(5 + 6) = 44 because update type changed from id (literal assignment) to add 
-    l.chupd("mult"); //change to multiplication updates
-    l.initv(1); l.upd(1,2,3); l.upd(1,2,18); 
-    cout << "lazy query: " << l.query(1,2) << '\n';
+    s2.chupd("mult"); //change to multiplication updates
+    s2.initv(1); s2.upd(1,2,3); s2.upd(1,2,18); 
+    cout << "lazy query: " << s2.query(1,2) << '\n';
 }
