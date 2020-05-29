@@ -41,7 +41,10 @@ SEG<int, opmult> s1;
 //example: integer segment tree that supports multiplication queries
 
 int main(){
-    s1.init(2);
-    s1.upd(1,4); s1.upd(2,5); s1.chupd("add"); s1.upd(2,6); cout << s1.query(1,2) << '\n';
+    s1.init(2); //initialize for n = 2
+    s1.upd(1,4); s1.upd(2,5); 
+    s1.chupd("add"); //change to addition updates
+    s1.upd(2,6); 
+    cout << s1.query(1,2) << '\n';
     //yields 4(5 + 6) = 44 because update type changed from id (literal assignment) to add 
 }
