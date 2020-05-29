@@ -15,7 +15,7 @@ namespace SegmentTree { //define any operator as a functional expression with an
         if(tp == "xor") { a ^= b; }
         if(tp == "mult") { a *= b; }
     }
-    template<class T> T getID(T a, string tp = "id") {
+    template<class T> T getID(T a, string tp = "id") { //ID of update type required for lazy propagation 
         if(tp == "id") return a;
         if(tp == "add") return 0;
         if(tp == "xor") return 0;
