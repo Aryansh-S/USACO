@@ -69,14 +69,15 @@ namespace SegmentTree { //define any operator as a functional expression with an
         }
         void upd(int lo, int hi, T inc, int ind = 0, int L = 0, int R = n - 1) {
 	    if(lo == 0) {cout << "FAILURE: PLEASE 1-INDEX\n"; exit(1);}
-            if(hi < L || R < lo) {push(ind, L, R); return;}
+	    push(ind, L, R);
+            if(hi < L || R < lo) return;
             if(lo <= L && R <= hi) {
                 upd_<T>(lazy[ind],inc,tp);
-                push(ind,L,R); return;
+                return;
             }
             int M = (L+R)/2;
-		    upd(lo,hi,inc,2*ind+1,L,M); upd(lo,hi,inc,2*ind+2,M+1,R);
-		    pull(ind);
+            upd(lo,hi,inc,2*ind+1,L,M); upd(lo,hi,inc,2*ind+2,M+1,R);
+            pull(ind);
         }
         T query(int lo, int hi, int ind = 0, int L = 0, int R = n - 1) {
 	    if(lo == 0) {cout << "FAILURE: PLEASE 1-INDEX\n"; exit(1);}
