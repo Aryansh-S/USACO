@@ -7,3 +7,4 @@ The goal of this library is to create the most generic, extensible segment tree 
 between implementation difficulty and solution.
 
 The idea behind this is that any segment tree can be concisely represented as a closed associative algebraic space, or monoid, on its nodes, whereafter any "update" becomes a functional endomorphism on ranges of nodes. 
+- For ease of use, I have premade several monoids and endomorphisms in the namespace.
