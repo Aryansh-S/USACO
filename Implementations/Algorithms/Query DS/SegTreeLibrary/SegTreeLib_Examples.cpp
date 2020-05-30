@@ -9,13 +9,13 @@ namespace SegmentTree { //define any operator as a functional expression with an
     template<class T> class opxor {public: const T ID = 0; T comb(T a, T b){return a ^ b;}};
     template<class T> class opmin {public: const T ID = INF; T comb(T a, T b){return min(a, b);}};
     template<class T> class opmax {public: const T ID = -INF; T comb(T a, T b){return max(a, b);}};
-    template<class T> void upd_(T&a, T&b, string tp = "id"){ //define update type
+    template<class T> void upd_(T&a, T&b, string &tp){ //define update type
         if(tp == "id") { a = b; }
         if(tp == "add") { a += b; }
         if(tp == "xor") { a ^= b; }
         if(tp == "mult") { a *= b; }
     }
-    template<class T> T getID(T a, string tp = "id") { //ID of update type required for lazy propagation 
+    template<class T> T getID(T a, string &tp) { //ID of update type required for lazy propagation 
         if(tp == "id") return a;
         if(tp == "add") return 0;
         if(tp == "xor") return 0;
@@ -76,7 +76,7 @@ namespace SegmentTree { //define any operator as a functional expression with an
 	    if(lo == 0) {cout << "FAILURE: PLEASE 1-INDEX\n"; exit(1);}
             if(hi < L || R < lo) {push(ind, L, R); return;}
             if(lo <= L && R <= hi) {
-                upd_(lazy[ind],inc);
+                upd_<T>(lazy[ind],inc,tp);
                 push(ind,L,R); return;
             }
             int M = (L+R)/2;
