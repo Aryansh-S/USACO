@@ -2,6 +2,7 @@
 using namespace std;
 
 #define INF 0x3f3f3f3f
+using ll = long long;
 
 /*
 Output of segment tree range queries are modelled as elements of a monoid.
