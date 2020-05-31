@@ -5,6 +5,12 @@ is fairly simple compared to that of a Fenwick Tree. Yet, unfortunately, segment
 The goal of this library is to create the most generic, extensible segment tree data structures around, bridging the gap 
 between implementation difficulty and solution.
 
+Full support for point and range updates is provided based on perfected, optimized lazy propagation. 
+
+Implementation Notes:
+- One-indexing is required
+- Avoid powers of two in base array size
+
 ## Abstract Algebra Concept
 
 The idea behind this is that any segment tree can be concisely represented as a closed associative algebraic space, or monoid, on its nodes, whereafter any "update" becomes a functional endomorphism on ranges of nodes. 
