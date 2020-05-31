@@ -15,3 +15,7 @@ Implementation Notes:
 
 The idea behind this is that any segment tree can be concisely represented as a closed associative algebraic space, or monoid, on its nodes, whereafter any "update" becomes a functional endomorphism on ranges of nodes. 
 - For ease of use, I have premade several monoids and endomorphisms in the namespace.
+
+## Updating
+
+All code updates will be added directly to the main library file! Examples are not necessarily updated.
