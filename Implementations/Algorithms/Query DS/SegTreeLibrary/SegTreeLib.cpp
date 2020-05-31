@@ -321,7 +321,9 @@ namespace SegmentTree {
 }
 using namespace SegmentTree;
 
-vector<qryadd<int>> v{0,1,2,3,0}; //maintain 1-indexing by prefixing with a 0 & avoid power of 2 by suffixing with 0
+vector<qryadd<int>> v{0,1,2,3,0}; //maintain 1-indexing by prefixing with a 0 & avoid power of 2 by suffixing with 0 
+//for the sake of problems in general you can avoid powers of 2 for n by just always reserving a certain amount of space in
+//the vector -- or just use an array
 
 SEG<int, qryadd, updid> s(v);
 
