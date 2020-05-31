@@ -6,11 +6,9 @@ using namespace std;
 /*
 Output of segment tree range queries are modelled as elements of a monoid.
 Updates on the segment tree are functions on the monoid.
-
 A Monoid is a class implementing the following methods:
 * Monoid();  // constructor: identity element of monoid
 * Monoid(const Monoid&, const Monoid&);  // constructor: element created by combining 2 elements
-
 A Function is a class implementing the following methods:
 * Function();  // constructor: identity function
 * Function(const Function& f1, const Function& f2);  // constructor: function composition (f1.f2)
@@ -244,7 +242,7 @@ namespace SegmentTree {
                     cout << "SegTree: vector input to assign is too short\n"; 
                     exit(3);
                 }
-                assign(v.data);
+                assign(v.data());
             }
 
         private:
@@ -316,7 +314,7 @@ namespace SegmentTree {
 }
 using namespace SegmentTree;
 
-SEG<int, qrymax, updid> s(6);
+SEG<int, qrymax, updid> s(3);
 
 int main(){
     s.upd(1,2,1); 
