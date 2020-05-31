@@ -158,7 +158,7 @@ namespace SegmentTree {
     using namespace update_functions;
 
     int segtree_size(int n) { // 2^(ceil(lg(n)) + 1) - 1
-                if((n != 0) && ((n & (n - 1)) == 0)) { cout << "CAREFUL -- DO NOT USE A POWER OF 2 FOR N\n"; exit(10); }
+                if((n != 0) && ((n & (n - 1)) == 0)) ++n;
                 n -= 1;
                 n |= n >> 1;
                 n |= n >> 2;
@@ -310,14 +310,14 @@ namespace SegmentTree {
             }
     };
 
-    template <typename T, template<typename> class A, template<typename> class B> using SEG = SegTree<A<T>,B<T>>; 
+    template<typename T, template<typename> class A, template<typename> class B> using SEG = SegTree<A<T>,B<T>>; 
 }
 using namespace SegmentTree;
 
-SEG<int, qrymax, updid> s(3);
+vector<qryadd<int>> v{0,1,2,3};
+
+SEG<int, qryadd, updid> s(v);
 
 int main(){
-    s.upd(1,2,1); 
-    s.upd(2,2,3);
-    cout << s.qry(1,2) << '\n';
+    cout << s.qry(1,3) << '\n';
 }
