@@ -192,12 +192,10 @@ namespace SegmentTree {
                 }
             }
 
-        private:
             int n;
             vector<M> values;
             vector<F> pends;
 
-        public:
             explicit SegTree(int _n):
                 n(_n), values(segtree_size(n)), pends(values.size()) {identity_check();}
             explicit SegTree(int _n, const M& x):
