@@ -162,7 +162,7 @@ namespace SegmentTree {
     }
 
     int segtree_size(int n) { // 2^(ceil(lg(n)) + 1) - 1
-                if(failuresize(n)) {cout << "FAILED: DO NOT USE A POWER OF 2 FOR SIZE\n"; exit(10);}
+                if(failuresize(n)) {cout << "FAILED: DO NOT USE A POWER OF 2 FOR N\n"; exit(10);}
                 n -= 1;
                 n |= n >> 1;
                 n |= n >> 2;
@@ -317,6 +317,7 @@ namespace SegmentTree {
     };
 
     template<typename T, template<typename> class A, template<typename> class B> using SEG = SegTree<A<T>,B<T>>; 
+    //please 1-index and avoid powers of 2 for n at all cost 
 }
 using namespace SegmentTree;
 
