@@ -16,7 +16,7 @@ What you probably won't find anywhere else
 
 - [An Organized Contest Programming Template (C++)](https://github.com/Aryansh-S/USACO/blob/master/CPtemplate.cpp)
 
-- [An Efficiency-Optimizied Full-Fledged Generic Standalone Segment Tree Library (C++)](https://github.com/Aryansh-S/USACO/tree/master/Implementations/Algorithms/Query%20DS/SegTreeLibrary)
+- [An Efficiency-Optimizied Full-Fledged Generic Standalone Segment Tree Library: Abstract Algebra (C++)](https://github.com/Aryansh-S/USACO/tree/master/Implementations/Algorithms/Query%20DS/SegTreeLibrary)
 
 - [Bounded Numerical Data Structures (C++)](https://github.com/Aryansh-S/USACO/blob/master/Implementations/Algorithms/Graph/DFS/FloodfillHelper.cpp)
 
