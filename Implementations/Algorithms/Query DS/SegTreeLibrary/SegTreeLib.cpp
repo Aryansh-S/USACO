@@ -322,6 +322,8 @@ namespace SegmentTree {
 
     template<typename T, template<typename> class A, template<typename> class B> using SEG = SegTree<A<T>,B<T>>; 
     //please 1-index and avoid powers of 2 for n at all cost 
+    //leaf nodes are indices N-1 to 2N-2 (starting from 0), inclusive
+    //for instance 0-4 first branches into a leaf node of 2 for index sz-1 = 5-1 = 4
 }
 using namespace SegmentTree;
 
