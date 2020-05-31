@@ -316,7 +316,7 @@ using namespace SegmentTree;
 
 vector<qryadd<int>> v{0,1,2,3}; //maintain 1-indexing by prefixing with a 0
 
-SEG<int, qryadd, updid> s(v);
+SEG<int, qryadd, updid> s(v); //initialization by passing vector into constructor
 
 int main(){
     cout << s.qry(1,3) << '\n';
