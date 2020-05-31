@@ -10,6 +10,7 @@ Full support for point and range updates is provided based on perfected, optimiz
 Implementation Notes:
 - One-indexing is required
 - Avoid powers of two in base array size
+- Leaf nodes are in .values index range ![\[n-1, 2n-2\]](https://render.githubusercontent.com/render/math?math=%5Bn-1%2C%202n-2%5D)
 
 ## Abstract Algebra Concept
 
