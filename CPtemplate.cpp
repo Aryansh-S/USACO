@@ -135,9 +135,9 @@ namespace template_lib {
 	namespace grid_macros {
 		const int xd[4] = {0,1,0,-1}, yd[4] = {1,0,-1,0}; 
 		template<class T> struct bd{ //bdi for inclusive bounded int
-			  T v = 0; int l = 0, r = 1;
-			  bd(int _v, int _l, int _r){l=_l,r=_r,v=_v; if(v < l) v = l; if(v > r) v = r;}
-			  operator int(){return v;}
+			  T v = 0, l = 0, r = 1;
+			  bd(T _v, T _l, T _r){l=_l,r=_r,v=_v; if(v < l) v = l; if(v > r) v = r;}
+			  operator T(){return v;}
 			  bd<T> operator++(){
 			    bd<T> tmp(v,l,r); tmp.v = v + 1 > r ? r : ++v; return tmp; 
 			  }
