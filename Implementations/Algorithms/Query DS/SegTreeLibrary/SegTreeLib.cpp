@@ -29,6 +29,7 @@ namespace SegmentTree {
                 qryadd(const qryadd& L, const qryadd& R):
                     _sum(L._sum + R._sum) {} //element created by combination
                 T get() const {return _sum;}
+                operator T() {return _sum;}
         };
         template<typename T> class qrymult {
             public:
@@ -39,6 +40,7 @@ namespace SegmentTree {
                 qrymult(const qrymult& L, const qrymult& R):
                     _prod(L._prod * R._prod) {} //element created by combination
                 T get() const {return _prod;}
+                operator T() {return _prod;}
         };
         template<typename T> class qryxor {
             public:
@@ -49,6 +51,7 @@ namespace SegmentTree {
                 qryxor(const qryxor& L, const qryxor& R):
                     _xor(L._xor ^ R._xor) {} //element created by combination
                 T get() const {return _xor;}
+                operator T() {return _xor;}
         };
         template<typename T> class qrymin { 
             public:
@@ -59,6 +62,7 @@ namespace SegmentTree {
                 qrymin(const qrymin& L, const qrymin& R):
                     _min(min(L._min, R._min)) {} //element created by combination
                 T get() const {return _min;}
+                operator T() {return _min;}
         };
         template<typename T> class qrymax {
             public:
@@ -69,6 +73,7 @@ namespace SegmentTree {
                 qrymax(const qrymax& L, const qrymax& R):
                     _max(max(L._max, R._max)) {} //element created by combination
                 T get() const {return _max;}
+                operator T() {return _max;}
         };
     }
     using namespace query_monoids; 
