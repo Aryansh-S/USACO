@@ -156,9 +156,13 @@ namespace SegmentTree {
         };
     }
     using namespace update_functions;
+    
+    bool failuresize(int x) { 
+      return (x != 0) && ((x & (x - 1)) == 0); 
+    }
 
     int segtree_size(int n) { // 2^(ceil(lg(n)) + 1) - 1
-                if((n != 0) && ((n & (n - 1)) == 0)) ++n;
+                if(failuresize(n)) {cout << "FAILED: DO NOT USE A POWER OF 2 FOR SIZE\n"; exit(10);}
                 n -= 1;
                 n |= n >> 1;
                 n |= n >> 2;
@@ -195,7 +199,9 @@ namespace SegmentTree {
             explicit SegTree(int _n, const M* a):
                 n(_n), values(segtree_size(n)), pends(values.size()) {identity_check(); assign(a);}
             explicit SegTree(const vector<M>& v):
-                n(v.size()), values(segtree_size(v.size())), pends(values.size()) {identity_check(); assign(v);}
+                n(v.size()), values(segtree_size(v.size())), pends(values.size()) {
+                  identity_check(); assign(v);
+                }
 
         private:
             void assign_values(int root, int first, int last, const M* a) {
@@ -314,9 +320,9 @@ namespace SegmentTree {
 }
 using namespace SegmentTree;
 
-vector<qryadd<int>> v{0,1,2,3}; //maintain 1-indexing by prefixing with a 0
+vector<qryadd<int>> v{0,1,2,3,0}; //maintain 1-indexing by prefixing with a 0 & avoid power of 2 by suffixing with 0
 
-SEG<int, qryadd, updid> s(v); //initialization by passing vector into constructor
+SEG<int, qryadd, updid> s(v);
 
 int main(){
     cout << s.qry(1,3) << '\n';
