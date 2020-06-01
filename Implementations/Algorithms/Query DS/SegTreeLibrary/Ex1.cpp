@@ -1,5 +1,6 @@
 //task: https://cses.fi/problemset/task/1651/
 //verified: 0.25s lazy propagation (demonstration purposes, but you can even do a range BIT to achieve similar results)
+//submission: https://cses.fi/problemset/hack/1651/entry/490560/
 
 #include <bits/stdc++.h>
 using namespace std;
@@ -14,6 +15,8 @@ namespace SegmentTree {
             T _res; monoid(T r) : _res(r) {} 
             monoid(): _res(ID) {} //identity (default init)
             operator T() const {return _res;}
+            friend ostream& operator<<(ostream& os, monoid& a) {return os << a._res;}
+            friend istream& operator>>(istream& is, monoid& a) {return is >> a._res;}
         }; 
         //premade monoids: inherited from base monoid
         template<typename T> class qryadd : public monoid<T,0> { public: using monoid<T,0>::monoid; 
