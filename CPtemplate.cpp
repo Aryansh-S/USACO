@@ -29,7 +29,11 @@ namespace template_lib {
 		#define fbo find_by_order
 		#define ofk order_of_key
 		#define pb push_back
+		#define pf push_front
+		#define ppb pop_back
+		#define ppf pop_front
 		#define eb emplace_back
+		#define ef emplace_front
 		#define ins insert
 		#define ers erase
 		#define mp make_pair
