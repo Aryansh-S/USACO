@@ -1,5 +1,6 @@
 //task: https://cses.fi/problemset/task/1651/
 //verified: 0.25s lazy propagation (demonstration purposes, but you can even do a range BIT to achieve similar results)
+//submission: https://cses.fi/problemset/hack/1651/entry/490545/
 
 #include <bits/stdc++.h>
 using namespace std;
