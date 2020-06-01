@@ -77,8 +77,8 @@ namespace template_lib {
 	namespace math_macros {
 		#define ckmin(a,b) a=min(a,b)
 		#define ckmax(a,b) a=max(a,b)
-		#define gcd(a,b) __gcd((a),(b))
-		#define lcm(a,b) (a)*(b)/gcd((a),(b))
+		#define gcd(a,b) ((!(a) || !(b)) ? (max(abs(a),abs(b))) : (__gcd((a),(b))))
+		#define lcm(a,b) ((!(a) || !(b)) ? 0 : ((a)*(b))/gcd((a),(b)))
 		ll POW(ll a, ll b) { //log
 			ll res = 1; while(b) res *= (b & 1)? a : 1, a*=a, b>>=1;
 			return res;
