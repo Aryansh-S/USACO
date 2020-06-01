@@ -224,5 +224,6 @@ vector<qryadd<int>> v {0,2,3}; //prefixed with 0
 SEG<int,qryadd,updid> s(v);
 
 int main(){
+    cin.tie(0)->sync_with_stdio(0);
     cout << s.qry(1,2) << '\n';
 }
