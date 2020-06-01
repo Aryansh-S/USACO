@@ -11,6 +11,8 @@ namespace SegmentTree {
             T _res; monoid(T r) : _res(r) {} 
             monoid(): _res(ID) {} //identity (default init)
             operator T() const {return _res;}
+            friend ostream& operator<<(ostream& os, monoid& a) {return os << a._res; }
+            friend istream& operator>>(istream& os, monoid& a) {return os >> a._res; }
         }; 
         //premade monoids: inherited from base monoid
         template<typename T> class qryadd : public monoid<T,0> { public: using monoid<T,0>::monoid; 
