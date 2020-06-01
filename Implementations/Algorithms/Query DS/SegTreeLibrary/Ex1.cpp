@@ -227,7 +227,7 @@ qryadd<ll> arr[200005];
 int main() {
   cin.tie(0)->sync_with_stdio(0);
   int n,q; cin >> n >> q; 
-  for(int i = 1; i <= n; ++i) {ll x; cin >> x; arr[i] = qryadd<ll>(x);}
+  for(int i = 1; i <= n; ++i) cin >> arr[i];
   SEG<ll,qryadd,updadd> s(200005, arr); 
   while(q--) {
     int t; cin >> t; 
