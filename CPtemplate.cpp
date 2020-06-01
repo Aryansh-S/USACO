@@ -42,8 +42,8 @@ namespace template_lib {
 		#define sz(x) (((x).empty()) ? (0) : ((int)(x).size()))
 		#define sq(x) (x)*(x)
 		#define rsz resize
-		#define lb lower_bound
-		#define ub upper_bound
+		#define lb lower_bound //first el in [l,r) >= val
+		#define ub upper_bound //first el in [l,r) > val
 		#define all(x) begin(x),end(x)
 		#define rall(x) end(x),begin(x)
 	}
