@@ -188,11 +188,11 @@ namespace aryansh {
 		template<class T> void out_(vector<T> v,int sz){trav(t,v) out_(t);}
 		template<class T> void out(T*a,int sz){F0R(i,sz) out(a[i]);}
 		template<class T> void out_(T*a,int sz){F0R(i,sz) out_(a[i]);}
-		#define what(x) out((#x),"is",(x))
 		#define PRES(d) cout.precision(d);cout.setf(ios::fixed,ios::floatfield)
 		#define MEM(a,v) if((!(v) || !((v)+1) || !((v)-INF) || !((v)+INF))) {\
 		    (memset((a),(v),sizeof(a)));}else {trav(k,(a)) {k=v;}}static_assert(1, "")
 		#define NL cout << "\n"
+		#define what(x) out_((#x));out_("is");out_(x);NL
 		#define IO(PNAME) if(fopen(PNAME ".in","r")){freopen(PNAME ".in","r",stdin);freopen(PNAME ".out","w",stdout);}cin.tie(0)->sync_with_stdio(0)
 	}
 	using namespace io_macros;
