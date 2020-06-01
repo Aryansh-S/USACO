@@ -7,7 +7,7 @@ using namespace std; using namespace __gnu_pbds;
 
 // C++ Template (Aryansh Shrivastava) -- run w/ cmd+shift+r
 
-namespace template_lib {
+namespace aryansh {
 	namespace type_macros {
 		typedef long long ll; 
 		typedef long double ld;
@@ -202,7 +202,7 @@ namespace template_lib {
 	using namespace io_macros;
 }
 
-using namespace template_lib;
+using namespace aryansh;
 
 // - - - - - - - - - - - - - - - - - - - - -
 
