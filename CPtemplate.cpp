@@ -39,7 +39,8 @@ namespace template_lib {
 		#define mp make_pair
 		#define f first
 		#define s second
-		#define sz(x) (((x).empty()) ? (0) : ((int)(x).size()))
+		#define emt(x) (x).empty()
+		#define sz(x) (emt(x) ? 0 : (int)(x).size())
 		#define sq(x) (x)*(x)
 		#define rsz resize
 		#define lb lower_bound //first el in [l,r) >= val
