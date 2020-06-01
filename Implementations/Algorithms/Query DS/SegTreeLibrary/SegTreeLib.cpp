@@ -218,8 +218,8 @@ namespace SegmentTree {
 }
 using namespace SegmentTree;
 
-qryadd<int> a[] = {0,2,3}; //prefixed with 0 
-SEG<int,qryadd,updid> s(sizeof(a)/sizeof(a[0]),a);
+qryadd<int> v {0,2,3}; //prefixed with 0 
+SEG<int,qryadd,updid> s(v);
 
 int main(){
     cout << s.qry(1,2) << '\n';
