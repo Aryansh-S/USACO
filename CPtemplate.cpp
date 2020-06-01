@@ -46,6 +46,8 @@ namespace template_lib {
 		#define ub upper_bound
 		#define all(x) begin(x),end(x)
 		#define rall(x) end(x),begin(x)
+		#define SET(a,v) if((!(v) || !((v)+1) || !((v)-INF) || !((v)+INF))) {\
+		    (memset((a),(v),sizeof(a)));}else {trav(k,(a)) {k=v;}}static_assert(1, "")
 	}
 	using namespace func_macros;
 
