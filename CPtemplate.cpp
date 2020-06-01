@@ -3,11 +3,7 @@
 #include <ext/pb_ds/tree_policy.hpp>
 using namespace std; using namespace __gnu_pbds; 
 
-// :pray: :fishy15: :pray: :summitosity: :pray: :prodakcin: 
-
-// C++ Template (Aryansh Shrivastava) -- run w/ cmd+shift+r
-
-namespace aryansh {
+namespace aryansh { 
 	namespace type_macros {
 		typedef long long ll; 
 		typedef long double ld;
@@ -201,7 +197,7 @@ namespace aryansh {
 	}
 	using namespace io_macros;
 }
-
+//cmd + shift + r
 using namespace aryansh;
 
 // - - - - - - - - - - - - - - - - - - - - -
