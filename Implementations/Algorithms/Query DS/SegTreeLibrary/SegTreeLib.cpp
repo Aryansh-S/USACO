@@ -56,7 +56,7 @@ namespace SegmentTree {
     }
     using namespace update_functions;
     
-    bool failuresize(int x) { 
+    bool failuresize(int x) { //is x power of 2
       return (x != 0) && ((x & (x - 1)) == 0); 
     }
 
