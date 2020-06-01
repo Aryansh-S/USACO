@@ -220,7 +220,7 @@ namespace SegmentTree {
 }
 using namespace SegmentTree;
 
-qryadd<int> v {0,2,3}; //prefixed with 0 
+vector<qryadd<int>> v {0,2,3}; //prefixed with 0 
 SEG<int,qryadd,updid> s(v);
 
 int main(){
