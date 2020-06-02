@@ -16,8 +16,8 @@ namespace aryansh {
 		template<class T> using maxpq = priority_queue<T>;
 		template<class T> using OST = tree<T, null_type, less<T>, rb_tree_tag,tree_order_statistics_node_update>; 
 		template<class T, class U> using OSM = tree<T, U, less<T>, rb_tree_tag,tree_order_statistics_node_update>;
-		template<class T> using hset = gp_hash_table<T, null_type, hash<T>>; //don't use unordered_set
-		template<class T, class U> using hmap = gp_hash_table<T, U, hash<T>>; //don't use unordered_map
+		template<class T> using hset = gp_hash_table<T, null_type, hash<T>>; //don't use unordered_set, use ins
+		template<class T, class U> using hmap = gp_hash_table<T, U, hash<T>>; //don't use unordered_map, use ins
 	}
 	using namespace type_macros; 
 
@@ -44,6 +44,7 @@ namespace aryansh {
 		#define ub upper_bound //first el in [l,r) > val
 		#define all(x) begin(x),end(x)
 		#define rall(x) end(x),begin(x)
+		#define (x).has(y) ((x).find(y)!=end(x))
 	}
 	using namespace func_macros;
 
