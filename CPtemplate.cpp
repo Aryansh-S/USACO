@@ -16,8 +16,8 @@ namespace aryansh {
 		template<class T> using maxpq = priority_queue<T>;
 		template<class T> using OST = tree<T, null_type, less<T>, rb_tree_tag,tree_order_statistics_node_update>; 
 		template<class T, class U> using OSM = tree<T, U, less<T>, rb_tree_tag,tree_order_statistics_node_update>;
-		template<class T> using HSET = gp_hash_table<T, null_type, hash<T>>; 
-		template<class T, class U> using HMAP = gp_hash_table<T, U, hash<T>>;
+		template<class T> using hset = gp_hash_table<T, null_type, hash<T>>; //don't use unordered_set
+		template<class T, class U> using hmap = gp_hash_table<T, U, hash<T>>; //don't use unordered_map
 	}
 	using namespace type_macros; 
 
