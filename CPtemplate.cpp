@@ -31,6 +31,7 @@ namespace aryansh {
 		#define eb emplace_back
 		#define ef emplace_front
 		#define ins insert
+		#define emp emplace 
 		#define ers erase
 		#define mp make_pair
 		#define f first
