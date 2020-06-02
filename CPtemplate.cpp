@@ -42,9 +42,9 @@ namespace aryansh {
 		#define rsz resize
 		#define lb lower_bound //first el in [l,r) >= val
 		#define ub upper_bound //first el in [l,r) > val
+		#define (x).has(y) ((x).find(y)!=end(x))
 		#define all(x) begin(x),end(x)
 		#define rall(x) end(x),begin(x)
-		#define (x).has(y) ((x).find(y)!=end(x))
 	}
 	using namespace func_macros;
 
