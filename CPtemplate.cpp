@@ -15,9 +15,7 @@ namespace aryansh {
 		template<class T> using minpq = priority_queue<T, vector<T>, greater<T> >;
 		template<class T> using maxpq = priority_queue<T>;
 		template<class T> using OST = tree<T, null_type, less<T>, rb_tree_tag,tree_order_statistics_node_update>; 
-		template<class T> using M_OST = tree<T, null_type, less_equal<T>, rb_tree_tag,tree_order_statistics_node_update>;
 		template<class T, class U> using OSM = tree<T, U, less<T>, rb_tree_tag,tree_order_statistics_node_update>;
-		template<class T, class U> using M_OSM = tree<T, U, less_equal<T>, rb_tree_tag,tree_order_statistics_node_update>;
 		template<class T> using HSET = gp_hash_table<T, null_type, hash<T>>; 
 		template<class T, class U> using HMAP = gp_hash_table<T, U, hash<T>>;
 	}
