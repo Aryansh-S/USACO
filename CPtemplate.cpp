@@ -5,6 +5,7 @@ using namespace std; using namespace __gnu_pbds;
 
 namespace aryansh { 
 	namespace type_macros {
+		#include <cxxabi.h>
 		typedef long long ll; 
 		typedef long double ld;
 		typedef double db;
@@ -18,7 +19,6 @@ namespace aryansh {
 		template<class T, class U> using OSM = tree<T, U, less<T>, rb_tree_tag,tree_order_statistics_node_update>;
 		template<class T> using hset = gp_hash_table<T, null_type, hash<T>>; //don't use unordered_set, use ins
 		template<class T, class U> using hmap = gp_hash_table<T, U, hash<T>>; //don't use unordered_map, use ins
-		#include <cxxabi.h>
 		template<class T> inline string type_name() {
 			typedef typename remove_reference<T>::type TR;
 			unique_ptr<char, void(*)(void*)> own(abi::__cxa_demangle(typeid(TR).name(), nullptr,nullptr,nullptr),free); 
