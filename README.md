@@ -25,8 +25,6 @@ What you probably won't find anywhere else
 [Here](https://www.overleaf.com/read/vxkkgmmrmckv) is the latest version of a book I am writing on competitive programming so far (a work in progress). 
 - At this point in time, there is also an ongoing DP handout I am creating. When done, it is expected to serve as a great reference without prerequisites. [Here](https://www.overleaf.com/read/vgdvpkrhjdbb)
 
-You should check out the sources provided in the "Books" folder -- they are particularly good for competitive programming.
-
 ## Template (\& A First on Structs) 
 
 My template for CP is "CPtemplate.cpp" along with algorithms from "algos.cpp" as useful. 
