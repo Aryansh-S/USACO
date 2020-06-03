@@ -205,7 +205,7 @@ namespace aryansh {
 		    (memset(&(a)[0],(v),sizeof(a)));}else {trav(k,(a)) {k=v;}}static_assert(1, "")
 		#define NL cout << "\n"
 		#define what(x) out_((#x));out_("is");out_(x);NL
-        #define type(x) type_name_string<decltype(x)>()
+        	#define type(x) type_name_string<decltype(x)>()
 		#define IO(PNAME) if(fopen(PNAME ".in","r")){freopen(PNAME ".in","r",stdin);freopen(PNAME ".out","w",stdout);}cin.tie(0)->sync_with_stdio(0)
 	}
 	using namespace io_macros;
