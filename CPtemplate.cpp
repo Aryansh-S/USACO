@@ -21,7 +21,8 @@ namespace aryansh {
 		template<class T, class U> using hmap = gp_hash_table<T, U, hash<T>>; //don't use unordered_map, use ins
 		template<class T> inline string type_name_string() {
 			typedef typename remove_reference<T>::type TR;
-			unique_ptr<char, void(*)(void*)> own(abi::__cxa_demangle(typeid(TR).name(), nullptr,nullptr,nullptr),free); string r = own != nullptr ? own.get() : typeid(TR).name();
+			unique_ptr<char, void(*)(void*)> own(abi::__cxa_demangle(typeid(TR).name(), nullptr,nullptr,nullptr),free); 
+			string r = own != nullptr ? own.get() : typeid(TR).name();
 			if (is_const<TR>::value) r += " const";
 			if (is_volatile<TR>::value) r += " volatile";
 			if (is_lvalue_reference<T>::value) r += "&";
