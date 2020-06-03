@@ -19,7 +19,7 @@ namespace aryansh {
 		template<class T, class U> using OSM = tree<T, U, less<T>, rb_tree_tag,tree_order_statistics_node_update>;
 		template<class T> using hset = gp_hash_table<T, null_type, hash<T>>; //don't use unordered_set, use ins
 		template<class T, class U> using hmap = gp_hash_table<T, U, hash<T>>; //don't use unordered_map, use ins
-		template<class T> inline string type_name_string() {
+		template<class T> inline string type_name() {
 			typedef typename remove_reference<T>::type TR;
 			unique_ptr<char, void(*)(void*)> own(abi::__cxa_demangle(typeid(TR).name(), nullptr,nullptr,nullptr),free); 
 			string r = own != nullptr ? own.get() : typeid(TR).name();
@@ -89,7 +89,7 @@ namespace aryansh {
 		#define ckmax(a,b) a=max(a,b)
 		#define gcd(a,b) ((!(a) || !(b)) ? (max(abs(a),abs(b))) : (__gcd((a),(b))))
 		#define lcm(a,b) ((!(a) || !(b)) ? 0 : ((a)*(b))/gcd((a),(b)))
-		inline ll POW(ll a, ll b) { //log
+		ll POW(ll a, ll b) { //log
 			ll res = 1; while(b) res *= (b & 1)? a : 1, a*=a, b>>=1;
 			return res;
 		}
@@ -186,19 +186,19 @@ namespace aryansh {
 	namespace io_macros {
 		inline void in(){} inline void outln(){} inline void out_(){} //for fast, easy IO
 		template<typename T, typename...Types> inline void in(T& var1, Types&...var2){cin >> var1; in(var2...);}
-		template<typename T> void out(T var1){cout << var1 << "\n";}
-		template<typename T, typename...Types> inline void out(T var1, Types...var2){cout << var1 << " "; out(var2...);}
-		template<typename T, typename...Types> inline void outln(T var1, Types...var2){cout << var1 << "\n"; outln(var2...);}
-		template<typename T,typename...Types> inline void out_(T var1, Types...var2){cout << var1 << " "; out_(var2...);}
+		template<typename T> inline void out(T& var1){cout << var1 << "\n";}
+		template<typename T, typename...Types> inline void out(T& var1, Types&...var2){cout << var1 << " "; out(var2...);}
+		template<typename T, typename...Types> inline void outln(T& var1, Types&...var2){cout << var1 << "\n"; outln(var2...);}
+		template<typename T,typename...Types> inline void out_(T& var1, Types&...var2){cout << var1 << " "; out_(var2...);}
 		template<class T1, class T2> inline void in(pair<T1,T2>&pt){in(pt.f,pt.s);} 
-		template<class T1, class T2> inline void out(pair<T1,T2> pt){out(pt.f,pt.s);}
-		template<class T1, class T2> inline void out_(pair<T1,T2> pt){out_(pt.f,pt.s);}
+		template<class T1, class T2> inline void out(pair<T1,T2>& pt){out(pt.f,pt.s);}
+		template<class T1, class T2> inline void out_(pair<T1,T2>& pt){out_(pt.f,pt.s);}
 		template<class T> inline void in(vector<T>&v,int sz){F0R(i,sz){T x; in(x); v.pb(x);}}
 		template<class T> inline void in(T*a,int sz){F0R(i,sz) in(a[i]);}
-		template<class T> inline void out(vector<T> v){trav(t,v) out(t);}
-		template<class T> inline void out(vector<T> v,int sz){trav(t,v) out(t);}
-		template<class T> inline void out_(vector<T> v){trav(t,v) out_(t);}
-		template<class T> inline void out_(vector<T> v,int sz){trav(t,v) out_(t);}
+		template<class T> inline void out(vector<T>& v){trav(t,v) out(t);}
+		template<class T> inline void out(vector<T>& v,int sz){trav(t,v) out(t);}
+		template<class T> inline void out_(vector<T>& v){trav(t,v) out_(t);}
+		template<class T> inline void out_(vector<T>& v,int sz){trav(t,v) out_(t);}
 		template<class T> inline void out(T*a,int sz){F0R(i,sz) out(a[i]);}
 		template<class T> inline void out_(T*a,int sz){F0R(i,sz) out_(a[i]);}
 		#define PRES(d) cout.precision(d);cout.setf(ios::fixed,ios::floatfield)
@@ -206,7 +206,7 @@ namespace aryansh {
 		    (memset(&(a)[0],(v),sizeof(a)));}else {trav(k,(a)) {k=v;}}static_assert(1, "")
 		#define NL cout << "\n"
 		#define what(x) out_((#x));out_("is");out_(x);NL
-        	#define type(x) type_name_string<decltype(x)>()
+        	#define type(x) type_name<decltype(x)>()
 		#define IO(PNAME) if(fopen(PNAME ".in","r")){freopen(PNAME ".in","r",stdin);freopen(PNAME ".out","w",stdout);}cin.tie(0)->sync_with_stdio(0)
 	}
 	using namespace io_macros;
