@@ -10,8 +10,6 @@ Full support for point and range updates is provided based on perfected, optimiz
 Implementation Notes:
 - One-indexing is required
 - Avoid powers of two in base array size
-- Leaf nodes are in .values index range ![\[n-1, 2n-2\]](https://render.githubusercontent.com/render/math?math=%5Bn-1%2C%202n-2%5D)
-  * This is helpful for binary search, i.e. always take leftmost RMQ until leaf node, doing ![\log n](https://render.githubusercontent.com/render/math?math=%5Clog%20n) queries of complexity ![\log n](https://render.githubusercontent.com/render/math?math=%5Clog%20n) each for a total of ![\log ^2 n](https://render.githubusercontent.com/render/math?math=%5Clog%20%5E2%20n). 
 
 ## Abstract Algebra Concept
 
