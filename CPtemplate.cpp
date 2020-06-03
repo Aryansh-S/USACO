@@ -210,11 +210,11 @@ namespace aryansh {
 		#define IO(PNAME) if(fopen(PNAME ".in","r")){freopen(PNAME ".in","r",stdin);freopen(PNAME ".out","w",stdout);}cin.tie(0)->sync_with_stdio(0)
 	}
 	using namespace io_macros;
-}
-//cmd + shift + r
+} //cmd + shift + r
 using namespace aryansh;
 
 // - - - - - - - - - - - - - - - - - - - - -
+
 
 
 int main() {
