@@ -4,161 +4,59 @@ using namespace std;
 #define INF 0x3f3f3f3f
 using ll = long long;
 
-/*
-Output of segment tree range queries are modelled as elements of a monoid.
-Updates on the segment tree are functions on the monoid.
-A Monoid is a class implementing the following methods:
-* Monoid();  // constructor: identity element of monoid
-* Monoid(const Monoid&, const Monoid&);  // constructor: element created by combining 2 elements
-A Function is a class implementing the following methods:
-* Function();  // constructor: identity function
-* Function(const Function& f1, const Function& f2);  // constructor: function composition (f1.f2)
-* bool is_identity() const;  // whether this function is the identity function
-* Monoid operator()(const Monoid&);  // function definition
-*/
-
 namespace SegmentTree {
-    namespace query_monoids { //M
-        //be careful: all initialized to identity by default
-        template<typename T> class qryadd {
-            public:
-                using tp = T; 
-                T _sum; 
-                qryadd(T s) : _sum(s) {}
-                qryadd(): _sum(0) {} //additive identity
-                qryadd(const qryadd& L, const qryadd& R):
-                    _sum(L._sum + R._sum) {} //element created by combination
-                T get() const {return _sum;}
+    namespace query_monoids { 
+        //base monoid class (M)
+        template<typename T, T ID> class monoid { public: 
+            T _res; monoid(T r) : _res(r) {} 
+            monoid(): _res(ID) {} //identity (default init)
+            operator T() const {return _res;}
+            friend ostream& operator<<(ostream& os, monoid& a) {return os << a._res;}
+            friend istream& operator>>(istream& is, monoid& a) {return is >> a._res;}
+        }; 
+        //premade monoids: inherited from base monoid
+        template<typename T> class qryadd : public monoid<T,0> { public: using monoid<T,0>::monoid; 
+            qryadd(const qryadd& l, const qryadd& r): monoid<T,0>(l._res + r._res) {}
         };
-        template<typename T> class qrymult {
-            public:
-                using tp = T;
-                T _prod; 
-                qrymult(T p) : _prod(p) {}
-                qrymult(): _prod(1) {} //multiplicative identity
-                qrymult(const qrymult& L, const qrymult& R):
-                    _prod(L._prod * R._prod) {} //element created by combination
-                T get() const {return _prod;}
+        template<typename T> class qrymult : public monoid<T,1> { public: using monoid<T,1>::monoid; 
+            qrymult(const qrymult& l, const qrymult& r): monoid<T,1>(l._res * r._res) {}
         };
-        template<typename T> class qryxor {
-            public:
-                using tp = T;
-                T _xor; 
-                qryxor(T x) : _xor(x) {}
-                qryxor(): _xor(0) {} //xor identity
-                qryxor(const qryxor& L, const qryxor& R):
-                    _xor(L._xor ^ R._xor) {} //element created by combination
-                T get() const {return _xor;}
+        template<typename T> class qryxor : public monoid<T,0> { public: using monoid<T,0>::monoid; 
+            qryxor(const qryxor& l, const qryxor& r): monoid<T,0>(l._res ^ r._res) {}
         };
-        template<typename T> class qrymin { 
-            public:
-                using tp = T;
-                T _min; 
-                qrymin(T m) : _min(m) {}
-                qrymin(): _min(INF) {} //min identity
-                qrymin(const qrymin& L, const qrymin& R):
-                    _min(min(L._min, R._min)) {} //element created by combination
-                T get() const {return _min;}
+        template<typename T> class qrymin : public monoid<T,INF> { public: using monoid<T,INF>::monoid; 
+            qrymin(const qrymin& l, const qrymin& r): monoid<T,INF>(min(l._res, r._res)) {}
         };
-        template<typename T> class qrymax {
-            public:
-                using tp = T;
-                T _max; 
-                qrymax(T m) : _max(m) {}
-                qrymax(): _max(-INF) {} //max identity
-                qrymax(const qrymax& L, const qrymax& R):
-                    _max(max(L._max, R._max)) {} //element created by combination
-                T get() const {return _max;}
-        };
-    }
+        template<typename T> class qrymax : public monoid<T,-INF> { public: using monoid<T,-INF>::monoid; 
+            qrymax(const qrymax& l, const qrymax& r): monoid<T,-INF>(max(l._res, r._res)) {}
+        };        
+    } 
     using namespace query_monoids; 
 
-    namespace update_functions { //F
-        template<typename T> class updadd {
-            public:
-                using tp = T; 
-                T _tot;
-                updadd(): _tot(0) {} //identity function constructor
-                updadd(const updadd& a, const updadd& b): 
-                   _tot(a._tot + b._tot) {} //addition composition
-                bool is_identity() const { //see if identity 
-                    return !_tot;
-                }
-                qryadd<T> operator()(const qryadd<T>& x){
-                    return qryadd<T>(_tot + x.get()); 
-                }
-                qrymult<T> operator()(const qrymult<T>& x){
-                    return qrymult<T>(_tot + x.get());
-                }
-                qryxor<T> operator()(const qryxor<T>& x) {
-                    return qryxor<T>(_tot + x.get());
-                }
-                qrymin<T> operator()(const qrymin<T>& x){
-                    return qrymin<T>(_tot + x.get());
-                }
-                qrymax<T> operator()(const qrymax<T>& x){
-                    return qrymax<T>(_tot + x.get());
-                }
-                explicit updadd(T __tot): _tot(__tot) {}
+    namespace update_functions { 
+        //base update endomorphism class (F)
+        template<typename T, T ID> class endof { public: using type_T = T; 
+            T _tot; endof(): _tot(ID) {}
+            endof(T u): _tot(u) {} 
+            bool is_identity() const {return _tot == ID;}
         };
-        template<typename T> class updxor {
-            public:
-                using tp = T; 
-                T _tot;
-                updxor(): _tot(0) {} //identity function constructor
-                updxor(const updxor& a, const updxor& b): 
-                   _tot(a._tot ^ b._tot) {} //addition composition
-                bool is_identity() const { //see if identity 
-                    return !_tot;
-                }
-                qryadd<T> operator()(const qryadd<T>& x){
-                    return qryadd<T>(_tot ^ x.get()); 
-                }
-                qrymult<T> operator()(const qrymult<T>& x){
-                    return qrymult<T>(_tot ^ x.get());
-                }
-                qryxor<T> operator()(const qryxor<T>& x) {
-                    return qryxor<T>(_tot ^ x.get());
-                }
-                qrymin<T> operator()(const qrymin<T>& x){
-                    return qrymin<T>(_tot ^ x.get());
-                }
-                qrymax<T> operator()(const qrymax<T>& x){
-                    return qrymax<T>(_tot ^ x.get());
-                }
-                explicit updxor(T __tot): _tot(__tot) {}
+        //premade updates: inherited from base endomorphism
+        template<typename T, class U> class updadd : public endof<T,0> { public: using endof<T,0>::endof;
+            updadd(const updadd& l, const updadd& r): endof<T,0>(l._tot + r._tot) {}
+            U operator()(const U& x){return U(this->_tot + x);}
         };
-        template<typename T> class updid { //think of it as *0+1
-            public:
-                using tp = T; 
-                T _tot;
-                updid(): _tot(INF) {} //identity function constructor
-                updid(const updid& a, const updid& b): 
-                   _tot(a._tot) {} //addition composition
-                bool is_identity() const { //see if identity 
-                    return _tot == INF; //always identity
-                }
-                qryadd<T> operator()(const qryadd<T>& x){
-                    return qryadd<T>(_tot); 
-                }
-                qrymult<T> operator()(const qrymult<T>& x){
-                    return qrymult<T>(_tot);
-                }
-                qryxor<T> operator()(const qryxor<T>& x) {
-                    return qryxor<T>(_tot);
-                }
-                qrymin<T> operator()(const qrymin<T>& x){
-                    return qrymin<T>(_tot);
-                }
-                qrymax<T> operator()(const qrymax<T>& x){
-                    return qrymax<T>(_tot);
-                }
-                explicit updid(T __tot): _tot(__tot) {}
+        template<typename T, class U> class updxor : public endof<T,0> { public: using endof<T,0>::endof;
+            updxor(const updxor& l, const updxor& r): endof<T,0>(l._tot ^ r._tot) {}
+            U operator()(const U& x){return U(this->_tot ^ x);}
+        };
+        template<typename T, class U> class updid : public endof<T,INF> { public: using endof<T,INF>::endof;
+            updid(const updid& l, const updid& r): endof<T,INF>(l._tot) {}
+            U operator()(const U& x){return U(this->_tot);}
         };
     }
     using namespace update_functions;
     
-    bool failuresize(int x) { 
+    bool failuresize(int x) { //is x power of 2
       return (x != 0) && ((x & (x - 1)) == 0); 
     }
 
@@ -187,12 +85,10 @@ namespace SegmentTree {
                 }
             }
 
-        private:
             int n;
             vector<M> values;
             vector<F> pends;
 
-        public:
             explicit SegTree(int _n):
                 n(_n), values(segtree_size(n)), pends(values.size()) {identity_check();}
             explicit SegTree(int _n, const M& x):
@@ -282,11 +178,10 @@ namespace SegmentTree {
             }
 
         public:
-            M query(int i, int j) {
+            M qry(int i, int j) {
                 if(!i) { cout << "FAILED: DO NOT 0-INDEX!\n"; exit(10); }
                 return query(0, 0, n-1, i, j);
             }
-            #define qry(x,y) query((x),(y)).get()
 
         private:
             void update(int root, int first, int last, int i, int j, const F& f) {
@@ -312,25 +207,23 @@ namespace SegmentTree {
                 if(!i) { cout << "FAILED: DO NOT 0-INDEX!\n"; exit(10); }
                 update(0, 0, n-1, i, j, f);
             }
-            void upd(int i, int j, typename F::tp a) {
-                update(i,j, F (a));
+            void upd(int i, int j, typename F::type_T a) {
+                update(i,j,F(a));
             }
     };
 
-    template<typename T, template<typename> class A, template<typename> class B> using SEG = SegTree<A<T>,B<T>>; 
+    template<typename T, template<typename> class A, template<typename, class> class B> using SEG = SegTree<A<T>,B<T,A<T>>>; 
     //please 1-index and avoid powers of 2 for n at all cost 
+    //leaf nodes are indices N-1 to 2N-2 (starting from 0), inclusive
+    //for instance 0-4 first branches into a leaf node of 2 for index sz-1 = 5-1 = 4
+    //pass qry type obj if using array/vector
 }
 using namespace SegmentTree;
 
-vector<qryadd<int>> v{0,1,2,3,0}; //maintain 1-indexing by prefixing with a 0 & avoid power of 2 by suffixing with 0 
-//for the sake of problems in general you can avoid powers of 2 for n by just always reserving a certain amount of space in
-//the vector -- or just use an array
-
-SEG<int, qryadd, updid> s(v);
+vector<qryadd<int>> v {0,2,3}; //prefixed with 0 
+SEG<int,qryadd,updid> s(v);
 
 int main(){
     cin.tie(0)->sync_with_stdio(0);
-    cout << s.qry(1,3) << '\n';
-    s.upd(1,3,1);
-    cout << s.qry(1,3) << '\n';
+    cout << s.qry(1,2) << '\n';
 }
