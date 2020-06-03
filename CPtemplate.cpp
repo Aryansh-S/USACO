@@ -9,7 +9,7 @@ namespace aryansh {
 		typedef long double ld;
 		typedef double db;
 		typedef string str;
-		typedef pair<int,int> pii;
+		typedef pair<int,int> pii; 
 		typedef pair<ll,ll> pll;
 		typedef vector<int> vi;
 		template<class T> using minpq = priority_queue<T, vector<T>, greater<T> >;
@@ -19,7 +19,7 @@ namespace aryansh {
 		template<class T> using hset = gp_hash_table<T, null_type, hash<T>>; //don't use unordered_set, use ins
 		template<class T, class U> using hmap = gp_hash_table<T, U, hash<T>>; //don't use unordered_map, use ins
 		#include <cxxabi.h>
-		template<class T> inline string type_name() {
+		template<class T> inline string type_name_string() {
 			typedef typename remove_reference<T>::type TR;
 			unique_ptr<char, void(*)(void*)> own(abi::__cxa_demangle(typeid(TR).name(), nullptr,nullptr,nullptr),free); string r = own != nullptr ? own.get() : typeid(TR).name();
 			if (is_const<TR>::value) r += " const";
@@ -28,7 +28,6 @@ namespace aryansh {
 			else if (is_rvalue_reference<T>::value) r += "&&";
 			return r;
 		}
-		#define TP(x) type_name<decltype(x)>()
 	}
 	using namespace type_macros; 
 
@@ -184,7 +183,7 @@ namespace aryansh {
 	using namespace rand_macros;
 
 	namespace io_macros {
-		void in(){} void outln(){} void out_(){} //for fast, easy IO
+		inline void in(){} inline void outln(){} inline void out_(){} //for fast, easy IO
 		template<typename T, typename...Types> inline void in(T& var1, Types&...var2){cin >> var1; in(var2...);}
 		template<typename T> void out(T var1){cout << var1 << "\n";}
 		template<typename T, typename...Types> inline void out(T var1, Types...var2){cout << var1 << " "; out(var2...);}
@@ -206,6 +205,7 @@ namespace aryansh {
 		    (memset(&(a)[0],(v),sizeof(a)));}else {trav(k,(a)) {k=v;}}static_assert(1, "")
 		#define NL cout << "\n"
 		#define what(x) out_((#x));out_("is");out_(x);NL
+        #define type(x) type_name_string<decltype(x)>()
 		#define IO(PNAME) if(fopen(PNAME ".in","r")){freopen(PNAME ".in","r",stdin);freopen(PNAME ".out","w",stdout);}cin.tie(0)->sync_with_stdio(0)
 	}
 	using namespace io_macros;
@@ -214,7 +214,6 @@ namespace aryansh {
 using namespace aryansh;
 
 // - - - - - - - - - - - - - - - - - - - - -
-
 
 
 int main() {
