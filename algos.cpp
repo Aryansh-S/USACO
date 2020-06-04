@@ -1,7 +1,7 @@
 /*
  * Aryansh Shrivastava 
  * USACO Algorithm Template (Reference & Structs)
- * Last Updated: 5/26/20 (mild cleanup)
+ * Last Updated: 6/4/20 (mild cleanup)
  * ignore "ignore_this_macro_stuff" 
  */
 
@@ -384,96 +384,28 @@ struct StaticRMQ{ //uses DSU, offline avg O(1) w/o sparse table
     int rmq(int id){return ans[id];}
 };
 
-namespace SegmentTree {
-    template<class T> class opadd {public: const T ID = 0; T comb(T a, T b){return a + b;}};
-    template<class T> class opmult {public: const T ID = 1; T comb(T a, T b){return a * b;}};
-    template<class T> class opxor {public: const T ID = 0; T comb(T a, T b){return a ^ b;}};
-    template<class T> class opmin {public: const T ID = -INF; T comb(T a, T b){return min(a, b);}};
-    template<class T> class opmax {public: const T ID = INF; T comb(T a, T b){return max(a, b);}};
-    template<class T> void upd_(T&a, T&b, string tp = "id"){
-        if(tp == "id") a = b; 
-        if(tp == "add") a += b;
-    }
+//Iterative Generic Segment Tree: Point Update, Range Query (0 - Indexing Allowed), Exactly 2N Memory (Not 4N)
 
-    template<class T = int, class U = opadd<T>> struct SegTree {
-        int n; vector<T> seg; U oper; string tp = "id"; 
-        void init(int _n) { n = _n; seg.assign(2*n,oper.ID); }
-        void initv(int _n, int val = 0){ n = _n; seg.assign(2*n, val); }
-        void pull(int p) { seg[p] = oper.comb(seg[2*p],seg[2*p+1]); }
-        void upd(int p, T val) { // set val at position p
-            upd_<T>(seg[p += n],val,tp); for (p /= 2; p; p /= 2) pull(p);
-        }
-        void change_upd(string s){tp = s;}
-        T query(int l, int r) {	// sum on interval [l, r]
-            T ra = oper.ID, rb = oper.ID; 
-            for (l += n, r += n+1; l < r; l /= 2, r /= 2) {
-                if (l&1) ra = oper.comb(ra,seg[l++]);
-                if (r&1) rb = oper.comb(seg[--r],rb);
-            }
-            return oper.comb(ra,rb);
-        }
-    };
-
-    template<typename U = int, template<typename> class T = opadd> using SEG = SegTree<U, T<U>>;
-    // i.e. SEG<int, opadd> a; 
-}
-using namespace SegmentTree;
-
-char /*global*/ bevvlazy='s';
-int IDENN=0;
-template<class T> pair<T,T> operator+(const pair<T,T>& l, const pair<T,T>& r) {
-	if(bevvlazy=='s') IDENN=0;
-	if(bevvlazy=='m') IDENN=bigg;
-	if(bevvlazy=='M') IDENN=-bigg;
-	if(bevvlazy=='s') {return mp(l.f+r.f,l.s+r.s);}
-	if (l.f != r.f){
-		if(bevvlazy=='m') {return min(l,r);}
-		if(bevvlazy=='M') {return max(l,r);}
-	}
-	return mp(l.f,l.s+r.s);
-}
-template<class T, int SZ> struct LSEG{ //updates by adding, 1 indexed
-	pair<T,T> sum[4*SZ+1];
-	T lazy[4*SZ+1];
-	LSEG() {
-		memset(sum,0,sizeof sum);
-		memset(lazy,0,sizeof lazy);
-	}
-	void choose(char choice){bevvlazy=choice; /*m for min, M for max, s for sum*/}
-	void push(int ind, int L, int R) { // modify values for current node
-		sum[ind].f += lazy[ind];
-		if (L != R) lazy[2*ind] += lazy[ind], lazy[2*ind+1] += lazy[ind];
-		lazy[ind] = 0; // pushed lazy to children
-	}
-	void pull(int ind) { // recalc values for current node
-		sum[ind] = sum[2*ind]+sum[2*ind+1]; }
-	void build() {
-		FOR(i,SZ,2*SZ) sum[i] = mp(0,1);
-		FOR(i,1,SZ) pull(i);
-	}
-	void upd(int lo, int hi, int inc, int ind = 1, int L = 0, int R = SZ-1) {
-		push(ind,L,R);
-		if (hi < L || R < lo) return;
-		if (lo <= L && R <= hi) {
-			lazy[ind] = inc;
-			push(ind,L,R); return;
+template<class T> struct SEG { // comb(ID,b) = b, 0-indexing works
+	const T ID = -INF; T comb(T a, T b) { return max(a,b); } 
+	int n; vector<T> seg;
+	void init(int _n) { n = _n; seg.assign(2*n, ID); } 
+    	void init(vector<T>& v) { init(v.size()); copy(begin(v), end(v), begin(seg) + n); build(); }
+    	void init(T* a, int _n) { init(_n); copy(a, a + n, begin(seg) + n); build(); }
+    	void build() { for(int i = n - 1; i > 0; --i) pull(i); }
+	void pull(int p) { seg[p] = comb(seg[2*p],seg[2*p+1]); }
+	void upd(int p, T val) { // set val at position p
+		seg[p += n] = val; for (p /= 2; p; p /= 2) pull(p); 
+    	}
+	T query(int l, int r) {	// comb on interval [l, r]
+		T ra = ID, rb = ID; 
+		for (l += n, r += n+1; l < r; l /= 2, r /= 2) {
+			if (l&1) ra = comb(ra,seg[l++]);
+			if (r&1) rb = comb(seg[--r],rb);
 		}
-		int M = (L+R)/2;
-		upd(lo,hi,inc,2*ind,L,M); upd(lo,hi,inc,2*ind+1,M+1,R);
-		pull(ind);
-	}
-	pair<T,T> qsum(int lo, int hi, int ind = 1, int L = 0, int R = SZ-1) { //count # of min or # of max
-		push(ind,L,R);
-		if (lo > R || L > hi) return mp(IDENN,0);
-		if (lo <= L && R <= hi) return sum[ind];
-		int M = (L+R)/2;
-		return qsum(lo,hi,2*ind,L,M)+qsum(lo,hi,2*ind+1,M+1,R);
-	}
-	T query(int lo, int hi, int ind=1, int L=0, int R=SZ-1){
-		return qsum(lo,hi,ind,L,R).f;
+		return comb(ra,rb);
 	}
 };
-
 
 template <class T, int ...Ns> struct BIT{ //UPD only adds!!
 	//general Fenwick BIT struct with range sum queries and point updates for D dimensions
@@ -502,23 +434,6 @@ template<class T, int SZ> struct BIT_r{ //range update, range query
 	void upd(int lo,int hi,T val){upd(lo-1,-val),upd(hi,val);}
 	T sum(int x) { return bit[1].sum(x)*x+bit[0].sum(x); }
 	T query(int x, int y) { return sum(y)-sum(x-1); }
-};
-template <const int maxN> struct OSTSlow{ //slower OST with Fenwick
-	BIT<int, maxN> tree;
-	void ins(int x){if(!tree.query(x,x)) tree.upd(x,1);}
-	void del(int x){if(tree.query(x,x)) tree.upd(x,-1);}
-	int ofk(int x){return (tree.query(x,x))?(tree.sum(x)-1):tree.sum(x);} //order of key (small to large)
-	int fbo(int k){ //find by order
-		k++;
-		int l = 0; //check to make sure this exists!!!
-		int h = maxN;
-		while(l<h){
-		   int mid=(l+h)/2;
-		   if(k<=tree.sum(mid)) h=mid;
-		   else l = mid+1;
-		}
-		return l;
-	} //coordinate compression is a good idea when possible!!
 };
 
 int main() {
