@@ -1,5 +1,7 @@
 # Segment Tree Library
 
+Iterative segment trees: short, simple, and more efficient compared to recursive
+
 ## Description
 Easy segment trees for general use 
 - "iterativesegtree.cpp" : Point Update, Range Query 
