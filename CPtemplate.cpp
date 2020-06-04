@@ -1,11 +1,11 @@
 #include <bits/stdc++.h>  
 #include <ext/pb_ds/assoc_container.hpp>
 #include <ext/pb_ds/tree_policy.hpp>
+#include <cxxabi.h>
 using namespace std; using namespace __gnu_pbds; 
 
 namespace aryansh { 
 	namespace type_macros {
-		#include <cxxabi.h>
 		typedef long long ll; 
 		typedef long double ld;
 		typedef double db;
