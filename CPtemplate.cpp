@@ -197,7 +197,7 @@ namespace aryansh {
 		template<class T> inline void in(T*a,int sz){F0R(i,sz) in(a[i]);}
 		template<class T> inline void out(vector<T> v){trav(t,v) out(t);}
 		template<class T> inline void out(vector<T> v,int sz){trav(t,v) out(t);}
-		template<class T> inline void out_(vector<T> v){trav(t,v) out_(t);}
+		template<class T> inline void out_(vector<T> v){trav(t,v) out_(t);} //might need to int cast size
 		template<class T> inline void out_(vector<T> v,int sz){trav(t,v) out_(t);}
 		template<class T> inline void out(T*a,int sz){F0R(i,sz) out(a[i]);}
 		template<class T> inline void out_(T*a,int sz){F0R(i,sz) out_(a[i]);}
