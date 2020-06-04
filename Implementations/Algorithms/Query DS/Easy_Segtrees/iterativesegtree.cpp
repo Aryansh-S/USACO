@@ -2,7 +2,7 @@
 //Source: https://codeforces.com/blog/entry/18051 & Modified
 //Suggested to use N as power of 2 if doing binary search, order statistics, etc. (perfect binary tree)
 
-#define INF 0x3f3f3f3f3f
+#define INF 0x3f3f3f3f
 
 template<class T> struct SEG { // comb(ID,b) = b, 0-indexing works, any associative operation. 
 	//if N = 2^p then seg[1] = qry(0,n-1) 
