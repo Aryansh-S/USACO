@@ -387,7 +387,7 @@ struct StaticRMQ{ //uses DSU, offline avg O(1) w/o sparse table
 //Iterative Generic Segment Tree: Point Update, Range Query (0 - Indexing Allowed), Exactly 2N Memory (Not 4N)
 
 template<class T> struct SEG { // comb(ID,b) = b, 0-indexing works, any associative operation. 
-	//if N = 2^p then seg[1] = qry(0,n-1)
+	//seg[1] = qry(0,n-1)
 	const T ID = -INF; T comb(T a, T b) { return max(a,b); } 
 	int n; vector<T> seg;
 	void init(int _n) { n = _n; seg.assign(2*n, ID); } 
