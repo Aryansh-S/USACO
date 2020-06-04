@@ -2,6 +2,7 @@
 
 Iterative segment trees
 - short, simple, and efficient compared to recursive
+- "demonstrationals" folder helps visualize precise node allocation
 
 ## Description
 Easy segment trees for general use 
