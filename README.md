@@ -16,6 +16,8 @@ The "src" folder just contains source files and images that are integrated elsew
 
 - [Bounded Numerical Data Structures (C++)](https://github.com/Aryansh-S/USACO/blob/master/Implementations/Algorithms/Graph/DFS/FloodfillHelper.cpp)
 
+- [Simple Segment Tree Implementations](https://github.com/Aryansh-S/USACO/tree/master/Implementations/Algorithms/Query%20DS/Easy_Segtrees)
+
 ## Book
 
 [Here](https://www.overleaf.com/read/vxkkgmmrmckv) is the latest version of a book I am writing on competitive programming so far (a work in progress). 
