@@ -1,6 +1,8 @@
 # USACO
 Competitive Programming Resources &amp; Implementations (C++ Based)
 
+## Description 
+
 This is a compilation of resources and implementations for contest programming -- algorithms and past problems for USACO.
 
 If you want to #include <bits/stdc++.h> but your compiler does not allow you to do so, simply go to the file "stdc++.h" and
