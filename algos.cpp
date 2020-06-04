@@ -386,7 +386,8 @@ struct StaticRMQ{ //uses DSU, offline avg O(1) w/o sparse table
 
 //Iterative Generic Segment Tree: Point Update, Range Query (0 - Indexing Allowed), Exactly 2N Memory (Not 4N)
 
-template<class T> struct SEG { // comb(ID,b) = b, 0-indexing works
+template<class T> struct SEG { // comb(ID,b) = b, 0-indexing works, any associative operation. 
+	//if N = 2^p then seg[1] = qry(0,n-1)
 	const T ID = -INF; T comb(T a, T b) { return max(a,b); } 
 	int n; vector<T> seg;
 	void init(int _n) { n = _n; seg.assign(2*n, ID); } 
@@ -397,7 +398,7 @@ template<class T> struct SEG { // comb(ID,b) = b, 0-indexing works
 	void upd(int p, T val) { // set val at position p
 		seg[p += n] = val; for (p /= 2; p; p /= 2) pull(p); 
     	}
-	T query(int l, int r) {	// comb on interval [l, r]
+	T qry(int l, int r) {	// comb on interval [l, r]
 		T ra = ID, rb = ID; 
 		for (l += n, r += n+1; l < r; l /= 2, r /= 2) {
 			if (l&1) ra = comb(ra,seg[l++]);
