@@ -421,7 +421,7 @@ template<class T> struct SEGRP { //range update, point query
     	}
 	T qry(int p) { // qry val at position p
         	T res = ID; 
-		    for (p += n; p; p /= 2) res = comb(res,seg[p]); 
+		for (p += n; p; p /= 2) res = comb(res,seg[p]); 
         	return res;
     	}
 	void upd(int l, int r, T val) {	// upd by comb on interval [l, r]
