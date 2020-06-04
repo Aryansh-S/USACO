@@ -1,10 +1,11 @@
 //Iterative Generic Segment Tree: Point Update, Range Query (0 - Indexing Allowed), Exactly 2N Memory (Not 4N)
 //Source: https://codeforces.com/blog/entry/18051 & Modified
+//Suggested to use N as power of 2 if doing binary search, order statistics, etc. 
 
 #define INF 0x3f3f3f3f3f
 
 template<class T> struct SEG { // comb(ID,b) = b, 0-indexing works, any associative operation. 
-	//if N = 2^p then seg[1] = qry(0,n-1)
+	//if N = 2^p then seg[1] = qry(0,n-1) 
 	const T ID = -INF; T comb(T a, T b) { return max(a,b); } 
 	int n; vector<T> seg;
 	void init(int _n) { n = _n; seg.assign(2*n, ID); } 
