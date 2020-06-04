@@ -1,3 +1,5 @@
+//Iterative Generic Segment Tree
+
 template<class T> struct SEG { // comb(ID,b) = b, 1-index
 	const T ID = 0; T comb(T a, T b) { return a+b; } 
 	int n; vector<T> seg;
@@ -14,5 +16,4 @@ template<class T> struct SEG { // comb(ID,b) = b, 1-index
 		return comb(ra,rb);
 	}
 };
-
 
