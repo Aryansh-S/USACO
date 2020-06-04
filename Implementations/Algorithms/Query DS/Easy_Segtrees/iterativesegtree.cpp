@@ -1,5 +1,5 @@
 //Iterative Generic Segment Tree: Point Update, Range Query (0 - Indexing Allowed), Exactly 2N Memory (Not 4N)
-//Source: https://codeforces.com/blog/entry/18051
+//Source: https://codeforces.com/blog/entry/18051 & Modified
 
 #define INF 0x3f3f3f3f3f
 
