@@ -3,7 +3,8 @@
 
 #define INF 0x3f3f3f3f
 
-template<class T> struct SEGRP { //comb must work independent of order, otherwise use lazy
+template<class T> struct SEGRP { //range update, point query
+	//comb must work independent of order, otherwise use lazy
 	const T ID = 0; T comb(T a, T b) { return a + b; } 
 	int n; vector<T> seg;
 	void init(int _n) { n = _n; seg.assign(2*n, ID); } 
