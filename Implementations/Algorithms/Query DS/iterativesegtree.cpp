@@ -1,5 +1,7 @@
 //Iterative Generic Segment Tree: Point Update, Range Query (0 - Indexing Allowed)
 
+#define INF 0x3f3f3f3f3f
+
 template<class T> struct SEG { // comb(ID,b) = b, 0-indexing works
 	const T ID = -INF; T comb(T a, T b) { return max(a,b); } 
 	int n; vector<T> seg;
