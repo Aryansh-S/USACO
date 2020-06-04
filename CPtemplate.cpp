@@ -33,8 +33,8 @@ namespace aryansh {
 	using namespace type_macros; 
 
 	namespace func_macros {
-		#define fbo find_by_order //which element has x ones < it
-		#define ofk order_of_key //how many elements are/would be < it
+		#define fbo find_by_order //which element has x ones < it, or end
+		#define ofk order_of_key //how many elements are/would be < it, or end
 		#define pb push_back
 		#define pf push_front
 		#define ppb pop_back
