@@ -13,7 +13,7 @@ template<class T> struct SEG { // comb(ID,b) = b, 0-indexing works
 	void upd(int p, T val) { // set val at position p
 		seg[p += n] = val; for (p /= 2; p; p /= 2) pull(p); 
     	}
-	T query(int l, int r) {	// sum on interval [l, r]
+	T query(int l, int r) {	// comb on interval [l, r]
 		T ra = ID, rb = ID; 
 		for (l += n, r += n+1; l < r; l /= 2, r /= 2) {
 			if (l&1) ra = comb(ra,seg[l++]);
