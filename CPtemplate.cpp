@@ -19,10 +19,10 @@ namespace aryansh {
 		template<class T, class U> using OSM = tree<T, U, less<T>, rb_tree_tag,tree_order_statistics_node_update>;
 		template<class T> using hset = gp_hash_table<T, null_type, hash<T>>; //don't use unordered types 
 		template<class T, class U> using hmap = gp_hash_table<T, U, hash<T>>; 
-		template<class T> inline string type_name() { //get type as string
+		template<class T> inline str type_name() { //get type as string
 			typedef typename remove_reference<T>::type TR;
 			unique_ptr<char, void(*)(void*)> own(abi::__cxa_demangle(typeid(TR).name(), nullptr,nullptr,nullptr),free); 
-			string r = own != nullptr ? own.get() : typeid(TR).name();
+			str r = own != nullptr ? own.get() : typeid(TR).name();
 			if (is_const<TR>::value) r += " const";
 			if (is_volatile<TR>::value) r += " volatile";
 			if (is_lvalue_reference<T>::value) r += "&";
