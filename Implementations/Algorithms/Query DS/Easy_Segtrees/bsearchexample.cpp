@@ -247,9 +247,9 @@ SEG<int> s; //segtree for bsearch
 int bs(int node, int t) { //leftmost >=t, start with node = 1 (top)
     if(node >= s.n) return node - s.n;
     int lc = 2 * node, rc = lc + 1;
-    if(s.seg[lc] >= t) return bs(lc,t);
-    if(s.seg[rc] >= t) return bs(rc,t);
-    return -1;
+    if(s.seg[lc] >= t) return bs(lc,t); //give left child priority
+    if(s.seg[rc] >= t) return bs(rc,t); //else right child
+    return -1; //DNE
 } //bsearch in only log, not log^2, easily :)
 
 int n,t; vi v; 
