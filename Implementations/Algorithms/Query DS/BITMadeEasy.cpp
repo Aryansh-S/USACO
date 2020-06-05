@@ -2,7 +2,7 @@
 using namespace std;
 //BIT is very easy to implement!
 
-struct BIT {
+struct BIT { //1-indexed but allows 0-indexed array/vector init
     //init things
     int n; vector<int> bit; 
     void init(int _n){n = ++_n; bit.assign(n);}
