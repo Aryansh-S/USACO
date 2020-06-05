@@ -2,11 +2,11 @@
 using namespace std;
 //BIT is very easy to implement!
 
-struct BIT { //1-indexed but allows 0-indexed array/vector init
+struct BIT { //1-indexed!
     //init things
-    int n; vector<int> bit; 
-    void init(int _n){n = ++_n; bit.assign(n);}
-    void init(int* a, int _n){init(_n); move(a,a+n,begin(bit));}
+    vector<int> bit; 
+    void init(int n){bit.assign(n);}
+    void init(int* a, int n){init(n); move(a,a+n,begin(bit));}
     void init(vector<int>& v){init(v.size()); move(begin(v),end(v),begin(bit));}
     
     //actual bit
