@@ -1,6 +1,6 @@
 //helper function if needed to balance the tree for binary search, etc.
 
-int upper_power_of_two(int v) {
+int nxtp2(int v) {
     --v;
     v |= v >> 1;
     v |= v >> 2;
