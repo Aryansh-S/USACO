@@ -257,7 +257,7 @@ int n,t; vi v;
 int main() {
     IO("");
     in(n,t); in(v,n);
-    v.rsz(nxtpw2(sz(v)));
+    v.rsz(nxtpw2(sz(v))); //round up for balanced tree (easier to bsearch)
     s.init(v);
     out(bs(1,t)); //gives idx
     //s.upd...
