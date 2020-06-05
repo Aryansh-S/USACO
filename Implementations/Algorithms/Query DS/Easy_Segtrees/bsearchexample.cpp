@@ -237,7 +237,7 @@ template<class T> struct SEG { // comb(ID,b) = b, 0-indexing works, any associat
 	}
 };
 
-inline int nxtpw2(int v) {
+int nxtpw2(int v) {
 	if((bool)v & !(v & (v - 1))) return v; 
 	int x = 1; while(x < v) x<<=1; return x; 
 }
