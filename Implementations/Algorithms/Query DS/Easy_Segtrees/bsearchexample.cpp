@@ -260,7 +260,7 @@ int main() {
     v.rsz(nxtpw2(sz(v)));
     s.init(v);
     out(bs(1,t)); //gives idx
-    //s.upd -- you can update consistently and get in square log time
+    //s.upd...
 }
 
 
