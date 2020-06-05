@@ -1,7 +1,6 @@
 //Iterative Generic Segment Tree: Point Update, Range Query (0 - Indexing Allowed), Exactly 2N Memory (Not 4N)
 //Source: https://codeforces.com/blog/entry/18051 & Modified
 //Suggested to use N as power of 2 if doing binary search, order statistics, etc. (perfect binary tree)
-//, but not necessarily required
 
 #define INF 0x3f3f3f3f
 
