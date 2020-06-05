@@ -15,7 +15,8 @@ struct BIT { //1-indexed!
     int sum(int l, int r){return sum(r)-sum(l-1);}
     
     //extension
-    void upd_a(int x, int v){upd(x,v-sum(x,x));} //assignment update example
+    int get(int x){return sum(x,x);}
+    void upd_a(int x, int v){upd(x,v-get(x));} //assignment update example
 } tree; 
 
 int main(){
