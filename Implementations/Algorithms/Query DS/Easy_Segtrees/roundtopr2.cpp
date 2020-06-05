@@ -7,6 +7,6 @@ ll POW(ll a, ll b) { //log (from template)
 }
 
 int nxtp2(int v) { //next power 2
-    int ret = POW(2,__builtin_clz(v)); 
+    int ret = POW(2,31-__builtin_clz(v)); 
     return v > ret ? ret<<1 : ret;
 }
