@@ -5,7 +5,7 @@ using namespace std;
 struct BIT {
     //init things
     int n; vector<int> bit; 
-    void init(int _n){n = _n; bit.assign(n);}
+    void init(int _n){n = ++_n; bit.assign(n);}
     void init(int* a, int _n){init(_n); move(a,a+n,begin(bit));}
     void init(vector<int>& v){init(v.size()); move(begin(v),end(v),begin(bit));}
     
