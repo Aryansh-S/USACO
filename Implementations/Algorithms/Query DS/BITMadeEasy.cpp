@@ -5,7 +5,7 @@ using namespace std;
 struct BIT { //1-indexed!
     //init things
     int N; vector<int> bit; 
-    void init(int n){bit.assign(n); N=--n;}
+    void init(int n){bit.resize(n); N=--n;}
     void init(int* a, int n){init(n); move(a,a+n,begin(bit));}
     void init(vector<int>& v){init(v.size()); move(begin(v),end(v),begin(bit));}
     
@@ -15,10 +15,11 @@ struct BIT { //1-indexed!
     int sum(int l, int r){return sum(r)-sum(l-1);}
     
     //extension
-    void upd_a(int x, int v){upd(x,val-sum(x,x));} //assignment update example
+    void upd_a(int x, int v){upd(x,v-sum(x,x));} //assignment update example
 } tree; 
 
 int main(){
+    tree.init(3);
     tree.upd(1,10); 
     tree.upd(2,20);
     cout << tree.sum(2) << "\n";
