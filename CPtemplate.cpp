@@ -38,14 +38,16 @@ namespace aryansh {
 		
 		#define pb push_back
 		#define pf push_front
-		#define ppb pop_back
-		#define ppf pop_front
 		
 		#define eb emplace_back //faster than push
 		#define ef emplace_front
 		#define emp emplace //faster than ins, not for pbds
 		
 		#define ins insert
+		
+		#define ppb pop_back
+		#define ppf pop_front
+		
 		#define ers erase
 		
 		#define mp make_pair
