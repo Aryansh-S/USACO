@@ -210,7 +210,7 @@ namespace aryansh {
 
 	namespace time_macros {
 		auto TRN = chrono::steady_clock::now(); 
-		auto TIME = chrono::duration<double, milli>(chrono::steady_clock::now()-TRN).count()
+		auto TIME = chrono::duration<double, milli>(chrono::steady_clock::now()-TRN).count();
 	}
 	using namespace time_macros;
 
@@ -271,7 +271,7 @@ namespace aryansh {
 		#define MEM(a,v) \
 			if((!(v) || !((v)+1) || !((v)-INF) || !((v)+INF))) { \
 				(memset(&(a)[0],(v),sizeof(a))); \
-			} else {trav(k,(a)) {k=v;}} static_assert(1, "") \
+			} else {trav(k,(a)) {k=v;}} static_assert(1, "") 
 		
 		#define type(x) type_name<decltype(x)>()
 		
