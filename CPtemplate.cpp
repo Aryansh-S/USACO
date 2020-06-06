@@ -230,6 +230,7 @@ namespace aryansh {
 		cin.tie(0)->sync_with_stdio(0)
 	}
 	using namespace io_macros;
+	
 }
 using namespace aryansh;
 
