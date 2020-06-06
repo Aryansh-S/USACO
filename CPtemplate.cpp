@@ -2,7 +2,8 @@
 #include <ext/pb_ds/assoc_container.hpp>
 #include <ext/pb_ds/tree_policy.hpp>
 #include <cxxabi.h> //for typenames
-using namespace std; using namespace __gnu_pbds; //cmd + shift + r
+using namespace std; using namespace __gnu_pbds; 
+	//cmd + shift + r
 
 namespace aryansh { 
 	namespace type_macros {
