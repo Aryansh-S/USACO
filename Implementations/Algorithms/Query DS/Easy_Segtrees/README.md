@@ -18,6 +18,8 @@ Easy segment trees for general use
 - "bsearchexample.cpp" : an example of bsearch on segment tree in only log time (with max qry)
 ### Todo
 - simple lazy prop
+  - range assignment 
+  - range operation
 
 ## Memory
 
