@@ -183,55 +183,75 @@ namespace aryansh {
 	using namespace grid_macros;
 
 	namespace time_macros {
-		auto TIME0 = chrono::steady_clock::now(); 
-		#define TIME chrono::duration<double, milli>(chrono::steady_clock::now()-TIME0).count()
+		auto TRN = chrono::steady_clock::now(); 
+		auto TIME = chrono::duration<double, milli>(chrono::steady_clock::now()-TRN).count()
 	}
 	using namespace time_macros;
 
 	namespace rand_macros {
 		mt19937 mt(std::chrono::steady_clock::now().time_since_epoch().count());
 		uniform_int_distribution<int> unifd(-INF,INF);
-		#define RAND unifd(mt)
+		auto RAND = unifd(mt);
 	}
 	using namespace rand_macros;
 
 	namespace io_macros {
 		inline void in(){} inline void outln(){} inline void out_(){} //for fast, easy IO
 		
-		template<typename T, typename...Types> inline void in(T& var1, Types&...var2){cin >> var1; in(var2...);}
-		template<class T1, class T2> inline void in(pair<T1,T2>&pt){in(pt.f,pt.s);}
-		template<class T> inline void in(vector<T>&v,int sz){F0R(i,sz){T x; in(x); v.pb(x);}}
-		template<class T> inline void in(T*a,int sz){F0R(i,sz) in(a[i]);}
+		template<typename T, typename...Types> inline void in(T& var1, Types&...var2)
+			{cin >> var1; in(var2...);}
+		template<class T1, class T2> inline void in(pair<T1,T2>&pt)
+			{in(pt.f,pt.s);}
+		template<class T> inline void in(vector<T>&v,int sz)
+			{F0R(i,sz){T x; in(x); v.pb(x);}}
+		template<class T> inline void in(T*a,int sz)
+			{F0R(i,sz) in(a[i]);}
 		
-		template<typename T> inline void out(T var1){cout << var1 << "\n";}
-		template<typename T, typename...Types> inline void out(T var1, Types...var2){cout << var1 << " "; out(var2...);}
-		template<class T1, class T2> inline void out(pair<T1,T2> pt){out(pt.f,pt.s);}
-		template<class T> inline void out(vector<T> v){trav(t,v) out(t);}
-		template<class T> inline void out(vector<T> v,int sz){trav(t,v) out(t);}
-		template<class T> inline void out(T*a,int sz){F0R(i,sz) out(a[i]);}
+		template<typename T> inline void out(T var1)
+			{cout << var1 << "\n";}
+		template<typename T, typename...Types> inline void out(T var1, Types...var2)
+			{cout << var1 << " "; out(var2...);}
+		template<class T1, class T2> inline void out(pair<T1,T2> pt)
+			{out(pt.f,pt.s);}
+		template<class T> inline void out(vector<T> v)
+			{trav(t,v) out(t);}
+		template<class T> inline void out(vector<T> v,int sz)
+			{trav(t,v) out(t);}
+		template<class T> inline void out(T*a,int sz)
+			{F0R(i,sz) out(a[i]);}
 	
-		template<typename T,typename...Types> inline void out_(T var1, Types...var2){cout << var1 << " "; out_(var2...);}
-		template<class T> inline void out_(vector<T> v){trav(t,v) out_(t);} //might need to int cast size
-		template<class T> inline void out_(vector<T> v,int sz){trav(t,v) out_(t);}
-		template<class T> inline void out_(T*a,int sz){F0R(i,sz) out_(a[i]);}
-		template<class T1, class T2> inline void out_(pair<T1,T2> pt){out_(pt.f,pt.s);}
+		template<typename T,typename...Types> inline void out_(T var1, Types...var2)
+			{cout << var1 << " "; out_(var2...);}
+		template<class T> inline void out_(vector<T> v)
+			{trav(t,v) out_(t);} //might need to int cast size
+		template<class T> inline void out_(vector<T> v,int sz)
+			{trav(t,v) out_(t);}
+		template<class T> inline void out_(T*a,int sz)
+			{F0R(i,sz) out_(a[i]);}
+		template<class T1, class T2> inline void out_(pair<T1,T2> pt)
+			{out_(pt.f,pt.s);}
 		
 		template<typename T, typename...Types> inline void outln(T var1, Types...var2)
 			{cout << var1 << "\n"; outln(var2...);}	
 		
 		#define NL cout << "\n"
-		#define what(x) out_((#x));out_("is");out_(x);NL
-		#define PRES(d) cout.precision(d);cout.setf(ios::fixed,ios::floatfield)
+		
+		#define what(x) \
+			out_((#x)); out_("is"); out_(x); NL
+		
+		#define PRES(d) \
+			cout.precision(d); cout.setf(ios::fixed,ios::floatfield)
 		
 		#define MEM(a,v) \
-		if((!(v) || !((v)+1) || !((v)-INF) || !((v)+INF))) {\
-		    (memset(&(a)[0],(v),sizeof(a)));}else {trav(k,(a)) {k=v;}}static_assert(1, "")
+			if((!(v) || !((v)+1) || !((v)-INF) || !((v)+INF))) { \
+				(memset(&(a)[0],(v),sizeof(a))); \
+			} else {trav(k,(a)) {k=v;}} static_assert(1, "") \
 		
 		#define type(x) type_name<decltype(x)>()
 		
 		#define IO(PNAME) \
-		if(fopen(PNAME ".in","r")){freopen(PNAME ".in","r",stdin);freopen(PNAME ".out","w",stdout);} \
-		cin.tie(0)->sync_with_stdio(0)
+			if(fopen(PNAME ".in","r")){freopen(PNAME ".in","r",stdin);freopen(PNAME ".out","w",stdout);} \
+			cin.tie(0)->sync_with_stdio(0)
 	}
 	using namespace io_macros;
 	
