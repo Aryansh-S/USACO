@@ -1,5 +1,5 @@
 # USACO
-Competitive Programming Resources &amp; Implementations (C++ Based)
+Competitive Programming Resources &amp; Implementations (C++ Based).
 
 ## Description 
 
