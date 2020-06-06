@@ -17,7 +17,7 @@ namespace aryansh {
 		using str = string; 
 		
 		template<class T> using minpq 
-			= priority_queue<T, vector<T>, greater<T> >;
+			= priority_queue<T, vector<T>, greater<T>>;
 		template<class T> using maxpq 
 			= priority_queue<T>;
 		
