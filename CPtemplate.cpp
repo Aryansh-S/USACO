@@ -302,5 +302,5 @@ int main() {
 // bsearch if monotonic                         //
 // try amortized, use stack/queue, heuristic    //
 // if using double/ld use PRES(d)               //
-// runtime : ~10^7 usually, 2*10^8 edgy         //
+// runtime : 1e7 usually, 2e8 edgy              //
 // // // // // // // // // // // // // // // // //
