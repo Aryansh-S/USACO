@@ -10,38 +10,53 @@ namespace aryansh {
 		using ll = long long; using db = double; using ld = long double; using str = string; using pii = pair<int,int>;
 		using pll = pair<ll,ll>; using vi = vector<int>; 
 		
-		template<class T> using minpq = priority_queue<T, vector<T>, greater<T> >;
-		template<class T> using maxpq = priority_queue<T>;
+		template<class T> using minpq 
+			= priority_queue<T, vector<T>, greater<T> >;
+		template<class T> using maxpq 
+			= priority_queue<T>;
 		
-		template<class T> using OST = tree<T, null_type, less<T>, rb_tree_tag,tree_order_statistics_node_update>; 
-		template<class T, class U> using OSM = tree<T, U, less<T>, rb_tree_tag,tree_order_statistics_node_update>;
+		template<class T> using OST 
+			= tree<T, null_type, less<T>, rb_tree_tag,tree_order_statistics_node_update>; 
+		template<class T, class U> using OSM 
+			= tree<T, U, less<T>, rb_tree_tag,tree_order_statistics_node_update>;
 		
-		template<class T> using hset = gp_hash_table<T, null_type, hash<T>>; //don't use unordered types 
-		template<class T, class U> using hmap = gp_hash_table<T, U, hash<T>>; 
+		template<class T> using hset 
+			= gp_hash_table<T, null_type, hash<T>>; //don't use unordered types 
+		template<class T, class U> using hmap 
+			= gp_hash_table<T, U, hash<T>>; 
 		
 		template<class T> inline str type_name() { //get type as string
 			typedef typename remove_reference<T>::type TR;
-			unique_ptr<char, void(*)(void*)> own(abi::__cxa_demangle(typeid(TR).name(), nullptr,nullptr,nullptr),free); 
+			unique_ptr<char, void(*)(void*)> own
+				(abi::__cxa_demangle(typeid(TR).name(), nullptr,nullptr,nullptr),free); 
 			str r = own != nullptr ? own.get() : typeid(TR).name();
-			if (is_const<TR>::value) r += " const";
-			if (is_volatile<TR>::value) r += " volatile";
-			if (is_lvalue_reference<T>::value) r += "&";
-			else if (is_rvalue_reference<T>::value) r += "&&";
+			if (is_const<TR>::value) 
+				r += " const";
+			if (is_volatile<TR>::value) 
+				r += " volatile";
+			if (is_lvalue_reference<T>::value) 
+				r += "&";
+			else if (is_rvalue_reference<T>::value) 
+				r += "&&";
 			return r;
 		}
 	}
 	using namespace type_macros; 
 
 	namespace func_macros {
-		#define fbo find_by_order //which element has x ones < it, or end
-		#define ofk order_of_key //how many elements are/would be < it, or end
+		#define fbo find_by_order 
+			//which element has x ones < it, or end
+		#define ofk order_of_key 
+			//how many elements are/would be < it, or end
 		
 		#define pb push_back
 		#define pf push_front
 		
-		#define eb emplace_back //faster than push
+		#define eb emplace_back 
+			//faster than push
 		#define ef emplace_front
-		#define emp emplace //faster than ins, not for pbds
+		#define emp emplace 
+			//faster than ins, not for pbds
 		
 		#define ins insert
 		
@@ -60,9 +75,12 @@ namespace aryansh {
 		#define sz(x) (empt(x) ? 0 : (int)(x).size())
 		#define rsz resize
 		
-		#define lb lower_bound //first el in [left_it,right_it) >= val
-		#define ub upper_bound //first el in [left_it,right_it) > val
-		#define has(x,y) ((x).find(y)!=end(x)) //for nonlinear containers
+		#define lb lower_bound 
+			//first el in [left_it,right_it) >= val
+		#define ub upper_bound 
+			//first el in [left_it,right_it) > val
+		#define has(x,y) ((x).find(y)!=end(x)) 
+			//for nonlinear containers
 		
 		#define all(x) begin(x),end(x)
 		#define rall(x) end(x),begin(x)
@@ -72,10 +90,10 @@ namespace aryansh {
 	namespace loop_macros {
 		#define trav(a,x) for(auto&(a):(x))
 		
-		#define FOR(i,a,b) for(auto i=decltype(b){(a)-((a)>(b))};i!=(b)-((a)>(b));((a)>(b))?--i:++i) 
-			//[lb,ub-1]
-		#define FOR_(i,a,b,d) for(auto i=decltype(b){(a)-((a)>(b))};(a>b)?(i>b-1):(i<b);i+=(((a)>(b))?-1:1)*abs(d))
-			//[lb,ub-1] by d
+		#define FOR(i,a,b) \
+			for(auto i=decltype(b){(a)-((a)>(b))};i!=(b)-((a)>(b));((a)>(b))?--i:++i) //[lb,ub-1]
+		#define FOR_(i,a,b,d) \
+			for(auto i=decltype(b){(a)-((a)>(b))};(a>b)?(i>b-1):(i<b);i+=(((a)>(b))?-1:1)*abs(d)) //[lb,ub-1] by d
 		
 		#define F0R(i,b) FOR(i,0,b)
 		#define F0R_(i,b,d) FOR_(i,0,b,d)
@@ -103,11 +121,13 @@ namespace aryansh {
 	using namespace const_macros;
 	
 	namespace math_macros {
-		#define ckmin(a,b) a=min(a,b)
-		#define ckmax(a,b) a=max(a,b)
+		#define ckmin(a,b) a = min(a,b)
+		#define ckmax(a,b) a = max(a,b)
 		
-		#define gcd(a,b) ((!(a) || !(b)) ? (max(abs(a),abs(b))) : (__gcd((a),(b))))
-		#define lcm(a,b) ((!(a) || !(b)) ? 0 : ((a)*(b))/gcd((a),(b)))
+		#define gcd(a,b) \
+			((!(a) || !(b)) ? (max(abs(a),abs(b))) : (__gcd((a),(b))))
+		#define lcm(a,b) \
+			((!(a) || !(b)) ? 0 : ((a)*(b))/gcd((a),(b)))
 		
 		ll POW(ll a, ll b) { //log
 			ll res = 1; while(b) res *= (b & 1)? a : 1, a*=a, b>>=1;
