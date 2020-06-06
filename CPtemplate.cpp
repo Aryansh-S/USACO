@@ -5,10 +5,14 @@
 using namespace std; using namespace __gnu_pbds; //cmd + shift + r
 
 namespace aryansh { 
-	
 	namespace type_macros {
-		using ll = long long; using db = double; using ld = long double; using str = string; using pii = pair<int,int>;
-		using pll = pair<ll,ll>; using vi = vector<int>; 
+		using ll = long long; 
+		using db = double; using ld = long double; 
+		
+		using pii = pair<int,int>; using pll = pair<ll,ll>; 
+		using vi = vector<int>; 
+		
+		using str = string; 
 		
 		template<class T> using minpq 
 			= priority_queue<T, vector<T>, greater<T> >;
@@ -274,7 +278,6 @@ namespace aryansh {
 			cin.tie(0)->sync_with_stdio(0)
 	}
 	using namespace io_macros;
-	
 }
 using namespace aryansh;
 
