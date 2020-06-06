@@ -8,6 +8,8 @@ namespace aryansh {
 	namespace type_macros {
 		typedef long long ll; 
 		typedef long double ld;
+		typedef unsigned long long ull;
+		typedef __uint128_t L128;
 		typedef double db;
 		typedef string str;
 		typedef pair<int,int> pii; 
@@ -134,16 +136,6 @@ namespace aryansh {
 			mi& operator/=(const mi& m) { return (*this) *= inv(m); }
 			friend mi operator*(mi a, const mi& b) { return a *= b; }
 			friend mi operator/(mi a, const mi& b) { return a /= b; }
-		};
-		typedef unsigned long long ull;
-		typedef __uint128_t L128;
-		struct FastMod {
-			ull b, m;
-			FastMod(ull b) : b(b), m(ull((L128(1) << 64) / b)) {}
-			ull reduce(ull a) {
-				ull q = (ull)((L128(m) * a) >> 64), r = a - q * b;
-				return r >= b ? r - b : r;
-			}
 		};
 	}
 	using namespace math_macros;
