@@ -191,7 +191,8 @@ namespace aryansh {
 		template<class T> inline void out(T*a,int sz){F0R(i,sz) out(a[i]);}
 		template<class T> inline void out_(T*a,int sz){F0R(i,sz) out_(a[i]);}
 		#define PRES(d) cout.precision(d);cout.setf(ios::fixed,ios::floatfield)
-		#define MEM(a,v) if((!(v) || !((v)+1) || !((v)-INF) || !((v)+INF))) {\
+		#define MEM(a,v) \
+		if((!(v) || !((v)+1) || !((v)-INF) || !((v)+INF))) {\
 		    (memset(&(a)[0],(v),sizeof(a)));}else {trav(k,(a)) {k=v;}}static_assert(1, "")
 		#define NL cout << "\n"
 		#define what(x) out_((#x));out_("is");out_(x);NL
