@@ -2,19 +2,13 @@
 #include <ext/pb_ds/assoc_container.hpp>
 #include <ext/pb_ds/tree_policy.hpp>
 #include <cxxabi.h> //for typenames
-using namespace std; using namespace __gnu_pbds; 
+using namespace std; using namespace __gnu_pbds; //cmd + shift + r
 
 namespace aryansh { 
 	namespace type_macros {
-		typedef long long ll; 
-		typedef long double ld;
-		typedef unsigned long long ull;
-		typedef __uint128_t L128;
-		typedef double db;
-		typedef string str;
-		typedef pair<int,int> pii; 
-		typedef pair<ll,ll> pll;
-		typedef vector<int> vi;
+		using ll = long long; using db = double; using ld = long double; using ull = unsigned long long; 
+		using LL = __uint128_t; using str = string; using pii = pair<int,int>; using pll = pair<ll,ll>;
+		using vi = vector<int>; 
 		template<class T> using minpq = priority_queue<T, vector<T>, greater<T> >;
 		template<class T> using maxpq = priority_queue<T>;
 		template<class T> using OST = tree<T, null_type, less<T>, rb_tree_tag,tree_order_statistics_node_update>; 
@@ -63,9 +57,11 @@ namespace aryansh {
 
 	namespace loop_macros {
 		#define trav(a,x) for(auto&(a):(x))
-		#define FOR(i,a,b) for(auto i=decltype(b){(a)-((a)>(b))};i!=(b)-((a)>(b));((a)>(b))?--i:++i) //go from i=lb to i=ub-1
+		#define FOR(i,a,b) for(auto i=decltype(b){(a)-((a)>(b))};i!=(b)-((a)>(b));((a)>(b))?--i:++i) 
+			//[lb,ub-1]
 		#define F0R(i,b) FOR(i,0,b)
-		#define FOR_(i,a,b,d) for(auto i=decltype(b){(a)-((a)>(b))};(a>b)?(i>b-1):(i<b);i+=(((a)>(b))?-1:1)*abs(d)) //go from i=lb to i=ub-1 by size d increments
+		#define FOR_(i,a,b,d) for(auto i=decltype(b){(a)-((a)>(b))};(a>b)?(i>b-1):(i<b);i+=(((a)>(b))?-1:1)*abs(d))
+			//[lb,ub-1] by d
 		#define F0R_(i,b,d) FOR_(i,0,b,d)
 		#define R0F(i,n) FOR(i,n,0)
 		#define R0F_(i,b,d) FOR_(i,b,0,d)
@@ -180,7 +176,8 @@ namespace aryansh {
 		template<typename T, typename...Types> inline void in(T& var1, Types&...var2){cin >> var1; in(var2...);}
 		template<typename T> inline void out(T var1){cout << var1 << "\n";}
 		template<typename T, typename...Types> inline void out(T var1, Types...var2){cout << var1 << " "; out(var2...);}
-		template<typename T, typename...Types> inline void outln(T var1, Types...var2){cout << var1 << "\n"; outln(var2...);}
+		template<typename T, typename...Types> inline void outln(T var1, Types...var2)
+			{cout << var1 << "\n"; outln(var2...);}
 		template<typename T,typename...Types> inline void out_(T var1, Types...var2){cout << var1 << " "; out_(var2...);}
 		template<class T1, class T2> inline void in(pair<T1,T2>&pt){in(pt.f,pt.s);} 
 		template<class T1, class T2> inline void out(pair<T1,T2> pt){out(pt.f,pt.s);}
@@ -198,11 +195,13 @@ namespace aryansh {
 		    (memset(&(a)[0],(v),sizeof(a)));}else {trav(k,(a)) {k=v;}}static_assert(1, "")
 		#define NL cout << "\n"
 		#define what(x) out_((#x));out_("is");out_(x);NL
-        	#define type(x) type_name<decltype(x)>()
-		#define IO(PNAME) if(fopen(PNAME ".in","r")){freopen(PNAME ".in","r",stdin);freopen(PNAME ".out","w",stdout);}cin.tie(0)->sync_with_stdio(0)
+        #define type(x) type_name<decltype(x)>()
+		#define IO(PNAME) \
+		if(fopen(PNAME ".in","r")){freopen(PNAME ".in","r",stdin);freopen(PNAME ".out","w",stdout);} \
+		cin.tie(0)->sync_with_stdio(0)
 	}
 	using namespace io_macros;
-} //cmd + shift + r
+}
 using namespace aryansh;
 
 // - - - - - - - - - - - - - - - - - - - - -
