@@ -212,15 +212,15 @@ namespace aryansh {
 	using namespace grid_macros;
 
 	namespace time_macros {
-		auto TRN = chrono::steady_clock::now(); 
-		auto TIME = chrono::duration<double, milli>(chrono::steady_clock::now()-TRN).count();
+		#define TIMERN chrono::steady_clock::now(); 
+		#define TIME = chrono::duration<double, milli>(chrono::steady_clock::now()-TIMERN).count();
 	}
 	using namespace time_macros;
 
 	namespace rand_macros {
 		mt19937 mt(std::chrono::steady_clock::now().time_since_epoch().count());
 		uniform_int_distribution<int> unifd(-INF,INF);
-		auto RAND = unifd(mt);
+		#define RAND unifd(mt);
 	}
 	using namespace rand_macros;
 
