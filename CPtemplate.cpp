@@ -67,6 +67,9 @@ namespace aryansh {
 		
 		#define ins insert
 		
+		#define ft front
+		#define bk back
+		
 		#define ppb pop_back
 		#define ppf pop_front
 		
