@@ -71,6 +71,7 @@ namespace aryansh {
 		#define ppf pop_front
 		
 		#define ers erase
+		#define clr clear
 		
 		#define mp make_pair
 		#define f first
