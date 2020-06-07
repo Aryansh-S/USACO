@@ -53,7 +53,7 @@ namespace aryansh {
 	namespace func_macros {
 		#define fbo find_by_order 
 			//which element has x ones < it, or end
-		#define ofk order_of_key 
+		#define ook order_of_key 
 			//how many elements are/would be < it, or end
 		
 		#define pb push_back
