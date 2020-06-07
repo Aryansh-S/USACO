@@ -263,7 +263,7 @@ namespace aryansh {
 		template<typename T, typename...Types> inline void outln(T var1, Types...var2)
 			{cout << var1 << "\n"; outln(var2...);}	
 		
-		#define TIME chrono::duration<double, milli>(chrono::steady_clock::now()-TIMERN).count();
+		#define TIME chrono::duration<double, milli>(chrono::steady_clock::now()-CLKSTART).count();
 		
 		#define NL cout << "\n"
 		
@@ -288,7 +288,7 @@ namespace aryansh {
 }
 using namespace aryansh; 
 
-const auto TIMERN chrono::steady_clock::now(); 
+const auto CLKSTART = chrono::steady_clock::now(); 
 
 // - - - - - - - - - - - - - - - - - - - - - - - -
 
