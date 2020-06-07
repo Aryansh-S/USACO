@@ -276,7 +276,7 @@ namespace aryansh {
 		#define type(x) type_name<decltype(x)>()
 		
 		#define IO(PNAME) \
-			if(fopen(PNAME ".in","r")){freopen(PNAME ".in","r",stdin);freopen(PNAME ".out","w",stdout);} \
+			if(fopen(PNAME ".in","r")) freopen(PNAME ".in","r",stdin), freopen(PNAME ".out","w",stdout); \
 			cin.tie(0)->sync_with_stdio(0)
 	}
 	using namespace io_macros;
