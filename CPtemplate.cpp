@@ -86,6 +86,7 @@ namespace aryansh {
 			//first el in [left_it,right_it) >= val
 		#define ub upper_bound 
 			//first el in [left_it,right_it) > val
+				//set::lb/ub, not std::lb/ub
 		#define has(x,y) ((x).find(y)!=end(x)) 
 			//for nonlinear containers
 		
