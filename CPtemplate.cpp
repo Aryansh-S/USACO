@@ -264,7 +264,7 @@ namespace aryansh {
 			{cout << var1 << "\n"; outln(var2...);}	
 		
 		#define TIME \
-			chrono::duration<double, milli>(chrono::steady_clock::now()-CLK).count();
+			chrono::duration<double, milli>(chrono::steady_clock::now()-CLK).count()
 		
 		#define NL cout << "\n"
 		
