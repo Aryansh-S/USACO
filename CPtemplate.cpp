@@ -212,8 +212,8 @@ namespace aryansh {
 	using namespace grid_macros;
 
 	namespace time_macros {
-		#define TIMERN chrono::steady_clock::now(); 
-		#define TIME = chrono::duration<double, milli>(chrono::steady_clock::now()-TIMERN).count();
+		
+		
 	}
 	using namespace time_macros;
 
@@ -263,6 +263,8 @@ namespace aryansh {
 		template<typename T, typename...Types> inline void outln(T var1, Types...var2)
 			{cout << var1 << "\n"; outln(var2...);}	
 		
+		#define TIME chrono::duration<double, milli>(chrono::steady_clock::now()-TIMERN).count();
+		
 		#define NL cout << "\n"
 		
 		#define what(x) \
@@ -284,7 +286,9 @@ namespace aryansh {
 	}
 	using namespace io_macros;
 }
-using namespace aryansh;
+using namespace aryansh; 
+
+const auto TIMERN chrono::steady_clock::now(); 
 
 // - - - - - - - - - - - - - - - - - - - - - - - -
 
