@@ -58,7 +58,6 @@ namespace aryansh {
 		
 		#define pb push_back
 		#define pf push_front
-		
 		#define eb emplace_back 
 			//faster than push
 		#define ef emplace_front
@@ -66,13 +65,11 @@ namespace aryansh {
 			//faster than ins, not for pbds
 		
 		#define ins insert
-		
 		#define ft front
 		#define bk back
 		
 		#define ppb pop_back
 		#define ppf pop_front
-		
 		#define ers erase
 		#define clr clear
 		
