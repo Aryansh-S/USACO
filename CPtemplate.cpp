@@ -179,11 +179,12 @@ namespace aryansh {
 			bd<T> operator--() {
 				bd<T> tmp(v,l,r); tmp.v = v - 1 < l ? l : --v; return tmp;
 			}
-		    bd<T> operator+(int d) {
-				bd<T> tmp(v,l,r); (d > 0) ? (tmp.v = v + d > r ? r : v + d) : (tmp.v = v + d < l ? l : v + d);
+			bd<T> operator+(int d) {
+				bd<T> tmp(v,l,r); 
+				(d > 0) ? (tmp.v = v + d > r ? r : v + d) : (tmp.v = v + d < l ? l : v + d);
 				return tmp; 
-		    }
-		    bd<T> operator-(int d) { return operator+(-1*d); }
+			}
+			bd<T> operator-(int d) { return operator+(-1*d); }
 			friend istream& operator>>(istream& os, const bd<T>& a) { return is >> a.v; }
 			friend ostream& operator<<(ostream& os, const bd<T>& a) { return os << a.v; }
 		};
