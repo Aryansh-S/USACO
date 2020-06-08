@@ -17,6 +17,6 @@ int main() {
   for(int i = 0; i < SZ; ++i) for(int v: vals) dp[i + v] = min(dp[i + v], dp[i] + 1); 
     //for each state, transition out by taking a single coin
     //runs in nk : for each of n coin states, k types of coins available to transition out
-  out(dp[val_to_make]); 
+  cout << dp[val_to_make] << "\n";
     //output ans of desired state
 }
