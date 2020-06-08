@@ -139,6 +139,7 @@ namespace aryansh {
 			((!(a) || !(b)) ? 0 : ((a)*(b))/gcd((a),(b)))
 		
 		const int xd[4] = {0,1,0,-1}, yd[4] = {1,0,-1,0}; 
+			//use with grid/floodfill
 		
 		ll POW(ll a, ll b) { //log
 			ll res = 1; while(b) res *= (b & 1)? a : 1, a*=a, b>>=1;
