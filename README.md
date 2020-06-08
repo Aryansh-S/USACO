@@ -1,6 +1,13 @@
 # USACO
 Competitive Programming Resources &amp; Implementations (C++ Based)
+```cpp
+#include <bits/stdc++.h>
+using namespace std;
 
+int main() {
+  cout << "hello, world!\n";
+}
+```
 ## Description 
 
 This is a compilation of resources and implementations for contest programming -- algorithms and past problems for USACO.
