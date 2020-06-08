@@ -141,47 +141,53 @@ namespace aryansh {
 		}
 		
 		struct mi { //modular int
-			typedef decay<decltype(MOD)>::type T;
-			T val; 
+			typedef decay<decltype(MOD)>::type T; T val; 
 			explicit operator T() const { return val; }
 			mi() { val = 0; }
-			mi(ll v) { 
-				val = (-MOD <= v && v <= MOD) ? v : v % MOD;
-				if (val < 0) val += MOD;
-			}
-			friend bool operator==(const mi& a, const mi& b) { 
-				return a.val == b.val; }
-			friend bool operator!=(const mi& a, const mi& b) { 
-				return !(a == b); }
-			friend bool operator<(const mi& a, const mi& b) { 
-				return a.val < b.val; }
-			friend ostream& operator<<(ostream& os, const mi& a) { 
-				return os << a.val; }
+			mi(ll v) { val = (-MOD <= v && v <= MOD) ? v : v % MOD; if (val < 0) val += MOD; }
+			friend bool operator==(const mi& a, const mi& b) { return a.val == b.val; }
+			friend bool operator!=(const mi& a, const mi& b) { return !(a == b); }
+			friend bool operator<(const mi& a, const mi& b) { return a.val < b.val; }
+			friend istream& operator>>(istream& os, const mi& a) { return os >> a.val; }
+			friend ostream& operator<<(ostream& os, const mi& a) { return os << a.val; }
 			mi operator-() const { return mi(-val); }
-			mi& operator+=(const mi& m) { 
-				if ((val += m.val) >= MOD) val -= MOD; 
-				return *this; }
-			mi& operator-=(const mi& m) { 
-				if ((val -= m.val) < 0) val += MOD; 
-				return *this; }
+			mi& operator+=(const mi& m) { if ((val += m.val) >= MOD) val -= MOD; return *this; }
+			mi& operator-=(const mi& m) { if ((val -= m.val) < 0) val += MOD; return *this; }
 			mi& operator++() { return *this += 1; }
 			mi& operator--() { return *this -= 1; }
 			friend mi operator+(mi a, const mi& b) { return a += b; }
 			friend mi operator-(mi a, const mi& b) { return a -= b; }
-
-			mi& operator*=(const mi& m) { 
-				val = (ll)val*m.val%MOD; return *this; }
+			mi& operator*=(const mi& m) { val = (ll)val*m.val%MOD; return *this; }
 			friend mi pow(mi a, ll p) {
 				mi ans = 1; assert(p >= 0);
 				for (; p; p /= 2, a *= a) if (p&1) ans *= a;
 				return ans;
 			}
-			friend mi inv(const mi& a) { 
-				assert(!(a == 0)); return pow(a,MOD-2); }
+			friend mi inv(const mi& a) { assert(!(a == 0)); return pow(a,MOD-2); }
 			mi& operator/=(const mi& m) { return (*this) *= inv(m); }
 			friend mi operator*(mi a, const mi& b) { return a *= b; }
 			friend mi operator/(mi a, const mi& b) { return a /= b; }
 		};
+		
+		template<class T> struct bd{ //bdi for int
+  			T v = 0; int l = 0, r = 1;
+  			bd(int _v, int _l, int _r) { l=_l,r=_r,v=_v; if(v < l) v = l; if(v > r) v = r; }
+  			operator int() const {return v;}
+			bd<T> operator++() {
+				bd<T> tmp(v,l,r); tmp.v = v + 1 > r ? r : ++v; return tmp; 
+			}
+			bd<T> operator--() {
+				bd<T> tmp(v,l,r); tmp.v = v - 1 < l ? l : --v; return tmp;
+			}
+		    bd<T> operator+(int d) {
+				bd<T> tmp(v,l,r); (d > 0) ? (tmp.v = v + d > r ? r : v + d) : (tmp.v = v + d < l ? l : v + d);
+				return tmp; 
+		    }
+		    bd<T> operator-(int d) { return operator+(-1*d); }
+			friend istream& operator>>(istream& os, const bd<T>& a) { return is >> a.v; }
+			friend ostream& operator<<(ostream& os, const bd<T>& a) { return os << a.v; }
+		};
+		using bdi = bd<int>;
 	}
 	using namespace math_macros;
 
