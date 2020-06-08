@@ -107,7 +107,7 @@ struct DSURB{ //from 0 to n-1 -> make sure to set rollback if needed
 	bool unite(int x, int y) { // union-by-rank
 		x = get(x), y = get(y);
         if(x==y){
-            if(rollback) mod.pb(mp(mp(bigg,bigg),mp(bigg,bigg)));
+            if(rollback) mod.pb(mp(mp(MOD,MOD),mp(MOD,MOD)));
             cycfind=1; return 0;
         }
 		if (e[x] > e[y]) swap(x,y);
@@ -118,7 +118,7 @@ struct DSURB{ //from 0 to n-1 -> make sure to set rollback if needed
     void setrb(){rollback=1;}
     void rb(){
         auto a = mod.back(); mod.pop_back();
-		if (a.f.f!= bigg) e[a.f.f]=a.s.f, e[a.f.s]= a.s.s;
+		if (a.f.f!= MOD) e[a.f.f]=a.s.f, e[a.f.s]= a.s.s;
     }
 	int compnum(){ //return the number of components
 		int ret=1;
