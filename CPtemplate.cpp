@@ -168,20 +168,20 @@ namespace aryansh {
 		
 		template<class T> struct bd{ //bdi for int
   			T v = 0; int l = 0, r = 1;
-  			bd(int _v, int _l, int _r) { l=_l,r=_r,v=_v; if(v < l) v = l; if(v > r) v = r; }
-  			operator int() const {return v;}
+  			bd(T _v, int _l, int _r) { l=_l,r=_r,v=_v; if(v < l) v = l; if(v > r) v = r; }
+  			operator T() const {return v;}
 			bd<T> operator++() {
 				bd<T> tmp(v,l,r); tmp.v = v + 1 > r ? r : ++v; return tmp; 
 			}
 			bd<T> operator--() {
 				bd<T> tmp(v,l,r); tmp.v = v - 1 < l ? l : --v; return tmp;
 			}
-			bd<T> operator+(int d) {
+			bd<T> operator+(T d) {
 				bd<T> tmp(v,l,r); 
 				(d > 0) ? (tmp.v = v + d > r ? r : v + d) : (tmp.v = v + d < l ? l : v + d);
 				return tmp; 
 			}
-			bd<T> operator-(int d) { return operator+(-1*d); }
+			bd<T> operator-(T d) { return operator+(-1*d); }
 			friend istream& operator>>(istream& is, bd<T>& a) { is >> a.v; a = bd(a.v, a.l, a.r); return is; }
 			friend ostream& operator<<(ostream& os, const bd<T>& a) { return os << a.v; }
 		};
