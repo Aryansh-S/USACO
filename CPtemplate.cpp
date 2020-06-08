@@ -132,9 +132,6 @@ namespace aryansh {
 		#define lcm(a,b) \
 			((!(a) || !(b)) ? 0 : ((a)*(b))/gcd((a),(b)))
 		
-		const int xd[4] = {0,1,0,-1}, yd[4] = {1,0,-1,0}; 
-			//use with grid/floodfill
-		
 		ll POW(ll a, ll b) { //log
 			ll res = 1; while(b) res *= (b & 1)? a : 1, a*=a, b>>=1;
 			return res;
@@ -189,6 +186,9 @@ namespace aryansh {
 			friend ostream& operator<<(ostream& os, const bd<T>& a) { return os << a.v; }
 		};
 		using bdi = bd<int>;
+		
+		const int xd[4] = {0,1,0,-1}, yd[4] = {1,0,-1,0}; 
+			//use with grid/floodfill
 	}
 	using namespace math_macros;
 
