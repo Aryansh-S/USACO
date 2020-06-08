@@ -211,12 +211,6 @@ namespace aryansh {
 	}
 	using namespace grid_macros;
 
-	namespace time_macros {
-		
-		
-	}
-	using namespace time_macros;
-
 	namespace rand_macros {
 		mt19937 mt(std::chrono::steady_clock::now().time_since_epoch().count());
 		uniform_int_distribution<int> unifd(-INF,INF);
