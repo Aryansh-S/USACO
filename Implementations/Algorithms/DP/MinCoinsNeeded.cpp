@@ -4,6 +4,7 @@ using namespace std;
 const int INF = 0x3f3f3f3f, SZ = 1e5;
 
 vector<int> vals; 
+  //which coin vals can we use to make change?
 int dp[SZ], how_many, val_to_make; 
   //state: value making; trans: take coin; ans: min coins needed
 
