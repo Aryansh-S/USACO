@@ -140,7 +140,7 @@ namespace aryansh {
 			return res;
 		}
 		
-		struct mi { //modular int
+		struct mi { //modular int -- with ll for best results
 			typedef decay<decltype(MOD)>::type T; T val; 
 			explicit operator T() const { return val; }
 			mi() { val = 0; }
