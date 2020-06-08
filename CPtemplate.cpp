@@ -119,7 +119,7 @@ namespace aryansh {
 	namespace const_macros {
 		const int MOD = 1e9 + 7, SZ = 1e5, INF = 0x3f3f3f3f;
 		const ll INFLL = 0x3f3f3f3f3f3f3f3f; 
-		const db EPS = 1e-8
+		const db EPS = 1e-8;
 	}
 	using namespace const_macros;
 	
