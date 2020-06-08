@@ -148,7 +148,7 @@ namespace aryansh {
 			friend bool operator==(const mi& a, const mi& b) { return a.val == b.val; }
 			friend bool operator!=(const mi& a, const mi& b) { return !(a == b); }
 			friend bool operator<(const mi& a, const mi& b) { return a.val < b.val; }
-			friend istream& operator>>(istream& is, mi& a) { return is >> a.val; a = mi(a.val);}
+			friend istream& operator>>(istream& is, mi& a) { is >> a.val; a = mi(a.val); return is; }
 			friend ostream& operator<<(ostream& os, const mi& a) { return os << a.val; }
 			mi operator-() const { return mi(-val); }
 			mi& operator+=(const mi& m) { if ((val += m.val) >= MOD) val -= MOD; return *this; }
@@ -185,7 +185,7 @@ namespace aryansh {
 				return tmp; 
 			}
 			bd<T> operator-(int d) { return operator+(-1*d); }
-			friend istream& operator>>(istream& is, bd<T>& a) { return is >> a.v; a = bd(a.v, a.l, a.r); }
+			friend istream& operator>>(istream& is, bd<T>& a) { is >> a.v; a = bd(a.v, a.l, a.r); return is; }
 			friend ostream& operator<<(ostream& os, const bd<T>& a) { return os << a.v; }
 		};
 		using bdi = bd<int>;
