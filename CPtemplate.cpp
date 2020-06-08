@@ -115,19 +115,6 @@ namespace aryansh {
 		#define R1F_(i,b,d) FOR_(i,b+1,1,d)
 	}
 	using namespace loop_macros;
-
-	namespace const_macros {
-		#define big (int)1e5
-		#define bigg (int)(1e9+7)
-		
-		#define MOD (int)(1e9+7)
-		
-		#define INF 0x3f3f3f3f
-		#define INFLL 0x3f3f3f3f3f3f3f3f
-		
-		#define EPS 1e-8
-	}
-	using namespace const_macros;
 	
 	namespace math_macros {
 		#define ckmin(a,b) a = min(a,b)
@@ -197,6 +184,19 @@ namespace aryansh {
 		#define RAND unifd(mt);
 	}
 	using namespace rand_macros;
+	
+	namespace const_macros {
+		#define big (int)1e5
+		#define bigg (int)(1e9+7)
+		
+		#define MOD (int)(1e9+7)
+		
+		#define INF 0x3f3f3f3f
+		#define INFLL 0x3f3f3f3f3f3f3f3f
+		
+		#define EPS 1e-8
+	}
+	using namespace const_macros;
 
 	namespace io_macros {
 		inline void in(){} inline void outln(){} inline void out_(){} //for fast, easy IO
