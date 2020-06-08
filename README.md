@@ -48,7 +48,9 @@ Specifics:
 
 Sometimes, USACO and other contest platforms are picky about this and ask for an unrounded answer to a certain number of significant digits at the end; thankfully, this is now rare as far as USACO is concerned (distance is modified to square distance and such). The general resolution is to use either double or long double along with the following line of code in C++ at the head of the main() function (change the 2 to however many significant digits you need):
 
+```cpp
 cout.precision(2); cout.setf(ios::fixed,ios::floatfield); 
+```
 
 ## Macros (typedef, define)
 
