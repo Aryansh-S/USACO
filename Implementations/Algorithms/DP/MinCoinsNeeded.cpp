@@ -15,7 +15,8 @@ int main() {
   cin >> val_to_make;
   memset(dp, INF, sizeof(dp)); dp[0] = 0;
   for(int i = 0; i < SZ; ++i) for(int v: vals) dp[i + v] = min(dp[i + v], dp[i] + 1); 
-    //for each state, transition out
+    //for each state, transition out by taking a single coin
+    //runs in nk : for each of n coin states, k types of coins available to transition out
   out(dp[val_to_make]); 
     //output ans of desired state
 }
