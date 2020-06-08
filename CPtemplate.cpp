@@ -138,6 +138,8 @@ namespace aryansh {
 		#define lcm(a,b) \
 			((!(a) || !(b)) ? 0 : ((a)*(b))/gcd((a),(b)))
 		
+		const int xd[4] = {0,1,0,-1}, yd[4] = {1,0,-1,0}; 
+		
 		ll POW(ll a, ll b) { //log
 			ll res = 1; while(b) res *= (b & 1)? a : 1, a*=a, b>>=1;
 			return res;
@@ -187,29 +189,6 @@ namespace aryansh {
 		};
 	}
 	using namespace math_macros;
-	
-	namespace grid_macros {
-		const int xd[4] = {0,1,0,-1}, yd[4] = {1,0,-1,0}; 
-		
-		template<class T> struct bd{ //bdi for inclusive bounded int
-			  T v = 0, l = 0, r = 1;
-			  bd(T _v, T _l, T _r){l=_l,r=_r,v=_v; if(v < l) v = l; if(v > r) v = r;}
-			  operator T(){return v;}
-			  bd<T> operator++(){
-			    bd<T> tmp(v,l,r); tmp.v = v + 1 > r ? r : ++v; return tmp; 
-			  }
-			  bd<T> operator--(){
-			    bd<T> tmp(v,l,r); tmp.v = v - 1 < l ? l : --v; return tmp;
-			  }
-			  bd<T> operator+(int d){
-			    bd<T> tmp(v,l,r); (d > 0) ? (tmp.v = v + d > r ? r : v + d) : (tmp.v = v + d < l ? l : v + d);
-			    return tmp; 
-			  }
-			  bd<T> operator-(int d){return operator+(-1*d);}
-		};
-		using bdi = bd<int>;
-	}
-	using namespace grid_macros;
 
 	namespace rand_macros {
 		mt19937 mt(std::chrono::steady_clock::now().time_since_epoch().count());
