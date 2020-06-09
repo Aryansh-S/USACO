@@ -224,6 +224,17 @@ Not much to say here, but as far as USACO is concerned, your limit is 256MB unle
 - Long Double: 16 Bytes
 - Long Long: 8 bytes
 
+You don't need to memorize these. You can check them directly: 
+```cpp
+cout << sizeof(typename) << '\n';
+```
+
+For instance, 
+```cpp
+cout << sizeof(float) << '\n';
+```
+gives 4. 
+
 Look into bitsets and sliding window for more memory optimization tricks. 
 
 ## Questions/Suggestions
