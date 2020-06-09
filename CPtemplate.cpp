@@ -48,7 +48,7 @@ namespace aryansh {
 				r += "&&";
 			return r;
 		}
-		template<class T> struct is_iterator {   
+		template<class T> struct is_iterator { //check if iterator or pointer   
     			static T makeT();
 			typedef void * twoptrs[2];  // sizeof(twoptrs) > sizeof(void *)
 			static twoptrs & test(...); // Common case
