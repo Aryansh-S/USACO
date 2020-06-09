@@ -5,8 +5,8 @@ Competitive Programming Resources &amp; Implementations (C++ Based)
 using namespace std;
 
 int main() {
-  if(fopen("test.in", "r")) freopen("test.in", "r", stdin), freopen("test.out", "w", stdout);
   cin.tie(0)->sync_with_stdio(0);
+  if(fopen("test.in", "r")) freopen("test.in", "r", stdin), freopen("test.out", "w", stdout);
   
   cout << "hello, world!\n";
 }
