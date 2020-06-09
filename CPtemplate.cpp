@@ -132,10 +132,8 @@ namespace aryansh {
 		#define lcm(a,b) \
 			((!(a) || !(b)) ? 0 : ((a)*(b))/gcd((a),(b)))
 		
-		ll POW(ll a, ll b) { //log
-			ll res = 1; while(b) res *= (b & 1)? a : 1, a*=a, b>>=1;
-			return res;
-		}
+		ll POW(ll a, ll b) { ll res = 1; while(b) res *= (b & 1)? a : 1, a*=a, b>>=1; return res; }
+			//log, prefer to pow
 		
 		struct mi { //modular int -- with ll for best results
 			typedef decay<decltype(MOD)>::type T; T val; 
@@ -193,7 +191,7 @@ namespace aryansh {
 	using namespace math_macros;
 
 	namespace rand_macros {
-		mt19937 mt(std::chrono::steady_clock::now().time_since_epoch().count());
+		mt19937 mt(chrono::steady_clock::now().time_since_epoch().count());
 		uniform_int_distribution<int> unifd(-INF,INF);
 		#define RAND unifd(mt);
 	}
