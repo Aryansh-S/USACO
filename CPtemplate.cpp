@@ -26,10 +26,10 @@ namespace aryansh {
 		template<class T, class U> using OSM 
 			= tree<T, U, less<T>, rb_tree_tag,tree_order_statistics_node_update>;
 		
-		template<class T> using hset 
-			= gp_hash_table<T, null_type, hash<T>>; 
-		template<class T, class U> using hmap 
-			= gp_hash_table<T, U, hash<T>>; 
+		template<class T, struct chash = hash<T>> using hset 
+			= gp_hash_table<T, null_type, chash>; 
+		template<class T, class U, struct chash = hash<T>> using hmap 
+			= gp_hash_table<T, U, chash>; 
 				//don't bother using unordered types 
 		
 		template<class T> inline str type_name() { 
