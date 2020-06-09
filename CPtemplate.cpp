@@ -180,6 +180,10 @@ namespace aryansh {
 				return tmp; 
 			}
 			bd<T> operator-(T d) { return operator+(-1*d); }
+			friend bool operator==(const bd<T>& a, const T& b) { return a.v == b; }
+			friend bool operator==(const bd<T>& a, const bd<T>& b) { return a.v == b.v; }
+			friend bool operator!=(const bd<T>& a, const bd<T>& b) { return a.v != b.v; }
+			friend bool operator!=(const bd<T>& a, const T& b) { return a.v != b; }
 			friend istream& operator>>(istream& is, bd<T>& a) { is >> a.v; a = bd(a.v, a.l, a.r); return is; }
 			friend ostream& operator<<(ostream& os, const bd<T>& a) { return os << a.v; }
 		};
