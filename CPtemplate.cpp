@@ -223,7 +223,7 @@ namespace aryansh {
 			{cout << var1 << " "; out_(var2...);}
 		template<class T1, class T2> inline void out_(pair<T1,T2> pt)
 			{out_(pt.f,pt.s);}
-		template<typename it> inline void out(it bg, it nd) 
+		template<typename it> inline void out_(it bg, it nd) 
 			{while(distance(bg,nd)) out_(*bg), ++bg;}
 		
 		template<typename T, typename...Types> inline void outln(T var1, Types...var2)
