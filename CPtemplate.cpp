@@ -133,7 +133,7 @@ namespace aryansh {
 			((!(a) || !(b)) ? 0 : ((a)*(b))/gcd((a),(b)))
 		
 		ll POW(ll a, ll b) { ll res = 1; while(b) res *= (b & 1)? a : 1, a*=a, b>>=1; return res; }
-			//log, prefer to pow
+			//log, prefer to std::pow
 		
 		struct mi { //modular int -- with ll for best results
 			typedef decay<decltype(MOD)>::type T; T val; 
