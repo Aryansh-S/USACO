@@ -26,11 +26,12 @@ namespace aryansh {
 		template<class T, class U> using OSM 
 			= tree<T, U, less<T>, rb_tree_tag,tree_order_statistics_node_update>;
 		
-		template<class T, struct chash = hash<T>> using hset 
+		template<class T, class chash = hash<T>> using hset 
 			= gp_hash_table<T, null_type, chash>; 
-		template<class T, class U, struct chash = hash<T>> using hmap 
+		template<class T, class U, class chash = hash<T>> using hmap 
 			= gp_hash_table<T, U, chash>; 
-				//don't bother using unordered types 
+				//don't bother using unordered types, use a custom hash argument if you want
+				//struct chash {int operator()(T x) const {//return a random int}}; if hash<T> doesn't exist
 		
 		template<class T> inline str type_name() { 
 			typedef typename remove_reference<T>::type TR;
