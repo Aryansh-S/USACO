@@ -137,65 +137,65 @@ These can actually change each year depending on what is tested by problem write
 ## Stuck? 
 Try the following.
 
-Analyze bounds and time complexity to reverse-engineer potential algorithms in the problem
+- Analyze bounds and time complexity to reverse-engineer potential algorithms in the problem
 
-Draw a picture
+- Draw a picture
 
-Work out the sample case
+- Work out the sample case
 
-Approach the problem from a different angle (backwards, sideways, etc.)
+- Approach the problem from a different angle (backwards, sideways, etc.)
 
-Start with brute force and work toward pruning optimizations (even go for amortized analysis because heuristic solutions might suffice for the test cases)
+- Start with brute force and work toward pruning optimizations (even go for amortized analysis because heuristic solutions might suffice for the test cases)
 
-Gauge time and remember partial credit for test cases
+- Gauge time and remember partial credit for test cases
 
-Move on to another problem/take a break and come back with a fresh mind
+- Move on to another problem/take a break and come back with a fresh mind
 
-Look out for edge cases! If things are 1-indexed, you can either leave them be by just increasing the array size (usually a good habit to have regardless), or you can 0-index them as necessary
+- Look out for edge cases! If things are 1-indexed, you can either leave them be by just increasing the array size (usually a good habit to have regardless), or you can 0-index them as necessary
 
-Look out for integer overflow! Use long long (64-bit integer type) if necessary (usually indicated by the problem)
+- Look out for integer overflow! Use long long (64-bit integer type) if necessary (usually indicated by the problem)
 
-Try small cases or special cases
+- Try small cases or special cases
 
-Add single or multiline comments to keep track of what you are doing
+- Add single or multiline comments to keep track of what you are doing
 
-Debugging: add print statements (use what(x) in the template or some variant), watch out for segmentation faults (accessing out of bounds memory or too much memory), literally rewrite code as a last resort
+- Debugging: add print statements (use what(x) in the template or some variant), watch out for segmentation faults (accessing out of bounds memory or too much memory), literally rewrite code as a last resort
 
-Stay organized and do not panic
+- Stay organized and do not panic
 
 ## Maximize
 How to get the most of what you have
 
-Do not forgo partial credit offered in test cases -- it can make all the difference to qualify. Feel free to use the system clock to opt into a different process before you are going to time out so that you can process those cases separately (with something close to a solution based on some manipulation -- modular residues, etc.) -- at worst, this changes a TLE to a WA, but at best, this changes a TLE to the correct answer. 
+- Do not forgo partial credit offered in test cases -- it can make all the difference to qualify. Feel free to use the system clock to opt into a different process before you are going to time out so that you can process those cases separately (with something close to a solution based on some manipulation -- modular residues, etc.) -- at worst, this changes a TLE to a WA, but at best, this changes a TLE to the correct answer. 
 
-Try heuristics and pruning to amortize. It is best to have provable heuristics, but at the end of the day, you should try what you think might intuitively work. If you have a really good idea that something works, it is often better to just go for it than to try to prove it. I still recommend you to prove your heuristic approaches after the contest is over (with no time limit and no limitation on reference resources by way of in-contest integrity): this can lead to rich algorithmic insights!
+- Try heuristics and pruning to amortize. It is best to have provable heuristics, but at the end of the day, you should try what you think might intuitively work. If you have a really good idea that something works, it is often better to just go for it than to try to prove it. I still recommend you to prove your heuristic approaches after the contest is over (with no time limit and no limitation on reference resources by way of in-contest integrity): this can lead to rich algorithmic insights!
 
-Of course, optimize your processing with stacks, queues, and priority queues to amortize when you can (see the USACO problems "cereal", "dishwashing", and "steeplechase ii" for good examples of this). See if you can reuse previous answers with dynamic programming. 
+- Of course, optimize your processing with stacks, queues, and priority queues to amortize when you can (see the USACO problems "cereal", "dishwashing", and "steeplechase ii" for good examples of this). See if you can reuse previous answers with dynamic programming. 
 
 ## Other Resources
 I discourage the training gate offered by USACO, as it is outdated and problem quality is not the best as of now, but if you are willing to get past that, it does cover algorithms necessary.  
 
-Competitive Programmer's Handbook (a good place to start)
+- Competitive Programmer's Handbook (a good place to start)
 
-Guide to Competitive Programming (somewhere to continue)
+- Guide to Competitive Programming (somewhere to continue)
 
-Competitive Programming 3: The New Lower Bound of Programming Contests (full of good content, ignore problems for the most part)
+- Competitive Programming 3: The New Lower Bound of Programming Contests (full of good content, ignore problems for the most part)
 
-Past Problems (the best resource around)
+- Past Problems (the best resource around)
 
-Older Contests Predating 2011-2012: https://contest.usaco.org/DEC05.htm (change the ID around for more)
+- Older Contests Predating 2011-2012: https://contest.usaco.org/DEC05.htm (change the ID around for more)
 
-YouTube Tutorials (none in particular, but just look for good series of videos)
+- YouTube Tutorials (none in particular, but just look for good series of videos)
 
-CodeForces, CodeChef, etc. (stylistic differences but good content)
+- CodeForces, CodeChef, etc. (stylistic differences but good content)
 
-CSES Problem Set (good for practice with standard setups) 
+- CSES Problem Set (good for practice with standard setups) 
 
-https://www.dropbox.com/s/z2lur71042pjaet/guide.pdf?dl=0 (a well-designed handout that is clear and cuts to the chase for algorithms)
+- https://www.dropbox.com/s/z2lur71042pjaet/guide.pdf?dl=0 (a well-designed handout that is clear and cuts to the chase for algorithms)
 
-Go further: http://www.csc.kth.se/~jsannemo/slask/main.pdf
+- Go further: http://www.csc.kth.se/~jsannemo/slask/main.pdf
 
-Problems by topic and difficulty: https://codeforces.com/blog/entry/55274
+= Problems by topic and difficulty: https://codeforces.com/blog/entry/55274
 
 ## Time Complexity
 Design Efficient Algorithms 
@@ -226,12 +226,12 @@ Not much to say here, but as far as USACO is concerned, your limit is 256MB unle
 
 You don't need to memorize these. You can check them directly: 
 ```cpp
-cout << sizeof(typename) << '\n';
+cout << sizeof(typename) << "\n";
 ```
 
 For instance, 
 ```cpp
-cout << sizeof(float) << '\n';
+cout << sizeof(float) << "\n";
 ```
 gives 4. 
 
