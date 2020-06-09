@@ -10,16 +10,39 @@ int main() {
 ```
 ## Description 
 
-This is a compilation of resources and implementations for contest programming -- algorithms and past problems for USACO.
+This is a compilation of resources and implementations for contest programming -- algorithms and past problems for USACO. The "src" folder just contains source files and images that are integrated elsewhere; you can ignore it. 
 
+### All of STL in One Include
 If you want to 
 ```cpp 
 #include <bits/stdc++.h>
 ``` 
 but your compiler does not allow you to do so, simply go to the file "stdc++.h" and
 follow the unofficial directions at the top (there is a myth that this reduces performance, but do not buy that). 
-The "src" folder just contains source files and images that are integrated elsewhere; you can ignore it. 
 
+### Fast I/O
+
+Contest programming requires fast input/output, so put the line
+```cpp
+cin.tie(0)->sync_with_stdio(0);
+```
+at the beginning of the main function of all of your submissions. This unties cin from cout and unsyncs the I/O stream. Effectively, cin/cout will be as fast as scanf/printf. Do not use scanf/printf if you choose to include this line!
+
+### File I/O
+
+Many contest programming platforms still require file I/O. This can be easily achieved by the line
+```cpp
+freopen("file.in","r",stdin), freopen("file.out","w",stdout); 
+```
+in the main function, if names are adjusted accordingly. 
+
+### Policy Based Data Structures
+GNU GCC/G++ provides its own policy-based data structures, such as hash tables and ordered statistics trees. Check the template for more on specific documentation, but you can include the following lines at the top of your program: 
+```cpp
+#include <ext/pb_ds/assoc_container.hpp> 
+#include <ext/pb_ds/tree_policy.hpp> 
+using namespace __gnu_pbds;  
+```
 - Unfortunately, most versions of clang do not support pb_ds as of late, which is why I always recommend gcc for compilation. However, repl.it has recently moved to a better version of clang that does provide support for pb_ds, so it's still a great online compiler.
 - Read more on the details in the "Compilation" section below.
 
