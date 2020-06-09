@@ -9,8 +9,7 @@ template<class T> struct SEG { // comb(ID,b) = b, 0-indexing works, any associat
 	const T ID = -INF; T comb(T a, T b) { return max(a,b); } 
 	int n; vector<T> seg;
 	void init(int _n) { n = _n; seg.assign(2*n, ID); } 
-    	void init(vector<T>& v) { init(v.size()); move(begin(v), end(v), begin(seg) + n); build(); }
-    	void init(T* a, int _n) { init(_n); move(a, a + n, begin(seg) + n); build(); }
+	template<typename it> void init(it bg, it nd) {init(distance(bg,nd)); move(bg, nd, begin(seg) + n); build();}
     	void build() { for(int i = n - 1; i > 0; --i) pull(i); }
 	void pull(int p) { seg[p] = comb(seg[2*p],seg[2*p+1]); }
 	void upd(int p, T val) { // set val at position p
