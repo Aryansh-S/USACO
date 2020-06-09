@@ -75,9 +75,9 @@ namespace aryansh {
 		#define clr clear
 		
 		#define mp make_pair
+			//prefer to {}
 		#define f first
 		#define s second
-		template<class T, class U> pair<U, T> flp(pair<U, T>& p) { swap(p.f,p.s); return p; }
 		
 		#define sq(x) (x)*(x)
 		
