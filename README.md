@@ -30,9 +30,10 @@ at the beginning of the main function of all of your submissions. This unties ci
 
 ### File I/O
 
-Many contest programming platforms still require file I/O. This can be easily achieved by the line
+Many contest programming platforms still require file I/O. This can be easily achieved by the lines
 ```cpp
-freopen("file.in","r",stdin), freopen("file.out","w",stdout); 
+freopen("file.in","r",stdin);
+freopen("file.out","w",stdout); 
 ```
 in the main function, if names are adjusted accordingly. 
 
