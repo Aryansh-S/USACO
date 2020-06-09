@@ -199,16 +199,16 @@ namespace aryansh {
 	using namespace rand_macros;
 
 	namespace io_macros {
-		inline void in(){} inline void outln(){} inline void out_(){} //for fast, easy IO
+		inline void in(){} inline void outln(){} inline void out_(){} 
+			//for fast, easy IO
+			//use with all and rsz
 		
 		template<typename T, typename...Types> inline void in(T& var1, Types&...var2)
 			{cin >> var1; in(var2...);}
 		template<class T1, class T2> inline void in(pair<T1,T2>&pt)
 			{in(pt.f,pt.s);}
-		template<class T> inline void in(vector<T>&v,int sz)
-			{F0R(i,sz){T x; in(x); v.pb(x);}}
-		template<class T> inline void in(T*a,int sz)
-			{F0R(i,sz) in(a[i]);}
+		template<typename it> inline void in(it bg, it nd) 
+			{while(distance(bg,nd)) in(*bg), ++bg;}
 		
 		template<typename T> inline void out(T var1)
 			{cout << var1 << "\n";}
@@ -216,23 +216,15 @@ namespace aryansh {
 			{cout << var1 << " "; out(var2...);}
 		template<class T1, class T2> inline void out(pair<T1,T2> pt)
 			{out(pt.f,pt.s);}
-		template<class T> inline void out(vector<T> v)
-			{trav(t,v) out(t);}
-		template<class T> inline void out(vector<T> v,int sz)
-			{trav(t,v) out(t);}
-		template<class T> inline void out(T*a,int sz)
-			{F0R(i,sz) out(a[i]);}
+		template<typename it> inline void out(it bg, it nd) 
+			{while(distance(bg,nd)) out(*bg), ++bg;}
 	
 		template<typename T,typename...Types> inline void out_(T var1, Types...var2)
 			{cout << var1 << " "; out_(var2...);}
-		template<class T> inline void out_(vector<T> v)
-			{trav(t,v) out_(t);} //might need to int cast size
-		template<class T> inline void out_(vector<T> v,int sz)
-			{trav(t,v) out_(t);}
-		template<class T> inline void out_(T*a,int sz)
-			{F0R(i,sz) out_(a[i]);}
 		template<class T1, class T2> inline void out_(pair<T1,T2> pt)
 			{out_(pt.f,pt.s);}
+		template<typename it> inline void out(it bg, it nd) 
+			{while(distance(bg,nd)) out_(*bg), ++bg;}
 		
 		template<typename T, typename...Types> inline void outln(T var1, Types...var2)
 			{cout << var1 << "\n"; outln(var2...);}	
