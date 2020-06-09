@@ -31,7 +31,7 @@ namespace aryansh {
 		template<class T, class U, class chash = hash<T>> using hmap 
 			= gp_hash_table<T, U, chash>; 
 				//don't bother using unordered types, use a custom hash argument if you want
-				//struct chash {int operator()(T x) const {//return hash ID}}; if hash<T> doesn't exist
+				//struct chash {int operator()(T x) const {/*return hash id*/}}; if hash<T> doesn't exist
 		
 		template<class T> inline str type_name() { 
 			typedef typename remove_reference<T>::type TR;
