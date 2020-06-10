@@ -6,11 +6,11 @@ using namespace std;
 // -- USED IN TEMPLATE -- //
 
 #include <cxxabi.h> //typenames
-template<class T> inline str type_name() { 
+template<class T> inline string type_name() { 
 	typedef typename remove_reference<T>::type TR;
 	unique_ptr<char, void(*)(void*)> own
 	(abi::__cxa_demangle(typeid(TR).name(), nullptr,nullptr,nullptr),free); 
-	str r = own != nullptr ? own.get() : typeid(TR).name();
+	string r = own != nullptr ? own.get() : typeid(TR).name();
 	if (is_const<TR>::value) 
 		r += " const";
 	if (is_volatile<TR>::value) 
@@ -34,13 +34,13 @@ template<class T> class is_iterator { //check if iterator or pointer
 template<class T> class is_streamable { //check if can be used with cin >>, cout << 
   template<typename SS, typename TT> static auto test(int)->
   decltype(declval<SS&>() << declval<TT>(),true_type());
-  template<typename, typename> static auto test(...)->:false_type;
+  template<typename, typename> static auto test(...)->false_type;
   public: static const bool value = decltype(test<ostream, const T&>(0))::value;
 };
 
 // -- OTHER (POSSIBLY USEFUL) -- //
 
-auto is_iterable_impl(int)->decltype (begin(declval<T&>()) != end(declval<T&>()), 
+template<typename T> auto is_iterable_impl(int)->decltype (begin(declval<T&>()) != end(declval<T&>()), 
 void(), ++declval<decltype(begin(declval<T&>()))&>(), void(*begin(declval<T&>())), true_type{});
 template<typename T> false_type is_iterable_impl(...);
 template <typename T> using is_iterable = decltype(is_iterable_impl<T>(0));
@@ -57,9 +57,13 @@ namespace extend_std {
 		return move(&var); 
 	}
 	template<typename T, typename = typename enable_if<!is_iterable<T>::value>::type> inline T* end(T& var){
-		return begin(var)+1
+		return begin(var)+1;
 	}
 }
 using namespace extend_std; 
 
+//////////////////////////
 
+int main() {
+
+}
