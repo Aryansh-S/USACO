@@ -38,16 +38,28 @@ template<class T> class is_streamable { //check if can be used with cin >>, cout
   public: static const bool value = decltype(test<ostream, const T&>(0))::value;
 };
 
-// -- OTHER -- //
+// -- OTHER (POSSIBLY USEFUL) -- //
 
+auto is_iterable_impl(int)->decltype (begin(declval<T&>()) != end(declval<T&>()), 
+void(), ++declval<decltype(begin(declval<T&>()))&>(), void(*begin(declval<T&>())), true_type{});
+template<typename T> false_type is_iterable_impl(...);
+template <typename T> using is_iterable = decltype(is_iterable_impl<T>(0));
 
-
-// -- EXAMPLE -- //
+// -- EXAMPLES -- //
 
 template<typename T, typename = typename enable_if<is_streamable<T>::value>::type> inline void out(T var) {
 	cout << var << "\n";
 }
 
-
+namespace extend_std { 
+	//define begin() and end() for non-iterable types
+	template<typename T, typename = typename enable_if<!is_iterable<T>::value>::type> inline T* begin(T& var){
+		return move(&var); 
+	}
+	template<typename T, typename = typename enable_if<!is_iterable<T>::value>::type> inline T* end(T& var){
+		return begin(var)+1
+	}
+}
+using namespace extend_std; 
 
 
