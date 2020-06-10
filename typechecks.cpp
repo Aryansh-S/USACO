@@ -62,8 +62,11 @@ namespace extend_std {
 }
 using namespace extend_std; 
 
-//////////////////////////
+int a = 0x3f, b[]={1,2,3}; vector<int> c = {1,2,3};
 
 int main() {
-
+    assert(*begin(a)==a);
+    assert(*(end(a)-1)==a);
+    assert(*begin(b)==b[0]);
+    assert(*(end(c)-1)==c[c.size()-1]);
 }
