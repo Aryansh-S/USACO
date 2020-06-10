@@ -225,16 +225,15 @@ namespace aryansh {
 		template<typename it, typename = typename enable_if<is_iterator<it>::value>::type> 
 		inline void in(it bg, it nd) 
 				{while(distance(bg,nd)) in(*bg), ++bg;}
-
+		
+		inline void out(){cout << "\n";}
 		template<typename T, typename = typename enable_if<is_streamable<T>::value>::type> 
 		inline void out_(T var1)
 				{cout << var1 << " ";}
 		template<typename T1, typename T2> inline void out_(pair<T1,T2> pt)
 				{out_(pt.f); out_(pt.s);}
 		template<typename T, typename...Types> inline void out(T var1, Types...var2)
-				{out_(var1); out_(var2...); cout << "\n";}
-		template<typename T1, typename T2> inline void out(pair<T1,T2> pt)
-				{out(pt.f,pt.s);}        
+				{out_(var1); out(var2...);}   
 		template<typename it, typename = typename enable_if<is_iterator<it>::value>::type> 
 		inline void out(it bg, it nd)    
 				{while(distance(bg,nd)) out_(*bg), ++bg; cout << "\n";}
@@ -268,8 +267,6 @@ namespace aryansh {
 using namespace aryansh; const auto CLK = chrono::steady_clock::now(); 
 
 // - - - - - - - - - - - - - - - - - - - - - - - -
-
-
 
 int main() {
 	IO(""); 
