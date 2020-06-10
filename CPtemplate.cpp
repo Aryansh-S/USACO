@@ -251,8 +251,7 @@ namespace aryansh {
 		template<typename it, typename = typename enable_if<is_iterator<it>::value>::type> 
 		inline void outln(it bg, it nd)    
 				{while(distance(bg,nd)) outln(*bg), ++bg;}
-				
-        //functions: out and outln, use all/rsz for containers
+				//functions: out and outln, use all/rsz for containers
 
 		#define TIME \
 			chrono::duration<double, milli>(chrono::steady_clock::now()-CLK).count()
