@@ -215,6 +215,8 @@ namespace aryansh {
 	using namespace rand_macros;
 
 	namespace io_macros {
+		#define NL cout << "\n"
+		
 		template<typename T, typename = typename enable_if<is_streamable<T>::value>::type> 
 		inline void in(T& var1)
 		    {cin >> var1;}
@@ -226,7 +228,7 @@ namespace aryansh {
 		inline void in(it bg, it nd) 
 				{while(distance(bg,nd)) in(*bg), ++bg;}
 		
-		inline void out(){cout << "\n";}
+		inline void out(){NL;}
 		template<typename T, typename = typename enable_if<is_streamable<T>::value>::type> 
 		inline void out_(T var1)
 				{cout << var1 << " ";}
@@ -236,14 +238,24 @@ namespace aryansh {
 				{out_(var1); out(var2...);}   
 		template<typename it, typename = typename enable_if<is_iterator<it>::value>::type> 
 		inline void out(it bg, it nd)    
-				{while(distance(bg,nd)) out_(*bg), ++bg; cout << "\n";}
-
-        //use all/rsz for containers
+				{while(distance(bg,nd)) out_(*bg), ++bg; NL;}
+		
+		inline void outln(){}
+		template<typename T, typename = typename enable_if<is_streamable<T>::value>::type> 
+		inline void out_ln(T var1)
+				{cout << var1; NL;}
+		template<typename T1, typename T2> inline void out_ln(pair<T1,T2> pt)
+				{out_(pt.f); out_(pt.s); NL;}
+		template<typename T, typename...Types> inline void outln(T var1, Types...var2)
+				{out_ln(var1); outln(var2...);}   
+		template<typename it, typename = typename enable_if<is_iterator<it>::value>::type> 
+		inline void outln(it bg, it nd)    
+				{while(distance(bg,nd)) outln(*bg), ++bg;}
+				
+        //functions: out and outln, use all/rsz for containers
 
 		#define TIME \
 			chrono::duration<double, milli>(chrono::steady_clock::now()-CLK).count()
-		
-		#define NL "\n"
 		
 		#define what(x) \
 			out_((#x)); out_("is"); out_(x); NL
@@ -264,9 +276,11 @@ namespace aryansh {
 	}
 	using namespace io_macros;
 }
-using namespace aryansh; const auto CLK = chrono::steady_clock::now(); 
+using namespace aryansh; 
 
 // - - - - - - - - - - - - - - - - - - - - - - - -
+
+
 
 int main() {
 	IO(""); 
