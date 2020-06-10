@@ -59,9 +59,9 @@ namespace aryansh {
 		};
 		template<class T> class is_streamable { //check if can be used with cin >>, cout << 
 			template<typename SS, typename TT> static auto test(int)->
-			decltype(std::declval<SS&>() << std::declval<TT>(),std::true_type());
-			template<typename, typename> static auto test(...)->std::false_type;
-			public: static const bool value = decltype(test<std::ostream, const T&>(0))::value;
+			decltype(declval<SS&>() << declval<TT>(),true_type());
+			template<typename, typename> static auto test(...)->:false_type;
+			public: static const bool value = decltype(test<ostream, const T&>(0))::value;
 		};
 	}
 	using namespace type_macros; 
