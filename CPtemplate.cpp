@@ -2,8 +2,7 @@
 #include <ext/pb_ds/assoc_container.hpp> //hset, hmap
 #include <ext/pb_ds/tree_policy.hpp> //OST, OSM
 #include <cxxabi.h> //for typenames
-using namespace std; 
-using namespace __gnu_pbds; //pbds memory :(	
+using namespace std; using namespace __gnu_pbds; //pbds memory :(	
 
 //cmd + shift + r 
 
