@@ -1,0 +1,53 @@
+//SFINAE type checks -- C++11 concept checking 
+
+#include <bits/stdc++.h>
+#include <cxxabi.h> //typenames
+using namespace std;
+
+// -- USED IN TEMPLATE -- //
+
+template<class T> inline str type_name() { 
+	typedef typename remove_reference<T>::type TR;
+	unique_ptr<char, void(*)(void*)> own
+	(abi::__cxa_demangle(typeid(TR).name(), nullptr,nullptr,nullptr),free); 
+	str r = own != nullptr ? own.get() : typeid(TR).name();
+	if (is_const<TR>::value) 
+		r += " const";
+	if (is_volatile<TR>::value) 
+		r += " volatile";
+	if (is_lvalue_reference<T>::value) 
+		r += "&";
+	else if (is_rvalue_reference<T>::value) 
+		r += "&&";
+	return r;
+}
+#define type(x) type_name<decltype(x)>()
+
+template<class T> class is_iterator { //check if iterator or pointer   
+  static T makeT();
+  typedef void * twoptrs[2];  
+  static twoptrs & test(...); 
+  template<class R> static typename R::iterator_category * test(R); // Iterator
+  template<class R> static void * test(R *); // Pointer
+  public: static const bool value = sizeof(test(makeT())) == sizeof(void *); 
+};
+template<class T> class is_streamable { //check if can be used with cin >>, cout << 
+  template<typename SS, typename TT> static auto test(int)->
+  decltype(declval<SS&>() << declval<TT>(),true_type());
+  template<typename, typename> static auto test(...)->:false_type;
+  public: static const bool value = decltype(test<ostream, const T&>(0))::value;
+};
+
+// -- OTHER -- //
+
+
+
+// -- EXAMPLE -- //
+
+template<typename T, typename = typename enable_if<is_streamable<T>::value>::type> inline void out(T var) {
+	cout << var << "\n";
+}
+
+
+
+
