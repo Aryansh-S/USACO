@@ -3,12 +3,22 @@
 
 #define INF 0x3f3f3f3f
 
+template<class T> class is_iterator { //taken from my template implementation
+	static T makeT();
+	typedef void * twoptrs[2];  
+	static twoptrs & test(...); 
+	template<class R> static typename R::iterator_category * test(R); // Iterator
+	template<class R> static void * test(R *); // Pointer
+	public: static const bool value = sizeof(test(makeT())) == sizeof(void *); 
+};
+
 template<class T> struct SEGRP { //range update, point query
 	//comb must work independent of order, otherwise use lazy
 	const T ID = 1; T comb(T a, T b) { return a * b; } 
 	int n; vector<T> seg;
 	void init(int _n) { n = _n; seg.assign(2*n, ID); } 
-    	template<typename it> void init(it bg, it nd) {init(distance(bg,nd)); move(bg, nd, begin(seg) + n); build();}
+    	template<typename it, typename = typename enable_if<is_iterator<it>::value>::type> 
+	void init(it bg, it nd) {init(distance(bg,nd)); move(bg, nd, begin(seg) + n); build();}
     	void build() { 
         	for (int i = 1; i < n; ++i) 
             		seg[2*i] = comb(seg[2*i],seg[i]), seg[2*i + 1] = comb(seg[2*i + 1],seg[i]), seg[i] = ID;
