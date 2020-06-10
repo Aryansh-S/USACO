@@ -48,14 +48,21 @@ namespace aryansh {
 				r += "&&";
 			return r;
 		}
-		template<class T> struct is_iterator { //check if iterator or pointer   
-    			static T makeT();
-			typedef void * twoptrs[2];  // sizeof(twoptrs) > sizeof(void *)
-			static twoptrs & test(...); // Common case
+		
+		template<class T> class is_iterator { //check if iterator or pointer   
+    		static T makeT();
+			typedef void * twoptrs[2];  
+			static twoptrs & test(...); 
 			template<class R> static typename R::iterator_category * test(R); // Iterator
 			template<class R> static void * test(R *); // Pointer
-			static const bool value = sizeof(test(makeT())) == sizeof(void *); 
+			public: static const bool value = sizeof(test(makeT())) == sizeof(void *); 
 		};
+        template<typename T> class is_streamable { //check if can be used with cin >>, cout << 
+            template<typename SS, typename TT> static auto test(int)->decltype(std::declval<SS&>() << std::declval<TT>(),
+			std::true_type());
+            template<typename, typename> static auto test(...)->std::false_type;
+            public: static const bool value = decltype(test<std::ostream, const T&>(0))::value;
+        };
 	}
 	using namespace type_macros; 
 
@@ -208,36 +215,32 @@ namespace aryansh {
 	using namespace rand_macros;
 
 	namespace io_macros {
-		inline void in(){} inline void outln(){} inline void out_(){} 
-			//for fast, easy IO
-			//use with all and rsz
-		
-		template<typename T, typename...Types> inline void in(T& var1, Types&...var2)
-			{cin >> var1; in(var2...);}
-		template<class T1, class T2> inline void in(pair<T1,T2>&pt)
-			{in(pt.f,pt.s);}
-		template<typename it, typename = typename enable_if<is_iterator<it>::value>::type> inline void in(it bg, it nd) 
+        template<typename T, typename = typename enable_if<is_streamable<T>::value>::type> 
+        inline void in(T& var1)
+            {cin >> var1;}
+        template<class T1, class T2> inline void in(pair<T1,T2>&pt)
+			{in(pt.f); in(pt.s);}
+        template<typename T, typename...Types> inline void in(T& var1, Types&...var2)
+			{in(var1); in(var2...);}
+		template<typename it, typename = typename enable_if<is_iterator<it>::value>::type> 
+        inline void in(it bg, it nd) 
 			{while(distance(bg,nd)) in(*bg), ++bg;}
-		
-		template<typename T> inline void out(T var1)
-			{cout << var1 << "\n";}
-		template<typename T, typename...Types> inline void out(T var1, Types...var2)
-			{cout << var1 << " "; out(var2...);}
-		template<class T1, class T2> inline void out(pair<T1,T2> pt)
-			{out(pt.f,pt.s);}
-		template<typename it, typename = typename enable_if<is_iterator<it>::value>::type> inline void out(it bg, it nd) 
-			{while(distance(bg,nd)) out(*bg), ++bg;}
-	
-		template<typename T,typename...Types> inline void out_(T var1, Types...var2)
-			{cout << var1 << " "; out_(var2...);}
-		template<class T1, class T2> inline void out_(pair<T1,T2> pt)
-			{out_(pt.f,pt.s);}
-		template<typename it> inline void out_(it bg, it nd) 
-			{while(distance(bg,nd)) out_(*bg), ++bg;}
-		
-		template<typename T, typename...Types> inline void outln(T var1, Types...var2)
-			{cout << var1 << "\n"; outln(var2...);}	
-		
+
+        template<typename T, typename = typename enable_if<is_streamable<T>::value>::type> 
+        inline void out_(T var1)
+			{cout << var1 << " ";}
+        template<class T1, class T2> inline void out_(pair<T1,T2> pt)
+			{out_(pt.f); out_(pt.s);}
+        template<typename T, typename...Types> inline void out(T var1, Types...var2)
+			{out_(var1); out_(var2...); cout << "\n";}
+        template<class T1, class T2> inline void out(pair<T1,T2> pt)
+			{out(pt.f,pt.s);}        
+		template<typename it, typename = typename enable_if<is_iterator<it>::value>::type> 
+        inline void out(it bg, it nd)    
+			{while(distance(bg,nd)) out_(*bg), ++bg; cout << "\n";}
+
+        //use all/rsz for containers
+
 		#define TIME \
 			chrono::duration<double, milli>(chrono::steady_clock::now()-CLK).count()
 		
