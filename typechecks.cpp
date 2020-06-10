@@ -54,7 +54,7 @@ template<typename T, typename = typename enable_if<is_streamable<T>::value>::typ
 namespace extend_std { 
 	//define begin() and end() for non-iterable types
 	template<typename T, typename = typename enable_if<!is_iterable<T>::value>::type> inline T* begin(T& var){
-		return move(&var); 
+		return &var; 
 	}
 	template<typename T, typename = typename enable_if<!is_iterable<T>::value>::type> inline T* end(T& var){
 		return begin(var)+1;
