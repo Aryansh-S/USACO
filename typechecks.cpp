@@ -1,11 +1,11 @@
 //SFINAE type checks -- C++11 concept checking 
 
 #include <bits/stdc++.h>
-#include <cxxabi.h> //typenames
 using namespace std;
 
 // -- USED IN TEMPLATE -- //
 
+#include <cxxabi.h> //typenames
 template<class T> inline str type_name() { 
 	typedef typename remove_reference<T>::type TR;
 	unique_ptr<char, void(*)(void*)> own
