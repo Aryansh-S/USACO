@@ -3,6 +3,7 @@
 #include <ext/pb_ds/tree_policy.hpp> //OST, OSM
 #include <cxxabi.h> //for typenames
 using namespace std; using namespace __gnu_pbds;  
+	//pbds kill memory but are convenient 
 
 //cmd + shift + r 
 
