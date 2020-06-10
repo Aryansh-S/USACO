@@ -4,7 +4,7 @@
 
 #define INF 0x3f3f3f3f
 
-template<class T> class is_iterator { //taken from my template implementation
+template<class T> class is_iterator { //check if iterator or pointer (taken from my template)
 	static T makeT();
 	typedef void * twoptrs[2];  
 	static twoptrs & test(...); 
