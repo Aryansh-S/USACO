@@ -215,27 +215,27 @@ namespace aryansh {
 	using namespace rand_macros;
 
 	namespace io_macros {
-		template<class T, typename = typename enable_if<is_streamable<T>::value>::type> 
+		template<typename T, typename = typename enable_if<is_streamable<T>::value>::type> 
 		inline void in(T& var1)
 		    {cin >> var1;}
-		template<class T1, class T2> inline void in(pair<T1,T2>&pt)
+		template<typename T1, typename T2> inline void in(pair<T1,T2>&pt)
 				{in(pt.f); in(pt.s);}
 		template<typename T, typename...Types> inline void in(T& var1, Types&...var2)
 				{in(var1); in(var2...);}
-		template<class it, typename = typename enable_if<is_iterator<it>::value>::type> 
+		template<typename it, typename = typename enable_if<is_iterator<it>::value>::type> 
 		inline void in(it bg, it nd) 
 				{while(distance(bg,nd)) in(*bg), ++bg;}
 
-		template<class T, typename = typename enable_if<is_streamable<T>::value>::type> 
+		template<typename T, typename = typename enable_if<is_streamable<T>::value>::type> 
 		inline void out_(T var1)
 				{cout << var1 << " ";}
-		template<class T1, class T2> inline void out_(pair<T1,T2> pt)
+		template<typename T1, typename T2> inline void out_(pair<T1,T2> pt)
 				{out_(pt.f); out_(pt.s);}
 		template<typename T, typename...Types> inline void out(T var1, Types...var2)
 				{out_(var1); out_(var2...); cout << "\n";}
-		template<class T1, class T2> inline void out(pair<T1,T2> pt)
+		template<typename T1, typename T2> inline void out(pair<T1,T2> pt)
 				{out(pt.f,pt.s);}        
-		template<class it, typename = typename enable_if<is_iterator<it>::value>::type> 
+		template<typename it, typename = typename enable_if<is_iterator<it>::value>::type> 
 		inline void out(it bg, it nd)    
 				{while(distance(bg,nd)) out_(*bg), ++bg; cout << "\n";}
 
