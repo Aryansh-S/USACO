@@ -50,7 +50,7 @@ namespace aryansh {
 		}
 		
 		template<class T> class is_iterator { //check if iterator or pointer   
-    		static T makeT();
+			static T makeT();
 			typedef void * twoptrs[2];  
 			static twoptrs & test(...); 
 			template<class R> static typename R::iterator_category * test(R); // Iterator
