@@ -52,7 +52,7 @@ template<typename T, typename = typename enable_if<is_streamable<T>::value>::typ
 }
 
 namespace extend_std { 
-	//define begin() and end() for non-iterable types
+	//define begin() and end() for non-iterable types; enable_if and SFINAE destroy ambiguity 
 	template<typename T, typename = typename enable_if<!is_iterable<T>::value>::type> inline T* begin(T& var){
 		return &var; 
 	}
