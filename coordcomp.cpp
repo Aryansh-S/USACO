@@ -11,6 +11,7 @@ const ll INFLL = LLONG_MAX;
 template<class T, class U, class chash = hash<T>> using hmap = gp_hash_table<T, U, chash>; 
 
 //task: coordinate compress information benchmarks -- what to use for sparsely mapped info?
+  //we will make this test as dense as possible for the sake of boundary checks
 
 /* 
 approx runtime (ms):
