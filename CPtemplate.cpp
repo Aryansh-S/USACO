@@ -60,7 +60,7 @@ namespace aryansh {
 		template<class T> class is_streamable { //check if can be used with cin >>, cout << 
 			template<typename SS, typename TT> static auto test(int)->
 			decltype(declval<SS&>() << declval<TT>(),true_type());
-			template<typename, typename> static auto test(...)->:false_type;
+			template<typename, typename> static auto test(...)->false_type;
 			public: static const bool value = decltype(test<ostream, const T&>(0))::value;
 		};
 	}
