@@ -1,7 +1,7 @@
-struct frac{
-  int num = 0, den = 1; 
+template<class T> struct frac {
+  T num = 0, den = 1; 
   void simp(){
-    int gcd = __gcd(num,den); num/=gcd, den/=gcd;
+    T gcd = __gcd(num,den); num/=gcd, den/=gcd;
   }
   void rec(){ swap(num,den); }
   bool operator==(frac f){return num * f.den == den * f.num;}
