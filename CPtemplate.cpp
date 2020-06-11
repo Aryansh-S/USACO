@@ -276,7 +276,7 @@ namespace aryansh {
 	}
 	using namespace io_macros;
 }
-using namespace aryansh; const auto CLK = chrono::steady_clock::now(); 
+using namespace aryansh; auto CLK = chrono::steady_clock::now(); 
 
 // - - - - - - - - - - - - - - - - - - - - - - - -
 
