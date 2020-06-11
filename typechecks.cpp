@@ -1,4 +1,4 @@
-//SFINAE type checks -- C++11 concept checking & std::enable_if
+//SFINAE & enable_if type checks -- concept checking makeshift for the sake of C++11 
 
 #include <bits/stdc++.h>
 using namespace std;
@@ -65,8 +65,9 @@ using namespace extend_std;
 int a = 0x3f, b[]={1,2,3}; vector<int> c = {1,2,3};
 
 int main() {
-	assert(*begin(a)==a);
+	assert(*begin(a)==a); //extended versions
 	assert(*(end(a)-1)==a);
-	assert(*begin(b)==b[0]);
+	assert(*begin(b)==b[0]); //actual std versions
 	assert(*(end(c)-1)==c[c.size()-1]);
+	cout << "both work in synchrony :)\n";
 }
