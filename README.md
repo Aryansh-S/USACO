@@ -11,6 +11,13 @@ int main() {
   cout << "hello, world!\n";
 }
 ```
+
+## Quick Resources
+
+- [An Organized Contest Programming Template (C++)](https://github.com/Aryansh-S/USACO/blob/master/CPtemplate.cpp)
+
+- [Simple, Generic Segment Tree Implementations](https://github.com/Aryansh-S/USACO/tree/master/Implementations/Algorithms/Query%20DS/Easy_Segtrees)
+
 ## Description 
 
 This is a compilation of resources and implementations for contest programming -- algorithms and past problems for USACO. The "src" folder just contains source files and images that are integrated elsewhere; you can ignore it. 
@@ -49,12 +56,6 @@ using namespace __gnu_pbds;
 ```
 - Unfortunately, most versions of clang do not support pb_ds as of late, which is why I always recommend gcc for compilation. However, repl.it has recently moved to a better version of clang that does provide support for pb_ds, so it's still a great online compiler.
 - Read more on the details in the "Compilation" section below.
-
-## Resources
-
-- [An Organized Contest Programming Template (C++)](https://github.com/Aryansh-S/USACO/blob/master/CPtemplate.cpp)
-
-- [Simple, Generic Segment Tree Implementations](https://github.com/Aryansh-S/USACO/tree/master/Implementations/Algorithms/Query%20DS/Easy_Segtrees)
 
 ## Books \& Handouts
 
