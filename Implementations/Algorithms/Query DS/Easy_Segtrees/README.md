@@ -10,12 +10,8 @@ Iterative segment trees
 
 ## Description
 Easy segment trees for general use 
-- "iterativesegtree.cpp" : Point Update, Range Query 
-  - assignment updates
-- "rng_upd_pt_qry.cpp" : Range Update, Point Query (Order Matters)
-  - assignment updates
-- "roundtopr2.cpp" : an easy function to round up segment tree size
-- "bsearchexample.cpp" : an example of bsearch on segment tree in only log time (with max qry)
+- "seglib.h"
+
 ### Todo
 - simple lazy prop
   - range assignment 
