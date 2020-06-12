@@ -1,3 +1,5 @@
+//Segment Tree Library
+
 const int INF = 0x3f3f3f3f;
 
 //Helper Functions
