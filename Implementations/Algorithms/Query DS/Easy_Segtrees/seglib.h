@@ -60,7 +60,7 @@ template<class T> struct RSEG { //reverse segtree: range update, point query
     for (p += n; p; p /= 2) res = comb(res,seg[p]); 
     return res;
   }
-  void upd(int l, int r, T val) {	// upd by comb on interval [l, r]
+  void upd(int l, int r, T val) { //upd by comb on interval [l, r]
     for (l += n, r += n+1; l < r; l /= 2, r /= 2) {
       if (l&1) seg[l] = comb(seg[l],val), ++l;
       if (r&1) seg[r-1] = comb(seg[r-1],val), --r;
