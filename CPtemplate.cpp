@@ -257,8 +257,8 @@ namespace aryansh {
 		#define TIME \
 			chrono::duration<double, milli>(chrono::steady_clock::now()-CLK).count()
 		
-		#define CLK.init() \
-			CLK = chrono::steady_clock::now() 
+		#define TICK \
+			CLK = chrono::steady_clock::now() //reset clock
 		
 		#define what(x) \
 			out_((#x)); out_("is"); out_(x); NL
@@ -275,11 +275,11 @@ namespace aryansh {
 		
 		#define IO(PNAME) \
 			if(fopen(PNAME ".in","r")) freopen(PNAME ".in","r",stdin), freopen(PNAME ".out","w",stdout); \
-			cin.tie(0)->sync_with_stdio(0)
+			cin.tie(0)->sync_with_stdio(0); auto TICK
 	}
 	using namespace io_macros;
 }
-using namespace aryansh; auto CLK.init(); //set clock
+using namespace aryansh; 
 
 // - - - - - - - - - - - - - - - - - - - - - - - -
 
