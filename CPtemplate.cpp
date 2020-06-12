@@ -257,7 +257,7 @@ namespace aryansh {
 		#define TIME \
 			chrono::duration<double, milli>(chrono::steady_clock::now()-CLK).count()
 		
-		#define CLK.set() \
+		#define CLK.init() \
 			CLK = chrono::steady_clock::now() 
 		
 		#define what(x) \
@@ -279,7 +279,7 @@ namespace aryansh {
 	}
 	using namespace io_macros;
 }
-using namespace aryansh; auto CLK.set(); //set clock
+using namespace aryansh; auto CLK.init(); //set clock
 
 // - - - - - - - - - - - - - - - - - - - - - - - -
 
