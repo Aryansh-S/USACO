@@ -12,7 +12,7 @@ namespace aryansh {
 		using db = double; using ld = long double; 
 		
 		using pii = pair<int,int>; using pll = pair<ll,ll>; 
-		using vi = vector<int>; 
+		using vi = vector<int>; using vll = vector<ll>; 
 		
 		using str = string; 
 		
@@ -257,6 +257,9 @@ namespace aryansh {
 		#define TIME \
 			chrono::duration<double, milli>(chrono::steady_clock::now()-CLK).count()
 		
+		#define CLK.set() \
+			CLK = chrono::steady_clock::now() 
+		
 		#define what(x) \
 			out_((#x)); out_("is"); out_(x); NL
 		
@@ -276,7 +279,7 @@ namespace aryansh {
 	}
 	using namespace io_macros;
 }
-using namespace aryansh; auto CLK = chrono::steady_clock::now(); 
+using namespace aryansh; auto CLK.set(); //set clock
 
 // - - - - - - - - - - - - - - - - - - - - - - - -
 
