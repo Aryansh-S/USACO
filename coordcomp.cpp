@@ -33,12 +33,12 @@ gp_hash_table: 104
 //result: use gp_hash_table for most cases (it kills more memory but gives an edge in performance)
 //maps work if memory is sensitive/bottleneck (very rare in contests)
 
-map<ll,ll> m; unordered_map<ll,ll> um; hmap<ll,ll> hm;
+map<ll,ll> m; unordered_map<ll,ll> um; hmap<ll,ll> hm; auto TICK; 
 
 int main() {
   cin.tie(0)->sync_with_stdio(0); cout << "RUNTIME:\n";
   
-  auto TICK; //set timer
+  TICK; //reset timer
   
   for(int i = 1; i <= 1e6; ++i) m[INFLL/i] = INFLL/i; ////
   
