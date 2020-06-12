@@ -1,4 +1,4 @@
-#define INF 0x3f3f3f3f
+const int INF = 0x3f3f3f3f;
 
 //Helper Functions
 
@@ -21,7 +21,9 @@ int nxtpw2(int v) {
 
 template<class T> struct SEG { // comb(ID,b) = b, 0-indexing works, any associative operation. 
   //seg[1] = qry(0,n-1) 
+  
   const T ID = -INF; T comb(T a, T b) { return max(a,b); } 
+  
   int n; vector<T> seg;
   void init(int _n) { n = _n; seg.assign(2*n, ID); } 
   template<typename it, typename = typename enable_if<is_iterator<it>::value>::type> 
@@ -46,7 +48,9 @@ template<class T> struct SEG { // comb(ID,b) = b, 0-indexing works, any associat
 
 template<class T> struct RSEG { //reverse segtree: range update, point query
   //comb must work independent of order, otherwise use lazy
+  
   const T ID = 1; T comb(T a, T b) { return a * b; } 
+  
   int n; vector<T> seg;
   void init(int _n) { n = _n; seg.assign(2*n, ID); } 
   template<typename it, typename = typename enable_if<is_iterator<it>::value>::type> 
