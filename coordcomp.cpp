@@ -9,7 +9,7 @@ const ll INFLL = LLONG_MAX;
   chrono::duration<double, milli>(chrono::steady_clock::now()-CLK).count()
 
 #define TICK \
-  TIME = chrono::steady_clock::now()
+  CLK = chrono::steady_clock::now()
 
 template<class T, class U, class chash = hash<T>> using hmap = gp_hash_table<T, U, chash>; 
 
