@@ -8,6 +8,9 @@ const ll INFLL = LLONG_MAX;
 #define TIME \
   chrono::duration<double, milli>(chrono::steady_clock::now()-CLK).count()
 
+#define TICK \
+  TIME = chrono::steady_clock::now()
+
 template<class T, class U, class chash = hash<T>> using hmap = gp_hash_table<T, U, chash>; 
 
 //task: coordinate compress information benchmarks -- what to use for sparsely mapped info?
@@ -30,24 +33,24 @@ gp_hash_table: 104
 //result: use gp_hash_table for most cases (it kills more memory but gives an edge in performance)
 //maps work if memory is sensitive/bottleneck (very rare in contests)
 
-map<ll,ll> m; unordered_map<ll,ll> um; hmap<ll,ll> hm; 
+map<ll,ll> m; unordered_map<ll,ll> um; hmap<ll,ll> hm;
 
 int main() {
   cin.tie(0)->sync_with_stdio(0); cout << "RUNTIME:\n";
   
-  auto CLK = chrono::steady_clock::now(); //set timer
+  auto TICK; //set timer
   
   for(int i = 1; i <= 1e6; ++i) m[INFLL/i] = INFLL/i; ////
   
   cout << "map: " << TIME << '\n';
   
-  CLK = chrono::steady_clock::now(); //reset timer
+  TICK; //reset timer
   
   for(int i = 1; i <= 1e6; ++i) um[INFLL/i] = INFLL/i; ////
   
   cout << "unordered_map: " << TIME << '\n';
   
-  CLK = chrono::steady_clock::now(); //reset timer
+  TICK; //reset timer
   
   for(int i = 1; i <= 1e6; ++i) hm[INFLL/i] = INFLL/i; ////
   
