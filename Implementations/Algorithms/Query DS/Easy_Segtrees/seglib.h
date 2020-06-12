@@ -12,6 +12,7 @@ template<class T> class is_iterator { //check if iterator or pointer (taken from
 };
 
 namespace seglib {
+    
   //Helper Functions
   
   int nxtpw2(int v) {
@@ -74,5 +75,6 @@ namespace seglib {
       } 
     }
   };
+    
 }
 using namespace seglib;
