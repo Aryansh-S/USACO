@@ -1,19 +1,19 @@
 //Segment Tree Library
 
-namespace seglib {
-  const int INF = 0x3f3f3f3f;
+const int INF = 0x3f3f3f3f;
 
-  //Helper Functions
-
-  template<class T> class is_iterator { //check if iterator or pointer (taken from my template)
+template<class T> class is_iterator { //check if iterator or pointer (taken from my template)
     static T makeT();
     typedef void * twoptrs[2];  
     static twoptrs & test(...); 
     template<class R> static typename R::iterator_category * test(R); // Iterator
     template<class R> static void * test(R *); // Pointer
     public: static const bool value = sizeof(test(makeT())) == sizeof(void *); 
-  };
+};
 
+namespace seglib {
+  //Helper Functions
+  
   int nxtpw2(int v) {
     if((bool)v & !(v & (v - 1))) return v; 
     int x = 1; while(x < v) x<<=1; return x; 
