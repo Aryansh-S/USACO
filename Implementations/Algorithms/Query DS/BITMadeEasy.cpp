@@ -19,7 +19,7 @@ template<class T> struct BIT { //1-indexed!
     
     //extension
     T get(int x){return qry(x,x);}
-    void upd_a(int x, int v){upd(x,v-get(x));} //assignment update example
+    void put(int x, int v){upd(x,v-get(x));} //put/assignment update example
 };
 
 BIT<int> tree; 
