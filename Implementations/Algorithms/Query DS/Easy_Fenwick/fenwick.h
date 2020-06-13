@@ -31,7 +31,6 @@ namespace fenwick {
     template<typename... Args> T qry(int l, int r, Args...args) { 
       return op.inv_comb(sum(r, args...),sum(l - 1, args...)); 
     }
-    
   };
   
   //range upd, range qry (lazy)
