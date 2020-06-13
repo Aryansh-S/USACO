@@ -134,7 +134,7 @@ namespace aryansh {
 	using namespace loop_macros;
 	
 	namespace const_macros {
-		const int MOD = 1e9 + 7, SZ = 1e5, INF = 0x3f3f3f3f;
+		const int MOD = 1e9 + 7, _ = 1e5, INF = 0x3f3f3f3f;
 		const ll INFLL = 0x3f3f3f3f3f3f3f3f; 
 		const db EPS = 1e-8;
 	}
