@@ -2,8 +2,7 @@
 using namespace std;
 
 using ll = long long; 
-
-const int INF = 0x3f3f3f3f;
+const ll INF = LLONG_MAX;
 
 template<class T> class is_iterator { //check if iterator or pointer (taken from my template)
   static T makeT();
