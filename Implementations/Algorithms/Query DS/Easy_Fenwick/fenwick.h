@@ -33,7 +33,7 @@ namespace fenwick {
     }
   };
   
-  //range upd, range qry (lazy)
+  //range upd, range qry (lazy, same operation)
   template<class T, int SZ> struct LBIT { 
     BIT<T,SZ> bit[2]; operation<T> op; 
     
