@@ -7,7 +7,7 @@ namespace fenwick {
     T comb(T a, T b) { return a + b; }
     T inv_comb(T a, T b) { return a - b; }
     T m_comb(int a, T b) { return a * b; } 
-    //how does it compose with itself over a range
+      //how does it compose with itself over a range
   }; 
   
   //point upd, range qry -- multiple dimensions
