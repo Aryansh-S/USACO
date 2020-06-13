@@ -38,11 +38,11 @@ template<class T> struct RSEG { //reverse segtree: range update, point query
   }
 };
 
-RSEG<ll> s; vector<int> v; 
+RSEG<ll> s; vector<int> v = {0}; 
 
 int main() {
   cin.tie(0)->sync_with_stdio(0);
-  int n,q; cin >> n >> q; v.emplace_back(0); while(n--) { int x; cin >> x; v.emplace_back(x); }
+  int n,q; cin >> n >> q; while(n--) { int x; cin >> x; v.emplace_back(x); }
   s.init(begin(v),end(v)); 
   while(q--) {
     int t; cin >> t; 
