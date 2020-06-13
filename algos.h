@@ -7,7 +7,7 @@ namespace graph_type {
     int get(int x) { return e[x] < 0 ? x : e[x] = get(e[x]); }
     bool sameSet(int a, int b) { return get(a) == get(b); }
     int size(int x) { return -e[get(x)]; } //also use to check connected
-    DSU(int SZ = 0) { init(SZ); }
+    DSU(int SZ = 0) { init(SZ); } 
     bool unite(int x, int y) { // union-by-rank
       x = get(x), y = get(y);
       if(x==y){
@@ -108,73 +108,74 @@ namespace shortest_path {
   };
 }
 
-namespace MST {
-  template<class T, int SZ> struct Prim { // T is type weight
-    minpq<pair<T,int> > temp; //key,vertex
-    bool vis[SZ]; int mom[SZ]; T key[SZ];
-    Prim(){F0R(i,SZ) mom[i]=-1;}
-    vector<pair<T,int> > adj[SZ]; //store weight first
-    void add(int a, int b, T w){
-      adj[a].pb(mp(w,b)); adj[b].pb(mp(w,a));
-    }
-    void add_(int a, int b, T w){ //directed edge
-      adj[a].pb(mp(w,b));
-    }
-    void upd(int rt=0){ //root the MST at rt
-      mom[rt]=rt; //let the root be its own mom
-      F0R(i,SZ) if(i!=rt) key[i]=INF;
-      temp.push(mp(0,rt));
-      F0R(i,SZ) if(i!=rt) temp.push(mp(INF,i));
-      while(!temp.empty()){
-        auto curr=temp.top(); temp.pop(); vis[curr.s]=1;
-        for(auto v:adj[curr.s]){
-          if(!vis[v.s] && key[v.s]>v.f){
-            key[v.s]=v.f; temp.push(mp(key[v.s],v.s));
-            mom[v.s]=curr.s;
+
+namespace tree_spec {
+  namespace MST {
+    template<class T, int SZ> struct Prim { // T is type weight
+      minpq<pair<T,int> > temp; //key,vertex
+      bool vis[SZ]; int mom[SZ]; T key[SZ];
+      Prim(){F0R(i,SZ) mom[i]=-1;}
+      vector<pair<T,int> > adj[SZ]; //store weight first
+      void add(int a, int b, T w){
+        adj[a].pb(mp(w,b)); adj[b].pb(mp(w,a));
+      }
+      void add_(int a, int b, T w){ //directed edge
+        adj[a].pb(mp(w,b));
+      }
+      void upd(int rt=0){ //root the MST at rt
+        mom[rt]=rt; //let the root be its own mom
+        F0R(i,SZ) if(i!=rt) key[i]=INF;
+        temp.push(mp(0,rt));
+        F0R(i,SZ) if(i!=rt) temp.push(mp(INF,i));
+        while(!temp.empty()){
+          auto curr=temp.top(); temp.pop(); vis[curr.s]=1;
+          for(auto v:adj[curr.s]){
+            if(!vis[v.s] && key[v.s]>v.f){
+              key[v.s]=v.f; temp.push(mp(key[v.s],v.s));
+              mom[v.s]=curr.s;
+            }
           }
         }
       }
-    }
-    int par(int v){return mom[v];} //get parent
-    array<vi,SZ> dirMST(){
-      //want parent to contain all children
-      array<vi,SZ> ret;
-      F0R(i,SZ) if(mom[i]!=-1) ret[mom[i]].pb(i);  
-      return ret; 
-    }
-    array<vi,SZ> undirMST(){
-      array<vi,SZ> ret;
-      F0R(i,SZ) if(mom[i]!=-1) {ret[mom[i]].pb(i); ret[mom[i]].pb(i);}
-      return ret;
-    }
-    T sum(){T ret=0; F0R(i,SZ) if(vis[i] && key[i]!=INF) ret+=key[i]; return ret;}
-  };
-  
-  template<class T, int SZ> struct Krus { //also get DSU
-    DSU d; T weight; Krus(){d.init(SZ);}
-    vector<pair<T,pii> > edge,MST;
-    void add(int a, int b, T w){
-      edge.pb(mp(w,mp(a,b)));
-      edge.pb(mp(w,mp(b,a)));
-    }
-    void add_(int a, int b, T w){
-      edge.pb(mp(w,mp(a,b)));
-    }
-    void upd(){
-      sort(begin(edge),end(edge));
-      F0R(i,edge.size()){
-        int urep=d.get(edge[i].s.f),
-        vrep=d.get(edge[i].s.s);
-        if(urep!=vrep){
-          MST.pb(edge[i]); d.unite(edge[i].s.f,edge[i].s.s); weight+=edge[i].f;
+      int par(int v){return mom[v];} //get parent
+      array<vi,SZ> dirMST(){
+        //want parent to contain all children
+        array<vi,SZ> ret;
+        F0R(i,SZ) if(mom[i]!=-1) ret[mom[i]].pb(i);  
+        return ret; 
+      }
+      array<vi,SZ> undirMST(){
+        array<vi,SZ> ret;
+        F0R(i,SZ) if(mom[i]!=-1) {ret[mom[i]].pb(i); ret[mom[i]].pb(i);}
+        return ret;
+      }
+      T sum(){T ret=0; F0R(i,SZ) if(vis[i] && key[i]!=INF) ret+=key[i]; return ret;}
+    };
+    
+    template<class T, int SZ> struct Krus { //also get DSU
+      DSU d; T weight; Krus(){d.init(SZ);}
+      vector<pair<T,pii> > edge,MST;
+      void add(int a, int b, T w){
+        edge.pb(mp(w,mp(a,b)));
+        edge.pb(mp(w,mp(b,a)));
+      }
+      void add_(int a, int b, T w){
+        edge.pb(mp(w,mp(a,b)));
+      }
+      void upd(){
+        sort(begin(edge),end(edge));
+        F0R(i,edge.size()){
+          int urep=d.get(edge[i].s.f),
+          vrep=d.get(edge[i].s.s);
+          if(urep!=vrep){
+            MST.pb(edge[i]); d.unite(edge[i].s.f,edge[i].s.s); weight+=edge[i].f;
+          }
         }
       }
-    }
-    T sum(){return weight;}
-    vector<pair<T,pii> > getMST(){return MST;}
-  };
-}
-namespace tree_spec {
+      T sum(){return weight;}
+      vector<pair<T,pii> > getMST(){return MST;}
+    };
+  }
   template<int SZ> struct TopSort { //works for DAG
     //pls 0 index
     //topological sort and detect cycles
