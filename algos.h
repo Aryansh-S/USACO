@@ -24,7 +24,7 @@ namespace graph_type {
     bool cyc(){return cycfind;}
   };
   
-  namespace shortest-path {
+  namespace shortest_path {
     template <class T, int SZ> struct Dijk { //class T is the type of weight being used, works in O(E log V)
       vector<pair<T,int> > adj[SZ]; T dist[SZ]; bool vis[SZ];
       int mom[SZ];
@@ -173,7 +173,7 @@ namespace graph_type {
       vector<pair<T,pii> > getMST(){return MST;}
     };
   }
-  namespace tree-spec {
+  namespace tree_spec {
     template<int SZ> struct TopSort { //works for DAG
       //pls 0 index
       //topological sort and detect cycles
@@ -212,7 +212,7 @@ namespace graph_type {
         return ret;
       }
     };
-    namespace LCA-spec {
+    namespace LCA_spec {
       template <int SZ> struct BLCA{ //lca with binary lifting -- O(log n) query with O(n) preprocess
         vi adj[SZ]; const static int lg=32-__builtin_clz(SZ);
         int dp[SZ][lg],lvl[SZ]; BLCA(){F0R(i,SZ) memset(dp[i],-1,sizeof(dp[i]));}
