@@ -12,10 +12,6 @@ int main() {
 }
 ```
 
-## Description 
-
-This is a compilation of resources and implementations for contest programming -- algorithms and past problems for USACO. The "src" folder just contains source files and images that are integrated elsewhere; you can ignore it. 
-
 ## Quick Resources
 
 - [An Organized Contest Programming Template (C++)](https://github.com/Aryansh-S/USACO/blob/master/CPtemplate.cpp)
@@ -57,6 +53,10 @@ I discourage the training gate offered by USACO, as it is outdated and problem q
 - Go further: http://www.csc.kth.se/~jsannemo/slask/main.pdf
 
 - Problems by topic and difficulty: https://codeforces.com/blog/entry/55274
+
+## Description 
+
+This repository is a compilation of resources and implementations for contest programming -- algorithms and past problems for USACO. The "src" folder just contains source files and images that are integrated elsewhere; you can ignore it. 
 
 ### All of STL in One Include
 If you want to 
