@@ -6,7 +6,7 @@ namespace fenwick {
     const T ID = 0; 
     T comb(T a, T b) { return a + b; }
     T inv_comb(T a, T b) { return a - b; }
-    T m_comb(int a, T b) { return a * b; } 
+    T m_comb(T a, int b) { return a * b; } 
       //how does it compose with itself over a range
   }; 
   
