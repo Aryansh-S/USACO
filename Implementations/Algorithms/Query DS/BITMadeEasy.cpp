@@ -15,7 +15,7 @@ template<class T> struct BIT { //1-indexed!
     //actual bit
     void upd(int x, T v) { for(; x<=N; x += x & -x) bit[x]=comb(bit[x],v); }
     T qry(int r) { T res = ID; for(; r; r -= r & -r) res=comb(res,bit[r]); return res; }
-    T qry(int l, int r) { return inv_comb(qry(r),qry(l-1)); }
+    T qry(int l, int r) { return inv_comb(qry(r),qry(--l)); }
     
     //extension
     T get(int x) { return qry(x,x); }
