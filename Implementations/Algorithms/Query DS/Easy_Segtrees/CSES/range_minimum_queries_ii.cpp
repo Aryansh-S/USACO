@@ -2,7 +2,7 @@
 using namespace std;
 
 using ll = long long; 
-const ll INF = LLONG_MAX;
+const ll INFLL = 0x3f3f3f3f3f3f3f3f;
 
 template<class T> class is_iterator { //check if iterator or pointer (taken from my template)
   static T makeT();
@@ -16,7 +16,7 @@ template<class T> class is_iterator { //check if iterator or pointer (taken from
 template<class T> struct SEG { // comb(ID,b) = b, 0-indexing works, any associative operation. 
   //seg[1] = qry(0,n-1) 
   
-  const T ID = INF; T comb(T a, T b) { return min(a,b); } 
+  const T ID = INFLL; T comb(T a, T b) { return min(a,b); } 
   
   int n; vector<T> seg;
   void init(int _n) { n = _n; seg.assign(2*n, ID); } 
