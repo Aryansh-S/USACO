@@ -2,7 +2,6 @@
 using namespace std;
 
 namespace fenwick {
-  
   template<class T> struct operation { //for qry & upd
     const T ID = 0; 
     T comb(T a, T b) { return a + b; }
@@ -11,8 +10,7 @@ namespace fenwick {
     //how does it compose with itself over a range
   }; 
   
-  //point upd, range qry
-  
+  //point upd, range qry -- multiple dimensions
   template <class T, int ...Ns> struct BIT { 
     operation<T> op; 
     
@@ -20,7 +18,6 @@ namespace fenwick {
     void upd(T v) { val = op.comb(val,v); } 
     T qry() { return val; } 
   };
-  
   template <class T, int N, int... Ns> struct BIT<T, N, Ns...> { 
     BIT<T,Ns...> bit[N+1]; operation<T> op; 
     
@@ -50,10 +47,8 @@ namespace fenwick {
     
     T sum(int x) { return op.inv_comb(op.m_comb(bit[0].sum(x),x), bit[1].sum(x)); }
     T qry(int x, int y) { return op.inv_comb(sum(y),sum(x-1)); }
-  };
-  
+  }; 
 }
-
 using namespace fenwick; 
 
 LBIT<int, 3> b; 
