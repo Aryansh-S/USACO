@@ -12,6 +12,10 @@ int main() {
 }
 ```
 
+## Description 
+
+This is a compilation of resources and implementations for contest programming -- algorithms and past problems for USACO. The "src" folder just contains source files and images that are integrated elsewhere; you can ignore it. 
+
 ## Quick Resources
 
 - [An Organized Contest Programming Template (C++)](https://github.com/Aryansh-S/USACO/blob/master/CPtemplate.cpp)
@@ -22,9 +26,37 @@ int main() {
 
 - [Simple, Generic Segment Tree Implementations](https://github.com/Aryansh-S/USACO/tree/master/Implementations/Algorithms/Query%20DS/Easy_Segtrees)
 
-## Description 
+## Books \& Handouts
 
-This is a compilation of resources and implementations for contest programming -- algorithms and past problems for USACO. The "src" folder just contains source files and images that are integrated elsewhere; you can ignore it. 
+[Here](https://www.overleaf.com/read/vxkkgmmrmckv) is the latest version of a book I am writing on competitive programming so far (a work in progress). 
+- At this point in time, there is also an ongoing DP handout I am creating. When done, it is expected to serve as a great reference without prerequisites. [Here](https://www.overleaf.com/read/vgdvpkrhjdbb)
+
+[Darren Yao's USACO Bronze-Silver Exposition](https://github.com/darren-yao/darrenyao/tree/master/usacobook) is well-crafted
+
+## Other Resources
+I discourage the training gate offered by USACO, as it is outdated and problem quality is not the best as of now, but if you are willing to get past that, it does cover algorithms necessary.  
+
+- Competitive Programmer's Handbook (a good place to start)
+
+- Guide to Competitive Programming (somewhere to continue)
+
+- Competitive Programming 3: The New Lower Bound of Programming Contests (full of good content, ignore problems for the most part)
+
+- Past Problems (the best resource around)
+
+- Older Contests Predating 2011-2012: https://contest.usaco.org/DEC05.htm (change the ID around for more)
+
+- YouTube Tutorials (none in particular, but just look for good series of videos)
+
+- CodeForces, CodeChef, etc. (stylistic differences but good content)
+
+- CSES Problem Set (good for practice with standard setups) 
+
+- https://www.dropbox.com/s/z2lur71042pjaet/guide.pdf?dl=0 (a well-designed handout that is clear and cuts to the chase for algorithms)
+
+- Go further: http://www.csc.kth.se/~jsannemo/slask/main.pdf
+
+- Problems by topic and difficulty: https://codeforces.com/blog/entry/55274
 
 ### All of STL in One Include
 If you want to 
@@ -60,11 +92,6 @@ using namespace __gnu_pbds;
 ```
 - Unfortunately, most versions of clang do not support pb_ds as of late, which is why I always recommend gcc for compilation. However, repl.it has recently moved to a better version of clang that does provide support for pb_ds, so it's still a great online compiler.
 - Read more on the details in the "Compilation" section below.
-
-## Books \& Handouts
-
-[Here](https://www.overleaf.com/read/vxkkgmmrmckv) is the latest version of a book I am writing on competitive programming so far (a work in progress). 
-- At this point in time, there is also an ongoing DP handout I am creating. When done, it is expected to serve as a great reference without prerequisites. [Here](https://www.overleaf.com/read/vgdvpkrhjdbb)
 
 ## Template (\& A First on Structs) 
 
@@ -176,31 +203,6 @@ How to get the most of what you have
 - Try heuristics and pruning to amortize. It is best to have provable heuristics, but at the end of the day, you should try what you think might intuitively work. If you have a really good idea that something works, it is often better to just go for it than to try to prove it. I still recommend you to prove your heuristic approaches after the contest is over (with no time limit and no limitation on reference resources by way of in-contest integrity): this can lead to rich algorithmic insights!
 
 - Of course, optimize your processing with stacks, queues, and priority queues to amortize when you can (see the USACO problems "cereal", "dishwashing", and "steeplechase ii" for good examples of this). See if you can reuse previous answers with dynamic programming. 
-
-## Other Resources
-I discourage the training gate offered by USACO, as it is outdated and problem quality is not the best as of now, but if you are willing to get past that, it does cover algorithms necessary.  
-
-- Competitive Programmer's Handbook (a good place to start)
-
-- Guide to Competitive Programming (somewhere to continue)
-
-- Competitive Programming 3: The New Lower Bound of Programming Contests (full of good content, ignore problems for the most part)
-
-- Past Problems (the best resource around)
-
-- Older Contests Predating 2011-2012: https://contest.usaco.org/DEC05.htm (change the ID around for more)
-
-- YouTube Tutorials (none in particular, but just look for good series of videos)
-
-- CodeForces, CodeChef, etc. (stylistic differences but good content)
-
-- CSES Problem Set (good for practice with standard setups) 
-
-- https://www.dropbox.com/s/z2lur71042pjaet/guide.pdf?dl=0 (a well-designed handout that is clear and cuts to the chase for algorithms)
-
-- Go further: http://www.csc.kth.se/~jsannemo/slask/main.pdf
-
-= Problems by topic and difficulty: https://codeforces.com/blog/entry/55274
 
 ## Time Complexity
 Design Efficient Algorithms 
