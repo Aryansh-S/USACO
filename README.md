@@ -16,6 +16,8 @@ int main() {
 
 - [An Organized Contest Programming Template (C++)](https://github.com/Aryansh-S/USACO/blob/master/CPtemplate.cpp)
 
+- [Simple, Generic Fenwick Tree Implementations](https://github.com/Aryansh-S/USACO/tree/master/Implementations/Algorithms/Query%20DS/Easy_Fenwick) 
+
 - [Simple, Generic Segment Tree Implementations](https://github.com/Aryansh-S/USACO/tree/master/Implementations/Algorithms/Query%20DS/Easy_Segtrees)
 
 ## Description 
