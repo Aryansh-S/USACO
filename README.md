@@ -31,9 +31,9 @@ This is a compilation of resources and implementations for contest programming -
 [Here](https://www.overleaf.com/read/vxkkgmmrmckv) is the latest version of a book I am writing on competitive programming so far (a work in progress). 
 - At this point in time, there is also an ongoing DP handout I am creating. When done, it is expected to serve as a great reference without prerequisites. [Here](https://www.overleaf.com/read/vgdvpkrhjdbb)
 
-[Darren Yao's USACO Bronze-Silver Exposition](https://github.com/darren-yao/darrenyao/tree/master/usacobook) is well-crafted
+[Darren Yao's USACO guide](https://github.com/darren-yao/darrenyao/tree/master/usacobook) is well-crafted
 
-## Other Resources
+### Other Resources
 I discourage the training gate offered by USACO, as it is outdated and problem quality is not the best as of now, but if you are willing to get past that, it does cover algorithms necessary.  
 
 - Competitive Programmer's Handbook (a good place to start)
