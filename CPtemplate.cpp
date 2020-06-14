@@ -279,7 +279,7 @@ namespace aryansh {
 	}
 	using namespace io_macros;
 }
-using namespace aryansh; auto TICK; //set clock
+using namespace aryansh; auto TICK; //for best results, set after input taken 
 
 // - - - - - - - - - - - - - - - - - - - - - - - -
 
