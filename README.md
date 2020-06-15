@@ -22,6 +22,8 @@ int main() {
 
 - [Simple, Generic Segment Tree Implementations](https://github.com/Aryansh-S/USACO/tree/master/Implementations/Algorithms/Query%20DS/Easy_Segtrees)
 
+- [My Codeforces Blog](https://codeforces.com/blog/Aryansh_S)
+
 ## Books \& Handouts
 
 [Here](https://www.overleaf.com/read/vxkkgmmrmckv) is the latest version of a book I am writing on competitive programming so far (a work in progress). 
