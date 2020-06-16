@@ -39,9 +39,9 @@ template<class T> struct SEG { // comb(ID,b) = b, 0-indexing works, any associat
 int n, b; vector<int> v; SEG<int> D; 
 
 int qry(int curr, int b) { //our binary search query function
-  if(curr >= n) return curr < 2 * n && D.seg[curr] <= b ? curr-n : -1;
+  if(curr >= D.n) return curr < 2 * D.n && D.seg[curr] <= b ? curr-D.n : -1;
   int lc = 2 * curr, rc = lc + 1; 
-  if(lc >= n && lc < 2 * n) if(D.seg[lc] <= b) return qry(lc,b);
+  if(lc < 2 * D.n) if(D.seg[lc] <= b) return qry(lc,b);
   return qry(rc,b);
 }
 
@@ -57,6 +57,5 @@ int main() {
   v.assign(nxtpw2(n),INF); //pad to ensure we obtain a perfect binary tree
   for(int i = 0; i < n; ++i) cin >> v[i]; 
   D.init(begin(v),end(v));
-  
   cout << qry(1,b) << "\n";
 }
