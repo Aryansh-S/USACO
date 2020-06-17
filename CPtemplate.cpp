@@ -265,7 +265,7 @@ namespace aryansh {
 			cout.precision(d); cout.setf(ios::fixed,ios::floatfield)
 		
 		#define mem(a,v) \
-			if((!(v) || !((v)+1) || !((v)-INF) || !((v)+INF))) { \
+			if(type(a[0]).find("int")!=string::npos && (!(v) || !((v)+1) || !((v)-INF) || !((v)+INF))) { \
 				(memset(&(a)[0],(v),sizeof(a))); \
 			} else {trav(k,(a)) {k=v;}} static_assert(1, "") 
 		
