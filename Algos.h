@@ -215,171 +215,176 @@ namespace tree_spec {
     }
   };
   namespace LCA_spec {
-    template <int SZ> struct BLCA{ //lca with binary lifting -- O(log n) query with O(n) preprocess, rt first
-      vi adj[SZ]; const static int lg=32-__builtin_clz(SZ);
-      int dp[SZ][lg],lvl[SZ]; BLCA(){F0R(i,SZ) memset(dp[i],-1,sizeof(dp[i]));}
-      void add(int a, int b){adj[a].pb(b); adj[b].pb(a);}
-      void add_(int a, int b){adj[a].pb(b);}
-      void rt(int r = 0) { dfs(r, 0); }
-      void dfs(int u, int p){
-        dp[u][0]=p; for(int i=1; i<lg; ++i) dp[u][i]=dp[dp[u][i-1]][i-1];
-        trav(v,adj[u]) if(v!=p) lvl[v]=lvl[u]+1,dfs(v,u);
-      }
-      //qry
-      int getPar(int a, int b = 1) { for(int k = lg - 1; k > 0; --k) if (b&(1<<k)) a = dp[k][a]; return a; }
-        //bth parent of a
-      int lca(int a, int b){
-        if(lvl[a]<lvl[b]) swap(a,b);
-        for(int i=lg-1; i>=0; --i) if(lvl[a]-pow(2,i)>=lvl[b]) a=dp[a][i];
-        if(a==b) return a; for(int i=lg-1; i>=0; --i) if(dp[a][i]!=dp[b][i]) a=dp[a][i],b=dp[b][i]; return dp[a][0];
-      }
-      int dist(int a, int b){ //# of edges between a and b
-        return lvl[a]+lvl[b]-2*lvl[lca(a,b)];
-      }
-    };
-    
-    template <int SZ> struct TLCA{ //offline tarjan LCA with in-built DSU 
-      struct query{int x,y,lca;}; vector<query> queries;
-      struct node{int mom,ancestor; bool seen; vi adj,qs;} nodes[SZ]; 
-      //DSU
-      int get(int x){return nodes[x].mom=(nodes[x].mom!=x)?get(nodes[x].mom):x;}
-      void unite(int x, int y){nodes[get(x)].mom=get(y);}
-      TLCA(){F0R(i,SZ) nodes[i].mom=nodes[i].ancestor=i;} 
-      //add edges and queries
-      void add(int a, int b){nodes[a].adj.pb(b); nodes[b].adj.pb(a);}
-      void add_(int a, int b){nodes[a].adj.pb(b);}
-      void addq(int x, int y){ //push in queries before next linear upd
-        nodes[x].qs.pb(sz(queries)); nodes[y].qs.pb(sz(queries)); 
-        query q; q.x=x,q.y=y,q.lca=-1; queries.pb(q);
-      }
-      //find lca recursive
-      void findlca(int curr, int prev){
-        trav(i,nodes[curr].adj) if(i!=prev){
-          findlca(i,curr); unite(i,curr); nodes[get(curr)].ancestor=curr;
+    template<int SZ> struct LCA {
+      static const int BITS = 32-__builtin_clz(SZ);
+      int N, R = 1, par[BITS][SZ], depth[SZ]; vi adj[SZ]; 
+      /// INITIALIZE
+      void ae(int u, int v) { adj[u].pb(v), adj[v].pb(u); }
+      void dfs(int u, int prv){
+        depth[u] = depth[par[0][u] = prv]+1;
+        trav(v,adj[u]) if (v != prv) dfs(v,u); }
+        void init(int _N) {
+          N = _N; dfs(R,0);
+          FOR(k,1,BITS) FOR(i,1,N+1) 
+          par[k][i] = par[k-1][par[k-1][i]];
         }
-        nodes[curr].seen=1; trav(i,nodes[curr].qs){
-          int other_endpt=queries[i].x==curr?queries[i].y:queries[i].x;
-          if(nodes[other_endpt].seen) queries[i].lca=get(other_endpt);
+        /// QUERY
+        int getPar(int a, int b) {
+          R0F(k,BITS) if (b&(1<<k)) a = par[k][a];
+          return a; }
+          int lca(int u, int v){
+            if (depth[u] < depth[v]) swap(u,v);
+            u = getPar(u,depth[u]-depth[v]);
+            R0F(k,BITS) if (par[k][u] != par[k][v]) 
+            u = par[k][u], v = par[k][v];
+            return u == v ? u : par[0][u];
+          }
+          int dist(int u, int v) { // # edges on path
+            return depth[u]+depth[v]-2*depth[lca(u,v)]; }
+          };
+          
+          template <int SZ> struct TLCA{ //offline tarjan LCA with in-built DSU 
+            struct query{int x,y,lca;}; vector<query> queries;
+            struct node{int mom,ancestor; bool seen; vi adj,qs;} nodes[SZ]; 
+            //DSU
+            int get(int x){return nodes[x].mom=(nodes[x].mom!=x)?get(nodes[x].mom):x;}
+            void unite(int x, int y){nodes[get(x)].mom=get(y);}
+            TLCA(){F0R(i,SZ) nodes[i].mom=nodes[i].ancestor=i;} 
+            //add edges and queries
+            void add(int a, int b){nodes[a].adj.pb(b); nodes[b].adj.pb(a);}
+            void add_(int a, int b){nodes[a].adj.pb(b);}
+            void addq(int x, int y){ //push in queries before next linear upd
+              nodes[x].qs.pb(sz(queries)); nodes[y].qs.pb(sz(queries)); 
+              query q; q.x=x,q.y=y,q.lca=-1; queries.pb(q);
+            }
+            //find lca recursive
+            void findlca(int curr, int prev){
+              trav(i,nodes[curr].adj) if(i!=prev){
+                findlca(i,curr); unite(i,curr); nodes[get(curr)].ancestor=curr;
+              }
+              nodes[curr].seen=1; trav(i,nodes[curr].qs){
+                int other_endpt=queries[i].x==curr?queries[i].y:queries[i].x;
+                if(nodes[other_endpt].seen) queries[i].lca=get(other_endpt);
+              }
+            }
+            void upd(int rt){findlca(rt,-1);}
+            int lca(int qry){return queries[qry].lca;} //find LCA query by query number
+          };
         }
       }
-      void upd(int rt){findlca(rt,-1);}
-      int lca(int qry){return queries[qry].lca;} //find LCA query by query number
-    };
-  }
-}
-}
-
-namespace query_type {
-  namespace fenwick {
-    template<class T> struct operation { //for qry & upd
-      const T ID = 0; 
-      T comb(T a, T b) { return a + b; }
-      T inv_comb(T a, T b) { return a - b; }
-      T m_comb(T a, int L) { return a * L; } 
-      //how does it compose with itself over a range
-    }; 
-    
-    //point upd, range qry -- multiple dimensions
-    template <class T, int ...Ns> struct BIT {
-      operation<T> op; 
-      
-      T val = op.ID; 
-      void upd(T v) { val = op.comb(val,v); } 
-      T qry() { return val; } 
-    };
-    template <class T, int N, int... Ns> struct BIT<T, N, Ns...> { 
-      BIT<T,Ns...> bit[N+1]; operation<T> op; 
-      
-      template<typename... Args> void upd(int pos, Args... args) { 
-        for (; pos<=N; pos+=pos&-pos) bit[pos].upd(args...); 
-      } 
-      template<typename... Args> T sum(int r, Args... args) {
-        T res = op.ID; for (;r;r-=r&-r) res = op.comb(res, bit[r].qry(args...)); 
-        return res; 
-      }
-      template<typename... Args> T qry(int l, int r, Args...args) { 
-        return op.inv_comb(sum(r, args...),sum(l - 1, args...)); 
-      }
-    };
-    
-    //range upd, range qry (lazy, same operation)
-    template<class T, int SZ> struct LBIT { 
-      BIT<T,SZ> bit[2]; operation<T> op; 
-      
-      void upd(int l, int r, T val) {
-        bit[0].upd(l, val); 
-        bit[0].upd(r, op.inv_comb(op.ID, val));
-        bit[1].upd(l, op.m_comb(val, l - 1));
-        bit[1].upd(r, op.inv_comb(op.ID, op.m_comb(val, r)));
-      }
-      
-      T sum(int x) { return op.inv_comb(op.m_comb(bit[0].sum(x),x), bit[1].sum(x)); }
-      T qry(int x, int y) { return op.inv_comb(sum(y),sum(x-1)); }
-    }; 
-  }
-  namespace seglib {
-    
-    //Helper Functions
-    
-    int nxtpw2(int v) {
-      if((bool)v & !(v & (v - 1))) return v; 
-      int x = 1; while(x < v) x<<=1; return x; 
     }
     
-    //Iterative Generic Segment Tree: Point Update, Range Query (0 - Indexing Allowed), Exactly 2N Memory (Not 4N)
-    //Suggested to use N as power of 2 if doing binary search, order statistics, etc. (perfect binary tree)
-    
-    template<class T> struct SEG { // comb(ID,b) = b, 0-indexing works, any associative operation. 
-      //seg[1] = qry(0,n-1) 
-      
-      const T ID = -INF; T comb(T a, T b) { return max(a,b); } 
-      
-      int n; vector<T> seg;
-      void init(int _n) { n = _n; seg.assign(2*n, ID); } 
-      template<typename it, typename = typename enable_if<is_iterator<it>::value>::type> 
-      void init(it bg, it nd) {init(distance(bg,nd)); move(bg, nd, begin(seg) + n); build();}
-      void build() { for(int i = n - 1; i > 0; --i) pull(i); }
-      void pull(int p) { seg[p] = comb(seg[2*p],seg[2*p+1]); }
-      void upd(int p, T val) { // set val at position p
-        seg[p += n] = val; for (p /= 2; p; p /= 2) pull(p); 
+    namespace query_type {
+      namespace fenwick {
+        template<class T> struct operation { //for qry & upd
+          const T ID = 0; 
+          T comb(T a, T b) { return a + b; }
+          T inv_comb(T a, T b) { return a - b; }
+          T m_comb(T a, int L) { return a * L; } 
+          //how does it compose with itself over a range
+        }; 
+        
+        //point upd, range qry -- multiple dimensions
+        template <class T, int ...Ns> struct BIT {
+          operation<T> op; 
+          
+          T val = op.ID; 
+          void upd(T v) { val = op.comb(val,v); } 
+          T qry() { return val; } 
+        };
+        template <class T, int N, int... Ns> struct BIT<T, N, Ns...> { 
+          BIT<T,Ns...> bit[N+1]; operation<T> op; 
+          
+          template<typename... Args> void upd(int pos, Args... args) { 
+            for (; pos<=N; pos+=pos&-pos) bit[pos].upd(args...); 
+          } 
+          template<typename... Args> T sum(int r, Args... args) {
+            T res = op.ID; for (;r;r-=r&-r) res = op.comb(res, bit[r].qry(args...)); 
+            return res; 
+          }
+          template<typename... Args> T qry(int l, int r, Args...args) { 
+            return op.inv_comb(sum(r, args...),sum(l - 1, args...)); 
+          }
+        };
+        
+        //range upd, range qry (lazy, same operation)
+        template<class T, int SZ> struct LBIT { 
+          BIT<T,SZ> bit[2]; operation<T> op; 
+          
+          void upd(int l, int r, T val) {
+            bit[0].upd(l, val); 
+            bit[0].upd(r, op.inv_comb(op.ID, val));
+            bit[1].upd(l, op.m_comb(val, l - 1));
+            bit[1].upd(r, op.inv_comb(op.ID, op.m_comb(val, r)));
+          }
+          
+          T sum(int x) { return op.inv_comb(op.m_comb(bit[0].sum(x),x), bit[1].sum(x)); }
+          T qry(int x, int y) { return op.inv_comb(sum(y),sum(x-1)); }
+        }; 
       }
-      T qry(int l, int r) {	// comb on interval [l, r]
-        T ra = ID, rb = ID; 
-        for (l += n, r += n+1; l < r; l /= 2, r /= 2) {
-          if (l&1) ra = comb(ra,seg[l++]);
-          if (r&1) rb = comb(seg[--r],rb);
+      namespace seglib {
+        
+        //Helper Functions
+        
+        int nxtpw2(int v) {
+          if((bool)v & !(v & (v - 1))) return v; 
+          int x = 1; while(x < v) x<<=1; return x; 
         }
-        return comb(ra,rb);
+        
+        //Iterative Generic Segment Tree: Point Update, Range Query (0 - Indexing Allowed), Exactly 2N Memory (Not 4N)
+        //Suggested to use N as power of 2 if doing binary search, order statistics, etc. (perfect binary tree)
+        
+        template<class T> struct SEG { // comb(ID,b) = b, 0-indexing works, any associative operation. 
+          //seg[1] = qry(0,n-1) 
+          
+          const T ID = -INF; T comb(T a, T b) { return max(a,b); } 
+          
+          int n; vector<T> seg;
+          void init(int _n) { n = _n; seg.assign(2*n, ID); } 
+          template<typename it, typename = typename enable_if<is_iterator<it>::value>::type> 
+          void init(it bg, it nd) {init(distance(bg,nd)); move(bg, nd, begin(seg) + n); build();}
+          void build() { for(int i = n - 1; i > 0; --i) pull(i); }
+          void pull(int p) { seg[p] = comb(seg[2*p],seg[2*p+1]); }
+          void upd(int p, T val) { // set val at position p
+            seg[p += n] = val; for (p /= 2; p; p /= 2) pull(p); 
+          }
+          T qry(int l, int r) {	// comb on interval [l, r]
+            T ra = ID, rb = ID; 
+            for (l += n, r += n+1; l < r; l /= 2, r /= 2) {
+              if (l&1) ra = comb(ra,seg[l++]);
+              if (r&1) rb = comb(seg[--r],rb);
+            }
+            return comb(ra,rb);
+          }
+        };
+        
+        //Reverse Iterative Generic Segment Tree: Range Update, Point Query (0 - Indexing Allowed), Exactly 2N Memory (Not 4N)
+        //Suggested to use N as power of 2 if doing binary search, order statistics, etc. (perfect binary tree)
+        
+        template<class T> struct RSEG { //reverse segtree: range update, point query
+          //comb must work independent of order, otherwise use lazy
+          
+          const T ID = 1; T comb(T a, T b) { return a * b; } 
+          
+          int n; vector<T> seg;
+          void init(int _n) { n = _n; seg.assign(2*n, ID); } 
+          template<typename it, typename = typename enable_if<is_iterator<it>::value>::type> 
+          void init(it bg, it nd) {init(distance(bg,nd)); move(bg, nd, begin(seg) + n); build();}
+          void build() { 
+            for (int i = 1; i < n; ++i) 
+            seg[2*i] = comb(seg[2*i],seg[i]), seg[2*i + 1] = comb(seg[2*i + 1],seg[i]), seg[i] = ID;
+          }
+          T qry(int p) { // qry val at position p
+            T res = ID; 
+            for (p += n; p; p /= 2) res = comb(res,seg[p]); 
+            return res;
+          }
+          void upd(int l, int r, T val) { //upd by comb on interval [l, r]
+            for (l += n, r += n+1; l < r; l /= 2, r /= 2) {
+              if (l&1) seg[l] = comb(seg[l],val), ++l;
+              if (r&1) seg[r-1] = comb(seg[r-1],val), --r;
+            } 
+          }
+        };
       }
-    };
-    
-    //Reverse Iterative Generic Segment Tree: Range Update, Point Query (0 - Indexing Allowed), Exactly 2N Memory (Not 4N)
-    //Suggested to use N as power of 2 if doing binary search, order statistics, etc. (perfect binary tree)
-    
-    template<class T> struct RSEG { //reverse segtree: range update, point query
-      //comb must work independent of order, otherwise use lazy
-      
-      const T ID = 1; T comb(T a, T b) { return a * b; } 
-      
-      int n; vector<T> seg;
-      void init(int _n) { n = _n; seg.assign(2*n, ID); } 
-      template<typename it, typename = typename enable_if<is_iterator<it>::value>::type> 
-      void init(it bg, it nd) {init(distance(bg,nd)); move(bg, nd, begin(seg) + n); build();}
-      void build() { 
-        for (int i = 1; i < n; ++i) 
-        seg[2*i] = comb(seg[2*i],seg[i]), seg[2*i + 1] = comb(seg[2*i + 1],seg[i]), seg[i] = ID;
-      }
-      T qry(int p) { // qry val at position p
-        T res = ID; 
-        for (p += n; p; p /= 2) res = comb(res,seg[p]); 
-        return res;
-      }
-      void upd(int l, int r, T val) { //upd by comb on interval [l, r]
-        for (l += n, r += n+1; l < r; l /= 2, r /= 2) {
-          if (l&1) seg[l] = comb(seg[l],val), ++l;
-          if (r&1) seg[r-1] = comb(seg[r-1],val), --r;
-        } 
-      }
-    };
-  }
-}
+    }
