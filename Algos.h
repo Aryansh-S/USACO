@@ -225,6 +225,9 @@ namespace tree_spec {
         dp[u][0]=p; for(int i=1; i<lg; ++i) dp[u][i]=dp[dp[u][i-1]][i-1];
         trav(v,adj[u]) if(v!=p) lvl[v]=lvl[u]+1,dfs(v,u);
       }
+      //qry
+      int getPar(int a, int b = 1) { for(int k = lg - 1; k > 0; --k) if (b&(1<<k)) a = dp[k][a]; return a; }
+        //bth parent of a
       int lca(int a, int b){
         if(lvl[a]<lvl[b]) swap(a,b);
         for(int i=lg-1; i>=0; --i) if(lvl[a]-pow(2,i)>=lvl[b]) a=dp[a][i];
