@@ -259,7 +259,7 @@ namespace aryansh {
 			CLK = chrono::steady_clock::now() 
 		
 		#define what(x) \
-			cout << (#x) << " is "; out_(x); cout << "[Line " << __LINE__ << "]\n";
+			cout << "[Line " << __LINE__ << "] "; cout << (#x) << " is "; out(x); 
 		
 		#define pres(d) \
 			cout.precision(d); cout.setf(ios::fixed,ios::floatfield)
