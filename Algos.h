@@ -219,7 +219,8 @@ namespace tree_spec {
       static const int BITS = 32-__builtin_clz(SZ);
       int N, R = 1, par[BITS][SZ], depth[SZ]; vi adj[SZ]; 
       /// INITIALIZE
-      void ae(int u, int v) { adj[u].pb(v), adj[v].pb(u); }
+      void add(int u, int v) { adj[u].pb(v), adj[v].pb(u); }
+      void add(int u, int v) { adj[u].pb(v); }
       void dfs(int u, int prv){
         depth[u] = depth[par[0][u] = prv]+1;
         trav(v,adj[u]) if (v != prv) dfs(v,u); }
