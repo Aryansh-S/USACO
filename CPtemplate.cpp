@@ -12,7 +12,8 @@ namespace aryansh {
 		using db = double; using ld = long double; 
 		
 		using pii = pair<int,int>; using pll = pair<ll,ll>; 
-		using vi = vector<int>; using vll = vector<ll>; 
+		template<class T> using vec = vector<T>; 
+		template<class T, int SZ> using arr = array<T, SZ>; 
 		
 		using str = string; 
 		
