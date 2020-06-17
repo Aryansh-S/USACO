@@ -1,9 +1,11 @@
 
 
-Manually Installed Packages Packages: 
-  auto-indent
-  gcc-make-run
-  indent-guide-improved
+Packages: 
+
+  Manually Installed: 
+    auto-indent
+    gcc-make-run
+    indent-guide-improved
 
 
 Themes:
