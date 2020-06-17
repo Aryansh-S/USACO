@@ -1,0 +1,26 @@
+
+
+Packages: 
+
+  Manually Installed: 
+    auto-indent
+    gcc-make-run
+    indent-guide-improved
+
+
+Themes:
+
+  UI Themes: 
+    One Dark (my default)
+    Isotope
+    City Lights
+    Atom Dark
+    Seti
+
+  Syntax Themes: 
+    Darker One Dark (my default)
+    One Dark
+    Atom Dark
+    Atom Material
+  
+  
