@@ -263,10 +263,10 @@ namespace aryansh {
 		#define what(x) \
 			out_((#x)); out_("is"); out_(x); NL
 		
-		#define PRES(d) \
+		#define pres(d) \
 			cout.precision(d); cout.setf(ios::fixed,ios::floatfield)
 		
-		#define MEM(a,v) \
+		#define mem(a,v) \
 			if((!(v) || !((v)+1) || !((v)-INF) || !((v)+INF))) { \
 				(memset(&(a)[0],(v),sizeof(a))); \
 			} else {trav(k,(a)) {k=v;}} static_assert(1, "") 
