@@ -285,7 +285,6 @@ using namespace aryansh; auto TICK; //for best results, TICK after input taken
 
 int main() {
 	IO("");
-	
 }
 
 // // // // // // // // // // // // // // // // //
