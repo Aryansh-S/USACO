@@ -315,10 +315,10 @@ template<int SZ> struct LCA { //binary lifting O(n log n) init, O(log) qry, init
 LCA<2*_+1> t; 
 
 int main() {
-	IO("distqry"); 
-  in(n,q); F0R(i,n-1) {int a,b; in(a,b); t.add(a,b);} 
+  IO("distqry"); 
+  in(n,q); F0R(i,n-1) { int a,b; in(a,b); t.add(a,b); } 
   t.init(n); 
-  while(q--) { int a,b; in(a,b); out(t.dist(a,b));}
+  while(q--) { int a,b; in(a,b); out(t.dist(a,b)); }
 }
 
 // // // // // // // // // // // // // // // // //
