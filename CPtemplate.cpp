@@ -179,7 +179,7 @@ namespace aryansh {
 			friend mi operator/(mi a, const mi& b) { return a /= b; }
 		};
 		
-		template<class T> struct bd{ //bdi for int
+		template<class T> struct bd { //bdi for int
   			T v = 0; int l = 0, r = 1;
   			bd(T _v, int _l, int _r) { l=_l,r=_r,v=_v; if(v < l) v = l; if(v > r) v = r; }
   			operator T() const {return v;}
