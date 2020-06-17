@@ -216,9 +216,9 @@ USACO allows roughly ![10^8](https://render.githubusercontent.com/render/math?ma
 
 Below is helpful information in the context of contest programming (credit~CP3): 
 
-![](https://github.com/Aryansh-S/USACO/blob/master/Misc_Unorganized/src/Screen%20Shot%202020-04-16%20at%204.10.43%20PM.png)
-![](https://github.com/Aryansh-S/USACO/blob/master/Misc_Unorganized/src/Screen%20Shot%202020-04-16%20at%204.11.02%20PM.png)
-![](https://github.com/Aryansh-S/USACO/blob/master/Misc_Unorganized/src/Screen%20Shot%202020-04-16%20at%204.11.23%20PM.png)
+![](https://github.com/Aryansh-S/USACO/blob/master/misc/src/Screen%20Shot%202020-04-16%20at%204.10.43%20PM.png)
+![](https://github.com/Aryansh-S/USACO/blob/master/misc/src/Screen%20Shot%202020-04-16%20at%204.11.02%20PM.png)
+![](https://github.com/Aryansh-S/USACO/blob/master/misc/src/Screen%20Shot%202020-04-16%20at%204.11.23%20PM.png)
 
 ## Space/Memory Complexity
 
