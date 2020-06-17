@@ -28,3 +28,5 @@
   setter.insertNewline(); #enter to a new line
   
   setter.scrollToBottom(); #scroll to bottom of file for focus
+
+  
