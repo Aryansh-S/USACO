@@ -14,6 +14,8 @@ namespace aryansh {
 		using pii = pair<int,int>; using pll = pair<ll,ll>; 
 		using vi = vector<int>; using vll = vector<ll>; 
 		
+		template<class T, int SZ> using ar = array<T, SZ>; 
+		
 		using str = string; 
 		
 		template<class T> using minpq 
@@ -281,11 +283,16 @@ using namespace aryansh; auto TICK; //for best results, TICK after input taken
 
 // - - - - - - - - - - - - - - - - - - - - - - - -
 
-int n,m,a[_];
+int n,m,a[_]; ar<mi,3> dp[_];
+
+//state: what idx, trans: 1, 0, -1, ans: # sat
 
 int main() {
 	IO("");
   in(n,m); in(a,a+n); 
+  a[0] ? dp[0] = {1,a[0],a[0]} : dp[0] = {m,1,m};
+  F0R(i,n) a[i+1] ? dp[i+1] = {dp[i][0],a[i+1],a[i+1]} : dp[i+1] = {dp[i][0] * (dp[i][2]-dp[i][1]+1), (int)dp[i][1]-1 > (int)0 ? dp[i][1]-1 : 1, (int)dp[i][1]+1 <= (int)m ? dp[i][1]+1 : m}; 
+  out(dp[n-1][0]);
 }
 
 // // // // // // // // // // // // // // // // //

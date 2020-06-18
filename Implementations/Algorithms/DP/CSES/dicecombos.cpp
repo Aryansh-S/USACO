@@ -14,6 +14,8 @@ namespace aryansh {
 		using pii = pair<int,int>; using pll = pair<ll,ll>; 
 		using vi = vector<int>; using vll = vector<ll>; 
 		
+		template<class T, int SZ> using ar = array<T, SZ>; 
+		
 		using str = string; 
 		
 		template<class T> using minpq 
