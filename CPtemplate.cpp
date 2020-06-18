@@ -208,7 +208,7 @@ namespace aryansh {
 	namespace rand_macros {
 		mt19937 mt(chrono::steady_clock::now().time_since_epoch().count());
 		uniform_int_distribution<int> unifd(-INF,INF);
-		#define RAND unifd(mt);
+		#define RAND unifd(mt)
 	}
 	using namespace rand_macros;
 
