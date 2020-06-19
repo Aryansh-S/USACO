@@ -215,7 +215,7 @@ namespace aryansh {
 	namespace rand_macros {
 		mt19937 mt(chrono::steady_clock::now().time_since_epoch().count());
 		uniform_int_distribution<int> unifd(-INF,INF);
-		#define RAND unifd(mt)
+		#define RAND unifd(mt) //set const @beginning for hash
 	}
 	using namespace rand_macros;
 
@@ -257,8 +257,7 @@ namespace aryansh {
 		inline void outln(it bg, it nd)    
 			{while(distance(bg,nd)) outln(*bg), ++bg;}
 			
-			//functions: out and outln, use all/rsz for containers
-			//only works for forward iterator ranges
+			//functions: out and outln, use all/rsz for containers, use fwd ptr ranges
 
 		#define TIME \
 			chrono::duration<ld, milli>(chrono::steady_clock::now()-CLK).count()
