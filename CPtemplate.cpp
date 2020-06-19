@@ -14,7 +14,7 @@ namespace aryansh {
 		using pii = pair<int,int>; using pll = pair<ll,ll>; 
 		using vi = vector<int>; using vll = vector<ll>; 
 		
-		template<class T, int SZ> using ar = array<T, SZ>; 
+		template<class T, int SZ> using ar = array<T, SZ>; //tuples
 		
 		using str = string; 
 		
@@ -23,10 +23,17 @@ namespace aryansh {
 		template<class T> using maxpq 
 			= priority_queue<T>;
 		
+		template<class T> using mset = multiset<T>; 
+		template<class T> using mmap = multimap<T>; 
+		
 		template<class T> using OST 
 			= tree<T, null_type, less<T>, rb_tree_tag,tree_order_statistics_node_update>; 
+		template<class T> using MOST //allow multi
+			= tree<T, null_type, less_equal<T>, rb_tree_tag,tree_order_statistics_node_update>; 
 		template<class T, class U> using OSM 
 			= tree<T, U, less<T>, rb_tree_tag,tree_order_statistics_node_update>;
+		template<class T, class U> using MOSM //allow multi
+			= tree<T, U, less_equal<T>, rb_tree_tag,tree_order_statistics_node_update>;
 		
 		template<class T, class chash = hash<T>> using hset 
 			= gp_hash_table<T, null_type, chash>; 
