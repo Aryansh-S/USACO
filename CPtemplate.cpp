@@ -8,13 +8,12 @@ using namespace std; using namespace __gnu_pbds; //pbds memory :(
 
 namespace aryansh { 
 	namespace type_macros {
-		using ll = long long; 
+		using ll = long long; using str = string; 
 		using db = double; using ld = long double; 
 		using pii = pair<int,int>; using pll = pair<ll,ll>; 
 		using vi = vector<int>; using vll = vector<ll>; 
 		template<class T, int SZ> using ar = array<T, SZ>; //tuples
-		template<class T> using mset = multiset<T>; template<class T> using mmap = multimap<T>; 
-		using str = string; 
+		template<class T> using mset = multiset<T>; template<class T, class U> using mmap = multimap<T, U>; 
 		
 		template<class T> using minpq 
 			= priority_queue<T, vector<T>, greater<T>>;
