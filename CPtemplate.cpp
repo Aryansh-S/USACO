@@ -10,13 +10,10 @@ namespace aryansh {
 	namespace type_macros {
 		using ll = long long; 
 		using db = double; using ld = long double; 
-		
 		using pii = pair<int,int>; using pll = pair<ll,ll>; 
 		using vi = vector<int>; using vll = vector<ll>; 
-		
 		template<class T, int SZ> using ar = array<T, SZ>; //tuples
 		template<class T> using mset = multiset<T>; template<class T> using mmap = multimap<T>; 
-		
 		using str = string; 
 		
 		template<class T> using minpq 
