@@ -154,7 +154,7 @@ namespace aryansh {
 		
 		struct mi { //modular int -- with ll for best results
 			typedef decay<decltype(MOD)>::type T; T val; 
-			operator T() const { return val; }
+			explicit operator T() const { return val; }
 			mi() { val = 0; }
 			mi(ll v) { val = (-MOD <= v && v <= MOD) ? v : v % MOD; if (val < 0) val += MOD; }
 			friend bool operator==(const mi& a, const mi& b) { return a.val == b.val; }
