@@ -15,6 +15,7 @@ namespace aryansh {
 		using vi = vector<int>; using vll = vector<ll>; 
 		
 		template<class T, int SZ> using ar = array<T, SZ>; //tuples
+		template<class T> using mset = multiset<T>; template<class T> using mmap = multimap<T>; 
 		
 		using str = string; 
 		
@@ -22,9 +23,6 @@ namespace aryansh {
 			= priority_queue<T, vector<T>, greater<T>>;
 		template<class T> using maxpq 
 			= priority_queue<T>;
-		
-		template<class T> using mset = multiset<T>; 
-		template<class T> using mmap = multimap<T>; 
 		
 		template<class T> using OST 
 			= tree<T, null_type, less<T>, rb_tree_tag,tree_order_statistics_node_update>; 
@@ -260,6 +258,7 @@ namespace aryansh {
 			{while(distance(bg,nd)) outln(*bg), ++bg;}
 			
 			//functions: out and outln, use all/rsz for containers
+			//only works for forward iterator ranges
 
 		#define TIME \
 			chrono::duration<ld, milli>(chrono::steady_clock::now()-CLK).count()
