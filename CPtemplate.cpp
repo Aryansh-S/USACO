@@ -161,6 +161,7 @@ namespace aryansh {
 			friend bool operator==(const mi& a, const mi& b) { return a.val == b.val; }
 			friend bool operator!=(const mi& a, const mi& b) { return !(a == b); }
 			friend bool operator<(const mi& a, const mi& b) { return a.val < b.val; }
+			friend bool operator>(const mi& a, const mi& b) { return a.val > b.val; }
 			friend istream& operator>>(istream& is, mi& a) { is >> a.val; a = mi(a.val); return is; }
 			friend ostream& operator<<(ostream& os, const mi& a) { return os << a.val; }
 			mi operator-() const { return mi(-val); }
