@@ -8,8 +8,8 @@ using namespace std; using namespace __gnu_pbds; //pbds memory :(
 
 namespace aryansh { 
 	namespace type_macros {
-		using ll = long long; using str = string; 
-		using db = double; using ld = long double; 
+		using ll = long long; using db = double; using ld = long double; 
+		using str = string; 
 		using pii = pair<int,int>; using pll = pair<ll,ll>; 
 		using vi = vector<int>; using vll = vector<ll>; 
 		template<class T, int SZ> using ar = array<T, SZ>; //tuples
