@@ -294,7 +294,7 @@ int main() {
 // // // // // // // // // // // // // // // // //
 // do something! stay organized!                //  
 // int overflow : ll                            //
-// segfault : exit(9)                           //
+// segfault : exit(9), goto pt; pt: <do smth>;  //
 // wrong ans : what(x)                          //
 // tle : if(TIME > 2000)                        //
 // index carefully!                             //
