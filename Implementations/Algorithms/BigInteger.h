@@ -1,4 +1,5 @@
 //a convenient, easy-to-use library for C++ when working with very big integers
+//modified and adapted from various online tutorials 
 
 struct bigint {
     static const int base = 1e9, base_digits = log10(base);
@@ -117,6 +118,11 @@ struct bigint {
     {long long res = 0; for (int i = a.size() - 1; i >= 0; i--) res = res * base + a[i]; return res * sign;}
     friend bigint gcd(const bigint &a, const bigint &b) {return b.isZero() ? a : gcd(b, a % b);}
     friend bigint lcm(const bigint &a, const bigint &b) {return a / gcd(a, b) * b;}
+    friend bigint pow(const bigint &a, const bigint &b) { //binary exponentiation 
+        bigint ans = 1, t = a * a, bf = b-b/2*2; for(bigint i = 0; i < b/2; ++i) ans *= t; 
+        for(bigint i = 0; i < bf; ++i) ans *= t; 
+        return ans; 
+    }
     void read(const string &s) {sign = 1; a.clear(); int pos = 0;
         while (pos < (int) s.size() && (s[pos] == '-' || s[pos] == '+')) {
             if (s[pos] == '-') sign = -sign;
