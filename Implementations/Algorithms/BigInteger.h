@@ -119,8 +119,9 @@ struct bigint {
     friend bigint gcd(const bigint &a, const bigint &b) {return b.isZero() ? a : gcd(b, a % b);}
     friend bigint lcm(const bigint &a, const bigint &b) {return a / gcd(a, b) * b;}
     friend bigint pow(const bigint &a, const bigint &b) { //binary exponentiation 
-        bigint ans = 1, t = a * a, bf = b-b/2*2; for(bigint i = 0; i < b/2; ++i) ans *= t; 
-        for(bigint i = 0; i < bf; ++i) ans *= t; 
+        bigint ans = 1, t = a * a, bf = b - b / 2 * 2;   
+        for(bigint i = 0; i < b / 2; i+= 1) ans *= t; 
+        ans *= bf==1 ? a : 1; 
         return ans; 
     }
     void read(const string &s) {sign = 1; a.clear(); int pos = 0;
