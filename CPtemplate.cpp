@@ -150,9 +150,9 @@ namespace aryansh {
 			(((a) < (b)) ? ((a) = (b), (1)) : (0))
 		
 		#define gcd(a,b) \
-			((!(a) || !(b)) ? (max(abs(a),abs(b))) : (__gcd((a),(b))))
+			((!(a) || !(b)) ? (max(abs(a),abs(b))) : (__gcd((ll)(a),(ll)(b))))
 		#define lcm(a,b) \
-			((!(a) || !(b)) ? 0 : ((a)*(b))/gcd((a),(b)))
+			((!(a) || !(b)) ? 0 : ((a)*(b))/gcd((ll)(a),(ll)(b)))
 		
 		ll POW(ll a, ll b) { ll res = 1; while(b) res *= (b & 1)? a : 1, a*=a, b>>=1; return res; }
 			//log, prefer to std::pow
