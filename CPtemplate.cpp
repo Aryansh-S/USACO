@@ -140,6 +140,10 @@ namespace aryansh {
 	using namespace const_macros;
 	
 	namespace math_macros {
+		#define max(a,b) \
+			(((a) > (b)) ? (a) : (b))
+		#define min(a,b) \
+			(((a) < (b)) ? (a) : (b))
 		#define ckmin(a,b) \
 			(((a) > (b)) ? ((a) = (b), (1)) : (0))
 		#define ckmax(a,b) \
