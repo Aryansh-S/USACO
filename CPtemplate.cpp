@@ -140,8 +140,8 @@ namespace aryansh {
 	using namespace const_macros;
 	
 	namespace math_macros {
-		template<class T, class U> inline bool ckmin(T&a, U b) { return a > b ? a = b, 1 : 0; }
-		template<class T, class U> inline bool ckmax(T&a, U b) { return a < b ? a = b, 1 : 0; }
+		#define ckmin(a,b) (((a) > (b)) ? ((a) = (b), (1)) : (0))
+		#define ckmax(a,b) (((a) < (b)) ? ((a) = (b), (1)) : (0))
 		
 		#define gcd(a,b) \
 			((!(a) || !(b)) ? (max(abs(a),abs(b))) : (__gcd((a),(b))))
