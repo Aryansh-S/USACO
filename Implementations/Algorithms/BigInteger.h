@@ -3,7 +3,8 @@
 //condensed for ease of use
 
 struct bigint {
-    static const int base = 1e9, base_digits = 9; //keep consistent
+    static const int base = 1e9;
+    #define base_digits log10(base)
     vector<int> a; int sign;
     bigint() : sign(1) {}
     bigint(long long v) {*this = v;}
@@ -215,4 +216,5 @@ struct bigint {
         res.trim();
         return res;
     }
+    #undef base_digits
 };
