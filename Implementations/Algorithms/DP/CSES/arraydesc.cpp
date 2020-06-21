@@ -8,15 +8,10 @@ using namespace std; using namespace __gnu_pbds; //pbds memory :(
 
 namespace aryansh { 
 	namespace type_macros {
-		using ll = long long; 
-		using db = double; using ld = long double; 
-		
-		using pii = pair<int,int>; using pll = pair<ll,ll>; 
-		using vi = vector<int>; using vll = vector<ll>; 
-		
-		template<class T, int SZ> using ar = array<T, SZ>; 
-		
-		using str = string; 
+		using ll = long long; using db = double; using ld = long double; using str = string; 
+		using pii = pair<int,int>; using pll = pair<ll,ll>; using vi = vector<int>; using vll = vector<ll>; 
+		template<class T, int SZ> using ar = array<T, SZ>; //tuples
+		template<class T> using mset = multiset<T>; template<class T, class U> using mmap = multimap<T, U>; 
 		
 		template<class T> using minpq 
 			= priority_queue<T, vector<T>, greater<T>>;
@@ -25,8 +20,12 @@ namespace aryansh {
 		
 		template<class T> using OST 
 			= tree<T, null_type, less<T>, rb_tree_tag,tree_order_statistics_node_update>; 
+		template<class T> using MOST //allow multi
+			= tree<T, null_type, less_equal<T>, rb_tree_tag,tree_order_statistics_node_update>; 
 		template<class T, class U> using OSM 
 			= tree<T, U, less<T>, rb_tree_tag,tree_order_statistics_node_update>;
+		template<class T, class U> using MOSM //allow multi
+			= tree<T, U, less_equal<T>, rb_tree_tag,tree_order_statistics_node_update>;
 		
 		template<class T, class chash = hash<T>> using hset 
 			= gp_hash_table<T, null_type, chash>; 
@@ -160,6 +159,7 @@ namespace aryansh {
 			friend bool operator==(const mi& a, const mi& b) { return a.val == b.val; }
 			friend bool operator!=(const mi& a, const mi& b) { return !(a == b); }
 			friend bool operator<(const mi& a, const mi& b) { return a.val < b.val; }
+			friend bool operator>(const mi& a, const mi& b) { return a.val > b.val; }
 			friend istream& operator>>(istream& is, mi& a) { is >> a.val; a = mi(a.val); return is; }
 			friend ostream& operator<<(ostream& os, const mi& a) { return os << a.val; }
 			mi operator-() const { return mi(-val); }
@@ -210,7 +210,7 @@ namespace aryansh {
 	namespace rand_macros {
 		mt19937 mt(chrono::steady_clock::now().time_since_epoch().count());
 		uniform_int_distribution<int> unifd(-INF,INF);
-		#define RAND unifd(mt)
+		#define RAND unifd(mt) //set const @beginning for hash
 	}
 	using namespace rand_macros;
 
@@ -252,7 +252,7 @@ namespace aryansh {
 		inline void outln(it bg, it nd)    
 			{while(distance(bg,nd)) outln(*bg), ++bg;}
 			
-			//functions: out and outln, use all/rsz for containers
+			//functions: out and outln, use all/rsz for containers, use fwd ptr ranges
 
 		#define TIME \
 			chrono::duration<ld, milli>(chrono::steady_clock::now()-CLK).count()
@@ -283,22 +283,18 @@ using namespace aryansh; auto TICK; //for best results, TICK after input taken
 
 // - - - - - - - - - - - - - - - - - - - - - - - -
 
-int n,m,a[_]; ar<mi,3> dp[_];
-
-//state: what idx, trans: 1, 0, -1, ans: # sat
+int n,m; vi a; 
 
 int main() {
 	IO("");
-  in(n,m); in(a,a+n); 
-  a[0] ? dp[0] = {1,a[0],a[0]} : dp[0] = {m,1,m};
-  F0R(i,n) a[i+1] ? dp[i+1] = {dp[i][0],a[i+1],a[i+1]} : dp[i+1] = {dp[i][0] * (dp[i][2]-dp[i][1]+1), (int)dp[i][1]-1 > (int)0 ? dp[i][1]-1 : 1, (int)dp[i][1]+1 <= (int)m ? dp[i][1]+1 : m}; 
-  out(dp[n-1][0]);
+	in(n,m); a.rsz(n); in(all(a));
+	what(TIME);
 }
 
 // // // // // // // // // // // // // // // // //
 // do something! stay organized!                //  
 // int overflow : ll                            //
-// segfault : exit(9)                           //
+// segfault : exit(9), goto pt; pt: <do smth>;  //
 // wrong ans : what(x)                          //
 // tle : if(TIME > 2000)                        //
 // index carefully!                             //
