@@ -122,7 +122,7 @@ namespace aryansh {
 		
 		#define F0R(i,b) FOR(i,0,b)
 		#define F0R_(i,b,d) FOR_(i,0,b,d)
-		#define F1R(i,b) FOR(i,1,b+1)
+		#define F1R(i,b) FOR(i,1,b+1) //inclusive both ends
 		#define F1R_(i,b,d) FOR_(i,1,b+1,d)
 		
 		#define R0F(i,n) FOR(i,n,0)
@@ -140,8 +140,10 @@ namespace aryansh {
 	using namespace const_macros;
 	
 	namespace math_macros {
-		#define ckmin(a,b) (((a) > (b)) ? ((a) = (b), (1)) : (0))
-		#define ckmax(a,b) (((a) < (b)) ? ((a) = (b), (1)) : (0))
+		#define ckmin(a,b) \
+			(((a) > (b)) ? ((a) = (b), (1)) : (0))
+		#define ckmax(a,b) \
+			(((a) < (b)) ? ((a) = (b), (1)) : (0))
 		
 		#define gcd(a,b) \
 			((!(a) || !(b)) ? (max(abs(a),abs(b))) : (__gcd((a),(b))))
