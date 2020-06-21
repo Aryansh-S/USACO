@@ -3,7 +3,7 @@
 
 struct bigint {
     
-    const int base = 1e9. base_digits = 9; //keep consistent
+    const int base = 1e9, base_digits = 9; //keep consistent
     
     vector<int> a;
     int sign;
