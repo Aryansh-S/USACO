@@ -154,8 +154,10 @@ namespace aryansh {
 		#define lcm(a,b) \
 			((!(a) || !(b)) ? 0 : ((a)*(b))/gcd((ll)(a),(ll)(b)))
 		
-		ll binpow(ll a, ll b) { ll res = 1; while(b) res *= (b & 1) ? a : 1, a*=a, b>>=1; return res; }
-			//log, prefer to std::pow
+		ld binpow(ld a, ld b) { //log, prefer to std::pow
+			ld res = 1, be = b / 2, bf = b - be * 2, af = a * a; 
+			while(be--) res *= af; if(bf) res *= a; return res; 
+		}
 		
 		struct mi { //modular int -- with ll for best results
 			typedef decay<decltype(MOD)>::type T; T val; 
