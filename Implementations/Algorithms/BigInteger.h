@@ -1,6 +1,4 @@
 //a convenient, easy-to-use library for C++ when working with very big integers
-//credit: https://sites.google.com/site/indy256/algo_cpp/bigint
-//condensed for ease of use & modified
 
 struct bigint {
     static const int base = 1e9, base_digits = log10(base);
