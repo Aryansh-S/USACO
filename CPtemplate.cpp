@@ -154,7 +154,7 @@ namespace aryansh {
 		#define lcm(a,b) \
 			((!(a) || !(b)) ? 0 : ((a)*(b))/gcd((ll)(a),(ll)(b)))
 		
-		ll POW(ll a, ll b) { ll res = 1; while(b) res *= (b & 1)? a : 1, a*=a, b>>=1; return res; }
+		ll binpow(ll a, ll b) { ll res = 1; while(b) res *= (b & 1) ? a : 1, a*=a, b>>=1; return res; }
 			//log, prefer to std::pow
 		
 		struct mi { //modular int -- with ll for best results
