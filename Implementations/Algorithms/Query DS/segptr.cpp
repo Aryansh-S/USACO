@@ -27,7 +27,7 @@ template<class T> struct node {
   }
 };
 
-node seg(0,2); 
+node<int> seg(0,2); 
 
 int main() {
   seg.upd(0,1), seg.upd(1, 2), seg.upd(2,3); 
