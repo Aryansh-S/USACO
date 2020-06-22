@@ -9,7 +9,7 @@ template<class T> struct SEG {
     template<typename it, typename = typename enable_if<is_iterator<it>::value>::type> 
     void init(it bg, it nd) { init(distance(bg, nd)); move(bg, nd, begin(seg) + n); build(); }
 
-    void build() { int i = n - 1; do { pull(i); } while(--i); }
+    void build() { int i = n - 1; do pull(i); while(--i); }
 
     inline int lc(int p) { return 2 * p; }
     inline int rc(int p) { return lc(p) + 1; }
