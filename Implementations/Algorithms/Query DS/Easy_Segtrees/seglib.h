@@ -1,27 +1,43 @@
-//Segment Tree Library
-
-const int INF = 0x3f3f3f3f;
-
-template<class T> class is_iterator { //check if iterator or pointer (taken from my template)
-    static T makeT();
-    typedef void * twoptrs[2];  
-    static twoptrs & test(...); 
-    template<class R> static typename R::iterator_category * test(R); // Iterator
-    template<class R> static void * test(R *); // Pointer
-    public: static const bool value = sizeof(test(makeT())) == sizeof(void *); 
-};
 
 namespace seglib {
-    
-  //Helper Functions
-  
-  int nxtpw2(int v) {
-    if((bool)v & !(v & (v - 1))) return v; 
-    int x = 1; while(x < v) x<<=1; return x; 
-  }
 
-  //Iterative Generic Segment Tree: Point Update, Range Query (0 - Indexing Allowed), Exactly 2N Memory (Not 4N)
-  //Suggested to use N as power of 2 if doing binary search, order statistics, etc. (perfect binary tree)
+    int nxtpw2(int v) {
+        if((bool)v & !(v & (v - 1))) return v; 
+        int x = 1; while(x < v) x<<=1; return x; 
+    }
+    
+    template<class T> struct SEG {
+        const T ID = 0; T comb(T a, T b) { return a + b; } //associative queries 
+
+        int n; vector<T> seg; 
+
+        void init(int n0) { n = n0; seg.assign(2 * n, ID); }    
+        template<typename it, typename = typename enable_if<is_iterator<it>::value>::type> 
+        void init(it bg, it nd) { init(distance(bg,nd)); move(bg, nd, begin(seg) + n); build(); }
+
+        void build() { int i = n - 1; while(i--) pull(i); }
+
+        inline int lc(int p) { return 2 * p; }
+        inline int rc(int p) { return lc(p) + 1; }
+        void pull(int p) { seg[p] = comb(lc(p), rc(p)); }
+
+        void upd(int p, T v) {
+            seg[p += n] = v; 
+            for(p /= 2; p; p /= 2) pull(p);
+        }
+        T qry(int l, int r) {
+            T ra = ID, rb = ID; 
+            for(l += n, r += n + 1; l < r; l /= 2, r /= 2) {
+                if(l & 1) ra = comb(ra, seg[l++]); 
+                if(r & 1) rb = comb(seg[--r], rb);
+            }
+            return comb(ra, rb); 
+        }
+    };
+    
+}
+
+
 
   template<class T> struct SEG { // comb(ID,b) = b, 0-indexing works, any associative operation. 
     //seg[1] = qry(0,n-1) 
@@ -77,4 +93,3 @@ namespace seglib {
   };
     
 }
-using namespace seglib;
