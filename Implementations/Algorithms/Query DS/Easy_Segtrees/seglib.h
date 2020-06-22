@@ -1,41 +1,34 @@
+//Iterative Segment Tree Library
 
-namespace seglib {
+template<class T> struct SEG {
+    const T ID = 0; T comb(T a, T b) { return a + b; } 
 
-    int nxtpw2(int v) {
-        if((bool)v & !(v & (v - 1))) return v; 
-        int x = 1; while(x < v) x<<=1; return x; 
+    int n; vector<T> seg; 
+
+    void init(int n0) { n = n0; seg.assign(2 * n, ID); }    
+    template<typename it, typename = typename enable_if<is_iterator<it>::value>::type> 
+    void init(it bg, it nd) { init(distance(bg, nd)); move(bg, nd, begin(seg) + n); build(); }
+
+    void build() { int i = n - 1; do { pull(i); } while(--i); }
+
+    inline int lc(int p) { return 2 * p; }
+    inline int rc(int p) { return lc(p) + 1; }
+    void pull(int p) { seg[p] = comb(seg[lc(p)], seg[rc(p)]); }
+
+    void upd(int p, T v) {
+        seg[p += n] = v; 
+        for(p /= 2; p; p /= 2) pull(p);
     }
-    
-    template<class T> struct SEG {
-        const T ID = 0; T comb(T a, T b) { return a + b; } 
-
-        int n; vector<T> seg; 
-
-        void init(int n0) { n = n0; seg.assign(2 * n, ID); }    
-        template<typename it, typename = typename enable_if<is_iterator<it>::value>::type> 
-        void init(it bg, it nd) { init(distance(bg, nd)); move(bg, nd, begin(seg) + n); build(); }
-
-        void build() { int i = n - 1; do { pull(i); } while(--i); }
-
-        inline int lc(int p) { return 2 * p; }
-        inline int rc(int p) { return lc(p) + 1; }
-        void pull(int p) { seg[p] = comb(seg[lc(p)], seg[rc(p)]); }
-
-        void upd(int p, T v) {
-            seg[p += n] = v; 
-            for(p /= 2; p; p /= 2) pull(p);
+    T qry(int l, int r) {
+        T ra = ID, rb = ID; 
+        for(l += n, r += n + 1; l < r; l /= 2, r /= 2) {
+            if(l & 1) ra = comb(ra, seg[l++]); 
+            if(r & 1) rb = comb(seg[--r], rb);
         }
-        T qry(int l, int r) {
-            T ra = ID, rb = ID; 
-            for(l += n, r += n + 1; l < r; l /= 2, r /= 2) {
-                if(l & 1) ra = comb(ra, seg[l++]); 
-                if(r & 1) rb = comb(seg[--r], rb);
-            }
-            return comb(ra, rb); 
-        }
-    };
+        return comb(ra, rb); 
+    }
+};
     
-}
 
 
 
