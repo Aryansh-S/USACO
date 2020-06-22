@@ -152,7 +152,7 @@ namespace aryansh {
 		#define gcd(a,b) \
 			((!(a) || !(b)) ? (max(abs(a),abs(b))) : (__gcd((ll)(a),(ll)(b))))
 		#define lcm(a,b) \
-			((!(a) || !(b)) ? 0 : ((a)*(b))/gcd((ll)(a),(ll)(b)))
+			((!(a) || !(b)) ? 0 : ((a)*(b))/gcd((a),(b)))
 		
 		ld binpow(ld a, ld b) { //log, prefer to std::pow
 			ld res = 1;
