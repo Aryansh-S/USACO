@@ -154,10 +154,10 @@ namespace aryansh {
 		#define lcm(a,b) \
 			((!(a) || !(b)) ? 0 : ((a)*(b))/gcd((a),(b)))
 		
-		ld binpow(ld a, ld b) { //log, prefer to std::pow
-			ld res = 1;
-			while(b) res *= b - floor(b / 2) * 2 ? a : 1, a *= a, b = floor(b / 2);
-			return res;
+		ll binpow(ll a, ll b) {
+				ll res = 1;
+				while(b) res *= b & 1 ? a : 1; a *= a, b >>= 1;
+				return res;
 		}
 		
 		struct mi { //modular int -- with ll for best results
