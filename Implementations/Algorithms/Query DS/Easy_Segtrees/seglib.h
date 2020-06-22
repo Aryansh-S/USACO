@@ -7,7 +7,7 @@ namespace seglib {
     }
     
     template<class T> struct SEG {
-        const T ID = 0; T comb(T a, T b) { return a + b; } //associative queries 
+        const T ID = 0; T comb(T a, T b) { return a + b; } 
 
         int n; vector<T> seg; 
 
