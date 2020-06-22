@@ -4,15 +4,16 @@ using namespace std;
 template<class T> struct node {
   node *left, *right; int l, r; T val; 
   
-  const T ID = 0x3f3f3f3f; 
-  T comb(T a, T b) { return min(a,b); }
-  
   node(int a, int b) {
     l = a, r = b; 
     if(l == r) return; 
     int m = (l + r) / 2; 
     left = new seg(l, m), right = new seg(m + 1, r); 
   }
+  
+  const T ID = 0x3f3f3f3f; 
+  T comb(T a, T b) { return min(a,b); }
+ 
   void upd(int x, T v) {
     if(x < l || x > r) return; 
     if(l == r) { val = v; return; }
