@@ -156,7 +156,7 @@ namespace aryansh {
 		
 		ll binpow(ll a, ll b) {
 				ll res = 1;
-				while(b) res *= b & 1 ? a : 1; a *= a, b >>= 1;
+				while(b) res *= b & 1 ? a : 1, a *= a, b >>= 1;
 				return res;
 		}
 		
