@@ -155,8 +155,9 @@ namespace aryansh {
 			((!(a) || !(b)) ? 0 : ((a)*(b))/gcd((ll)(a),(ll)(b)))
 		
 		ld binpow(ld a, ld b) { //log, prefer to std::pow
-			ld res = 1, be = b / 2, bf = b - be * 2, af = a * a; 
-			while(be--) res *= af; if(bf) res *= a; return res; 
+			ld res = 1;
+			while(b) res *= b - floor(b / 2) * 2 ? a : 1, a *= a, b = floor(b / 2);
+			return res;
 		}
 		
 		struct mi { //modular int -- with ll for best results
