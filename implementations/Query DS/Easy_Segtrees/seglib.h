@@ -66,35 +66,35 @@ template<class T> struct RSEG {
 //Iterative Lazy Segment Tree (Generalized)
 
 struct LSEG {
-    using R = array<int, 2>; 
-        // Range type -- begin, end indices
-    using L = int; 
-        // Lazy type -- type you want to update with 
-    using Q = int; 		
-        // Query type -- type you want to query for
+	using R = array<int, 2>; 
+		// Range type -- begin, end indices
+	using L = int; 
+		// Lazy type -- type you want to update with 
+	using Q = int; 		
+		// Query type -- type you want to query for
 
 	L lop(const L &lazy, const R &r0, const L &x, const R &r1) {
 		return lazy + x;
 	} 
-        // how does a lazy operation in range r1 "add" with one in range r0? r1 always contains r0
+		// how does a lazy operation in range r1 "add" with one in range r0? r1 always contains r0
 
 	Q qop(const Q &lval, const R &r0, const Q &rval, const R &r1) {
 		return lval + rval; 
 	} 
-        // what is the query operation between lval and rval? always r0[1] == r1[0]
+		// what is the query operation between lval and rval? always r0[1] == r1[0]
 
 	Q aop(const Q &val, const R &r0, const L &x, const R &r1) {
 		return val + x * (r0[1]-r0[0]); 
 	} 
-        // how does the lazy operation apply over a range? r1 always contains r0
+		// how does the lazy operation apply over a range? r1 always contains r0
 
 	const pair<L, Q> id = {0, 0}; 
-        //ids of lazy and query types
+		//ids of lazy and query types
 
 	Q init(const int &p) { return 0; } 
-        //how to initialize all queries 
+		//how to initialize all queries 
 
-    vector<int> roots; int n, h;
+	vector<int> roots; int n, h;
 	vector<R> range; vector<L> lazy; vector<Q> val;
 
 	template<typename it, typename = typename enable_if<is_iterator<it>::value>::type> 
@@ -109,12 +109,12 @@ struct LSEG {
 		build(0, n);
 	}
 
-    inline int lc(int p) { return 2 * p; }
-    inline int rc(int p) { return lc(p) + 1; }
+	inline int lc(int p) { return 2 * p; }
+	inline int rc(int p) { return lc(p) + 1; }
 
 	void init_roots() {
 		vector<int> roots_r;
-		for(auto l = n, r = 2 * n; l < r; l /= 2, r /= 2){
+		for(auto l = n, r = 2 * n; l < r; l /= 2, r /= 2) {
 			if(l & 1) roots.push_back(l++);
 			if(r & 1) roots_r.push_back(--r);
 		}
@@ -181,7 +181,7 @@ struct LSEG {
 		Q resl = id.second, resr = id.second;
 		R l_range{l, l}, r_range{r, r};
 		for(l += n, r += n + 1; l < r; l /= 2, r /= 2) {
-			if(l & 1) resl = qop(resl, l_range, val[l], range[l]), l_range[1] = range[l][1], ++ l;
+			if(l & 1) resl = qop(resl, l_range, val[l], range[l]), l_range[1] = range[l][1], ++l;
 			if(r & 1) --r, resr = qop(val[r], range[r], resr, r_range), r_range[0] = range[r][0];
 		}
 		return qop(resl, l_range, resr, r_range);
