@@ -154,12 +154,6 @@ namespace aryansh {
 		#define lcm(a,b) \
 			((!(a) || !(b)) ? 0 : ((a)*(b))/gcd((a),(b)))
 		
-		ll binpow(ll a, ll b) {
-				ll res = 1;
-				while(b) res *= b & 1 ? a : 1, a *= a, b >>= 1;
-				return res;
-		}
-		
 		struct mi { //modular int -- with ll for best results
 			typedef decay<decltype(MOD)>::type T; T val; 
 			explicit operator T() const { return val; }
