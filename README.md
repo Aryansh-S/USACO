@@ -83,27 +83,6 @@ using namespace __gnu_pbds;
 - Unfortunately, most versions of clang do not support pb_ds as of late, which is why I always recommend gcc for compilation. However, repl.it has recently moved to a better version of clang that does provide support for pb_ds, so it's still a great online compiler.
 - Read more on the details in the "Compilation" section below.
 
-## Template (\& A First on Structs) 
-
-My template for CP is "CPtemplate.cpp" along with algorithms from "algos.cpp" as useful. 
-- The former is far more organized than the latter (by way of namespaces), but as I move things around in the latter, I will try to group things into namespaces there too.
-
-You can find the latest version of my contest programming template (ongoing modification) in "algos.cpp"; please credit before any use in-contest. More specifically, I have coded and put together some nifty structs for various algorithms and problem types; these continue to be updated. Structs I design are meant to be some of the most efficient possible implementations of algorithms, as they are tested for large cases and efficiency. 
-
-There are macros specifically used during contest programming (regarding runtime and random number generation) that I do not add to the algorithm template but rather include in "CPtemplate.cpp".
-
-It is important to note that the purpose of a struct is not to black-box concepts (especially since you will not learn the underlying algorithms by doing this) but rather to have a set of ready-made implementations for the sake of contests in which there may not be ample time to implement algorithms from scratch. Again, this is not to black-box: even in a contest setting, you may have to modify parts of various structs to fit the problem structure. 
-
-Please ensure that you have an in-depth understanding of the concepts involved before using structs! Structs are convenient but never a replacement (and more so a supplement) for a strong algorithmic foundation. If possible, I encourage you to create your own structs so that you are exposed to the algorithm and its implementation as much as possible (this will also make life easier insofar as debugging is concerned). 
-
-The general idea as far as contests go is to have "CPtemplate.cpp" written out in every file in advance for convenience and then reference anything in "algos.cpp" as necessary. 
-
-Of course, the key is to have a good idea of what you can and cannot code in a contest setting. You should obviously not create a struct for everything (an extreme example is making a struct for a fundamental process like DFS/BFS: both of them can be simply implemented anyway -- just use a recursion or stack/queue).
-
-Specifics:
-- For shortest path, use Dijkstra when possible. If some edges are negative, use SPFA (significantly faster than Bellman-Ford, even replacing it in the template). You can multisource them if sources change within the problem. Use Floyd-Warshall only when it seems palatable to solve the problem in cubic time (not often). 
-- If sorting is truly the bottleneck for an algorithm (rare), use the radix sort function rsort(). Most of the time, std::sort will suffice, of course. 
-
 ## Floating Precision
 
 Sometimes, USACO and other contest platforms are picky about this and ask for an unrounded answer to a certain number of significant digits at the end; thankfully, this is now rare as far as USACO is concerned (distance is modified to square distance and such). The general resolution is to use either double or long double along with the following line of code in C++ at the head of the main() function (change the 2 to however many significant digits you need):
@@ -111,17 +90,6 @@ Sometimes, USACO and other contest platforms are picky about this and ask for an
 ```cpp
 cout.precision(2); cout.setf(ios::fixed,ios::floatfield); 
 ```
-
-## Macros (typedef, define)
-
-Macros exist to shorten coding time (among various other things). As such, coding time should never be a bottleneck in-contest: write macros that work for you. If you do not work well with macros, do not use them! They are always an option, not a requirement.
-
-A good thing to remember is that you should only use macros in contest programming. In other applications of programming -- the general workplace is a good example -- macros can be irritating (they can make your code look cryptic to people other than you), especially during collaborations, and should thus be used sparingly (if at all).  
-
-## Language
-What to code in
-
-Although Python is considered to be a simple language, it is often too slow for the sake of competitive programming; some problems may become unsolvable as such. Therefore, I recommend you use either Java or C++. I prefer C++ because it is less verbose and allows for macros, with a rich STL providing numerous data structures and functions. 
 
 ## Compilation
 How to run the code you write
