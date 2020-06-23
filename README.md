@@ -157,12 +157,6 @@ In general, by way of notation, define the time complexity ![O(f(n_1, n_2, \dots
 
 USACO allows roughly ![10^8](https://render.githubusercontent.com/render/math?math=10%5E8) operations per three second. This means that roughly a third of ![10^8](https://render.githubusercontent.com/render/math?math=10%5E8) is the upper bound on the number of operations your implementation should execute. The exact upper bound is determined by what exactly constitutes an "operation." 
 
-Below is helpful information in the context of contest programming (credit~CP3): 
-
-![](https://github.com/Aryansh-S/USACO/blob/master/misc/src/Screen%20Shot%202020-04-16%20at%204.10.43%20PM.png)
-![](https://github.com/Aryansh-S/USACO/blob/master/misc/src/Screen%20Shot%202020-04-16%20at%204.11.02%20PM.png)
-![](https://github.com/Aryansh-S/USACO/blob/master/misc/src/Screen%20Shot%202020-04-16%20at%204.11.23%20PM.png)
-
 ## Space/Memory Complexity
 
 Not much to say here, but as far as USACO is concerned, your limit is 256MB unless otherwise noted. This means "2.46 e+8" bytes as an absolute upper bound, meaning that your memory usage should certainly be less. Here is a handy table to check what kinds of arrays you might be able to declare in terms of size. You can multiply the size in bytes of a single datatype by the number of datatypes in the overall array (essentially its size):
