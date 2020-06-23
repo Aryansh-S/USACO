@@ -1,4 +1,4 @@
-//My General Algo Implementations 
+//My General Algo Implementations (Unorganized, Possibly Outdated)
 
 namespace graph_type {
   struct DSU { //from 0 to n-1
