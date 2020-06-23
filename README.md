@@ -17,7 +17,7 @@ Competitive Programming Resources &amp; Implementations (C++ Based)
 
 [USACO guide](http://darrenyao.com/)
 
-### Other Resources
+## Other Resources
 
 - Competitive Programmer's Handbook (a good place to start)
 
