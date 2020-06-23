@@ -52,7 +52,7 @@ template<class T> struct RSEG {
 
     T qry(int p) {
       T res = ID; 
-      for (p += n; p; p /= 2) res = comb(res,seg[p]); 
+      for (p += n; p; p /= 2) res = comb(res, seg[p]); 
       return res;
     }
     void upd(int l, int r, T v) { 
