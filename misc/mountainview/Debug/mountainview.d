@@ -1,1 +1,0 @@
-mountainview.o: ../mountainview.cpp

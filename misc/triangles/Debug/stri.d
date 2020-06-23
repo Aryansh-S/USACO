@@ -1,1 +1,0 @@
-stri.o: ../stri.cpp

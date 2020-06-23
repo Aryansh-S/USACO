@@ -1,1 +1,0 @@
-multimoo.o: ../multimoo.cpp

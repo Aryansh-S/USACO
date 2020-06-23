@@ -1,1 +1,0 @@
-sort.o: ../sort.cpp

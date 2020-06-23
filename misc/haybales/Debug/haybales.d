@@ -1,1 +1,0 @@
-haybales.o: ../haybales.cpp

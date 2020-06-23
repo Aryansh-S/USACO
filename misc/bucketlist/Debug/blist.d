@@ -1,1 +1,0 @@
-blist.o: ../blist.cpp

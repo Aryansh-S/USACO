@@ -1,1 +1,0 @@
-template.o: ../template.cpp

@@ -1,1 +1,0 @@
-mixmilk.o: ../mixmilk.cpp

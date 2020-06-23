@@ -1,1 +1,0 @@
-haircut.o: ../haircut.cpp

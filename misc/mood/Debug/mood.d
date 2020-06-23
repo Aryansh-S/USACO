@@ -1,1 +1,0 @@
-mood.o: ../mood.cpp

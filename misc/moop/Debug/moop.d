@@ -1,1 +1,0 @@
-moop.o: ../moop.cpp

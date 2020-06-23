@@ -1,1 +1,0 @@
-rmq.o: ../rmq.cpp

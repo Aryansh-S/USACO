@@ -1,1 +1,0 @@
-rangesumqueries.o: ../rangesumqueries.cpp

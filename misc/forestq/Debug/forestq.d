@@ -1,1 +1,0 @@
-forestq.o: ../forestq.cpp

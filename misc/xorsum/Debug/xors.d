@@ -1,1 +1,0 @@
-xors.o: ../xors.cpp

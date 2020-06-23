@@ -1,1 +1,0 @@
-angry.o: ../angry.cpp

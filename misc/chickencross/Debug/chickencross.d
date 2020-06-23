@@ -1,1 +1,0 @@
-chickencross.o: ../chickencross.cpp

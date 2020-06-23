@@ -1,1 +1,0 @@
-inversions.o: ../inversions.cpp

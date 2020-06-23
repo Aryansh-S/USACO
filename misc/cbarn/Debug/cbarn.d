@@ -1,1 +1,0 @@
-cbarn.o: ../cbarn.cpp
