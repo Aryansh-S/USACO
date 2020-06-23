@@ -11,13 +11,11 @@ Competitive Programming Resources &amp; Implementations (C++ Based)
 
 - [Simple, Generic Segment Tree Implementations](https://github.com/Aryansh-S/USACO/tree/master/Implementations/Query%20DS/Easy_Segtrees)
 
-- [My Codeforces Blog](https://codeforces.com/blog/Aryansh_S)
-
 ## Books \& Handouts
 
-At this point in time, there is an ongoing DP handout I am creating. When done, it is expected to serve as a great reference without prerequisites. [Here](https://www.overleaf.com/read/vgdvpkrhjdbb)
+[DP Handout (WIP)](https://www.overleaf.com/read/vgdvpkrhjdbb)
 
-[Darren Yao's USACO guide](http://darrenyao.com/) is well-crafted
+[USACO guide](http://darrenyao.com/)
 
 ### Other Resources
 
@@ -42,62 +40,6 @@ At this point in time, there is an ongoing DP handout I am creating. When done, 
 - Go further: http://www.csc.kth.se/~jsannemo/slask/main.pdf
 
 - Problems by topic and difficulty: https://codeforces.com/blog/entry/55274
-
-### All of STL in One Include
-If you want to 
-```cpp 
-#include <bits/stdc++.h>
-``` 
-but your compiler does not allow you to do so, simply go to the file "stdc++.h" and
-follow the unofficial directions at the top (there is a myth that this reduces performance, but do not buy that). 
-
-### Fast I/O
-
-Contest programming requires fast input/output, so put the line
-```cpp
-cin.tie(0)->sync_with_stdio(0);
-```
-at the beginning of the main function of all of your submissions. This unties cin from cout and unsyncs the I/O stream. Effectively, cin/cout will be as fast as scanf/printf. Do not use scanf/printf if you choose to include this line!
-
-### File I/O
-
-Many contest programming platforms still require file I/O. This can be easily achieved by the lines
-```cpp
-freopen("file.in", "r", stdin);
-freopen("file.out", "w", stdout); 
-```
-in the main function, if names are adjusted accordingly. 
-
-### Policy Based Data Structures
-GNU GCC/G++ provides its own policy-based data structures, such as hash tables and ordered statistics trees. Check the template for more on specific documentation, but you can include the following lines at the top of your program: 
-```cpp
-#include <ext/pb_ds/assoc_container.hpp> 
-#include <ext/pb_ds/tree_policy.hpp> 
-using namespace __gnu_pbds;  
-```
-- Unfortunately, most versions of clang do not support pb_ds as of late, which is why I always recommend gcc for compilation. However, repl.it has recently moved to a better version of clang that does provide support for pb_ds, so it's still a great online compiler.
-- Read more on the details in the "Compilation" section below.
-
-## Floating Precision
-
-Sometimes, USACO and other contest platforms are picky about this and ask for an unrounded answer to a certain number of significant digits at the end; thankfully, this is now rare as far as USACO is concerned (distance is modified to square distance and such). The general resolution is to use either double or long double along with the following line of code in C++ at the head of the main() function (change the 2 to however many significant digits you need):
-
-```cpp
-cout.precision(2); cout.setf(ios::fixed,ios::floatfield); 
-```
-
-## Compilation
-How to run the code you write
-
-Compilation is one of the hardest parts of the initial programming setup. There are many ways to do this. For Mac, many users opt for Xcode's Clang LLVM in conjunction with an IDE like Eclipse CDT. But there are numerous problems with this. 
-
-For one, Clang LLVM runs fairly inefficiently compared to other compilers. In fact, Xcode even tricks you into thinking you are using GCC/G++ for compilation but compiles internally with Clang. If that is not enough, Clang also has very limited C++ support: it does not support initializer lists, it bombards the user with C++11 usage warnings, does not support policy-based data structures or emplace operations, and has some deprecations -- do not use it. 
-
-What to use instead? I recommend that, instead of going for Xcode's compiler settings, you use Homebrew. Downloading Homebrew is very easy for Mac, whereafter you simply type "brew install gcc" to get the latest version of GCC/G++ as a compiler. Then, it will likely be installed under a file path like "/usr/local/bin/g++-9." Finally, install Atom or an elegant text edior of your choice and download a C++ execution plugin, specifying the path to this compiler. Using Atom has the additional benefit of creating keyboard shortcuts -- I use cmd+shift+r to run my code, for instance. 
-
-You do not need an IDE. Atom really does do the trick. As a plus, you can choose color themes to suit your style. Extensibility with Atom is amazing: you can use it on Windows and Linux as well, as long as you install GCC/G++ in a known path. 
-
-Or go the repl.it route because it supports a better version of clang that does not run into these issues!
 
 ## Topics
 What to learn for each division
