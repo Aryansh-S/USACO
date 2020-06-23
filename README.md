@@ -20,7 +20,6 @@ At this point in time, there is an ongoing DP handout I am creating. When done, 
 [Darren Yao's USACO guide](http://darrenyao.com/) is well-crafted
 
 ### Other Resources
-I discourage the training gate offered by USACO, as it is outdated and problem quality is not the best as of now, but if you are willing to get past that, it does cover algorithms necessary.  
 
 - Competitive Programmer's Handbook (a good place to start)
 
@@ -43,10 +42,6 @@ I discourage the training gate offered by USACO, as it is outdated and problem q
 - Go further: http://www.csc.kth.se/~jsannemo/slask/main.pdf
 
 - Problems by topic and difficulty: https://codeforces.com/blog/entry/55274
-
-## Description 
-
-This repository is a compilation of resources and implementations for contest programming -- algorithms and past problems for USACO. The "src" folder just contains source files and images that are integrated elsewhere; you can ignore it. 
 
 ### All of STL in One Include
 If you want to 
@@ -152,15 +147,6 @@ Try the following.
 - Debugging: add print statements (use what(x) in the template or some variant), watch out for segmentation faults (accessing out of bounds memory or too much memory), literally rewrite code as a last resort
 
 - Stay organized and do not panic
-
-## Maximize
-How to get the most of what you have
-
-- Do not forgo partial credit offered in test cases -- it can make all the difference to qualify. Feel free to use the system clock to opt into a different process before you are going to time out so that you can process those cases separately (with something close to a solution based on some manipulation -- modular residues, etc.) -- at worst, this changes a TLE to a WA, but at best, this changes a TLE to the correct answer. 
-
-- Try heuristics and pruning to amortize. It is best to have provable heuristics, but at the end of the day, you should try what you think might intuitively work. If you have a really good idea that something works, it is often better to just go for it than to try to prove it. I still recommend you to prove your heuristic approaches after the contest is over (with no time limit and no limitation on reference resources by way of in-contest integrity): this can lead to rich algorithmic insights!
-
-- Of course, optimize your processing with stacks, queues, and priority queues to amortize when you can (see the USACO problems "cereal", "dishwashing", and "steeplechase ii" for good examples of this). See if you can reuse previous answers with dynamic programming. 
 
 ## Time Complexity
 Design Efficient Algorithms 
