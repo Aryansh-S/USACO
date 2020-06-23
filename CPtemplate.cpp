@@ -140,19 +140,11 @@ namespace aryansh {
 	using namespace const_macros;
 	
 	namespace math_macros {
-		#define max(a,b) \
-			(((a) > (b)) ? (a) : (b))
-		#define min(a,b) \
-			(((a) < (b)) ? (a) : (b))
-		#define ckmin(a,b) \
-			(((a) > (b)) ? ((a) = (b), (1)) : (0))
-		#define ckmax(a,b) \
-			(((a) < (b)) ? ((a) = (b), (1)) : (0))
+		template<class T, class U> bool ckmin(T& a, U b) { return a > b ? a = b, 1 : 0; } 
+		template<class T, class U> bool ckmax(T& a, U b) { return a < b ? a = b, 1 : 0; } 
 		
-		#define gcd(a,b) \
-			((!(a) || !(b)) ? (max(abs(a),abs(b))) : (__gcd((ll)(a),(ll)(b))))
-		#define lcm(a,b) \
-			((!(a) || !(b)) ? 0 : ((a)*(b))/gcd((a),(b)))
+		ll gcd(ll a, ll b) { return (a == 0 || b == 0) ? max(abs(a), abs(b)) : __gcd(a, b); }
+		ll lcm(ll a, ll b) { return (a == 0 || b == 0) ? 0 : a * b / gcd(a, b); }
 		
 		struct mi { //modular int -- with ll for best results
 			typedef decay<decltype(MOD)>::type T; T val; 
