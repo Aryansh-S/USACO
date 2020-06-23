@@ -84,7 +84,7 @@ struct LSEG {
 		// what is the query operation between lval and rval? always r0[1] == r1[0]
 
 	Q aop(const Q &val, const R &r0, const L &x, const R &r1) {
-		return val + x * (r0[1]-r0[0]); 
+		return val + x * (r0[1] - r0[0]); 
 	} 
 		// how does the lazy operation apply over a range? r1 always contains r0
 
@@ -188,9 +188,12 @@ struct LSEG {
 		}
 		return qop(resl, l_range, resr, r_range);
 	}
+	/*
 	void print() {
 		for(int u = 0; u < 2 * n; ++u){
-			//cout << u << "-th node represents [" << range[u][0] << ", " << range[u][1] << "], val = " << val[u] << ", lazy = " << lazy[u] << "\n";
+			cout << u << "-th node represents [" << range[u][0] << ", " << range[u][1] 
+			<< "], val = " << val[u] << ", lazy = " << lazy[u] << "\n";
 		}
 	}
+	*/
 };
