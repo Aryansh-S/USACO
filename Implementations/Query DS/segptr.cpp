@@ -1,6 +1,8 @@
 #include <bits/stdc++.h>
 using namespace std; 
 
+//slow but intuitive 
+
 template<class T> struct node {
   node *left, *right; int l, r; T val; 
   
