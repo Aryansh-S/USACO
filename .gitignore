@@ -1,3 +1,13 @@
+
+# Ignore all
+*
+
+# Unignore all with extensions
+!*.*
+
+# Unignore all dirs
+!*/
+
 *.yml
 
 # Compiled source #
@@ -70,12 +80,3 @@ Thumbs.db
 
 # no dueling
 duel 
-
-# Ignore all
-*
-
-# Unignore all with extensions
-!*.*
-
-# Unignore all dirs
-!*/
