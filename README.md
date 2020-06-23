@@ -1,18 +1,7 @@
 # USACO
 Competitive Programming Resources &amp; Implementations (C++ Based)
-```cpp
-#include <bits/stdc++.h>
-using namespace std;
 
-int main() {
-  cin.tie(0)->sync_with_stdio(0);
-  if(fopen("test.in", "r")) freopen("test.in", "r", stdin), freopen("test.out", "w", stdout);
-  
-  cout << "hello, world!\n";
-}
-```
-
-## Quick Resources
+## Quick Find
 
 - [An Organized Contest Programming Template (C++)](https://github.com/Aryansh-S/USACO/blob/master/CPtemplate.cpp)
 
