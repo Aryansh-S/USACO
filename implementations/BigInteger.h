@@ -116,8 +116,8 @@ struct bigint {
     bigint abs() const {bigint res = *this; res.sign *= res.sign; return res;}
     long long longValue() const 
     {long long res = 0; for (int i = a.size() - 1; i >= 0; i--) res = res * base + a[i]; return res * sign;}
-    friend bigint gcd(const bigint &a, const bigint &b) {return b.isZero() ? a : gcd(b, a % b);}
-    friend bigint lcm(const bigint &a, const bigint &b) {return a / gcd(a, b) * b;}
+    friend bigint __gcd(const bigint &a, const bigint &b) {return b.isZero() ? a : __gcd(b, a % b);}
+    friend bigint __lcm(const bigint &a, const bigint &b) {return a / __gcd(a, b) * b;}
     friend bigint pow(const bigint &a, const bigint &b) { //binary exponentiation 
         bigint ans = 1, t = a * a, bf = b - b / 2 * 2;   
         for(bigint i = 0; i < b / 2; i+= 1) ans *= t; 
