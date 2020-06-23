@@ -298,7 +298,7 @@ template<class T> struct SEG {
     }
 };
 
-int n,m; vi v; SEG<ll> s; 
+int n,m; vi v; SEG<int> s; 
 
 int ans(int nd, int r) { //binary search on leftmost node >= r
   if(nd >= s.n) return nd-s.n;
