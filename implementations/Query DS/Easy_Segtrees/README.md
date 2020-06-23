@@ -4,6 +4,7 @@ Iterative segment trees
 - short, simple, and efficient compared to recursive
 - "demonstrationals" folder helps visualize precise node allocation
 - imperfect binary trees become multiple binary trees; we have a family and don't require a perfect power of 2
+- working generalized lazy propagation now added!
 
 **But using a power of 2 for binary search, ordered statistics, etc. is highly recommended because it is easier to keep track of individual levels (guarantees a single tree, not a family)**
 - using the iterative version with a perfect power of 2 happens to be much cleaner than having to deal with the recursive version at any rate
@@ -11,11 +12,6 @@ Iterative segment trees
 ## Description
 Easy segment trees for general use 
 - "seglib.h"
-
-### Todo
-- simple lazy prop
-  - range assignment 
-  - range operation
 
 ## Memory
 
