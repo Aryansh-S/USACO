@@ -150,11 +150,12 @@ struct LSEG {
 	}
 
 	void upd(int l, int r, L x) {
+    		++r; //for the sake of inclusivity on right bound
 		if(l >= r) return;
 		const R update_range{l, r};
 		push(l, l + 1), push(r - 1, r);
 		bool cl = 0, cr = 0;
-		for(l += n, r += n + 1; l < r; l /= 2, r /= 2) {
+		for(l += n, r += n; l < r; l /= 2, r /= 2) {
 			if(cl) refresh(l - 1);
 			if(cr) refresh(r);
 			if(l & 1) {
@@ -176,11 +177,12 @@ struct LSEG {
 		}
 	}
 	Q qry(int l, int r) {
+    		++r; //for the sake of inclusivity on right bound
 		push(l, l + 1);
 		push(r - 1, r);
 		Q resl = id.second, resr = id.second;
 		R l_range{l, l}, r_range{r, r};
-		for(l += n, r += n + 1; l < r; l /= 2, r /= 2) {
+		for(l += n, r += n; l < r; l /= 2, r /= 2) {
 			if(l & 1) resl = qop(resl, l_range, val[l], range[l]), l_range[1] = range[l][1], ++l;
 			if(r & 1) --r, resr = qop(val[r], range[r], resr, r_range), r_range[0] = range[r][0];
 		}
