@@ -7,9 +7,9 @@ Competitive Programming Resources &amp; Implementations (C++ Based)
 
 - [Extensive Algorithm Library](https://github.com/Aryansh-S/USACO/blob/master/Algos.h)
 
-- [Simple, Generic Fenwick Tree Implementations](https://github.com/Aryansh-S/USACO/tree/master/Implementations/Query%20DS/Easy_Fenwick) 
+- [Simple, Generic Fenwick Tree Implementations](https://github.com/Aryansh-S/USACO/tree/master/implementations/Query%20DS/Easy_Fenwick) 
 
-- [Simple, Generic Segment Tree Implementations](https://github.com/Aryansh-S/USACO/tree/master/Implementations/Query%20DS/Easy_Segtrees)
+- [Simple, Generic Segment Tree Implementations](https://github.com/Aryansh-S/USACO/tree/master/implementations/Query%20DS/Easy_Segtrees)
 
 ## Books \& Handouts
 
