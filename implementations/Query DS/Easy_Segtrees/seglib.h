@@ -68,7 +68,8 @@ template<class T> struct RSEG {
     }
 };
 
-//Iterative Lazy Segment Tree (Generalized), Currently Set for Sum Queries, Addition Updates
+//Iterative Lazy Segment Tree (Generalized)
+	//adjust accordingly, currently set for addition updates, sum queries
 
 struct LSEG {
 	using R = array<int, 2>; 
