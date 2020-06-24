@@ -55,6 +55,7 @@ template<class T> struct SEG {
         }
         return comb(ra, rb); 
     }
+	#undef DYNAMIC
 };
 
 //Reverse Iterative Segment Tree (Commutative Operations) 
