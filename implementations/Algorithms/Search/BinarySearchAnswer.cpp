@@ -9,16 +9,10 @@ bool works(int m){
 }
 
 int main(){
-  int lo = 0; int hi = N;
-  int ans = 0;
+  int lo = 0, hi = N, ans = 0;
   while(lo <= hi){
     int mid = lo+(hi-lo)/2;
-    if(works(mid)){
-      ans = mid;
-      hi = mid-1;
-    }
-    else{
-      lo = mid+1;
-    }
-  } return 0;
+    if(works(mid)) ans = mid, hi = mid-1;
+    else lo = mid+1;
+  } 
 }
