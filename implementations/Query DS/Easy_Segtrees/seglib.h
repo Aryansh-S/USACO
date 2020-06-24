@@ -2,8 +2,10 @@
 
 //Iterative Segment Tree 
 
-template<class T> struct SEG { #define DYNAMIC 
-    const T ID = 0; T comb(T a, T b) { return a + b; } 
+template<class T> struct SEG { 
+    //#define DYNAMIC 
+	const T ID = 0; T comb(T a, T b) { return a + b; }
+	
     
     int n; 
     
@@ -56,7 +58,8 @@ template<class T> struct SEG { #define DYNAMIC
 
 //Reverse Iterative Segment Tree (Commutative Operations) 
 
-template<class T> struct RSEG { //#define DYNAMIC
+template<class T> struct RSEG { 
+	//#define DYNAMIC
     const T ID = 1; T comb(T a, T b) { return a * b; } 
 
     int n; 
