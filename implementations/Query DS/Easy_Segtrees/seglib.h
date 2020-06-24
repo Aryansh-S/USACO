@@ -106,14 +106,14 @@ struct LSEG {
 		//this is equivalent of seg, last n are leaves
 
 	template<typename it, typename = typename enable_if<is_iterator<it>::value>::type> 
-	LSEG(it bg, it nd): n(distance(bg, nd)), h(__lg(n) + 1), range(n << 1), lazy(n << 1, id.first), val(n, id.second) {
+	LSEG(it bg, it nd): n(distance(bg, nd)), h(__lg(n) + 1), range(2 * n), lazy(2 * n, id.first), val(n, id.second) {
 		init_range();
 		val.insert(end(val), bg, nd);
 		build(0, n);
 	}
-	LSEG(int n): n(n), h(__lg(n) + 1), range(n << 1), lazy(n << 1, id.first), val(n << 1) {
+	LSEG(int n): n(n), h(__lg(n) + 1), range(2 * n), lazy(2 * n, id.first), val(2 * n) {
 		init_range();
-		for(int i = n; i < n << 1; ++i) val[i] = init(i - n);
+		for(int i = n; i < 2 * n; ++i) val[i] = init(i - n);
 		build(0, n);
 	}
 
