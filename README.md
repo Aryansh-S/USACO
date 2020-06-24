@@ -5,7 +5,7 @@ Competitive Programming Resources &amp; Implementations (C++ Based)
 
 - [Programming Template (C++)](https://github.com/Aryansh-S/USACO/blob/master/CPtemplate.cpp)
 
-- [Useful Algorithms]()
+- [Useful Algorithms & Data Structures](https://github.com/Aryansh-S/USACO/tree/master/algo%20%26%20ds)
 
 ## Books \& Handouts
 
