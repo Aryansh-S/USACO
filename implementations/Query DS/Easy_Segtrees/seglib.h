@@ -4,7 +4,7 @@
 
 template<class T> struct SEG { 
     const T ID = 0; T comb(T a, T b) { return a + b; }
-	//#define DYNAMIC
+    //#define DYNAMIC
     
     int n; 
     
@@ -59,7 +59,7 @@ template<class T> struct SEG {
 
 template<class T> struct RSEG { 
     const T ID = 1; T comb(T a, T b) { return a * b; } 
-	//#define DYNAMIC
+    //#define DYNAMIC
 
     int n; 
 
