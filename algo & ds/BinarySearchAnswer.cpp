@@ -9,10 +9,10 @@ bool works(int m){
 }
 
 
-#ifdef increasing //from not works to works as var increases (want min val that works in lo...hi)
+#ifdef increasing 
 
 int main() {
-  int lo = 0, hi = N - 1, ans = lo;
+  int lo = 0, hi = N - 1, ans = -1; //want min val works in lo...hi
   while(lo <= hi) {
     int mid = lo + (hi - lo) / 2;
     if(works(mid)) ans = mid, hi = mid - 1;
@@ -22,13 +22,13 @@ int main() {
 
 #endif
 
-#ifdef decreasing //from works to not works as var increases (want max val that works in lo...hi)
+#ifdef decreasing 
 
 int main() {
-    int lo = 0, hi = N - 1, ans = hi; 
+    int lo = 0, hi = N - 1, ans = -1; //want max val works in lo...hi
     while(lo <= hi) {
         int mid = lo + (hi - lo) / 2; 
-        if(works(mid)) ans = mid, lo = mid + 1
+        if(works(mid)) ans = mid, lo = mid + 1;
         else hi = mid - 1; 
     }
 }
