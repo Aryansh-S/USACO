@@ -1,7 +1,7 @@
 // * Use n as a power of 2 for perfect single binary tree, otherwise family of trees
 // * If dynamic, replace array with policy hashmap, checking to see if indices exist before building them 
-	//int get(int x) { return table.find(x) == end(table) ? 0 : table[x]; }
-	//saves memory
+	// int get(int x) { return table.find(x) == end(table) ? 0 : table[x]; }
+	// * saves memory
 
 //Iterative Segment Tree 
 
