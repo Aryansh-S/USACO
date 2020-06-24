@@ -101,7 +101,9 @@ struct LSEG {
 		//how to initialize all queries 
 
 	vector<int> roots; int n, h;
-	vector<R> range; vector<L> lazy; vector<Q> val;
+	vector<R> range; vector<L> lazy; 
+	vector<Q> val; 
+		//this is equivalent of seg, last n are leaves
 
 	template<typename it, typename = typename enable_if<is_iterator<it>::value>::type> 
 	LSEG(it bg, it nd): n(distance(bg, nd)), h(__lg(n) + 1), range(n << 1), lazy(n << 1, id.first), val(n, id.second) {
