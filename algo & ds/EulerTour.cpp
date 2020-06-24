@@ -12,7 +12,7 @@ template<int SZ> struct Euler{ //tree euler tour
 		int idx=0; dfs(rt,idx);
 	}
 	vi query(){return tour;}
-		vector<pii> edges(){
+	vector<pii> edges(){
 		vector<pii> ret; 
 		F0R(i,2*SZ-2) ret.pb(mp(tour[i],tour[i+1]));
 		return ret;
