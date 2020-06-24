@@ -43,7 +43,6 @@ template<class T> struct SEG {
     void upd(int p, T v) {
         seg[p += n] = v; 
         for(p /= 2; p; p /= 2) pull(p);
-		
     }
     T qry(int l, int r) {
         T ra = ID, rb = ID; 
