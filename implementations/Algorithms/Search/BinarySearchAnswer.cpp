@@ -11,8 +11,11 @@ bool works(int m){
 int main(){
   int lo = 0, hi = N, ans = 0;
   while(lo <= hi){
-    int mid = lo+(hi-lo)/2;
-    if(works(mid)) ans = mid, hi = mid-1;
-    else lo = mid+1;
+    int mid = lo + (hi - lo) / 2;
+    if(works(mid)) ans = mid, hi = mid - 1;
+    else lo = mid + 1;
   } 
 }
+
+
+//footnote: (hi + low) can overflow, so do hi + (hi - lo) / 2 instead of (hi + lo) / 2
