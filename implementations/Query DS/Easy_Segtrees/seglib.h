@@ -1,4 +1,5 @@
 // * Use n as a power of 2 for perfect single binary tree, otherwise family of trees
+// * Get is_iterator and hmap from template
 
 //Iterative Segment Tree 
 
