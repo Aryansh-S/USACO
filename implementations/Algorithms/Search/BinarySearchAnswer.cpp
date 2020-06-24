@@ -4,6 +4,8 @@ using namespace std;
 
 bool works(int m){
  //check if works
+ //make this an inequality that can be true over a search space monotonically instead of a flat equation 
+ //otherwise won't work
 }
 
 int main(){
