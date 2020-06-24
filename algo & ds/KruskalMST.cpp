@@ -22,8 +22,8 @@ template<class T, int SZ> struct Krus{ //also get DSU
     vector<pair<T,pii> > getMST(){return MST;}
 };
 
+/*
 Krus<int,100> k;
-
 int main(){
     k.add(1,2,1);
     k.add(2,3,2);
@@ -33,3 +33,4 @@ int main(){
     cout << k.sum() << "\n";
     return 0;
 }
+*/
