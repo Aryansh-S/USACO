@@ -1,5 +1,3 @@
-#include <bits/stdc++.h>
-using namespace std;
 
 template<class T> struct operation { //for qry & upd
     const T ID = 0; 
@@ -47,6 +45,7 @@ template<class T, int SZ> struct LBIT {
     T qry(int x, int y) { return op.inv_comb(sum(y),sum(x-1)); }
 }; 
 
+/*
 LBIT<int, 3> b; 
 
 int main() {
@@ -54,3 +53,4 @@ int main() {
     b.upd(1,1,5);
     assert(b.qry(1,2)==27);
 }
+*/
