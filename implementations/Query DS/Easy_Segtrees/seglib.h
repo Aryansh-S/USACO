@@ -1,7 +1,4 @@
 // * Use n as a power of 2 for perfect single binary tree, otherwise family of trees
-// * If dynamic, replace array with policy hashmap, checking to see if indices exist before building them 
-	// int get(int x) { return table.find(x) == end(table) ? 0 : table[x]; }
-	// * saves memory significantly
 
 //Iterative Segment Tree 
 
@@ -61,35 +58,59 @@ template<class T> struct SEG {
 
 template<class T> struct RSEG { 
     const T ID = 1; T comb(T a, T b) { return a * b; } 
+    //#define DYNAMIC
 
-    int n; vector<T> seg;
+    int n; 
 
-    void init(int n0) { n = n0; seg.assign(2 * n, ID); } 
-    template<typename it, typename = typename enable_if<is_iterator<it>::value>::type> 
-    void init(it bg, it nd) {init(distance(bg, nd)); move(bg, nd, begin(seg) + n); build();}
+    #ifndef DYNAMIC
+        vector<T> seg;
+    #else
+        hmap<ll, T> seg; 
+    #endif
+
+    T get(int p) {
+        #ifndef DYNAMIC
+            return seg[p]; 
+        #else
+            return seg.find(p) == end(seg) ? ID : seg[p];
+        #endif
+    }
+
+    void init(int n0) {
+        n = n0; 
+        #ifndef DYNAMIC
+            seg.assign(2 * n, ID); 
+        #endif
+    }
+
+    #ifndef DYNAMIC
+        template<typename it, typename = typename enable_if<is_iterator<it>::value>::type> 
+        void init(it bg, it nd) {init(distance(bg, nd)); move(bg, nd, begin(seg) + n); build();}
+    #endif
 
     void build() { for(int i = 1; i < n; ++i) pull(i); }
 
     inline int lc(int p) { return 2 * p; }
     inline int rc(int p) { return lc(p) + 1; }
     void pull(int p) { 
-        seg[lc(p)] = comb(seg[lc(p)], seg[p]), 
-        seg[rc(p)] = comb(seg[rc(p)], seg[p]), 
+        seg[lc(p)] = comb(get(lc(p)), get(p)), 
+        seg[rc(p)] = comb(get(rc(p)), get(p)), 
         seg[p] = ID; 
     }
 
     T qry(int p) {
       T res = ID; 
-      for (p += n; p; p /= 2) res = comb(res, seg[p]); 
+      for (p += n; p; p /= 2) res = comb(res, get(p)); 
       return res;
     }
     void upd(int l, int r, T v) { 
       for (l += n, r += n + 1; l < r; l /= 2, r /= 2) {
-        if (l & 1) seg[l] = comb(seg[l], v), ++l;
-        if (r & 1) seg[r - 1] = comb(seg[r - 1], v), --r;
+        if (l & 1) seg[l] = comb(get(l), v), ++l;
+        if (r & 1) seg[r - 1] = comb(get(r - 1), v), --r;
       } 
     }
 };
+
 
 //Iterative Lazy Segment Tree (Generalized)
 	//adjust accordingly, currently set for addition updates, sum queries
