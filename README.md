@@ -3,13 +3,9 @@ Competitive Programming Resources &amp; Implementations (C++ Based)
 
 ## Quick Find
 
-- [An Organized Contest Programming Template (C++)](https://github.com/Aryansh-S/USACO/blob/master/CPtemplate.cpp)
+- [Programming Template (C++)](https://github.com/Aryansh-S/USACO/blob/master/CPtemplate.cpp)
 
-- [Extensive Algorithm Library](https://github.com/Aryansh-S/USACO/blob/master/Algos.h)
-
-- [Simple, Generic Fenwick Tree Implementations](https://github.com/Aryansh-S/USACO/tree/master/implementations/Query%20DS/Easy_Fenwick) 
-
-- [Simple, Generic Segment Tree Implementations](https://github.com/Aryansh-S/USACO/tree/master/implementations/Query%20DS/Easy_Segtrees)
+- [Useful Algorithms]()
 
 ## Books \& Handouts
 
