@@ -1,3 +1,4 @@
+
 struct DSU { //from 0 to n-1
     vi e; void init(int n) { e = vi(n,-1); }
     bool cycfind; 
