@@ -5,20 +5,43 @@
 
 //Iterative Segment Tree 
 
-template<class T> struct SEG {
+template<class T> struct SEG { 
     const T ID = 0; T comb(T a, T b) { return a + b; } 
+    //#define DYNAMIC 
 
-    int n; vector<T> seg; 
+    int n; 
+    
+    #ifndef DYNAMIC
+        vector<T> seg;
+    #else
+        hmap<ll, T> seg; 
+    #endif
 
-    void init(int n0) { n = n0; seg.assign(2 * n, ID); }    
-    template<typename it, typename = typename enable_if<is_iterator<it>::value>::type> 
-    void init(it bg, it nd) { init(distance(bg, nd)); move(bg, nd, begin(seg) + n); build(); }
+    T get(int p) {
+        #ifndef DYNAMIC
+            return seg[p]; 
+        #else
+            return seg.find(p) == end(seg) ? ID : seg[p];
+        #endif
+    }
+
+    void init(int n0) { 
+        n = n0; 
+        #ifndef DYNAMIC
+            seg.assign(2 * n, ID); 
+        #endif
+    }
+
+    #ifndef DYNAMIC    
+	    template<typename it, typename = typename enable_if<is_iterator<it>::value>::type> 
+	    void init(it bg, it nd) { init(distance(bg, nd)); move(bg, nd, begin(seg) + n); build(); }
+    #endif
 
     void build() { int i = n - 1; do pull(i); while(--i); }
 
     inline int lc(int p) { return 2 * p; }
     inline int rc(int p) { return lc(p) + 1; }
-    void pull(int p) { seg[p] = comb(seg[lc(p)], seg[rc(p)]); }
+    void pull(int p) { seg[p] = comb(get(lc(p)), get(rc(p))); }
 
     void upd(int p, T v) {
         seg[p += n] = v; 
@@ -27,8 +50,8 @@ template<class T> struct SEG {
     T qry(int l, int r) {
         T ra = ID, rb = ID; 
         for(l += n, r += n + 1; l < r; l /= 2, r /= 2) {
-            if(l & 1) ra = comb(ra, seg[l++]); 
-            if(r & 1) rb = comb(seg[--r], rb);
+            if(l & 1) ra = comb(ra, get(l++)); 
+            if(r & 1) rb = comb(get(--r), rb);
         }
         return comb(ra, rb); 
     }
