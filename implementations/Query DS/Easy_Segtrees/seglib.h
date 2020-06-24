@@ -174,7 +174,7 @@ struct LSEG {
 		roots.insert(end(roots), begin(roots_r), end(roots_r));
 	}
 	void init_range() {
-		for(int i = n; i < n << 1; ++i) range[i] = {i - n, i - n + 1};
+		for(int i = n; i < 2 * n; ++i) range[i] = {i - n, i - n + 1};
 		for(int i = n - 1; i > 0; --i) range[i] = {range[lc(i)][0], range[rc(i)][1]};
 	}
 
