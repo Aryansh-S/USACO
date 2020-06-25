@@ -107,7 +107,7 @@ namespace aryansh {
 			//first el in [left_it,right_it) > val
 				//set::lb/ub, not std::lb/ub
 		
-		template<class T, typename fnc> T bsearch(T l, T r, fnc works, bool tp, T inval = -1) { 
+		template<class T, typename fnc> T bsearch(T l, T r, fnc&& works, bool tp, T inval = -1) { 
 			//search works() in [l,r], where works() is an inequality bool >= or <= 
 			//tp = 0 for find min, tp = 1 for find max
 			//returns inval if invalid
