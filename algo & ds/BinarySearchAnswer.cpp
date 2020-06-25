@@ -5,7 +5,6 @@ using namespace std;
 template<class T, typename lamb> T bs(T l, T r, lamb works, bool tp) { 
     //search works() in [l,r], where works() is an inequality bool >= or <= 
     //tp = 0 for find min, tp = 1 for find max
-    //returns inval if invalid
     
     T lo = l, hi = r, ans = tp ? r : l;
     while(lo <= hi) {
