@@ -95,7 +95,8 @@ namespace aryansh {
 		#define f first
 		#define s second
 		
-		#define sq(x) (x)*(x)
+		template<class T> inline T sq(T a) { return a * a; }
+		template<class T> inline T sqdist(pair<T,T> a, pair<T,T> b) { return sq(a.f - b.f) + sq(a.s - b.s); }
 		
 		#define empt(x) (x).empty()
 		#define sz(x) (empt(x) ? 0 : (int)(x).size())
@@ -216,7 +217,7 @@ namespace aryansh {
 		inline void in(it bg, it nd) 
 			{while(distance(bg,nd)) in(*bg), ++bg;}
 		
-		inline void out(){NL;}
+		inline void out() { cout << "\b\b"; NL; }
 		template<typename T, typename = typename enable_if<is_streamable<T>::value>::type> 
 		inline void out_(T var1)
 			{cout << var1 << " ";}
