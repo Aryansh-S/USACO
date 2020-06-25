@@ -2,11 +2,7 @@
 using namespace std;
 //level: silver 
 
-template<class T> bool works(T m) { 
-    //write a <= or >= equality to return bool
-}
-
-template<class T> T bs(T l, T r, bool tp, T inval = -1) { 
+template<class T, typename lamb> T bs(T l, T r, bool tp, lamb works, T inval = -1) { 
     //search works() in [l,r]
     //tp = 0 for find min, tp = 1 for find max
     //returns inval if invalid
