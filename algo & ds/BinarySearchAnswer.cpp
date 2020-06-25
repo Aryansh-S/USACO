@@ -12,8 +12,8 @@ int bs(int l, int r, bool tp) {
     int lo = l, hi = r, ans = -1; 
     while(lo <= hi) {
         int mid = lo + (hi - lo) / 2; 
-        if(works(mid)) ans = mid, tp ? hi = mid - 1 : lo = mid + 1; 
-        else tp ? lo = mid + 1 : hi = mid - 1; 
+        if(works(mid)) ans = mid, tp ? lo = mid + 1 : hi = mid - 1;
+        else tp ? hi = mid - 1 : lo = mid + 1; 
     }
     return ans; 
 }
