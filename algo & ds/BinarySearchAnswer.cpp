@@ -18,8 +18,8 @@ template<class T, typename lamb> T bs(T l, T r, bool tp, lamb works, T inval = -
 
 //footnote: (hi + low) can overflow, so do hi + (hi - lo) / 2 instead of (hi + lo) / 2
 
-/*
+
 int main() {
     assert(bs(1, 10, 0, [](int m){return m * m >= 25}) == 5); 
 }
-*/
+
