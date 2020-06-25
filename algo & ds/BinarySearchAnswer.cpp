@@ -3,7 +3,7 @@ using namespace std;
 //level: silver 
 
 template<class T, typename lamb> T bs(T l, T r, bool tp, lamb works, T inval = -1) { 
-    //search works() in [l,r]
+    //search works() in [l,r], where works() is an inequality bool >= or <= 
     //tp = 0 for find min, tp = 1 for find max
     //returns inval if invalid
     
@@ -20,6 +20,6 @@ template<class T, typename lamb> T bs(T l, T r, bool tp, lamb works, T inval = -
 
 /*
 int main() {
-    printf("%d\n", bs(1, 10, 0, [](int m) { return m * m < 25 })); 
+    assert(bs(1, 10, 0, [](int m){return m * m < 25}) == 5); 
 }
 */
