@@ -9,9 +9,9 @@ Competitive Programming Resources &amp; Implementations (C++ Based)
 
 ## Books \& Handouts
 
-[DP Handout (WIP)](https://www.overleaf.com/read/vgdvpkrhjdbb)
+- [DP Handout (WIP)](https://www.overleaf.com/read/vgdvpkrhjdbb)
 
-[USACO guide](http://darrenyao.com/)
+- [USACO guide](http://darrenyao.com/)
 
 ## Other Resources
 
