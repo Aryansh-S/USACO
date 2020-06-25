@@ -2,18 +2,18 @@
 using namespace std;
 //level: silver 
 
-bool works(int m) { 
+template<class T> bool works(T m) { 
     //write a <= or >= equality to return bool
 }
 
-int bs(int l, int r, bool tp, int inval = -1) { 
+template<class T> T bs(T l, T r, bool tp, T inval = -1) { 
     //search works() in [l,r]
     //tp = 0 for find min, tp = 1 for find max
     //returns inval if invalid
     
-    int lo = l, hi = r, ans = tp ? r : l; 
+    auto lo = l, hi = r, ans = tp ? r : l; 
     while(lo <= hi) {
-        int mid = lo + (hi - lo) / 2; 
+        auto mid = lo + (hi - lo) / 2; 
         if(works(mid)) ans = mid, tp ? lo = mid + 1 : hi = mid - 1;
         else tp ? hi = mid - 1 : lo = mid + 1; 
     }
