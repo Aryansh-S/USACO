@@ -324,7 +324,7 @@ template<class T, int SZ> struct Krus{ //also get DSU
 int n; pii cow[1005]; Krus<int, 1005> k; 
 
 int main() {
-	IO("moocast");
+  IO("moocast");
   in(n); in(cow,cow+n); 
   F0R(i,n) F0R(j,n) k.add(i,j,sqdist(cow[i],cow[j])); 
   k.upd(); 
