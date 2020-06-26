@@ -80,3 +80,5 @@ Thumbs.db
 
 # no dueling
 duel 
+
+*.dSYM
