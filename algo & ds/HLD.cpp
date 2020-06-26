@@ -1,3 +1,5 @@
+// generalized heavy-light decomposition
+// get LSEG (iterative lazy segment tree) 
 
 template<class T, const bool VALS_IN_EDGES = 1, typename TREE = LSEG> struct HLD {
   const T ID = 0; T comb(T a, T b) { return a + b; }
@@ -63,3 +65,13 @@ template<class T, const bool VALS_IN_EDGES = 1, typename TREE = LSEG> struct HLD
     return tr.qry(pos[u] + VALS_IN_EDGES, pos[u] + siz[u] + shift);
   }
 };
+
+/*
+LSEG l(3); 
+HLD<int,0> test(0,3,l); //set to values on nodes
+
+int main() {
+  test.add(0,1); test.add(1,2); test.updpath(0,2,10); 
+  assert(test.qrypath(0,2)==30);
+}
+*/
