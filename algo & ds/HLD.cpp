@@ -5,8 +5,7 @@ template<class T, const bool VALS_IN_EDGES = 1, typename TREE = LSEG> struct HLD
   const T ID = 0; T comb(T a, T b) { return a + b; }
   //constructor: root, n, external lazy tree
   
-  int n, root;
-  vector<vector<int>> adj;
+  int n, root; vector<vector<int>> adj;
   vector<int> par, siz, depth, next, pos, rpos;
   TREE &tr; 
   
@@ -50,6 +49,7 @@ template<class T, const bool VALS_IN_EDGES = 1, typename TREE = LSEG> struct HLD
     if(depth[u] > depth[v]) swap(u, v);
     act(pos[u] + VALS_IN_EDGES, pos[v] + 1);
   }
+  
   void updpath(int u, int v, T val){
     processpath(u, v, [this, &val](int l, int r){ tr.upd(l, r + shift, val); });
   }
