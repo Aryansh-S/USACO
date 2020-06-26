@@ -3,7 +3,7 @@
 
 template<class T, const bool VALS_IN_EDGES = 1, typename TREE = LSEG> struct HLD {
   const T ID = 0; T comb(T a, T b) { return a + b; }
-  //n, root, external lazy segment tree
+  //constructor: root, n, external lazy tree
   
   int n, root;
   vector<vector<int>> adj;
