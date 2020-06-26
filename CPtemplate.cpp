@@ -217,17 +217,19 @@ namespace aryansh {
 		inline void in(it bg, it nd) 
 			{while(distance(bg,nd)) in(*bg), ++bg;}
 		
-		inline void out() { cout << "\b\b"; NL; }
 		template<typename T, typename = typename enable_if<is_streamable<T>::value>::type> 
 		inline void out_(T var1)
-			{cout << var1 << " ";}
+			{cout << var1;}
+    		template<typename T, typename = typename enable_if<is_streamable<T>::value>::type> 
+    		inline void out(T var1) 
+      			{cout << var1; NL;}
 		template<typename T1, typename T2> inline void out_(pair<T1,T2> pt)
-			{out_(pt.f); out_(pt.s);}
+			{out_(pt.f); cout << " "; out_(pt.s);}
 		template<typename T, typename...Types> inline void out(T var1, Types...var2)
-			{out_(var1); out(var2...);}   
+			{out_(var1); cout << " "; out(var2...);}   
 		template<typename it, typename = typename enable_if<is_iterator<it>::value>::type> 
 		inline void out(it bg, it nd) 
-			{while(distance(bg,nd)) out_(*bg), ++bg; NL;}
+			{while(distance(bg,nd)) out_(*bg), cout << " ", ++bg; NL;}
 		
 		inline void outln(){}
 		template<typename T, typename = typename enable_if<is_streamable<T>::value>::type> 
