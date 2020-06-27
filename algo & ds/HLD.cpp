@@ -13,7 +13,7 @@ template<int SZ, bool EDGE = 1> struct HLD { //get LSEG; add all edges, then ini
 
   LSEG tree; using T = LSEG::Q;
   const T ID = tree.id.second; 
-  T comb(T a, T b) { return tree.qop(a, {0,0}, b, {0,0}); } //T is query type
+  T comb(T a, T b) { return tree.qop(a, LSEG::R(), b, LSEG::R()); } //T is query type
   HLD() : tree(SZ) {}
   
   void dfsSz(int x) { 
