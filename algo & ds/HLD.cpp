@@ -32,6 +32,7 @@ template<int SZ, bool EDGE = 1> struct HLD { //get LSEG; add all edges, then ini
       dfsHld(y); 
     }
   }
+  
   int lca(int x, int y) {
     for(; root[x] != root[y]; y = par[root[y]])
       if(depth[root[x]] > depth[root[y]]) swap(x,y);
