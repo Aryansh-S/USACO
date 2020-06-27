@@ -1,8 +1,8 @@
 // Newest HLD -- Well-Tested & Generalized
 
 template<int SZ, bool EDGE = 1> struct HLD { //get LSEG; add all edges, then init
-  vector<int> adj[SZ]; 
-  int par[SZ], root[SZ], depth[SZ], siz[SZ], pos[SZ]; vi rpos; //rpos not used, but could be useful
+  vector<int> adj[SZ], rpos; //rpos not used, but could be useful
+  int par[SZ], root[SZ], depth[SZ], siz[SZ], pos[SZ]; 
   int ti;
   
   void add(int x, int y) { adj[x].pb(y), adj[y].pb(x); }
