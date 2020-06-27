@@ -1,7 +1,7 @@
 //Lazy Merge Sort Segment Tree (Multiset Nodes)
-  //Each leaf is a multiset and begins as 0
+  //Each leaf is a multiset (with exactly one element) and begins as 0
   //Range updates modify these leaves
-  //Range queries merge leaves in requested range and return multiset (which can then be binary searched, etc.)
+  //Range queries merge leaves in requested range and return overall multiset union (which can then be binary searched, etc.)
 
 //Good for "existence" queries (i.e., in HLD, querying along path/subtree for existence of node/edge of certain val)
 
