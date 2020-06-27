@@ -1,7 +1,7 @@
 #include <bits/stdc++.h>
 using namespace std; 
 
-//slow but intuitive 
+//slow but intuitive, good for starting out with pointer version of trees
 
 template<class T> struct node {
   node *left, *right; int l, r; T val; 
