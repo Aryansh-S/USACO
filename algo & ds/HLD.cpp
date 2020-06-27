@@ -2,7 +2,7 @@
 //todo: add subtree queries, maybe make arbitrary root
 
 template<class T, bool EDGE = 1> struct HLD { //get LSEG
-  //constructor: provide graph as adj list
+  //constructor: provide graph as adj list, e.g. vector<vector<int>>
   vector<int> parent, heavy, depth, root, treePos; int SZ; 
   
   LSEG tree; //T must be same as qry type
