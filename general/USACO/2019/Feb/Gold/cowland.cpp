@@ -293,7 +293,8 @@ struct LSEG {
 		// what is the query operation between lval and rval? always r0[1] == r1[0]
 
 	Q aop(const Q &val, const R &r0, const L &x, const R &r1) {
-		return x;
+		return (r0[1] - r0[0]) & 1 ? x : 0; 
+		//x^x^x... is 0 for even number, x for odd -- don't technically need, but good for generalization
 	} 
 		// how does the lazy operation apply over a range? r1 always contains r0
 
