@@ -45,7 +45,6 @@ template<class T, bool EDGE = 1> struct HLD { //get LSEG
   void updpath(int u, int v, const T& value) {
     processPath(u, v, [this, &value](int l, int r) { tree.upd(l, r, value); });
   }
-  
   T qrypath(int u, int v) {
     T res = ID; 
     processPath(u, v, [this, &res](int l, int r) { res = comb(res,tree.qry(l, r)); });
