@@ -48,5 +48,4 @@ int main(){
     }
 
     ans(d);
-    return 0;
 }
