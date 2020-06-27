@@ -1,11 +1,11 @@
 // Newest HLD -- Well-Tested & Generalized
 
-template<class T, int SZ, bool EDGE = 1> struct HLD { //get LSEG; add all edges, then init
+template<int SZ, bool EDGE = 1> struct HLD { //get LSEG; add all edges, then init
   vector<vi> adj; 
   vi par, root, depth, siz, pos, rpos; //rpos not used, but could be useful
   int ti;
 
-  LSEG tree; 
+  LSEG tree; using T = tree::Q;  
   const T ID = tree.id.second; 
   T comb(T a, T b) { return tree.qop(a, {0,0}, b, {0,0}); } //T is query type
 
