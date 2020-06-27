@@ -21,19 +21,17 @@ template<class T, bool EDGE = 1> struct HLD { //get LSEG
     }
   }
   
-  template<class G> int dfs(const G& graph, int v) {
+  template<class G> int dfs(const G& adj, int v) {
     int size = 1, maxSubtree = 0;
-    for (int u : graph[v]) if (u != parent[v]) {
+    for (int u : adj[v]) if (u != parent[v]) {
       parent[u] = v;
       depth[u] = depth[v] + 1;
-      int subtree = dfs(graph, u);
+      int subtree = dfs(adj, u);
       if (subtree > maxSubtree) heavy[v] = u, maxSubtree = subtree;
       size += subtree;
     }
     return size;
   }
-  
-  const int shift = 0; 
   
   template<class fnc> void processPath(int u, int v, fnc&& op) {
     for (; root[u] != root[v]; v = parent[root[v]]) {
@@ -41,7 +39,7 @@ template<class T, bool EDGE = 1> struct HLD { //get LSEG
       op(treePos[root[v]], treePos[v] + 1);
     }
     if (depth[u] > depth[v]) swap(u, v);
-    op(treePos[u] + EDGE, treePos[v] + shift);
+    op(treePos[u] + EDGE, treePos[v]);
   }
   
   void updpath(int u, int v, const T& value) {
