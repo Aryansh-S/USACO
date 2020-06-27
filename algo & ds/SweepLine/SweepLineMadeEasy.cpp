@@ -16,7 +16,7 @@ int n, d = INF;
 set<pii, cmps> act;
     //active set sorted by secondary coord comparator 
 
-int main(){
+int main() {
     io();
     cin >> n; getpts(n); 
     
@@ -30,7 +30,7 @@ int main(){
         
         int x = curr.f, y = curr.s; //set up coords
         
-        while(x - pts[l].f >= d) act.ers(pts[l]), l++;
+        while(x - pts[l].f >= d) act.ers(pts[l]), ++l;
             //horizontal narrow threshold: the distance d can be used to delete things not within horizontal vicinity d
             //forward the pointer l accordingly 
         
