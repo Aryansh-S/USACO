@@ -18,11 +18,11 @@ template<int SZ, bool EDGE = 1> struct HLD { //get LSEG; add all edges, then ini
   
   void dfsSz(int x) { 
     siz[x] = 1; 
-    trav(y,adj[x]) {
+    trav(y, adj[x]) {
       par[y] = x; depth[y] = depth[x]+1;
-      adj[y].erase(find(all(adj[y]),x)); // remove parent from adj list
+      adj[y].erase(find(all(adj[y]), x)); // remove parent from adj list
       dfsSz(y); siz[x] += siz[y];
-      if(siz[y] > siz[adj[x][0]]) swap(y,adj[x][0]);
+      if(siz[y] > siz[adj[x][0]]) swap(y, adj[x][0]);
     }
   }
   void dfsHld(int x) {
@@ -38,17 +38,18 @@ template<int SZ, bool EDGE = 1> struct HLD { //get LSEG; add all edges, then ini
     return depth[x] < depth[y] ? x : y;
   }
   int dist(int x, int y) { // # edges on path
-    return depth[x]+depth[y]-2*depth[lca(x,y)]; 
+    return depth[x] + depth[y] - 2 * depth[lca(x,y)]; 
   }
 
   template<typename fnc> void processPath(int x, int y, fnc&& op) {
       for(; root[x] != root[y]; y = par[root[y]]) {
-        if(depth[root[x]] > depth[root[y]]) swap(x,y);
-        op(pos[root[y]],pos[y]); 
+        if(depth[root[x]] > depth[root[y]]) swap(x, y);
+        op(pos[root[y]], pos[y]); 
       }
       if(depth[x] > depth[y]) swap(x,y);
-      op(pos[x]+EDGE,pos[y]); 
+      op(pos[x] + EDGE, pos[y]); 
   }
+  
   void updpath(int x, int y, int v) { 
       processPath(x,y,[this,&v](int l, int r) { 
       tree.upd(l,r,v); }); 
