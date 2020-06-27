@@ -2,8 +2,10 @@
 //todo: add subtree queries, maybe make arbitrary root
 
 template<class T, bool EDGE = 1> struct HLD { //get LSEG
+  //constructor: provide graph as adj list
   vector<int> parent, heavy, depth, root, treePos; int SZ; 
-  LSEG tree; 
+  
+  LSEG tree; //T must be same as qry type
   const T ID = tree.id.second; 
   T comb(T a, T b) { return tree.qop(a, {0,0}, b, {0,0}); } //T is query type
   
