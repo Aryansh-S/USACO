@@ -112,11 +112,7 @@ template<class T> struct RSEG {
     }
 };
 
-//Lazy Segment Trees
-
-#ifndef DYNAMIC_LAZY
-
-//Iterative Lazy Segment Tree (Generalized, Not Dynamic)
+//Iterative Lazy Segment Tree (Generalized)
 	//adjust accordingly, currently set for addition updates, sum queries
 
 struct LSEG {
@@ -253,85 +249,3 @@ struct LSEG {
 	}
 	*/
 };
-
-#else
-
-//Dynamic Lazy Segment Tree (Generalized, Not Iterative)
-
-struct LSEG {
-    using B = int; //base coordinate
-    using R = array<B, 2>; 
-    using L = int; 
-    using Q = array<int, 2>; 
-
-	L lop(const L &lazy, const R &r0, const L &x, const R &r1){ // r1 always contain r0
-		return lazy + x;
-	}
-	Q qop(const Q &lval, const R &r0, const Q &rval, const R &r1){ // always r0[1] == r1[0]
-		return lval[0] == rval[0] ? Q{lval[0], lval[1] + rval[1]} : min(lval, rval);
-	}
-	Q aop(const Q &val, const R &r0, const L &x, const R &r1){ // r1 always contain r0
-		return {min(val[0] + x, numeric_limits<int>::max() / 2), val[1]};
-	}
-
-	const pair<L, Q> id{0, Q{numeric_limits<int>::max() / 2, 0}};
-
-	Q init(const B &l, const B &r){
-		return {0, r - l};
-	}
-
-	LSEG *l = 0, *r = 0;
-	B low, high;
-	L lazy = id.first;
-	Q val;
-	LSEG(B low, B high): low(low), high(high), val(init(low, high)){ }
-	template<typename it, typename = typename enable_if<is_iterator<it>::value>::type> 
-	LSEG(it bg, it nd, B low, B high): low(low), high(high) {
-		assert(nd - bg == high - low);
-		if(high - low > 1){
-			it inter = begin + (nd - bg) / 2;
-			B mid = low + (high - low) / 2;
-			l = new LSEG(begin, inter, low, mid);
-			r = new LSEG(inter, end, mid, high);
-			val = qop(l->val, R{low, mid}, r->val, R{mid, high});
-		}
-		else val = *bg;
-	}
-	void push() {
-		if(!l){
-			B mid = low + (high - low) / 2;
-			l = new LSEG(low, mid);
-			r = new LSEG(mid, high);
-		}
-		if(lazy != id.first){
-			l->upd(low, high, lazy);
-			r->upd(low, high, lazy);
-			lazy = id.first;
-		}
-	}
-	void upd(B ql, B qr, L x) {
-        ++qr; 
-		if(qr <= low || high <= ql) return;
-		if(ql <= low && high <= qr){
-			lazy = lop(lazy, R{low, high}, x, R{ql, qr});
-			val = aop(val, R{low, high}, x, R{ql, qr});
-		}
-		else{
-			push();
-			l->upd(ql, qr, x);
-			r->upd(ql, qr, x);
-			B mid = low + (high - low) / 2;
-			val = qop(l->val, R{low, mid}, r->val, R{mid, high});
-		}
-	}
-	Q qry(B ql, B qr) {
-        ++qr; 
-		if(qr <= low || high <= ql) return id.second;
-		if(ql <= low && high <= qr) return val;
-		push();
-		B mid = (low + (high - low) / 2 < ql) ? ql : (qr < low + (high-low) / 2 ? qr : low + (high-low) / 2);
-		return qop(l->qry(ql, qr), R{max(low, ql), mid}, r->qry(ql, qr), R{mid, min(high, qr)});
-	}
-};
-
-#endif
