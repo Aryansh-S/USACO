@@ -11,7 +11,7 @@ template<class T, bool EDGE = 1> struct HLD { //get LSEG
   
   #define n adj.size()
   
-  template<class G> HLD(const G& adj): SZ(n), parent(n), heavy(n,-1), depth(n), root(n), treePos(n), tree(n) {
+  template<typename G> HLD(const G& adj): SZ(n), parent(n), heavy(n,-1), depth(n), root(n), treePos(n), tree(n) {
     parent[0] = -1; 
     depth[0] = 0;
     dfs(adj, 0);
@@ -23,7 +23,7 @@ template<class T, bool EDGE = 1> struct HLD { //get LSEG
     }
   }
   
-  template<class G> int dfs(const G& adj, int v) {
+  template<typename G> int dfs(const G& adj, int v) {
     int size = 1, maxSubtree = 0;
     for (int u : adj[v]) if (u != parent[v]) {
       parent[u] = v;
@@ -35,7 +35,7 @@ template<class T, bool EDGE = 1> struct HLD { //get LSEG
     return size;
   }
   
-  template<class fnc> void processPath(int u, int v, fnc&& op) {
+  template<typename fnc> void processPath(int u, int v, fnc&& op) {
     for (; root[u] != root[v]; v = parent[root[v]]) {
       if (depth[root[u]] > depth[root[v]]) swap(u, v);
       op(treePos[root[v]], treePos[v] + 1);
