@@ -117,7 +117,7 @@ template<class T> struct RSEG {
 
 struct LSEG {
 	using R = array<int, 2>; 
-		// Range type -- begin, end indices
+		// Range type -- begin, end indices; always the form [begin,end)
 	using L = int; 
 		// Lazy type -- type you want to update with 
 	using Q = int; 		
