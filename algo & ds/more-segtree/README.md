@@ -5,7 +5,7 @@ Iterative segment trees
 - "demonstrationals" folder helps visualize precise node allocation
 - imperfect binary trees become multiple binary trees; we have a family and don't require a perfect power of 2
 - working generalized lazy propagation now added!
-- dynamic cases coded! 
+- dynamic cases coded! this is done by replacing arrays with hashmaps conditionally (gp_hash_table is optimal, with little overhead)
   - for lazy, dynamic is not possible in this iterative fashion unfortunately
 
 **But using a power of 2 for binary search, ordered statistics, etc. is highly recommended because it is easier to keep track of individual levels (guarantees a single tree, not a family)**
