@@ -1,8 +1,8 @@
-//Newest HLD
-//todo: add subtree queries, maybe make arbitrary root
+// Newest HLD (Well-Tested)
+// possible todo: extend to arbitrary root
 
 template<class T, bool EDGE = 1> struct HLD { //get LSEG
-  //constructor: provide graph as adj list, e.g. vector<vector<int>>
+  //constructor: provide graph as adj list
   vector<int> parent, heavy, depth, root, treePos; int SZ; 
   
   LSEG tree; //T must be same as qry type
@@ -47,10 +47,16 @@ template<class T, bool EDGE = 1> struct HLD { //get LSEG
   void updpath(int u, int v, const T& value) {
     processPath(u, v, [this, &value](int l, int r) { tree.upd(l, r, value); });
   }
+  void updsubtree(int u, const T& value) {
+    tree.upd(treePos[u] + EDGE, treePos[u] + heavy[u] + 1, value); 
+  }
   T qrypath(int u, int v) {
     T res = ID; 
     processPath(u, v, [this, &res](int l, int r) { res = comb(res,tree.qry(l, r)); });
     return res;
+  }
+  T qrysubtree(int u) {
+    return tree.qry(treePos[u] + EDGE, treePos[u] + heavy[u] + 1);
   }
   
   #undef n
