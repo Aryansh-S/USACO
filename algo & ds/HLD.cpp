@@ -1,4 +1,4 @@
-// Newest HLD (Well-Tested)
+// Newest HLD -- Well-Tested & Generalized
 
 template<class T, int SZ, bool EDGE = 1> struct HLD { //get LSEG; add all edges, then init
   vector<vi> adj; 
@@ -34,8 +34,8 @@ template<class T, int SZ, bool EDGE = 1> struct HLD { //get LSEG; add all edges,
     }
   }
   int lca(int x, int y) {
-    for (; root[x] != root[y]; y = par[root[y]])
-      if (depth[root[x]] > depth[root[y]]) swap(x,y);
+    for(; root[x] != root[y]; y = par[root[y]])
+      if(depth[root[x]] > depth[root[y]]) swap(x,y);
     return depth[x] < depth[y] ? x : y;
   }
   int dist(int x, int y) { // # edges on path
