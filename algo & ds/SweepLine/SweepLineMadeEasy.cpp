@@ -4,10 +4,10 @@ inline void io() { cin.tie(0)->sync_with_stdio(0); cout.precision(2); cout.setf(
 
 inline void ans(int a){cout << sqrt((double)a) << "\n";}
 
-inline void getpts(int n) { while(n--) { int x,y; cin >> x >> y; pts.pb(mp(x,y)); } }
+inline void getpts(int n) { while(n--) { int x,y; cin >> x >> y; pts.pb(mp(x, y)); } }
     //input pts
 
-struct cmps { bool operator()(pii a, pii b) { return (a.s==b.s)?(a.f<b.f):(a.s<b.s); } };
+struct cmps { bool operator()(pii a, pii b) { return a.s == b.s ? a.f < b.f : a.s < b.s; } };
     //sort by secondary coord
 
 int n, d = INF; 
@@ -20,7 +20,7 @@ int main(){
     io();
     cin >> n; getpts(n); 
     
-    sort(begin(pts),end(pts));
+    sort(begin(pts), end(pts));
         //sort pts by first coord
 
     int l = 0; //left ptr
@@ -34,7 +34,7 @@ int main(){
             //horizontal narrow threshold: the distance d can be used to delete things not within horizontal vicinity d
             //forward the pointer l accordingly 
         
-        auto L = act.lb(mp(x,y-ceil(sqrt(d)))), R=act.ub(mp(x,y+ceil(sqrt(d)))); 
+        auto L = act.lb(mp(x, y - ceil(sqrt(d)))), R=act.ub(mp(x, y + ceil(sqrt(d)))); 
             //vertical narrow threshold: binary search for the lowest and highest points within d of curr (others are meaninglesss to consider)  
         
         it = L;
