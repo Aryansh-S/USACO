@@ -1,22 +1,21 @@
 // Newest HLD -- Well-Tested & Generalized
 
 template<int SZ, bool EDGE = 1> struct HLD { //get LSEG; add all edges, then init
-  vector<vi> adj; 
-  vi par, root, depth, siz, pos, rpos; //rpos not used, but could be useful
+  vector<int> adj[SZ]; 
+  int par[SZ], root[SZ], depth[SZ], siz[SZ], pos[SZ], rpos[SZ]; //rpos not used, but could be useful
   int ti;
-
-  LSEG tree; using T = LSEG::Q;
-  const T ID = tree.id.second; 
-  T comb(T a, T b) { return tree.qop(a, {0,0}, b, {0,0}); } //T is query type
-
+  
   void add(int x, int y) { adj[x].pb(y), adj[y].pb(x); }
   void init(int R = 0) {
     par[R] = depth[R] = ti = 0; dfsSz(R); 
     root[R] = R; dfsHld(R); 
   }
 
-  HLD() : par(SZ), root(SZ), depth(SZ), siz(SZ), pos(SZ), rpos(SZ), adj(SZ), tree(SZ) {}
-
+  LSEG tree; using T = LSEG::Q;
+  const T ID = tree.id.second; 
+  T comb(T a, T b) { return tree.qop(a, {0,0}, b, {0,0}); } //T is query type
+  HLD() : tree(SZ) {}
+  
   void dfsSz(int x) { 
     siz[x] = 1; 
     trav(y,adj[x]) {
