@@ -2,7 +2,7 @@ vector<pii> pts;
 
 inline void io() { cin.tie(0)->sync_with_stdio(0); cout.precision(2); cout.setf(ios::fixed,ios::floatfield); }
 
-inline void ans(int a){cout << sqrt((double)a) << "\n";}
+inline void ans(int a) { cout << sqrt((double)a) << "\n"; }
 
 inline void getpts(int n) { while(n--) { int x,y; cin >> x >> y; pts.pb(mp(x, y)); } }
     //input pts
