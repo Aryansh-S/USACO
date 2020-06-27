@@ -3,6 +3,8 @@
   //Range updates modify these leaves
   //Range queries merge leaves in requested range and return multiset (which can then be binary searched, etc.)
 
+//Good for "existence" queries (i.e., in HLD, querying along path/subtree for existence of node/edge of certain val)
+
 struct LSEG {
 	using R = array<int, 2>; 
 		// Range type -- begin, end indices; always the form [begin,end)
