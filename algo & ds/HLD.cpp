@@ -1,63 +1,64 @@
 // Newest HLD (Well-Tested)
-// possible todo: extend to arbitrary root
 
-template<class T, bool EDGE = 1> struct HLD { //get LSEG
-  //constructor: provide graph as adj list
-  vector<int> parent, heavy, depth, root, treePos; int SZ; 
+template<class T, int SZ, bool EDGE = 1> struct HLD { //add all edges, then init
+	vector<vi> adj; 
+  vi par, root, depth, siz, pos, rpos; //rpos not used, but could be useful
+	int ti;
   
-  LSEG tree; //T must be same as qry type
+  LSEG tree; 
   const T ID = tree.id.second; 
   T comb(T a, T b) { return tree.qop(a, {0,0}, b, {0,0}); } //T is query type
   
-  #define n adj.size()
+	void add(int x, int y) { adj[x].pb(y), adj[y].pb(x); }
+  void init(int R = 0) {
+		par[R] = depth[R] = ti = 0; dfsSz(R); 
+		root[R] = R; dfsHld(R); 
+	}
   
-  template<typename G> HLD(const G& adj): SZ(n), parent(n), heavy(n,-1), depth(n), root(n), treePos(n), tree(n) {
-    parent[0] = -1; 
-    depth[0] = 0;
-    dfs(adj, 0);
-    for (int i = 0, currentPos = 0; i < n; ++i)
-    if (parent[i] == -1 || heavy[parent[i]] != i)
-    for (int j = i; j != -1; j = heavy[j]) {
-      root[j] = i;
-      treePos[j] = currentPos++;
-    }
-  }
+  HLD() : par(SZ), root(SZ), depth(SZ), siz(SZ), pos(SZ), rpos(SZ), adj(SZ), tree(SZ) {}
   
-  template<typename G> int dfs(const G& adj, int v) {
-    int size = 1, maxSubtree = 0;
-    for (int u : adj[v]) if (u != parent[v]) {
-      parent[u] = v;
-      depth[u] = depth[v] + 1;
-      int subtree = dfs(adj, u);
-      if (subtree > maxSubtree) heavy[v] = u, maxSubtree = subtree;
-      size += subtree;
-    }
-    return size;
+	void dfsSz(int x) { 
+		siz[x] = 1; 
+		trav(y,adj[x]) {
+			par[y] = x; depth[y] = depth[x]+1;
+			adj[y].erase(find(all(adj[y]),x)); // remove parent from adj list
+			dfsSz(y); siz[x] += siz[y];
+			if (siz[y] > siz[adj[x][0]]) swap(y,adj[x][0]);
+		}
+	}
+	void dfsHld(int x) {
+		pos[x] = ti++; rpos.pb(x);
+		trav(y,adj[x]) {
+			root[y] = (y == adj[x][0] ? root[x] : y);
+			dfsHld(y); }
+	}
+	int lca(int x, int y) {
+		for (; root[x] != root[y]; y = par[root[y]])
+			if (depth[root[x]] > depth[root[y]]) swap(x,y);
+		return depth[x] < depth[y] ? x : y;
+	}
+	int dist(int x, int y) { // # edges on path
+	   return depth[x]+depth[y]-2*depth[lca(x,y)]; 
   }
-  
-  template<typename fnc> void processPath(int u, int v, fnc&& op) {
-    for (; root[u] != root[v]; v = parent[root[v]]) {
-      if (depth[root[u]] > depth[root[v]]) swap(u, v);
-      op(treePos[root[v]], treePos[v] + 1);
-    }
-    if (depth[u] > depth[v]) swap(u, v);
-    op(treePos[u] + EDGE, treePos[v]);
+
+	template<typename fnc> void processPath(int x, int y, fnc&& op) {
+		for (; root[x] != root[y]; y = par[root[y]]) {
+			if (depth[root[x]] > depth[root[y]]) swap(x,y);
+			op(pos[root[y]],pos[y]); }
+		if (depth[x] > depth[y]) swap(x,y);
+		op(pos[x]+EDGE,pos[y]); 
+	}
+	void updpath(int x, int y, int v) { 
+		processPath(x,y,[this,&v](int l, int r) { 
+			tree.upd(l,r,v); }); }
+	T qrypath(int x, int y) { 
+		T res = ID; processPath(x,y,[this,&res](int l, int r) { 
+			res = comb(res,tree.qry(l,r)); });
+		return res; }
+	void updsubtree(int x, int v) { 
+		tree.upd(pos[x] + EDGE, pos[x] + siz[x] - 1, v); 
   }
-  
-  void updpath(int u, int v, const T& value) {
-    processPath(u, v, [this, &value](int l, int r) { tree.upd(l, r, value); });
+  T qrysubtree(int x) {
+    return tree.qry(pos[x] + EDGE, pos[x] + siz[x] - 1);
   }
-  void updsubtree(int u, const T& value) {
-    tree.upd(treePos[u] + EDGE, treePos[u] + heavy[u] + 1, value); 
-  }
-  T qrypath(int u, int v) {
-    T res = ID; 
-    processPath(u, v, [this, &res](int l, int r) { res = comb(res,tree.qry(l, r)); });
-    return res;
-  }
-  T qrysubtree(int u) {
-    return tree.qry(treePos[u] + EDGE, treePos[u] + heavy[u] + 1);
-  }
-  
-  #undef n
 };
