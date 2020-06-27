@@ -20,7 +20,7 @@ template<int SZ, bool EDGE = 1> struct HLD { //get LSEG; add all edges, then ini
     siz[x] = 1; 
     trav(y, adj[x]) {
       par[y] = x; depth[y] = depth[x]+1;
-      adj[y].erase(find(all(adj[y]), x)); // remove parent from adj list
+      adj[y].erase(find(all(adj[y]), x)); //remove parent from adj list
       dfsSz(y); siz[x] += siz[y];
       if(siz[y] > siz[adj[x][0]]) swap(y, adj[x][0]);
     }
@@ -38,7 +38,7 @@ template<int SZ, bool EDGE = 1> struct HLD { //get LSEG; add all edges, then ini
       if(depth[root[x]] > depth[root[y]]) swap(x,y);
     return depth[x] < depth[y] ? x : y;
   }
-  int dist(int x, int y) { // # edges on path
+  int dist(int x, int y) { //# edges on path
     return depth[x] + depth[y] - 2 * depth[lca(x,y)]; 
   }
 
