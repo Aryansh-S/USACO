@@ -244,6 +244,7 @@ namespace aryansh {
 			{while(distance(bg,nd)) outln(*bg), ++bg;}
 			
 			//functions: out and outln, use all/rsz for containers, use fwd ptr ranges
+			//only works with linear containers
 
 		#define TIME \
 			chrono::duration<ld, milli>(chrono::steady_clock::now()-CLK).count()
