@@ -481,7 +481,7 @@ int n,q; ll e[_];
 HLD<_,0> h;
 
 int main() {
-	IO("cowland");
+  IO("cowland");
   in(n,q); in(e,e+n); 
   F0R(i,n-1) { int a,b; in(a,b),--a,--b; h.add(a,b); }
   h.init(); 
