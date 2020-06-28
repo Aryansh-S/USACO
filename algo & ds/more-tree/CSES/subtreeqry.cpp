@@ -343,7 +343,7 @@ template<int SZ, bool EDGE = 1> struct HLD { //add all edges, then init
   }
     
   #ifndef RANGE_UPD
-    using T = int; 
+    using T = ll;
     SEG<T> tree; 
     const T ID = tree.ID; 
     T comb(T a, T b) { return tree.comb(a, b); }
@@ -416,11 +416,17 @@ template<int SZ, bool EDGE = 1> struct HLD { //add all edges, then init
   }
 };
 
-int n,q; HLD<2*_+5,0> h; 
+int n,q; HLD<2*_+5,0> h; vi v; 
 
 int main() {
   IO("");
-  in(n,q); F0R(i,n) { int x; in(x); h.upd(i,x); }
+  in(n,q); 
+	F0R(i,n) { int x; in(x); v.pb(x); }
+	F0R(i,n-1) {
+		int a,b; in(a,b),--a,--b; h.add(a,b); 
+	}
+	h.init(); 
+	F0R(i,n) h.upd(i,v[i]); 
   while(q--) {
     int t; in(t); 
     if(t == 1) {
