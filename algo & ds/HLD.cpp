@@ -13,6 +13,14 @@ template<int SZ, bool EDGE = 1> struct HLD { //add all edges, then init
     par[R] = depth[R] = ti = 0; dfsSz(R); 
     root[R] = R; dfsHld(R); 
   }
+  
+  #ifndef DYNAMIC
+    template<typename it, typename = typename enable_if<is_iterator<it>::value>::type>
+    void putnodes(it bg, it nd) { //use with node version as convenient
+      tree.init(bg, nd); 
+    }
+  #endif
+    
   #ifndef RANGE_UPD
     using T = int; //use for type if no range, otherwise change type within LSEG
   #endif
