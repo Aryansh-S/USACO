@@ -277,7 +277,7 @@ using namespace aryansh; auto TICK; //for best results, TICK after input taken
 
 template<class T> struct SEG {
     //#define DYNAMIC	
-    const T ID = -INF; T comb(T a, T b) { return min(a,b); }
+    const T ID = -INF; T comb(T a, T b) { return max(a,b); }
     
     int n; 
     
@@ -415,17 +415,15 @@ template<int SZ, bool EDGE = 1> struct HLD { //add all edges, then init
   }
 };
 
-//x 1 0 0
-//c 2 a b
-int n,m; vector<pair<pii,pii>> qr; 
+//[x 1], [[0, 0], i]]
+//[c 2], [[a, b], i]]
+int n,m; vector<pair<pii,pair<pii,int>>> qr; string ans(_+5,'x');
 HLD<_+5,0> h; 
 
 int main() {
-	IO("");
-  
-  out(mp(1,2)); out(mp(2,3)); exit(0); 
-  
-  in(n,m); F0R(i,n) { int x; in(x); qr.eb(mp(x,1),mp(i,0)); }
+	IO("milkvisits");
+  in(n,m); 
+  F0R(i,n) { int x; in(x); qr.eb(mp(x,1),mp(mp(0,0),i)); }
   F0R(i,n-1) {
     int x,y; in(x,y),--x,--y; 
     h.add(x,y); 
@@ -433,16 +431,18 @@ int main() {
   h.init(); 
   F0R(i,m) {
     int a,b,c; in(a,b,c),--a,--b; 
-    qr.eb(mp(c,2),mp(a,b)); 
+    qr.eb(mp(c,2),mp(mp(a,b),i)); 
   }
   sort(all(qr)); 
   trav(q,qr) {
-    if(q.f.s == 1) h.upd(q.s.f,q.f.f);
-    else {
-      //out_(h.qrypath(q.s.f,q.s.s) == q.f.f);
+    if(q.f.s == 1) {
+      h.upd(q.s.s,q.f.f);
     }
-    what(q);
-  } //NL; 
+    else {
+      ans[q.s.s] = h.qrypath(q.s.f.f,q.s.f.s) == q.f.f ? '1' : '0';
+    }
+  } 
+  out(ans.substr(0,m));
 }
 
 // // // // // // // // // // // // // // // // //
