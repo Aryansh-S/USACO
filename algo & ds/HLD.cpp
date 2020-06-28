@@ -1,8 +1,8 @@
 // Newest HLD -- Well-Tested & Generalized
 
-template<int SZ, bool EDGE = 1> struct HLD { //get LSEG; add all edges, then init
+template<int SZ, bool EDGE = 1> struct HLD { //add all edges, then init
   
-  #define RANGE_UPD //range updates? LSEG if defined; otherwise SEG
+  #define RANGE_UPD //range updates? uses LSEG if defined; otherwise SEG
   
   vector<int> adj[SZ], rpos; //rpos not used, but could be useful
   int par[SZ], root[SZ], depth[SZ], siz[SZ], pos[SZ]; 
