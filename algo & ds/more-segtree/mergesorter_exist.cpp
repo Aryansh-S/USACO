@@ -48,8 +48,8 @@ template<class T0> struct SEG { //merge sort tree
       seg[p += n] = (T){v};  
       for(p /= 2; p; p /= 2) pull(p);
     }
-    bool qry(int l, int r, T0 x) { //query for the existence of x in [l,r]
-      bool ret = 0; 
+    T0 qry(int l, int r, T0 x) { //query for the existence of x in [l,r]
+      T0 ret = 0; 
       for(l += n, r += n + 1; l < r; l /= 2, r /= 2) {
           if(l & 1) {
             auto L = get(l++); 
