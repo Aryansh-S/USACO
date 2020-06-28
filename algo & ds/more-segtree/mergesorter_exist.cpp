@@ -5,7 +5,8 @@ template<class T0> struct SEG { //merge sort tree
     using T = vector<T0>; //each node is a vector
     
     //#define DYNAMIC	
-    const T ID = {}; T comb(T a, T b) { T ret; merge(all(a),all(b),back_inserter(ret)); return ret; }
+    const T0 ID = 0; 
+    const T IDv = {}; T comb(T a, T b) { T ret; merge(all(a),all(b),back_inserter(ret)); return ret; }
     
     int n; 
     
@@ -19,14 +20,14 @@ template<class T0> struct SEG { //merge sort tree
         #ifndef DYNAMIC
             return seg[p]; 
         #else
-            return seg.find(p) == end(seg) ? ID : seg[p];
+            return seg.find(p) == end(seg) ? IDv : seg[p];
         #endif
     }
 
     void init(int n0) { 
         n = n0; 
         #ifndef DYNAMIC
-            seg.assign(2 * n, ID); 
+            seg.assign(2 * n, IDv); 
         #endif
     }
 
