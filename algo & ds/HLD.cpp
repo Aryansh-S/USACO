@@ -13,6 +13,9 @@ template<int SZ, bool EDGE = 1> struct HLD { //get LSEG; add all edges, then ini
     par[R] = depth[R] = ti = 0; dfsSz(R); 
     root[R] = R; dfsHld(R); 
   }
+  #ifndef RANGE_UPD
+    using T = int; //use for type if no range, otherwise change type within LSEG
+  #endif
   
   #ifdef RANGE_UPD
     LSEG tree; using T = LSEG::Q;
@@ -20,10 +23,10 @@ template<int SZ, bool EDGE = 1> struct HLD { //get LSEG; add all edges, then ini
     T comb(T a, T b) { return tree.qop(a, LSEG::R(), b, LSEG::R()); } //T is query type
     HLD() : tree(SZ) {}
   #else
-    SEG<int> tree; using T = SEG::T; 
+    SEG<T> tree; 
     const T ID = tree.ID; 
     T comb(T a, T b) { return tree.comb(a, b); }
-    HLD() { tree.init(SZ) }
+    HLD() { tree.init(SZ); }
   #endif
   
   void dfsSz(int x) { 
@@ -68,7 +71,7 @@ template<int SZ, bool EDGE = 1> struct HLD { //get LSEG; add all edges, then ini
     }
   #else
     void upd(int x, int v) { 
-        processPath(x,x,[this,&v](int l, int l) { 
+        processPath(x,x,[this,&v](int l, int r) { 
         tree.upd(l,v); }); 
     }
   #endif
