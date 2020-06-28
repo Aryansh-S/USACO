@@ -421,7 +421,7 @@ int n,m; vector<pair<pii,pair<pii,int>>> qr; string ans(_+5,'x');
 HLD<_+5,0> h; 
 
 int main() {
-	IO("milkvisits");
+  IO("milkvisits");
   in(n,m); 
   F0R(i,n) { int x; in(x); qr.eb(mp(x,1),mp(mp(0,0),i)); }
   F0R(i,n-1) {
