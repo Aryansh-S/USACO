@@ -13,28 +13,18 @@ template<int SZ, bool EDGE = 1> struct HLD { //add all edges, then init
     par[R] = depth[R] = ti = 0; dfsSz(R); 
     root[R] = R; dfsHld(R); 
   }
-  
-  #ifndef DYNAMIC
-    template<typename it, typename = typename enable_if<is_iterator<it>::value>::type>
-    void putnodes(it bg, it nd) { //use with node version as convenient
-      tree.init(bg, nd); //remove HLD() { tree.init(SZ); } etc if using this
-    }
-  #endif
     
   #ifndef RANGE_UPD
-    using T = int; //use for type if no range, otherwise change type within LSEG
-  #endif
-  
-  #ifdef RANGE_UPD
-    LSEG tree; using T = LSEG::Q;
-    const T ID = tree.id.second; 
-    T comb(T a, T b) { return tree.qop(a, LSEG::R(), b, LSEG::R()); } //T is query type
-    HLD() : tree(SZ) {}
-  #else
+    using T = int; 
     SEG<T> tree; 
     const T ID = tree.ID; 
     T comb(T a, T b) { return tree.comb(a, b); }
     HLD() { tree.init(SZ); }
+  #else
+    LSEG tree; using T = LSEG::Q;
+    const T ID = tree.id.second; 
+    T comb(T a, T b) { return tree.qop(a, LSEG::R(), b, LSEG::R()); } //T is query type
+    HLD() : tree(SZ) {}    
   #endif
   
   void dfsSz(int x) { 
