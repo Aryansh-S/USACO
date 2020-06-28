@@ -1,6 +1,9 @@
 // Newest HLD -- Well-Tested & Generalized
 
 template<int SZ, bool EDGE = 1> struct HLD { //get LSEG; add all edges, then init
+  
+  #define RANGE_UPD //range updates? LSEG if defined; otherwise SEG
+  
   vector<int> adj[SZ], rpos; //rpos not used, but could be useful
   int par[SZ], root[SZ], depth[SZ], siz[SZ], pos[SZ]; 
   int ti;
@@ -10,11 +13,18 @@ template<int SZ, bool EDGE = 1> struct HLD { //get LSEG; add all edges, then ini
     par[R] = depth[R] = ti = 0; dfsSz(R); 
     root[R] = R; dfsHld(R); 
   }
-
-  LSEG tree; using T = LSEG::Q;
-  const T ID = tree.id.second; 
-  T comb(T a, T b) { return tree.qop(a, LSEG::R(), b, LSEG::R()); } //T is query type
-  HLD() : tree(SZ) {}
+  
+  #ifdef RANGE_UPD
+    LSEG tree; using T = LSEG::Q;
+    const T ID = tree.id.second; 
+    T comb(T a, T b) { return tree.qop(a, LSEG::R(), b, LSEG::R()); } //T is query type
+    HLD() : tree(SZ) {}
+  #else
+    SEG<int> tree; using T = SEG::T; 
+    const T ID = tree.ID; 
+    T comb(T a, T b) { return tree.comb(a, b); }
+    HLD() { tree.init(SZ) }
+  #endif
   
   void dfsSz(int x) { 
     siz[x] = 1; 
@@ -51,18 +61,27 @@ template<int SZ, bool EDGE = 1> struct HLD { //get LSEG; add all edges, then ini
       op(pos[x] + EDGE, pos[y]); 
   }
   
-  void updpath(int x, int y, int v) { 
-      processPath(x,y,[this,&v](int l, int r) { 
-      tree.upd(l,r,v); }); 
-  }
+  #ifdef RANGE_UPD
+    void updpath(int x, int y, int v) { 
+        processPath(x,y,[this,&v](int l, int r) { 
+        tree.upd(l,r,v); }); 
+    }
+  #else
+    void upd(int x, int v) { 
+        processPath(x,x,[this,&v](int l, int l) { 
+        tree.upd(l,v); }); 
+    }
+  #endif
   T qrypath(int x, int y) { 
       T res = ID; processPath(x,y,[this,&res](int l, int r) { 
       res = comb(res,tree.qry(l,r)); });
       return res; 
   }
-  void updsubtree(int x, int v) { 
-      tree.upd(pos[x] + EDGE, pos[x] + siz[x] - 1, v); 
-  }
+  #ifdef RANGE_UPD
+    void updsubtree(int x, int v) { 
+        tree.upd(pos[x] + EDGE, pos[x] + siz[x] - 1, v); 
+    }
+  #endif
   T qrysubtree(int x) {
       return tree.qry(pos[x] + EDGE, pos[x] + siz[x] - 1);
   }
