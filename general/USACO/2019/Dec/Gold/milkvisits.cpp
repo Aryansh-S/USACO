@@ -415,10 +415,24 @@ template<int SZ, bool EDGE = 1> struct HLD { //add all edges, then init
   }
 };
 
-//[x 1], [[0, 0], i]]
-//[c 2], [[a, b], i]]
-int n,m; vector<pair<pii,pair<pii,int>>> qr; string ans(_+5,'x');
-HLD<_+5,0> h; 
+//Thought Process: HLD on an RMQ segtree offline
+//This is basically asking you to do node existence queries on paths of a tree. 
+//Node existence is not too easy on its own (a merge sort tree would be required for online), 
+//but we do offline processing. 
+//In particular, we can look at a heavy-light decomp on a segment tree that does range max queries. 
+//Then, we process offline so that, for each query asking about a type of milk (a value on a node), 
+//we will have already put all of those nodes on the tree. Since we proceed in a sorted order, 
+//the last node that we put will be the maximum value node as well. This means that the 
+//range maximum query must capture a node of interest if it is on a path.  
+
+//[x 1], [[0, 0], i]] -- queries of type 1 want us to change the ith node to x
+//[c 2], [[a, b], i]] -- queries of type 2 want us to query for value c on the path [a,b]
+//storing them in this kind of structure helps us easily sort to process offline
+int n,m; 
+vector<pair<pii,pair<pii,int>>> qr; //our overall query structure is a pair with first element a pair and second
+//element a pair of pair and int
+string ans(_+5,'x'); //the final answer needs to be a binary string; we will fill this out as we query
+HLD<_+5,0> h; //HLD with values on nodes
 
 int main() {
   IO("milkvisits");
@@ -436,13 +450,14 @@ int main() {
   sort(all(qr)); 
   trav(q,qr) {
     if(q.f.s == 1) {
-      h.upd(q.s.s,q.f.f);
+      h.upd(q.s.s,q.f.f); //we must now update
     }
     else {
-      ans[q.s.s] = h.qrypath(q.s.f.f,q.s.f.s) == q.f.f ? '1' : '0';
+      ans[q.s.s] = h.qrypath(q.s.f.f,q.s.f.s) == q.f.f ? '1' : '0'; 
+      //query max in this offline manner (equivalent to checking existence)
     }
   } 
-  out(ans.substr(0,m));
+  out(ans.substr(0,m)); //only print the relevant part of the answer string
 }
 
 // // // // // // // // // // // // // // // // //
