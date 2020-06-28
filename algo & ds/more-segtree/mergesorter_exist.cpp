@@ -1,5 +1,5 @@
 //Merge Sort Tree for Subarray Existence Queries
-  //Can even be used with HLD for existence queries of a node/edge in a path
+  //Can even be used with HLD for existence queries of a node/edge in a tree path
 
 template<class T0> struct SEG { //merge sort tree
     using T = vector<T0>; //each node is a vector
@@ -7,7 +7,7 @@ template<class T0> struct SEG { //merge sort tree
     //#define DYNAMIC	
     const T0 ID = 0; 
     const T IDv = {}; T combv(T a, T b) { T ret; merge(all(a),all(b),back_inserter(ret)); return ret; }
-    T0 comb(T0 a, T0 B) { return a || b; }
+    T0 comb(T0 a, T0 b) { return a || b; }
 	
     int n; 
     
