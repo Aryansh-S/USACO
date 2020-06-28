@@ -70,7 +70,7 @@ template<int SZ, bool EDGE = 1> struct HLD { //get LSEG; add all edges, then ini
         tree.upd(l,r,v); }); 
     }
   #else
-    void upd(int x, int v) { 
+    void upd(int x, int v) { //update a single node (or just every emanating edge)
         processPath(x,x,[this,&v](int l, int r) { 
         tree.upd(l,v); }); 
     }
