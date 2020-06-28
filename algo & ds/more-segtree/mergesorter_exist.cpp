@@ -42,11 +42,11 @@ template<class T0> struct SEG { //merge sort tree
     
     void pull(int p) { seg[p] = comb(get(lc(p)), get(rc(p))); }
     
-    void upd(int p, T0 v) {
+    void upd(int p, T0 v) { //point update the value at index p to v
       seg[p += n] = (T){v};  
       for(p /= 2; p; p /= 2) pull(p);
     }
-    bool qry(int l, int r, T0 x) { //modified for existence qry
+    bool qry(int l, int r, T0 x) { //query for the existence of x in [l,r]
       bool ret = 0; 
       for(l += n, r += n + 1; l < r; l /= 2, r /= 2) {
           if(l & 1) {
