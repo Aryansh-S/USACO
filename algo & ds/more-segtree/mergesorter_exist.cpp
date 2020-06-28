@@ -6,8 +6,9 @@ template<class T0> struct SEG { //merge sort tree
     
     //#define DYNAMIC	
     const T0 ID = 0; 
-    const T IDv = {}; T comb(T a, T b) { T ret; merge(all(a),all(b),back_inserter(ret)); return ret; }
-    
+    const T IDv = {}; T combv(T a, T b) { T ret; merge(all(a),all(b),back_inserter(ret)); return ret; }
+    T0 comb(T0 a, T0 B) { return a || b; }
+	
     int n; 
     
     #ifndef DYNAMIC
@@ -41,7 +42,7 @@ template<class T0> struct SEG { //merge sort tree
     inline int lc(int p) { return 2 * p; }
     inline int rc(int p) { return lc(p) + 1; }
     
-    void pull(int p) { seg[p] = comb(get(lc(p)), get(rc(p))); }
+    void pull(int p) { seg[p] = combv(get(lc(p)), get(rc(p))); }
     
     void upd(int p, T0 v) { //point update the value at index p to v
       seg[p += n] = (T){v};  
@@ -52,11 +53,11 @@ template<class T0> struct SEG { //merge sort tree
       for(l += n, r += n + 1; l < r; l /= 2, r /= 2) {
           if(l & 1) {
             auto L = get(l++); 
-            ret = ret || binary_search(all(L),x); 
+            ret = comb(ret,binary_search(all(L),x)); 
           }
           if(r & 1) {
             auto R = get(--r); 
-            ret = ret || binary_search(all(R),x);
+            ret = comb(ret,binary_search(all(R),x));
           }
       }
       return ret;
