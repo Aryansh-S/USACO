@@ -17,7 +17,7 @@ template<int SZ, bool EDGE = 1> struct HLD { //add all edges, then init
   #ifndef DYNAMIC
     template<typename it, typename = typename enable_if<is_iterator<it>::value>::type>
     void putnodes(it bg, it nd) { //use with node version as convenient
-      tree.init(bg, nd); 
+      tree.init(bg, nd); //remove HLD() { tree.init(SZ); } etc if using this
     }
   #endif
     
