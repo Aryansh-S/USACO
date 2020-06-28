@@ -217,6 +217,7 @@ namespace aryansh {
 		inline void in(it bg, it nd) 
 			{while(distance(bg,nd)) in(*bg), ++bg;}
 		
+		inline void out(){}
 		template<typename T, typename = typename enable_if<is_streamable<T>::value>::type> 
 		inline void out_(T var1)
 			{cout << var1;}
