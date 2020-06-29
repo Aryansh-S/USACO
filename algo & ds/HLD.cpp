@@ -4,6 +4,8 @@ template<int SZ, bool EDGE = 1> struct HLD { //add all edges, then init
   
   #define RANGE_UPD //range updates? uses LSEG if defined; otherwise SEG
   
+  //#define OTHER_DS //use a DS other than segtree? fenwick,etc.
+  
   vector<int> adj[SZ], rpos; //rpos not used, but could be useful
   int par[SZ], root[SZ], depth[SZ], siz[SZ], pos[SZ]; 
   int ti;
@@ -13,18 +15,25 @@ template<int SZ, bool EDGE = 1> struct HLD { //add all edges, then init
     par[R] = depth[R] = ti = 0; dfsSz(R); 
     root[R] = R; dfsHld(R); 
   }
-    
-  #ifndef RANGE_UPD
+  
+  #ifndef OTHER_DS
+    #ifndef RANGE_UPD
+      using T = int; 
+      SEG<T> tree; 
+      const T ID = tree.ID; 
+      T comb(T a, T b) { return tree.comb(a, b); }
+      HLD() { tree.init(SZ); }
+    #else
+      LSEG tree; using T = LSEG::Q;
+      const T ID = tree.id.second; 
+      T comb(T a, T b) { return tree.qop(a, LSEG::R(), b, LSEG::R()); } //T is query type
+      HLD() : tree(SZ) {}    
+    #endif
+  #else //use other ds like fenwick
     using T = int; 
-    SEG<T> tree; 
-    const T ID = tree.ID; 
-    T comb(T a, T b) { return tree.comb(a, b); }
-    HLD() { tree.init(SZ); }
-  #else
-    LSEG tree; using T = LSEG::Q;
-    const T ID = tree.id.second; 
-    T comb(T a, T b) { return tree.qop(a, LSEG::R(), b, LSEG::R()); } //T is query type
-    HLD() : tree(SZ) {}    
+    BIT<T,SZ> tree; 
+    const T ID = tree.op.ID; 
+    T comb(T a, T b) { return tree.op.comb(a, b); }
   #endif
   
   void dfsSz(int x) { 
