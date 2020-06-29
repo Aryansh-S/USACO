@@ -425,19 +425,18 @@ template<int SZ, bool EDGE = 1> struct HLD { //add all edges, then init
 //the last node that we put will be the maximum value node as well. This means that the 
 //range maximum query must capture a node of interest if it is on a path.  
 
-//[x 1], [[0, 0], i]] -- queries of type 1 want us to change the ith node to x
-//[c 2], [[a, b], i]] -- queries of type 2 want us to query for value c on the path [a,b]
+//[x, 1, 0, 0, i] -- queries of type 1 want us to change the ith node to x
+//[c, 2, a, b, i] -- queries of type 2 want us to query for value c on the path [a,b]
 //storing them in this kind of structure helps us easily sort to process offline
 int n,m; 
-vector<pair<pii,pair<pii,int>>> qr; //our overall query structure is a pair with first element a pair and second
-//element a pair of pair and int
+vector<ar<int,5>> qr; //vector of 5-tuples
 string ans(_+5,'x'); //the final answer needs to be a binary string; we will fill this out as we query
 HLD<_+5,0> h; //HLD with values on nodes
 
 int main() {
   IO("milkvisits");
   in(n,m); 
-  F0R(i,n) { int x; in(x); qr.eb(mp(x,1),mp(mp(0,0),i)); }
+  F0R(i,n) { int x; in(x); qr.pb(ar<int,5>{x,1,0,0,i});; }
   F0R(i,n-1) {
     int x,y; in(x,y),--x,--y; 
     h.add(x,y); 
@@ -445,15 +444,15 @@ int main() {
   h.init(); 
   F0R(i,m) {
     int a,b,c; in(a,b,c),--a,--b; 
-    qr.eb(mp(c,2),mp(mp(a,b),i)); 
+    qr.pb(ar<int,5>{c,2,a,b,i});
   }
   sort(all(qr)); 
   trav(q,qr) {
-    if(q.f.s == 1) {
-      h.upd(q.s.s,q.f.f); //we must now update
+    if(q[1] == 1) {
+      h.upd(q[4],q[0]); //we must now update
     }
     else {
-      ans[q.s.s] = h.qrypath(q.s.f.f,q.s.f.s) == q.f.f ? '1' : '0'; 
+      ans[q[4]] = h.qrypath(q[2],q[3]) == q[0] ? '1' : '0'; 
       //query max in this offline manner (equivalent to checking existence)
     }
   } 
