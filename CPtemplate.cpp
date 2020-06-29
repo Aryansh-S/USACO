@@ -294,4 +294,5 @@ int main() {
 // try amortized, use stack/queue, heuristic    //
 // if using double/ld use PRES(d)               //
 // runtime : 1e7 usually, 2e8 edgy              //
+// careful using ++, etc. for macros like all() //
 // // // // // // // // // // // // // // // // //
