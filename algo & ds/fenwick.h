@@ -57,7 +57,7 @@ template<int SZ> struct MBIT {
 	}
 	int qry(int x, int y) { 
 		int res = 0; 
-        for(; x; x -= x&-x) res += val[x].ook({y,MOD});
+        	for(; x; x -= x&-x) res += val[x].ook({y,MOD});
 		return res;
 	}
 	int qry(int xl, int xr, int yl, int yr) { 
