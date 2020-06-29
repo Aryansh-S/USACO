@@ -46,7 +46,7 @@ template<class T, int SZ> struct LBIT {
 }; 
 
 //merge sort tree BIT
-template<int SZ> struct BITtree { 
+template<int SZ> struct MBIT { 
 	OST<pii> val[SZ]; operation<T> op; 
     
 	void upd(int x, int y, int t = 1) { 
