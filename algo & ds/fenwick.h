@@ -45,26 +45,6 @@ template<class T, int SZ> struct LBIT {
     T qry(int x, int y) { return op.inv_comb(sum(y),sum(x-1)); }
 }; 
 
-//merge sort tree BIT
-template<int SZ> struct MBIT { 
-	OST<pii> val[SZ]; operation<T> op; 
-    
-	void upd(int x, int y, int t = 1) { 
-		for(int X = x; X < SZ; X += X&-X) {
-			if(t == 1) val[X].insert({y,x});
-			else val[X].erase({y,x});
-		}
-	}
-	int qry(int x, int y) { 
-		int res = 0; 
-        	for(; x; x -= x&-x) res += val[x].ook({y,MOD});
-		return res;
-	}
-	int qry(int xl, int xr, int yl, int yr) { 
-		return query(xr, yr) - query(xl-1, yr) - query(xr, yl-1) + query(xl-1, yl-1); 
-    }
-};
-
 /*
 LBIT<int, 3> b; 
 
