@@ -95,7 +95,8 @@ namespace aryansh {
 		#define f first
 		#define s second
 		
-		#define sq(x) (x)*(x)
+		template<class T> inline T sq(T a) { return a * a; }
+		template<class T> inline T sqdist(pair<T,T> a, pair<T,T> b) { return sq(a.f - b.f) + sq(a.s - b.s); }
 		
 		#define empt(x) (x).empty()
 		#define sz(x) (empt(x) ? 0 : (int)(x).size())
@@ -106,6 +107,20 @@ namespace aryansh {
 		#define ub upper_bound 
 			//first el in [left_it,right_it) > val
 				//set::lb/ub, not std::lb/ub
+		
+		template<class T, typename fnc> T bsearch(T l, T r, fnc&& works, T inval = -1, int tp = 3) { 
+			//search works() in [l,r], where works() is an inequality bool >= or <= 
+			//tp = 0 for find min, tp = 1 for find max (inferred unless forced)
+			//returns inval if invalid
+			if(tp != 0 && tp != 1) tp = works(l); //check if forced
+			T lo = l, hi = r, ans = tp ? r : l;
+			while(lo <= hi) {
+				T mid = lo + (hi - lo) / 2; 
+				if(works(mid)) ans = mid, tp ? lo = mid + 1 : hi = mid - 1;
+				else tp ? hi = mid - 1 : lo = mid + 1; 
+			}
+			return works(ans) ? ans : inval; 
+		}
 		
 		#define all(x) begin(x),end(x)
 		#define rall(x) end(x),begin(x)
@@ -202,17 +217,20 @@ namespace aryansh {
 		inline void in(it bg, it nd) 
 			{while(distance(bg,nd)) in(*bg), ++bg;}
 		
-		inline void out(){NL;}
+		inline void out() { NL; }
 		template<typename T, typename = typename enable_if<is_streamable<T>::value>::type> 
 		inline void out_(T var1)
-			{cout << var1 << " ";}
+			{cout << var1;}
+    		template<typename T, typename = typename enable_if<is_streamable<T>::value>::type> 
+    		inline void out(T var1) 
+      			{cout << var1; NL;}
 		template<typename T1, typename T2> inline void out_(pair<T1,T2> pt)
-			{out_(pt.f); out_(pt.s);}
+			{out_(pt.f); cout << " "; out_(pt.s);}
 		template<typename T, typename...Types> inline void out(T var1, Types...var2)
-			{out_(var1); out(var2...);}   
+			{out_(var1); cout << " "; out(var2...);}   
 		template<typename it, typename = typename enable_if<is_iterator<it>::value>::type> 
 		inline void out(it bg, it nd) 
-			{while(distance(bg,nd)) out_(*bg), ++bg; NL;}
+			{while(distance(bg,nd)) out_(*bg), cout << " ", ++bg; NL;}
 		
 		inline void outln(){}
 		template<typename T, typename = typename enable_if<is_streamable<T>::value>::type> 
@@ -227,6 +245,7 @@ namespace aryansh {
 			{while(distance(bg,nd)) outln(*bg), ++bg;}
 			
 			//functions: out and outln, use all/rsz for containers, use fwd ptr ranges
+			//only works with linear containers
 
 		#define TIME \
 			chrono::duration<ld, milli>(chrono::steady_clock::now()-CLK).count()
@@ -257,11 +276,77 @@ using namespace aryansh; auto TICK; //for best results, TICK after input taken
 
 // - - - - - - - - - - - - - - - - - - - - - - - -
 
-int n,q; OSM<int,int> m; 
+template<class T> struct SEG {
+    #define DYNAMIC	
+    const T ID = 0; T comb(T a, T b) { return a + b; }
+    
+    int n; 
+    
+    #ifndef DYNAMIC
+        vector<T> seg;
+    #else
+        hmap<int, T> seg; 
+    #endif
+
+    T get(int p) {
+        #ifndef DYNAMIC
+            return seg[p]; 
+        #else
+            return seg.find(p) == end(seg) ? ID : seg[p];
+        #endif
+    }
+
+    void init(int n0) { 
+        n = n0; 
+        #ifndef DYNAMIC
+            seg.assign(2 * n, ID); 
+        #endif
+    }
+
+    #ifndef DYNAMIC    
+	    template<typename it, typename = typename enable_if<is_iterator<it>::value>::type> 
+	    void init(it bg, it nd) { init(distance(bg, nd)); move(bg, nd, begin(seg) + n); build(); }
+    #endif
+
+    void build() { int i = n - 1; do pull(i); while(--i); }
+
+    inline int lc(int p) { return 2 * p; }
+    inline int rc(int p) { return lc(p) + 1; }
+    void pull(int p) { seg[p] = comb(get(lc(p)), get(rc(p))); }
+
+    void upd(int p, T v) {
+        seg[p += n] = v; 
+        for(p /= 2; p; p /= 2) pull(p);
+    }
+    T qry(int l, int r) {
+        T ra = ID, rb = ID; 
+        for(l += n, r += n + 1; l < r; l /= 2, r /= 2) {
+            if(l & 1) ra = comb(ra, get(l++)); 
+            if(r & 1) rb = comb(get(--r), rb);
+        }
+        return comb(ra, rb); 
+    }
+};
+
+int n,q,sal[_*2+5]; SEG<int> s; 
 
 int main() {
-	IO("");
-  m[1]=2, m[2]=-1; out(m.ook(1)); 
+  IO("");
+	in(n,q); s.init(MOD);
+	F0R(i,n) { in(sal[i]); }
+	F0R(i,n) s.upd(sal[i],1);
+	//
+	out(all(sal)); exit(9);
+	//
+	while(q--) {
+		char t; in(t); 
+		if(t == '!') {
+			int k,x; in(k,x),--k; 
+			s.upd(sal[k],-1),s.upd(x,1);
+			sal[k] = x;
+		}
+		else { int a,b; in(a,b); out(s.qry(a,b)); }
+	}
 }
 
 // // // // // // // // // // // // // // // // //
@@ -276,4 +361,5 @@ int main() {
 // try amortized, use stack/queue, heuristic    //
 // if using double/ld use PRES(d)               //
 // runtime : 1e7 usually, 2e8 edgy              //
+// careful using ++, etc. for macros like all() //
 // // // // // // // // // // // // // // // // //
