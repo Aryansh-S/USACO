@@ -2,6 +2,9 @@
 #include <ext/pb_ds/assoc_container.hpp> //hset, hmap
 using namespace std; using namespace __gnu_pbds; 
 
+//Range Set Data Structure: query for element existence (bool) in ranges
+//Also useful for HLD (see my online milkvisits sol)
+
 template<class T, class U, class chash = hash<T>> using hmap = gp_hash_table<T, U, chash>; 
 
 template<class T> struct rngset { //log n "exist?" queries
