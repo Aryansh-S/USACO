@@ -1,19 +1,19 @@
 # USACO
 Competitive Programming Resources &amp; Implementations (C++ Based)
 
-## Quick Find
+## § Quick Find
 
 - [Programming Template (C++)](https://github.com/Aryansh-S/USACO/blob/master/CPtemplate.cpp)
 
 - [Useful Algorithms & Data Structures](https://github.com/Aryansh-S/USACO/tree/master/algo%20%26%20ds)
 
-## Books \& Handouts
+## § Books \& Handouts
 
 - [DP Handout (WIP)](https://www.overleaf.com/read/vgdvpkrhjdbb)
 
 - [USACO guide](http://darrenyao.com/)
 
-## Other Resources
+## § Other Resources
 
 - Competitive Programmer's Handbook (a good place to start)
 
@@ -37,7 +37,7 @@ Competitive Programming Resources &amp; Implementations (C++ Based)
 
 - Problems by topic and difficulty: https://codeforces.com/blog/entry/55274
 
-## Topics
+## § Topics
 What to learn for each division
 
 Bronze: basic data structures (int, bool, char, string, array, vector), basic if/else logic, syntax, complete search, basic iterative/recursive methods, functions (structs and objects like pairs are sometimes helpful but not necessary)
@@ -57,7 +57,7 @@ Platinum: all of the above, lazy propagation, advanced DP, interactives, computa
 
 These can actually change each year depending on what is tested by problem writers and the type of problem, but these lists should suffice as of late. The general trend is that contests are getting harder. 
 
-## Stuck? 
+## § Stuck? 
 Try the following.
 
 - Analyze bounds and time complexity to reverse-engineer potential algorithms in the problem
@@ -86,7 +86,7 @@ Try the following.
 
 - Stay organized and do not panic
 
-## Time Complexity
+## § Time Complexity
 Design Efficient Algorithms 
 
 Time complexity is usually not much of a worry for bronze, but for silver and beyond, it is critical that algorithms are designed to appropriate time complexities (adhering to the bounds of the various variables in the problem statement). 
@@ -120,6 +120,6 @@ gives 4.
 
 Look into bitsets and sliding window for more memory optimization tricks. 
 
-## Questions/Suggestions
+## § Questions/Suggestions
 
 Email me at sendtoaryansh@gmail.com in the event that you have a detailed question that has not already been addressed here or elsewhere completely. Suggestions are welcome here as well! Otherwise, the above and general resources (Google) should be more than enough. 
