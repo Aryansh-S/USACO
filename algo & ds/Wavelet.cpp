@@ -3,9 +3,10 @@
 template<class T> struct SEG { //wavelet tree segtree
   vector<vector<int>> C; T s;
   //C[u][i] contains number of zeros until position i-1: [0,i)
+  //s is size of "alphabet"
   
   template<typename it, typename = typename<enable_if<is_iterator>::value>::type>
-  SEG(it bg, it nd, T sigma) : C(sigma * 2), s(sigma) { //sigma = max element + 1
+  SEG(it bg, it nd, T maxel) : C((maxel + 1) * 2), s(maxel + 1) { 
     build(bg, nd, 0, s - 1, 1);
   }
   
@@ -22,9 +23,9 @@ template<class T> struct SEG { //wavelet tree segtree
     build(b, p, L, M, u * 2); build(p, e, M+1, U, u * 2+1);
   }
 
-  //count c in positions [0,i]
-  int rank(T c, int i) const {
-    ++i; //internally, interval open on the right: [0, i)
+  //count occurrences of c in positions [0,i]
+  int occur(T c, int i) const {
+    ++i; //internally, [0, i)
     int u = 1, r;
     T L = 0, U = s - 1, M; 
     while (L != U) {
@@ -36,8 +37,8 @@ template<class T> struct SEG { //wavelet tree segtree
     return i;
   }
 
-  //kth smallest element in positions [i,j]; k = 1 gives smallest
-  int quantile(int k, int i, int j) const {
+  //kth smallest element in position [i,j] subarray; k = 1 gives smallest
+  int kth(int k, int i, int j) const {
     ++j; //internally, [i, j)
     int u = 1, ri, rj;
     T L = 0, U = s - 1, M; 
@@ -53,17 +54,17 @@ template<class T> struct SEG { //wavelet tree segtree
   //count number of occurrences of numbers in the range [a, b] present in the sequence in positions [i, j]
   //(i.e. number of points in the specified rectangle)
   mutable T L, U;
-  int range(int i, int j, T a, T b) const {
+  int qry(int i, int j, T a, T b) const {
     if(b < a || j < i) return 0;
     L = a; U = b;
-    return range(i, j + 1, 0, s - 1, 1);
+    return qry(i, j + 1, 0, s - 1, 1);
   }
 
-  int range(int i, int j, T a, T b, int u) const {
+  int qry(int i, int j, T a, T b, int u) const {
     if(b < L || U < a) return 0;
     if(L <= a && b <= U) return j - i;
     T M = a + (b - a) / 2; 
     int ri = C[u][i], rj = C[u][j];
-    return range(ri, rj, a, M, u * 2) + range(i - ri, j - rj, M + 1, b, u * 2 + 1);
+    return qry(ri, rj, a, M, u * 2) + qry(i - ri, j - rj, M + 1, b, u * 2 + 1);
   }
 };
