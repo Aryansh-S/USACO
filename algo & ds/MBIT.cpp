@@ -10,10 +10,10 @@ template<class T, int SZ> struct MBIT { //merge sort bit, 1...SZ-1
 	}
 	int qry(int i, T a) { //up to i, is there a?
 		int res = 0; 
-    for (; i; i -= i&-i) res += val[i].ook({a,MOD});
+	for (; i; i -= i&-i) res += val[i].ook({a,MOD});
 		return res;
 	}
 	int qry(int i, int j, T a, T b) { //in [i,j], how many are in range [a,b]
 		return qry(j,b)-qry(j,a-1)-qry(i-1,b)+qry(i-1,a-1); 
-  }
+	}
 };
