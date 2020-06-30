@@ -67,4 +67,6 @@ template<class T> struct SEG { //wavelet tree segtree
     int ri = C[u][i], rj = C[u][j];
     return qry(ri, rj, a, M, u * 2) + qry(i - ri, j - rj, M + 1, b, u * 2 + 1);
   }
+  
+  void upd(int l, T v) {} //placeholder for HLD use, does nothing
 };
