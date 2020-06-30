@@ -1,3 +1,4 @@
+//See MBIT (fenwickmerge) for Merge Sort Tree Impl w/ Fenwick
 
 template<class T> struct operation { //for qry & upd
     const T ID = 0; 
