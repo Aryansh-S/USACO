@@ -7,7 +7,7 @@ template<class T> struct SEG { //wavelet tree segtree
   
   template<typename it, typename = typename<enable_if<is_iterator>::value>::type>
   SEG(it bg, it nd, T maxel) : C((maxel + 1) * 2), s(maxel + 1) { 
-    build(bg, nd, 0, s - 1, 1);
+    build(bg, nd, 0, s - 1, 1); //maxel = max element val 
   }
   
   template<typename it, typename = typename<enable_if<is_iterator>::value>::type>
