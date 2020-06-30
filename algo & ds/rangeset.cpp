@@ -3,7 +3,7 @@
 using namespace std; using namespace __gnu_pbds; 
 
 //Range Set Data Structure: query for element existence (bool) in ranges
-//Also useful for HLD (see my online milkvisits sol)
+//Also useful for HLD (see my online milkvisits sol for an example)
 
 template<class T, class U, class chash = hash<T>> using hmap = gp_hash_table<T, U, chash>; 
 
