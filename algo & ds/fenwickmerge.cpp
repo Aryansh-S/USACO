@@ -1,4 +1,5 @@
 //Merge Sort Tree, Insertion & Deletion
+//good for existence queries and bound queries on subarrays, tree paths, subtrees, etc.
 
 template<class T, int SZ> struct MBIT { //merge sort bit (zero indexed!)
 	OST<pair<T, int>> val[SZ + 1]; 
