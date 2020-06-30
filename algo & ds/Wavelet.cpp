@@ -5,12 +5,12 @@ template<class T> struct SEG { //wavelet tree segtree
   //C[u][i] contains number of zeros until position i-1: [0,i)
   //s is size of "alphabet"
   
-  template<typename it, typename = typename<enable_if<is_iterator>::value>::type>
+  template<typename it, typename = typename enable_if<is_iterator<it>::value>::type> 
   SEG(it bg, it nd, T maxel) : C((maxel + 1) * 2), s(maxel + 1) { 
     build(bg, nd, 0, s - 1, 1); //maxel = max element val 
   }
   
-  template<typename it, typename = typename<enable_if<is_iterator>::value>::type>
+  template<typename it, typename = typename enable_if<is_iterator<it>::value>::type> 
   void build(it b, it e, T L, T U, int u) {
     if(L == U) return;
     T M = L + (U - L) / 2;
