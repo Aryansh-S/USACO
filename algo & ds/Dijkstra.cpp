@@ -19,9 +19,9 @@ template <class T, int SZ> struct Dijk { //class T is the type of weight being u
       }
     }
   }
-  T query(int v){return dist[v];}
-  T query_(int st, int v){upd(st); return query(v);}
-  vector<pii> path(int st, int v){
+  T qry(int v){return dist[v];}
+  T qry_(int st, int v){upd(st); return qry(v);}
+  vector<pii> path(int v){
     vector<pii> ret; int i=v;
     while(mom[i]!=i){ret.pb(mp(mom[i],i)),i=mom[i];}
     reverse(all(ret)); return ret;
