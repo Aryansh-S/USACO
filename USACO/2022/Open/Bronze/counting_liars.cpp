@@ -18,7 +18,7 @@ int main() {
 		char dir; int loc; 
 		cin >> dir >> loc; 
 		cow.emplace_back(dir, loc);
-		for (int d: {-1, 0, 1}) guess.emplace_back(loc + d);
+		guess.emplace_back(loc);
 	}
 	for (int i: guess) {
 		int tot = 0; 
