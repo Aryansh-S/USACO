@@ -1,7 +1,5 @@
 #include <bits/stdc++.h>
-using namespace std; 
-
-// im being a brick >:(
+using namespace std;
 
 set<int> reading; 
 
@@ -24,7 +22,7 @@ void solve(array<int, 2> tank, array<vector<int>, 2> bucket, int day) {
 			solve(new_tank, new_bucket, new_day);
 		}
 	}
-	else { // second barn
+	else { // second barn (or just combine with first barn case but too lazy)
 		for (int i = 0; i < size(bucket[1]); ++i) {
 			// take bucket[1][i]
 			auto new_tank = array { tank[0] + bucket[1][i], tank[1] - bucket[1][i] };
