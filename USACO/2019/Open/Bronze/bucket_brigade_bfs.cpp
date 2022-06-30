@@ -24,7 +24,7 @@ int main() {
 
 	queue<array<int, 3>> bfs; // i, j, dist
 	bfs.push(array{i0, j0, 0}); 
-	while(size(bfs)) {
+	while (size(bfs)) {
 		auto cell = bfs.front(); 
 		bfs.pop(); 
 		vis[cell[0]][cell[1]] = 1; 
