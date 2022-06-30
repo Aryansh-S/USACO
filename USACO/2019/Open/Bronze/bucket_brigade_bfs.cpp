@@ -1,7 +1,7 @@
 #include <bits/stdc++.h>
 using namespace std; 
 
-// bfs is overkill but straightforward
+// bfs is overkill but straightforward. screw casework
 
 char g[10][10];
 bool vis[10][10];
