@@ -8,7 +8,7 @@ int n, m; // # nodes, # edges
 vector<vector<int>> adj; // store graph as adjacency list
 vector<bool> vis; // keep track of which nodes visited for dfs
 
-// O(m), construct graph in adjacency list format from edges
+// O(n + m), construct graph in adjacency list format from edges
 void read_adj_list() {
 	adj.resize(n), vis.resize(n); 
 	cin >> m;
