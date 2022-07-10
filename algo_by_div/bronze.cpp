@@ -9,9 +9,7 @@ void re(vector<int> &v) {
 
 // O(n) write data
 void pr(const vector<int> &v) {
-	string s = "";
-	for (int t: v) cout << s << t, s = " ";
-	cout << "\n";
+	for (int t: v) cout << t << "\n";
 }
 
 // O(n) complete search (returns leftmost idx if found and -1 otherwise)
