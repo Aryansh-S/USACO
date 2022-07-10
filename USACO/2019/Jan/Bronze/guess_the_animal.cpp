@@ -5,7 +5,7 @@ int N;
 vector<vector<string>> prop;
 int ans = 0;
 
-int common(auto v1, auto v2) {
+int common(auto v1, auto v2) { // finds num common in O(n^2), slow but enough to pass
 	int tot = 0; 
 	for (auto i: v1) tot += (find(begin(v2), end(v2), i) != end(v2));
 	return tot;
