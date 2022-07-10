@@ -40,7 +40,7 @@ void brsort(vector<int> &v) {
     for (int i = 0; i < size(v); ++i) {
         int idx = i; 
         for (int j = i; j < size(v); ++j) if(v[idx] > v[j]) idx = j;
-        v.insert(begin(v) + i, v[idx]);
+        v.emplace(begin(v) + i, v[idx]);
         v.erase(begin(v) + idx + 1);
     }
 }
