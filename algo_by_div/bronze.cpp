@@ -82,7 +82,8 @@ int distcnt(vector<int> v) {
 	return size(v); 
 }
 
-// the below are optional but useful for the occasional bronze graph problems
+// the below are optional but useful for the occasional bronze graph problems:
+
 int n, m; // # nodes, # edges
 vector<vector<int>> adj; // store graph as adjacency list
 vector<bool> vis; // keep track of which nodes visited for dfs
