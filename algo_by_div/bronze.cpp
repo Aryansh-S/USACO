@@ -18,7 +18,7 @@ int csearch(const vector<int> &v, const int x) {
 	return -1;
 }
 
-// O(1) check min (sets a to min(a, b) and returns true if change)
+// O(1) check min (sets a to min(a, b) and returns true if change), flip > to < for ckmax
 bool ckmin(auto &a, const auto b) { return a > b ? a = b, 1 : 0; } 
 
 // O(n) running tally (e.g., min element overall)
@@ -28,8 +28,8 @@ int rmin(const vector<int> &v) {
 	return m;
 }
 
-// O(n) get reverse index
-auto ridx(const vector<int> &v) {
+// O(n) get reverse index -- store index given value for quick lookup without having to complete search
+vector<int> ridx(const vector<int> &v) {
 	vector<int> rv(2e5 + 5);
 	for (int i = 0; i < size(v); ++i) rv[v[i]] = i;
 	return rv;
