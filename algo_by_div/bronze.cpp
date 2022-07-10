@@ -81,3 +81,28 @@ int distcnt(vector<int> v) {
 	v.erase(unique(begin(v), end(v)), end(v)); 
 	return size(v); 
 }
+
+// the below are optional but useful for the occasional bronze graph problems
+int n, m; // # nodes, # edges
+vector<vector<int>> adj; // store graph as adjacency list
+vector<bool> vis; // keep track of which nodes visited for dfs
+
+// O(m), construct graph in adjacency list format from edges
+void read_adj_list() {
+	adj.resize(n), vis.resize(n); 
+	cin >> m;
+	for (int i = 0; i < m; ++i) {
+		int a, b; // nodes in edge
+		cin >> a >> b; 
+		--a, --b; // zero idx nodes
+		adj[a].emplace_back(b); // adds directed edge a->b
+		// adj[b].emplace_back(a); // uncomment if undirected edge (adds directed edge b->a)
+	}
+}
+
+// O(n + m), do depth first search (dfs) of graph modeled by adjacency list
+void dfs(int v) { // initiate by calling dfs(starting_node)
+	vis[v] = 1;
+	// add code here to process v
+	for (int u: adj[v]) if (!vis[u]) dfs(u); 
+}
