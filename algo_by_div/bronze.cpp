@@ -102,6 +102,6 @@ void read_adj_list() {
 // O(n + m), do depth first search (dfs) of graph modeled by adjacency list
 void dfs(int v) { // initiate by calling dfs(starting_node)
 	vis[v] = 1;
-	// add code here to process v
+	// add code here to process v (remember that v + 1 is the actual node in problem bc we zero idx)
 	for (int u: adj[v]) if (!vis[u]) dfs(u); 
 }
