@@ -5,7 +5,14 @@ int N;
 vector<vector<string>> prop;
 int ans = 0;
 
-int common(auto v1, auto v2) { // finds num common in O(n log n) rather than O(n^2), using merging and sorting 
+int common(auto v1, auto v2) { // finds num common in O(n log n) rather than O(n^2), using sorting and binary searching
+	int tot = 0; 
+	sort(begin(v2), end(v2));
+	for (auto i: v1) tot += binary_search(begin(v2), end(v2), i);
+	return tot;
+}
+
+int common_alt(auto v1, auto v2) { // alternative: finds num common in O(n log n) rather than O(n^2), using merging and sorting 
 	// PIE: |v1 isect v2| = |v1| + |v2| - |v1 union v2|
 	int tot = size(v1) + size(v2);
 	// now, we will change v2 into v1 union v2 by merging the vectors and keeping only distinct elements
