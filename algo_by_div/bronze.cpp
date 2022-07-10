@@ -55,19 +55,19 @@ void recur(const int n, int it = 0) {
 
 // O(2^n) generate all subsets recursively
 vector<int> subset;
-void sub(const vector<int> &v, int idx = 0) {
+void sub_rec(const vector<int> &v, int idx = 0) {
 	if (idx == size(v)) {
 		// process subset
 	}
-	sub(v, idx + 1); 
+	sub_rec(v, idx + 1); 
 	subset.emplace_back(v[idx]); 
-	sub(v, idx + 1); 
+	sub_rec(v, idx + 1); 
 	subset.pop_back();
 }
 
 // O(2^n) generate all subsets iteratively (bitmasking)
-vector<int> subset;
-void sub(const vector<int> &v) {
+void sub_it(const vector<int> &v) {
+	vector<int> subset;
 	for (int mask = 0; mask < (1 << size(v)); ++mask) {
 		for (int i = 0; i < size(v); ++i) if ((mask >> i) & 1) subset.emplace_back(v[i]);
 		// process subset
