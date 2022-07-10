@@ -65,6 +65,16 @@ void sub(const vector<int> &v, int idx = 0) {
 	subset.pop_back();
 }
 
+// O(2^n) generate all subsets iteratively (bitmasking)
+vector<int> subset;
+void sub(const vector<int> &v) {
+	for (int mask = 0; mask < (1 << size(v)); ++mask) {
+		for (int i = 0; i < size(v); ++i) if ((mask >> i) & 1) subset.emplace_back(v[i]);
+		// process subset
+		subset.clear();
+	}
+}
+
 // O(n!) generate all permutations
 void perm(vector<int> v) {
 	sort(begin(v), end(v)); 
