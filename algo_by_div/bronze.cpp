@@ -39,7 +39,7 @@ auto ridx(const vector<int> &v) {
 
 // O(n^2) brute sort based on running mins (bronze alt to builtin O(n log n) sort)
 void brsort(vector<int> &v) {
-    for(int i = 0; i < size(v); ++i) {
+    for (int i = 0; i < size(v); ++i) {
         int idx = i; 
         for (int j = i; j < size(v); ++j) if(v[idx] > v[j]) idx = j;
         v.insert(begin(v) + i, v[idx]);
