@@ -2,6 +2,7 @@
 using namespace std;
 
 set<int> reading; 
+// or just use a boolean "visited" array to mark readings, but a set gets the job done conveniently
 
 void solve(array<int, 2> tank, array<vector<int>, 2> bucket, int day) {
 	if (day == 4) { // beyond Friday
