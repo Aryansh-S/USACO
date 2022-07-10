@@ -1,1 +1,2 @@
-Comprehensive algorithm implementations for each USACO division from bronze through gold based on classifications from the [Unofficial USACO Syllabus](https://www.overleaf.com/read/fktckfprxyxn) (WIP)
+(WIP)
+Comprehensive algorithm implementations for each USACO division from bronze through gold based on classifications from the [Unofficial USACO Syllabus](https://www.overleaf.com/read/fktckfprxyxn)
