@@ -27,7 +27,7 @@ void dfs(int v) { // initiate by calling dfs(starting_node)
 	for (int u: adj[v]) if (!vis[u]) dfs(u); 
 }
 
-// O(n + m), iterative dfs (optional but instructive on the use of stacks)
+// O(n + m), iterative dfs (optional but instructive on the use of stacks and a parallel for how bfs will use queues later)
 void dfs_it(int start) {
 	stack<int> todo; 
 	todo.emplace(start); 
