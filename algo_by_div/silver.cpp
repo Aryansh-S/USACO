@@ -6,7 +6,7 @@
 
 int n, m; // # nodes, # edges
 vector<vector<int>> adj; // store graph as adjacency list
-vector<bool> vis; // keep track of which nodes visited for dfs
+bool vis[(int)(2e5 + 5)]; // keep track of which nodes visited for dfs // put at least max node + 1 in ()
 
 // O(n + m), construct graph in adjacency list format from edges
 void read_adj_list() {
