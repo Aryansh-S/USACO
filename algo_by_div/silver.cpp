@@ -8,6 +8,7 @@
 int n, m; // # nodes, # edges
 vector<vector<int>> adj; // store graph as adjacency list
 bool vis[(int)(2e5 + 5)]; // keep track of which nodes visited for dfs // put at least max node + 1 in ()
+vector<int> cc; // assign connected component ids
 
 // O(n + m) construct graph in adjacency list format from edges
 void read_adj_list() {
@@ -28,10 +29,18 @@ void dfs(int v) { // initiate by calling dfs(starting_node)
 	for (int u: adj[v]) if (!vis[u]) dfs(u); 
 }
 
-// O(n + m) floodfill
-void flood() {
-	for (int i = 0; i < n; ++i) if (!vis[i]) dfs(i); 
-	// visits all nodes in graph by dfsing from each node not visited
+// O(n + m) dfs to designate connected components
+void dfs_cc(int v, int id) {
+	vis[v] = 1, cc[v] = id; 
+	// add code here to process v (remember that v + 1 is the actual node in problem bc we zero idx)
+	for (int u: adj[v]) if (!vis[u]) dfs(u, id); 
+}
+
+// O(n + m) floodfill to find connected components
+void flood_cc() {
+	cc.resize(n); 
+	int id = 0;
+	for (int i = 0; i < n; ++i) if (!vis[i]) dfs(i, id++); 
 }
 
 // O(n + m) iterative dfs (optional but instructive on the use of stacks and a parallel for how bfs will use queues later)
