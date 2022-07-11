@@ -1,5 +1,11 @@
 // a comprehensive list of bronze algorithm/data structure implementations 
 
+// O(n) set up input -- fast optimization, uncomment line for file io (useful for past problems)
+void io() {
+	cin.tie(0)->sync_with_stdio(0); // only use if offline processing allowed (true for all bronze), remove for interactive problems
+	// if (fopen("name.in", "r")) freopen("name.in", "r", stdin), freopen("name.out", "w", stdout);
+}
+
 // O(n) read data
 void re(vector<int> &v) {
 	int n; cin >> n; 
