@@ -2,7 +2,8 @@
 
 
 
-// the below are essential for graph problems (optional for bronze but necessary for silver):
+// the below are essential for graph problems (optional for bronze but necessary for silver)
+// all of these are for adjacency lists (used for sparse graphs, most common on USACO) but can be easily modified for adjacency matrices if needed
 
 int n, m; // # nodes, # edges
 vector<vector<int>> adj; // store graph as adjacency list
