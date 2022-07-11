@@ -4,5 +4,5 @@ Please consult the [Unofficial USACO Syllabus](https://www.overleaf.com/read/fkt
 
 (07/11/22) As a huge update to this repo, the [algo_by_div](https://github.com/Aryansh-S/USACO/tree/main/algo_by_div) folder is under daily construction and should eventually contain up-to-date, original implementations of all algorithms and data structures from bronze to gold, along with some important ones for plat. 
 
-Disclaimer: All implementations should work, but some older ones may be sloppy in terms of spacing/macros. I'm not going to rewrite older implementations, but I'll keep my new ones as neat as possible.
+Disclaimer: All implementations should work, but some older ones (before 2022) may be sloppy in terms of spacing/macros. I'm not going to rewrite older implementations, but I'll keep my new ones as neat as possible.
 
