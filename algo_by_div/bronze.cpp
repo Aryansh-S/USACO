@@ -94,7 +94,7 @@ void perm(vector<int> v) {
 
 // O(n) count distinct elements using visited array
 int distcnt_vis(vector<int> v) {
-	vector<bool> vis(2e5 + 5); // put max element in ()
+	bool vis[(int)(2e5 + 5)] {}; 
 	for (int t: v) vis[t] = 1;
 	int ans = 0;
 	for (bool t: vis) ans += t;
