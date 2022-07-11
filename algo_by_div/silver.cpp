@@ -10,7 +10,7 @@ bool vis[(int)(2e5 + 5)]; // keep track of which nodes visited for dfs // put at
 
 // O(n + m), construct graph in adjacency list format from edges
 void read_adj_list() {
-	adj.resize(n), vis.resize(n); 
+	adj.resize(n);
 	cin >> m;
 	for (int i = 0; i < m; ++i) {
 		int a, b; // nodes in edge
