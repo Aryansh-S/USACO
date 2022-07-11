@@ -53,7 +53,7 @@ void recur(const int n, int it = 0) {
 	}
 }
 
-// O(2^n) generate all subsets recursively
+// O(n * 2^n) construct all subsets recursively
 vector<int> subset;
 void sub_rec(const vector<int> &v, int idx = 0) {
 	if (idx == size(v)) {
@@ -65,13 +65,13 @@ void sub_rec(const vector<int> &v, int idx = 0) {
 	subset.pop_back();
 }
 
-// O(2^n) generate all subsets iteratively (bitmasking)
+// O(2^n) iterate across all subsets implicitly (bitmasking), or O(n * 2^n) if you uncomment the lines and explicitly construct each subset
 void sub_it(const vector<int> &v) {
-	vector<int> subset;
+	// vector<int> subset;
 	for (int mask = 0; mask < (1 << size(v)); ++mask) {
-		for (int i = 0; i < size(v); ++i) if ((mask >> i) & 1) subset.emplace_back(v[i]);
-		// process subset
-		subset.clear();
+		// for (int i = 0; i < size(v); ++i) if ((mask >> i) & 1) subset.emplace_back(v[i]);
+		// add code to process subset
+		// subset.clear();
 	}
 }
 
