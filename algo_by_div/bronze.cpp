@@ -36,7 +36,7 @@ int rmin(const vector<int> &v) {
 
 // O(n) get reverse index -- store index given value for quick lookup without having to complete search
 vector<int> ridx(const vector<int> &v) {
-	vector<int> rv(2e5 + 5);
+	vector<int> rv(2e5 + 5); // put max element in ()
 	for (int i = 0; i < size(v); ++i) rv[v[i]] = i;
 	return rv;
 }
@@ -89,8 +89,17 @@ void perm(vector<int> v) {
 	} while (next_permutation(begin(v), end(v)));
 }
 
-// O(n log n) count distinct elements
-int distcnt(vector<int> v) {
+// O(n) count distinct elements using visited array
+int distcnt_vis(vector<int> v) {
+	vector<bool> vis(2e5 + 5); // put max element in ()
+	for (int t: v) vis[t] = 1;
+	int ans = 0;
+	for (bool t: vis) ans += t;
+	return ans;
+}
+
+// O(n log n) count distinct elements using sorting
+int distcnt_sort(vector<int> v) {
 	sort(begin(v), end(v)); 
 	v.erase(unique(begin(v), end(v)), end(v)); 
 	return size(v); 
