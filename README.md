@@ -10,5 +10,5 @@ Please consult the [Unofficial USACO Syllabus](https://www.overleaf.com/read/fkt
 
 ## Disclaimer
 
-Disclaimer: All implementations should work, but some older ones (before 2022) may be sloppy in terms of spacing/macros. I'm not going to rewrite older implementations, but I'll keep my new ones as neat as possible.
+As of 2022, all implementations should work, but some older ones (before 2022) may be sloppy in terms of spacing/macros. I'm not going to rewrite older implementations, but I'll keep my new ones as neat as possible.
 
