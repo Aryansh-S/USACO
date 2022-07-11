@@ -1,6 +1,6 @@
 // a comprehensive list of bronze algorithm/data structure implementations 
 
-// note: because sizes are unknown, these implementations use vectors instead of arrays. 
+// note: because sizes are unknown, these implementations use vectors instead of arrays. (except for vector<bool>s. those are weird...)
 // in practice, you may also use arrays of max variable size.
 
 // O(1) set up io for competitive programming -- fast optimization, uncomment line for file io (useful for past problems)
@@ -94,7 +94,7 @@ void perm(vector<int> v) {
 
 // O(n) count distinct elements using visited array
 int distcnt_vis(vector<int> v) {
-	vector<bool> vis(2e5 + 5); // put at least max element + 1 in ()
+	bool vis[(int)(2e5 + 5)] {}; // put at least max element + 1 in ()
 	for (int t: v) vis[t] = 1;
 	int ans = 0;
 	for (bool t: vis) ans += t;
@@ -119,7 +119,7 @@ int distcnt_set(vector<int> v) {
 
 int n, m; // # nodes, # edges
 vector<vector<int>> adj; // store graph as adjacency list
-vector<bool> vis; // keep track of which nodes visited for dfs
+bool vis[(int)(2e5 + 5)]; // keep track of which nodes visited for dfs // put at least max node + 1 in ()
 
 // O(n + m), construct graph in adjacency list format from edges
 void read_adj_list() {
