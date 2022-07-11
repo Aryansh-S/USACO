@@ -117,13 +117,13 @@ int distcnt_set(vector<int> v) {
 	return size(s);
 }
 
-// the below are optional but useful for the occasional bronze graph problems:
+// the below are optional but useful for the occasional bronze graph problems
 
 int n, m; // # nodes, # edges
 vector<vector<int>> adj; // store graph as adjacency list
 bool vis[(int)(2e5 + 5)]; // keep track of which nodes visited for dfs // put at least max node + 1 in ()
 
-// O(n + m), construct graph in adjacency list format from edges
+// O(n + m) construct graph in adjacency list format from edges
 void read_adj_list() {
 	adj.resize(n);
 	for (int i = 0; i < m; ++i) {
@@ -135,7 +135,7 @@ void read_adj_list() {
 	}
 }
 
-// O(n + m), do depth first search (dfs) of graph modeled by adjacency list
+// O(n + m) do depth first search (dfs) of graph modeled by adjacency list
 void dfs(int v) { // initiate by calling dfs(starting_node)
 	vis[v] = 1;
 	// add code here to process v (remember that v + 1 is the actual node in problem bc we zero idx)
