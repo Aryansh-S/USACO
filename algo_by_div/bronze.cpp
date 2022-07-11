@@ -1,5 +1,8 @@
 // a comprehensive list of bronze algorithm/data structure implementations 
 
+// note: because sizes are unknown, these implementations use vectors instead of arrays. 
+// in practice, you may also use arrays of max variable size.
+
 // O(1) set up io for competitive programming -- fast optimization, uncomment line for file io (useful for past problems)
 void io() {
 	cin.tie(0)->sync_with_stdio(0); // only use if offline processing allowed (true for all bronze), remove for interactive problems
