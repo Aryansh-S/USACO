@@ -105,6 +105,13 @@ int distcnt_sort(vector<int> v) {
 	return size(v); 
 }
 
+// O(n log n) count distinct elements using set
+int distcnt_set(vector<int> v) {
+	set<int> s;
+	for (int t: v) s.emplace(t); 
+	return size(s);
+}
+
 // the below are optional but useful for the occasional bronze graph problems:
 
 int n, m; // # nodes, # edges
