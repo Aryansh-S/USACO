@@ -26,3 +26,15 @@ void dfs(int v) { // initiate by calling dfs(starting_node)
 	// add code here to process v (remember that v + 1 is the actual node in problem bc we zero idx)
 	for (int u: adj[v]) if (!vis[u]) dfs(u); 
 }
+
+// O(n + m), iterative dfs (optional but instructive on the use of stacks)
+void dfs_it(int start) {
+	stack<int> todo; 
+	todo.emplace(start); 
+	while (size(todo)) {
+		int v = todo.top(); todo.pop(); 
+		vis[v] = 1; 
+		// add code here to process v (remember that v + 1 is the actual node in problem bc we zero idx)
+		for (int u: adj[v]) if (!vis[u]) todo.emplace(u);
+	}
+}
