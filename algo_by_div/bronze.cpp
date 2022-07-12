@@ -2,6 +2,7 @@
 
 // note: because sizes are unknown, these implementations use vectors instead of arrays. (except for vector<bool>s. those are weird...)
 // in practice, you may also use arrays of max variable size.
+// also, you may have to replace ints with long longs to prevent overflow in some cases
 
 // O(1) set up io for competitive programming -- fast optimization, uncomment line for file io (useful for past problems)
 void io() {
