@@ -143,7 +143,7 @@ int spfa(int start, int end) {
   todo.emplace(start); dist[start] = 0; inq[start] = 1; 
   while (size(todo)) {
     int v = todo.front(); todo.pop(); inq[v] = 0;
-    for (auto [w, u]: v) if (dist[u] > dist[v] + w) {
+    for (auto [w, u]: adj[v]) if (dist[u] > dist[v] + w) {
       dist[u] = dist[v] + w; 
       if (!inq[u]) todo.emplace(u), inq[u] = 1;
     }
