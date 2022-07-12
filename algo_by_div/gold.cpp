@@ -16,7 +16,7 @@ struct seg {
   int n; vector<int> tree;
   void init(int _n) { n = _n; tree.assign(2 * n, op_identity); }
   void upd(int p, int v) {
-    tree[p += n] = v; 
+    tree[p += n] = v; // update replaces with new value
     for (p /= 2; p; p /= 2) tree[p] = op(tree[2 * p], tree[2 * p + 1]); 
   }
   int qry(int l, int r) {
