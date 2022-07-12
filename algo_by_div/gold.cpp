@@ -122,6 +122,7 @@ int dijkstra(int start, int end) {
 }
 
 // O(n^3) floyd warshall to find shortest path in weighted graph with no negative cycles
+// never favorable over spfa but arguably easier to code, so...
 int floyd(int start, int end) {
   vector<vector<int>> dist(n, vector<int>(n, INF));
   for (int i = 0; i < n; ++i) {
