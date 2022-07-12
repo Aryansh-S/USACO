@@ -7,6 +7,7 @@ Study these thoroughly to do well! Don't just memorize the implementation -- see
 ## Updates
 
 (07/11/22) Under daily construction.
+
 (07/11/22) Finished bronze.
 
 ## Note on Use
