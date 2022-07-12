@@ -145,7 +145,7 @@ int spfa(int start, int end) {
     int v = todo.front(); todo.pop_front(); indq[v] = 0; 
     for (auto [w, u]: adj[v]) {
       dist[u] = min(dist[u], dist[v] + w); 
-      if (!indq[u]) indq[u] = 1, dist[u] < dist[q.front()] ? todo.push_front(u) : todo.push_back(u);
+      if (!indq[u]) indq[u] = 1, dist[u] < dist[todo.front()] ? todo.push_front(u) : todo.push_back(u);
     }
   }
   return dist[end];
