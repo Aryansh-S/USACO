@@ -127,6 +127,7 @@ int distcnt_set(vector<int> v) {
 #include <ext/pb_ds/tree_policy.hpp>
 using namespace __gnu_pbds;
 template<class T, class U = null_type, class chash = hash<T>> using hset = gp_hash_table<T, U, chash>;
+// to make it even faster, construct with an initial capacity that's a power of 2: hset<int> h({}, {}, {}, {}, {1 << 13}); 
 // for Codeforces, change chash to avoid getting hacked!
 
 // the below are optional but useful for the occasional bronze graph problems
