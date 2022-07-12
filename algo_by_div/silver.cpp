@@ -33,6 +33,14 @@ void psum_1d(vector<int> &v) { // equivalent to partial_sum(begin(v), end(v), be
 	for (int i = 1; i < size(v); ++i) v[i] += v[i - 1];  
 }
 
+// O(n) difference array in one dimension
+void delta_1d(vector<int> &v) {// equivalent to adjacent_difference(begin(v), end(v), begin(v))
+	vector<int> diff;
+	diff.emplace_back(v[0]);
+	for (int i = 1; i < n; ++i) diff.emplace_back(v[i] - v[i - 1]);
+	v = diff;
+}
+
 // O(1) query range sum after prefix sum in one dimension
 int qsum_1d(const vector<int> &psum, int l, int r) {
 	return l > 0 ? psum[r] - psum[l - 1] : psum[r]; 
