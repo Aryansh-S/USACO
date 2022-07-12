@@ -40,7 +40,7 @@ void dfs_cc(int v, int id) {
 void flood_cc() {
 	cc.resize(n); 
 	int id = 0;
-	for (int i = 0; i < n; ++i) if (!vis[i]) dfs(i, id++); 
+	for (int i = 0; i < n; ++i) if (!vis[i]) dfs_cc(i, id++); 
 }
 
 // O(n + m) iterative dfs (optional but instructive on the use of stacks and a parallel for how bfs will use queues later)
