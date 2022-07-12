@@ -11,7 +11,7 @@ vector<vector<int>> u_adj; // use if graph unweighted
 vector<vector<array<int, 2>>> adj; // use if graph weighted, where [0] is adjacent node and [1] is edge weight
 // for shortest path algorithms, instead of a visited array, we can just check if dist is INF
 
-// O(n + m) breadth first search (bfs) to find shortest path, assuming graph unweighted
+// O(n + m) breadth first search (bfs) to find shortest path in unweighted graph
 int bfs(int start, int end) {
   vector<int> dist(n, INF); 
   queue<int> todo; 
