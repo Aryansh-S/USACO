@@ -26,7 +26,7 @@ int bfs(int start, int end) {
 // O(m log n) dijkstra to find shortest path in weighted graph where all weights >= 0
 int dijkstra(int start, int end) {
   vector<int> dist(n, INF); 
-  priority_queue<array<int, 2>, vector<array<int, 2>>, greater<array<int, 2>>> todo; // [0] is weight, [1] is node
+  priority_queue<array<int, 2>, vector<array<int, 2>>, greater<array<int, 2>>> todo; // min heap of arrays (weight, node)
   todo.emplace(array{dist[start] = 0, start}); 
   while (size(todo)) {
     auto [w, v] = todo.top(); todo.pop(); 
