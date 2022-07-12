@@ -29,6 +29,16 @@ struct seg {
   }
 };
 
+// O(log n) update/query order statistics tree (like a set/map but with indices!)
+// functions: find_by_order() and order_of_key()
+// only works on true gcc compilers (supported by most platforms, including USACO and Codeforces)
+// but you may have to install a true gcc compiler separately through a package manager (e.g., Homebrew) to make it work
+// include the below lines in your code and refer to https://codeforces.com/blog/entry/11080 for use
+#include <ext/pb_ds/tree_policy.hpp>
+#include <ext/pb_ds/assoc_container.hpp>
+using namespace __gnu_pbds;
+template<class T, class U = null_type, class cmp = less<T>> using oset = tree<T,U,cmp,rb_tree_tag,tree_order_statistics_node_update>;
+
 // the below are essential for graph problems
 // all of these are for adjacency lists but can be easily modified for adjacency matrices if needed
 
