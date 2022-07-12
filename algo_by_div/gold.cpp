@@ -137,15 +137,15 @@ int floyd(int start, int end) {
 // O(nm) shortest path faster algorithm (spfa) to find shortest path in weighted graph with no negative cycles
 // experimentally ~ O(m) for a random graph, essentially optimized bellman ford for average case 
 int spfa(int start, int end) {
-  vector<int> dist(n, INF);
-  deque<int> todo;
-  bool indq[(int)(2e5 + 5)] {}; // currently in deque or not? // put at least max node + 1 in ()
-  todo.push_back(start); indq[start] = 1; dist[start] = 0;
+  vector<int> dist(n, INF); 
+  queue<int> todo; 
+  bool inq[(int)(2e5 + 5)] {}; // currently in queue? // put at least max node + 1 in ()
+  todo.emplace(start); dist[start] = 0; inq[start] = 1; 
   while (size(todo)) {
-    int v = todo.front(); todo.pop_front(); indq[v] = 0; 
-    for (auto [w, u]: adj[v]) {
-      dist[u] = min(dist[u], dist[v] + w); 
-      if (!indq[u]) indq[u] = 1, dist[u] < dist[todo.front()] ? todo.push_front(u) : todo.push_back(u);
+    int v = todo.front(); todo.pop(); inq[v] = 0;
+    for (auto [w, u]: v) if (dist[u] > dist[v] + w) {
+      dist[u] = dist[v] + w; 
+      if (!inq[u]) todo.emplace(u), inq[u] = 1;
     }
   }
   return dist[end];
