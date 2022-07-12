@@ -12,7 +12,19 @@ void merge_sets(set<int> &a, set<int> &b) {
   for (int t: b) a.emplace(t);
 }
 
+// O(log*(n)) ~ O(1) get/unite disjoint set union (dsu) aka union find
 struct dsu {
+  vector<int> par; // stores node parent or else negative comp size
+  void init(int n) { par.assign(n, -1); }
+  void get(int i) { return par[i] < 0 ? i : par[i] = get(par[i]); } // get component using path compression
+  int size(int i) { return -par[get(i)]; }
+  bool unite(int i, int j) { // unite by size (small to large), false if already united
+    i = get(i), j = get(j); 
+    if (i == j) return 0; 
+    if (par[i] > par[j]) swap(i, j); 
+    par[i] += par[j]; par[j] = i; 
+    return 1;
+  }
 };
 
 // the below are essential for point update range query type problems
