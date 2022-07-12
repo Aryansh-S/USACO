@@ -72,6 +72,30 @@ vector<vector<int>> u_adj; // use if graph unweighted
 vector<vector<array<int, 2>>> adj; // use if graph weighted, where [0] is weight and [1] is adjacent node
 // for shortest path algorithms, instead of a visited array, we can just check if dist is INF
 
+// O(n + m) construct graph in unweighted adjacency list format from edges
+void read_u_adj_list() {
+	u_adj.resize(n);
+	for (int i = 0; i < m; ++i) {
+		int a, b; // nodes in edge
+		cin >> a >> b; 
+		--a, --b; // zero idx nodes
+		u_adj[a].emplace_back(b); // adds directed edge a->b
+		// u_adj[b].emplace_back(a); // uncomment if undirected edge (adds directed edge b->a)
+	}
+}
+
+// O(n + m) construct graph in weighted adjacency list format from edges
+void read_adj_list() {
+  adj.resize(n); 
+  for (int i = 0; i < m; ++i) {
+    int a, b, w; // nodes in edge with weight
+    cin >> a >> b >> w; 
+    --a, --b; // zero idx nodes
+    adj[a].emplace_back(array{w, b}); // adds directed edge a->b with weight w
+    // adj[b].emplace_back(array{w, a}); // uncomment if undirected edge (adds directed edge b->a with weight w)
+  }
+}
+
 // O(n + m) breadth first search (bfs) to find shortest path in unweighted graph
 int bfs(int start, int end) {
   vector<int> dist(n, INF); 
