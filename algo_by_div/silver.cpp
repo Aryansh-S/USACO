@@ -1,5 +1,9 @@
 // a comprehensive list of silver algorithm/data structure implementations 
 
+// note: because sizes are unknown, these implementations use vectors instead of arrays. (except for vector<bool>s. those are weird...)
+// in practice, you may also use arrays of max variable size.
+// also, you may have to replace ints with long longs to prevent overflow in some cases
+
 
 
 // the below are essential for graph problems (optional for bronze but necessary for silver)
