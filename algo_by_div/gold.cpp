@@ -18,7 +18,7 @@ struct dsu {
   void init(int n) { par.assign(n, -1); }
   void get(int i) { return par[i] < 0 ? i : par[i] = get(par[i]); } // get component using path compression
   int size(int i) { return -par[get(i)]; }
-  bool unite(int i, int j) { // unite by size (small to large), false if already united
+  bool unite(int i, int j) { // unite by size, false if already united
     i = get(i), j = get(j); 
     if (i == j) return 0; 
     if (par[i] > par[j]) swap(i, j); 
