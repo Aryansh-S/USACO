@@ -24,9 +24,21 @@ int last_true(int lo, int hi, auto decreasing_f) {
 	return lo;
 }
 
+// the below are essential for range query type problems involving sums
+
+// O(n) prefix sums in one dimension
+void psum_1d(vector<int> &v) { // equivalent to partial_sum(begin(v), end(v), begin(v))
+	for (int i = 1; i < size(v); ++i) v[i] += v[i - 1];  
+}
+
+// O(1) query range sum after prefix sum in one dimension
+int qsum_1d(const vector<int> &psum, int l, int r) {
+	return l > 0 ? psum[r] - psum[l - 1] : psum[r]; 
+}
+
 // you can also use the builtin lower_bound, upper_bound, and binary_search functions
 
-// the below are essential for graph problems (optional for bronze but necessary for silver)
+// the below are essential for graph problems
 // all of these are for adjacency lists but can be easily modified for adjacency matrices if needed
 
 int n, m; // # nodes, # edges
