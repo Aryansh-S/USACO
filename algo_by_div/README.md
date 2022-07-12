@@ -1,6 +1,6 @@
 ## Description
 
-Up-to-date, original, and comprehensive implementations of algorithms and data structures for each USACO division (bronze to gold, as well as some important ones for platinum) based on classifications from the [Unofficial USACO Syllabus](https://www.overleaf.com/read/fktckfprxyxn). Currently a WIP. 
+Up-to-date, original, and comprehensive implementations of algorithms and data structures for each USACO division from bronze to gold based on classifications from the [Unofficial USACO Syllabus](https://www.overleaf.com/read/fktckfprxyxn). Currently a WIP. 
 
 Study these thoroughly to do well! Don't just memorize the implementation -- seek to understand why it works. The intuition behind why could be useful for problems where these implementations can't be applied directly. 
 
