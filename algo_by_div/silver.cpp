@@ -4,7 +4,25 @@
 // in practice, you may also use arrays of max variable size.
 // also, you may have to replace ints with long longs to prevent overflow in some cases
 
+// O(log n) binary search for first true element in monotonic search space defined by increasing function
+int first_true(int lo, int hi, auto increasing_f) {
+	++hi; assert(lo <= hi);
+	while (lo < hi) {
+		int mid = lo + (hi - lo) / 2; 
+		increasing_f(mid) ? hi = mid : lo = mid + 1; 
+	}
+	return lo; 
+}
 
+// O(log n) binary search for last true element in monotonic search space defined by decreasing function
+int last_true(int lo, int hi, auto decreasing_f) {
+	--lo; assert(lo <= hi);
+	while (lo < hi) {
+		int mid = lo + (hi - lo + 1) / 2; 
+		decreasing_f(mid) ? lo = mid : hi = mid - 1; 
+	}
+	return lo;
+}
 
 // the below are essential for graph problems (optional for bronze but necessary for silver)
 // all of these are for adjacency lists but can be easily modified for adjacency matrices if needed
