@@ -2,6 +2,32 @@
 
 const int INF = 0x3f3f3f3f;
 
+// the below are essential for point update range query type problems
+
+// O(log n) update/query binary indexed tree (bit) aka fenwick
+struct bit {
+  
+};
+
+// O(log n) update/query segment tree (iterative implementation)
+struct seg {
+  const int op_identity = 0; 
+  int op(int a, int b) { return a + b; } // change op and op_identity to the desired associative operation
+  int n; vector<int> tree;
+  void init(int _n) { n = _n; tree.assign(2 * n, op_identity); }
+  void upd(int p, int v) {
+    tree[p += n] = v; 
+    for (p /= 2; p; p /= 2) tree[p] = op(tree[2 * p], tree[2 * p + 1]); 
+  }
+  int qry(int l, int r) {
+    int qry_left = op_identity, qry_right = op_identity; 
+    for (l += n, r += n + 1; l < r; l /= 2, r /= 2) {
+      if (l & 1) qry_left = op(qry_left, tree[l++]); 
+      if (r & 1) qry_right = op(tree[r--], qry_right);
+    }
+    return op(qry_left, qry_right);
+  }
+};
 
 // the below are essential for graph problems
 // all of these are for adjacency lists but can be easily modified for adjacency matrices if needed
@@ -35,5 +61,3 @@ int dijkstra(int start, int end) {
   }
   return dist[end];
 }
-
-
