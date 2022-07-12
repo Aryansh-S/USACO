@@ -34,7 +34,7 @@ void psum_1d(vector<int> &v) { // equivalent to partial_sum(begin(v), end(v), be
 }
 
 // O(n) difference array in one dimension
-void delta_1d(vector<int> &v) {// equivalent to adjacent_difference(begin(v), end(v), begin(v))
+void delta_1d(vector<int> &v) { // equivalent to adjacent_difference(begin(v), end(v), begin(v))
 	vector<int> diff;
 	diff.emplace_back(v[0]);
 	for (int i = 1; i < n; ++i) diff.emplace_back(v[i] - v[i - 1]);
