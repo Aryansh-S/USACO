@@ -7,7 +7,7 @@ const int INF = 0x3f3f3f3f;
 // also, you may have to replace ints with long longs to prevent overflow in some cases
 
 // O(|small set| log |large set|) small to large merging of sets
-void merge_sets(set<int> &a, set<int> &b) {
+void merge_sets(set<int> &a, set<int> &b) { // efficiently merges b into a
   if (size(a) < size(b)) swap(a, b); 
   for (int t: b) a.emplace(t);
 }
