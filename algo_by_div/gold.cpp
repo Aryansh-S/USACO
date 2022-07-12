@@ -70,7 +70,7 @@ template<class T, class U = null_type, class cmp = less<T>> using oset = tree<T,
 int n, m; // # nodes, # edges
 vector<vector<int>> u_adj; // use if graph unweighted
 vector<vector<array<int, 2>>> adj; // use if graph weighted, where [0] is weight and [1] is adjacent node
-// for shortest path algorithms, instead of a visited array, we can just check if dist is INF
+// for shortest path algorithms, instead of maintaining a visited array, we can just check conditions in dist
 
 // O(n + m) construct graph in unweighted adjacency list format from edges
 void read_u_adj_list() {
