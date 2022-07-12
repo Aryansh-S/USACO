@@ -24,6 +24,8 @@ int last_true(int lo, int hi, auto decreasing_f) {
 	return lo;
 }
 
+// you can also use the builtin lower_bound, upper_bound, and binary_search functions
+
 // the below are essential for graph problems (optional for bronze but necessary for silver)
 // all of these are for adjacency lists but can be easily modified for adjacency matrices if needed
 
