@@ -118,6 +118,17 @@ int distcnt_set(vector<int> v) {
 	return size(s);
 }
 
+// O(1) update/lookup hash table (like an unordered set/map but much faster!) 
+// functions: same as unordered_set or unordered_map
+// only works on true gcc compilers (supported by most platforms, including USACO and Codeforces)
+// but you may have to install a true gcc compiler separately through a package manager (e.g., Homebrew) to make it work
+// include the below lines in your code and refer to https://codeforces.com/blog/entry/60737 for use
+#include <ext/pb_ds/assoc_container.hpp>
+#include <ext/pb_ds/tree_policy.hpp>
+using namespace __gnu_pbds;
+template<class T, class U = null_type, class chash = hash<T>> using hset = gp_hash_table<T, U, chash>;
+// for Codeforces, change chash to avoid getting hacked!
+
 // the below are optional but useful for the occasional bronze graph problems
 
 int n, m; // # nodes, # edges
