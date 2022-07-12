@@ -1,6 +1,6 @@
 // a comprehensive list of gold algorithm/data structure implementations 
 
-const int INF = 0x3f3f3f3f; 
+const int INF = 0x3f3f3f3f;
 
 // note: because sizes are unknown, these implementations use vectors instead of arrays. (except for vector<bool>s. those are weird...)
 // in practice, you may also use arrays of max variable size.
