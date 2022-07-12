@@ -23,7 +23,7 @@ struct seg {
     int qry_left = op_identity, qry_right = op_identity; 
     for (l += n, r += n + 1; l < r; l /= 2, r /= 2) {
       if (l & 1) qry_left = op(qry_left, tree[l++]); 
-      if (r & 1) qry_right = op(tree[r--], qry_right);
+      if (r & 1) qry_right = op(tree[--r], qry_right);
     }
     return op(qry_left, qry_right);
   }
