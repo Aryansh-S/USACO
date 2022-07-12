@@ -121,7 +121,7 @@ int dijkstra(int start, int end) {
   return dist[end];
 }
 
-// O(n^3) floyd-warshall to find shortest path in weighted graph with no negative cycles
+// O(n^3) floyd warshall to find shortest path in weighted graph with no negative cycles
 int floyd(int start, int end) {
   vector<vector<int>> dist(n, vector<int>(n, INF));
   for (int i = 0; i < n; ++i) {
@@ -132,4 +132,21 @@ int floyd(int start, int end) {
     dist[i][j] = min(dist[i][j], dist[i][k] + dist[k][j]);
   }
   return dist[start][end];
+}
+
+// O(nm) shortest path faster algorithm (spfa) to find shortest path in weighted graph with no negative cycles
+// experimentally ~ O(m) for a random graph, essentially optimized bellman ford for average case 
+int spfa(int start, int end) {
+  vector<int> dist(n, INF);
+  deque<int> todo;
+  bool indq[(int)(2e5 + 5)] {}; // currently in deque or not? // put at least max node + 1 in ()
+  todo.push_back(start); indq[start] = 1; dist[start] = 0;
+  while (size(todo)) {
+    int v = q.front(); q.pop_front(); indq[v] = 0; 
+    for (auto [w, u]: adj[v]) {
+      dist[u] = min(dist[u], dist[v] + w); 
+      if (!indq[u]) dist[u] < dist[q.front()] ? q.push_front(u) : q.push_back(u);
+    }
+  }
+  return dist[end];
 }
