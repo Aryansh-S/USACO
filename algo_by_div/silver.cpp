@@ -33,7 +33,7 @@ void dfs(int v) { // initiate by calling dfs(starting_node)
 void dfs_cc(int v, int id) {
 	vis[v] = 1, cc[v] = id; 
 	// add code here to process v (remember that v + 1 is the actual node in problem bc we zero idx)
-	for (int u: adj[v]) if (!vis[u]) dfs(u, id); 
+	for (int u: adj[v]) if (!vis[u]) dfs_cc(u, id); 
 }
 
 // O(n + m) floodfill to find connected components
