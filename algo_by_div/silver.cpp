@@ -52,6 +52,19 @@ void psum_1d(vector<int> &v) { // equivalent to partial_sum(begin(v), end(v), be
 	for (int i = 1; i < size(v); ++i) v[i] += v[i - 1];  
 }
 
+// O(row * col) prefix sums in two dimensions
+void psum_2d(vector<vector<int>> &v) {
+	vector<vector<int>> psum(size(v), vector<int>(size(v[0])));
+	// corner cases:
+	psum[0][0] = v[0][0]; 
+	for (int i = 1; i < size(v); ++i) psum[i][0] = v[i][0] + psum[i - 1][0]; 
+	for (int i = 1; i < size(v[0]); ++i) psum[0][i] = v[0][i] + psum[0][i - 1];
+	// general (principle of inclusion exclusion):
+	for (int i = 1; i < size(v); ++i) for (int j = 1; j < size(v[0]); ++j) 
+		psum[i][j] = v[i][j] + psum[i - 1][j] + psum[i][j - 1] - psum[i - 1][j - 1];
+	v = psum;
+}
+
 // O(n) difference array in one dimension
 void delta_1d(vector<int> &v) { // equivalent to adjacent_difference(begin(v), end(v), begin(v))
 	vector<int> diff;
