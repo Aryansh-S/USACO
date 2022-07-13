@@ -48,6 +48,21 @@ struct fenwick {
   }
 };
 
+// O(n log n) count inversions using any update/query data structure (common base for many complex problems)
+int count_inv(const vector<int> &v) {
+  // compress coordinates just in case
+  auto v_ord = v; // order the unique elements in v
+  sort(begin(v_ord), end(v_ord)); 
+  v_ord.erase(unique(begin(v_ord), end(v_ord)), end(v_ord)); 
+  auto v_comp = v; // compress v based on v_ord
+  for (int t: v) v_comp.emplace_back(lower_bound(begin(v_ord), end(v_ord), t) - begin(v_ord)); 
+  // e.g., count inversions w/ fenwick
+  int inv = 0; 
+  fenwick occ; occ.init(size(v_ord) + 1); // make size >= max compressed element id + 1
+  for (int t: v_comp) occ.upd(t, 1), inv += occ.qry(t + 1, occ.n - 1); 
+  return inv;
+}
+
 // O(log n) update/query segment tree (iterative implementation)
 struct segtree {
   int op(int a, int b) { return a + b; }
