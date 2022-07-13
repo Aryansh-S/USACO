@@ -45,7 +45,7 @@ void get_compressed_idx(const vector<int> &compressed_v, int x) {
 	return lower_bound(begin(compressed_v), end(compressed_v), x) - begin(compressed_v); 
 }
 
-// the below are essential for range query type problems involving sums
+// the below are essential for range query type problems involving sums (zero indexed, inclusive on both ends)
 
 // O(n) prefix sums in one dimension
 void psum_1d(vector<int> &v) { // equivalent to partial_sum(begin(v), end(v), begin(v))
@@ -65,9 +65,9 @@ void delta_1d(vector<int> &v) { // equivalent to adjacent_difference(begin(v), e
 	v = diff;
 }
 
-// O(row * col) prefix sums in two dimensions
+// O(row * col) prefix sums in two dimensions (padded -- adds extra row and col to avoid hellish corner cases)
 void psum_2d(vector<vector<int>> &v) {
-	vector<vector<int>> psum(size(v) + 1, vector<int>(size(v[0]) + 1)); // add extra row and col to avoid hellish corner cases
+	vector<vector<int>> psum(size(v) + 1, vector<int>(size(v[0]) + 1));
 	for (int i = 0; i < size(v); ++i) for (int j = 0; j < size(v[0]); ++j) { // principle of inclusion exclusion
 		psum[i + 1][j + 1] = v[i][j] + psum[i + 1][j] + psum[i][j + 1] - psum[i][j]; 
 	}
