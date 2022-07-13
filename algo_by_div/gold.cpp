@@ -49,7 +49,7 @@ struct fenwick {
 };
 
 // O(log n) update/query segment tree (iterative implementation)
-struct seg {
+struct segtree {
   int op(int a, int b) { return a + b; }
   const int op_identity = 0; // change op and op_identity to the desired associative operation
   int n; vector<int> tree;
