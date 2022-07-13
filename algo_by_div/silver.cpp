@@ -52,7 +52,7 @@ void psum_1d(vector<int> &v) { // equivalent to partial_sum(begin(v), end(v), be
 	for (int i = 1; i < size(v); ++i) v[i] += v[i - 1];  
 }
 
-// O(1) query range sum after prefix sum in one dimension
+// O(1) query range sum after prefix sums in one dimension
 int qsum_1d(const vector<int> &psum, int l, int r) {
 	return l > 0 ? psum[r] - psum[l - 1] : psum[r]; 
 }
@@ -67,15 +67,16 @@ void delta_1d(vector<int> &v) { // equivalent to adjacent_difference(begin(v), e
 
 // O(row * col) prefix sums in two dimensions
 void psum_2d(vector<vector<int>> &v) {
-	vector<vector<int>> psum(size(v), vector<int>(size(v[0])));
-	// corner cases:
-	psum[0][0] = v[0][0]; 
-	for (int i = 1; i < size(v); ++i) psum[i][0] = v[i][0] + psum[i - 1][0]; 
-	for (int i = 1; i < size(v[0]); ++i) psum[0][i] = v[0][i] + psum[0][i - 1];
-	// general (principle of inclusion exclusion):
-	for (int i = 1; i < size(v); ++i) for (int j = 1; j < size(v[0]); ++j) 
-		psum[i][j] = v[i][j] + psum[i - 1][j] + psum[i][j - 1] - psum[i - 1][j - 1];
-	v = psum;
+	vector<vector<int>> psum(size(v) + 1, vector<int>(size(v[0]) + 1)); // add extra row and col to avoid hellish corner cases
+	for (int i = 0; i < size(v); ++i) for (int j = 0; j < size(v[0]); ++j) {
+		psum[i + 1][j + 1] = v[i][j] + psum[i + 1][j] + psum[i][j + 1] - psum[i][j]; 
+	}
+	v = psum; 
+}
+
+// O(1) query rectangle sum after prefix sums in two dimensions
+int qsum_2d(const vector<vector<int>> &psum, int from_row, int from_col, int to_row, int to_col) {
+	return psum[to_row + 1][to_col + 1] - psum[from_row][to_col + 1] - psum[to_row + 1][from_col] + psum[from_row][from_col];
 }
 
 // the below are essential for graph problems
