@@ -29,9 +29,23 @@ struct dsu {
 
 // the below are essential for point update range query type problems
 
-// O(log n) update/query binary indexed tree (bit) aka fenwick
+// O(log n) update/query binary indexed tree (bit) aka fenwick -- zero indexed for convenience!
 struct bit {
-  
+  vector<int> tree;
+  void init(int n) { tree.resize(n + 1); }
+  void upd(int i, int x) {
+    ++i; // guarantee zero indexing externally
+    for (; i <= n; i += i & -i) tree[i] += x; 
+  }
+  int qry(int i) {
+    ++i; // guarantee zero indexing externally
+    int ret = 0; 
+    for (; i > 0; i -= i & -i) ret += tree[i]; 
+    return ret;
+  }
+  int qry(int l, int r) {
+    return qry(r) - qry(l - 1);
+  }
 };
 
 // O(log n) update/query segment tree (iterative implementation)
