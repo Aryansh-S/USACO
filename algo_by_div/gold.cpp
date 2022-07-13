@@ -153,3 +153,14 @@ int spfa(int start, int end) {
   }
   return dist[end];
 }
+
+// O(m log m) kruskal minimum spanning tree (mst) using dsu
+int kruskal() {
+  int mst = 0; 
+  vector<array<int, 3>> edges; // (weight, start_node, end_node)
+  dsu trees; trees.init(n); 
+  for (int i = 0; i < n; ++i) for (auto [w, j]: adj[i]) edges.emplace_back(array{w, i, j});
+  sort(begin(edges), end(edges)); 
+  for (auto [w, i, j]: edges) if (trees.unite(i, j)) mst += w; 
+  return mst; 
+}
