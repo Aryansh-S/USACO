@@ -26,6 +26,15 @@ int last_true(int lo, int hi, auto decreasing_f) {
 
 // you can also use the builtin lower_bound, upper_bound, and binary_search functions
 
+// O(n log n) coordinate compress with O(log n) index queries
+void compress(vector<int> &v) {
+	sort(begin(v), end(v)); 
+	v.erase(unique(begin(v), end(v)), end(v)); 
+}
+void get_compressed_idx(const vector<int> &compressed_v, int x) {
+	return lower_bound(begin(compressed_v), end(compressed_v), x) - begin(compressed_v); 
+}
+
 // the below are essential for range query type problems involving sums
 
 // O(n) prefix sums in one dimension
