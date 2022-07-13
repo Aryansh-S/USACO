@@ -57,7 +57,7 @@ int qsum_1d(const vector<int> &psum, int l, int r) {
 	return l > 0 ? psum[r] - psum[l - 1] : psum[r]; 
 }
 
-// O(n) difference array in one dimension
+// O(n) difference array in one dimension (fix one dimension and loop over the other to extend to two dimensions)
 void delta_1d(vector<int> &v) { // equivalent to adjacent_difference(begin(v), end(v), begin(v))
 	vector<int> diff;
 	diff.emplace_back(v[0]);
