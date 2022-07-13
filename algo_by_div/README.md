@@ -10,6 +10,8 @@ Study these thoroughly to do well! Don't just memorize the implementation -- see
 
 (07/11/22) Finished bronze.
 
+(07/13/22) Almost done with silver (just have meet in the middle and sweep line left). 
+
 ## Note on Use
 
 USACO no longer allows prewritten code. As such, you may not directly copy and paste code from these files in contest. Instead, I recommend committing the important features of these implementations to memory through constant practice writing them from scratch. However, if you'd like to use this code on another platform that allows prewritten code (e.g., Codeforces), or just in your practice USACO submissions, please include a comment like the following near the top of the file:
