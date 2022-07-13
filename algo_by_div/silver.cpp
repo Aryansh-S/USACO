@@ -68,7 +68,7 @@ void delta_1d(vector<int> &v) { // equivalent to adjacent_difference(begin(v), e
 // O(row * col) prefix sums in two dimensions
 void psum_2d(vector<vector<int>> &v) {
 	vector<vector<int>> psum(size(v) + 1, vector<int>(size(v[0]) + 1)); // add extra row and col to avoid hellish corner cases
-	for (int i = 0; i < size(v); ++i) for (int j = 0; j < size(v[0]); ++j) {
+	for (int i = 0; i < size(v); ++i) for (int j = 0; j < size(v[0]); ++j) { // principle of inclusion exclusion
 		psum[i + 1][j + 1] = v[i][j] + psum[i + 1][j] + psum[i][j + 1] - psum[i][j]; 
 	}
 	v = psum; 
