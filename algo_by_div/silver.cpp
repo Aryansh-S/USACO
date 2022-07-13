@@ -52,6 +52,19 @@ void psum_1d(vector<int> &v) { // equivalent to partial_sum(begin(v), end(v), be
 	for (int i = 1; i < size(v); ++i) v[i] += v[i - 1];  
 }
 
+// O(1) query range sum after prefix sum in one dimension
+int qsum_1d(const vector<int> &psum, int l, int r) {
+	return l > 0 ? psum[r] - psum[l - 1] : psum[r]; 
+}
+
+// O(n) difference array in one dimension
+void delta_1d(vector<int> &v) { // equivalent to adjacent_difference(begin(v), end(v), begin(v))
+	vector<int> diff;
+	diff.emplace_back(v[0]);
+	for (int i = 1; i < n; ++i) diff.emplace_back(v[i] - v[i - 1]);
+	v = diff;
+}
+
 // O(row * col) prefix sums in two dimensions
 void psum_2d(vector<vector<int>> &v) {
 	vector<vector<int>> psum(size(v), vector<int>(size(v[0])));
@@ -63,19 +76,6 @@ void psum_2d(vector<vector<int>> &v) {
 	for (int i = 1; i < size(v); ++i) for (int j = 1; j < size(v[0]); ++j) 
 		psum[i][j] = v[i][j] + psum[i - 1][j] + psum[i][j - 1] - psum[i - 1][j - 1];
 	v = psum;
-}
-
-// O(n) difference array in one dimension
-void delta_1d(vector<int> &v) { // equivalent to adjacent_difference(begin(v), end(v), begin(v))
-	vector<int> diff;
-	diff.emplace_back(v[0]);
-	for (int i = 1; i < n; ++i) diff.emplace_back(v[i] - v[i - 1]);
-	v = diff;
-}
-
-// O(1) query range sum after prefix sum in one dimension
-int qsum_1d(const vector<int> &psum, int l, int r) {
-	return l > 0 ? psum[r] - psum[l - 1] : psum[r]; 
 }
 
 // the below are essential for graph problems
