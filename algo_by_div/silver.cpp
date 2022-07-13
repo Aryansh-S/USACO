@@ -4,6 +4,16 @@
 // in practice, you may also use arrays of max variable size.
 // also, you may have to replace ints with long longs to prevent overflow in some cases
 
+// O(n) two pointer search to find pair of indices satisfying a condition
+array<int, 2> two_pointers(const vector<int> &v, int sum) {
+	int l = 0, r = size(v) - 1; 
+	while (l < r) {
+		if (v[l] + v[r] == sum) return array{l, r}; 
+		v[l] + v[r] < sum ? ++l : --r; 
+	}
+	return array{-1, -1};
+}
+
 // O(log n) binary search for first true element in monotonic search space defined by increasing function
 int first_true(int lo, int hi, auto increasing_f) {
 	++hi; assert(lo <= hi);
