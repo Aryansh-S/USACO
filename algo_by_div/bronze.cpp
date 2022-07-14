@@ -78,14 +78,14 @@ void sub_rec(const vector<int> &v, int idx = 0) {
 
 // O(n * 2^n) process all subsets iteratively (bitmasking), construction optional
 void sub_it(const vector<int> &v) {
-	// vector<int> subset; // uncomment to construct subset (don't have to)
+	// vector<int> subset; // uncomment to construct subset (optional)
 	for (int mask = 0; mask < (1 << size(v)); ++mask) {
 		for (int i = 0; i < size(v); ++i) if (mask & (1 << i)) {
-			// subset.emplace_back(v[i]);
-			// process subset without construction
+			// subset.emplace_back(v[i]); // uncomment to construct subset (optional)
+			// process subset without construction here
 		}
 		// process subset after construction here
-		// subset.clear();
+		// subset.clear(); // reset construction
 	}
 }
 
