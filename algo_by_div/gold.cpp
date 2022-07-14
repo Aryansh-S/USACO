@@ -29,7 +29,7 @@ struct dsu {
 
 // the below are essential for point update range query type problems (zero indexed, inclusive on both ends)
 
-// O(log n) update/query fenwick aka binary indexed tree (bit)
+// O(log n) update/query sums fenwick aka binary indexed tree (bit)
 struct fenwick {
   int n; vector<int> tree; 
   void init(int _n) { n = _n; tree.resize(n + 1); }
@@ -48,7 +48,7 @@ struct fenwick {
   }
 };
 
-// O(log n) update/query segment tree (iterative implementation)
+// O(log n) update/query associative operations segment tree (iterative implementation)
 struct segtree {
   int op(int a, int b) { return a + b; }
   const int op_identity = 0; // change op and op_identity to the desired associative operation
