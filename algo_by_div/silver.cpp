@@ -7,7 +7,7 @@
 // O(n log n) builtin sorting based on custom comparator function
 // e.g., sort vector<array<int, 2>> by second element of array<int, 2> instead of first
 void sort_by_second(vector<array<int, 2>> &v) {
-	sort(begin(v), end(v), [](auto a, auto b) { return a[1] < b[1]; }); 
+	sort(begin(v), end(v), [](const auto &a, const auto &b) { return a[1] < b[1]; }); 
 }
 
 // O(n) two pointer search to find pair of indices in sorted array that satisfy a condition
