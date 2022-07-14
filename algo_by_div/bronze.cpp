@@ -76,12 +76,15 @@ void sub_rec(const vector<int> &v, int idx = 0) {
 	subset.pop_back();
 }
 
-// O(2^n) iterate across all subsets implicitly (bitmasking), or O(n * 2^n) if you explicitly construct each subset
+// O(n * 2^n) process all subsets iteratively (bitmasking), construction optional
 void sub_it(const vector<int> &v) {
-	// vector<int> subset; // uncomment these lines to explicitly construct each subset
+	// vector<int> subset; // uncomment to construct subset (don't have to)
 	for (int mask = 0; mask < (1 << size(v)); ++mask) {
-		// for (int i = 0; i < size(v); ++i) if ((mask >> i) & 1) subset.emplace_back(v[i]);
-		// add code to process subset (implicitly or explicitly)
+		for (int i = 0; i < size(v); ++i) if ((mask >> i) & 1) {
+			// subset.emplace_back(v[i]);
+			// process subset without construction
+		}
+		// process subset after construction here
 		// subset.clear();
 	}
 }
