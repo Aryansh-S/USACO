@@ -45,7 +45,7 @@ void get_compressed_idx(const vector<int> &compressed_v, int x) {
 	return lower_bound(begin(compressed_v), end(compressed_v), x) - begin(compressed_v); 
 }
 
-// O(brute force each half * combine halves) meet in the middle 
+// O(brute force each half + combine halves) meet in the middle 
 // signal: constraint seems small but ~ 2x allowed brute force
 // e.g., count num subsets of array with sum x
 // specifically, divide array in half and generate subsets sums of each half
