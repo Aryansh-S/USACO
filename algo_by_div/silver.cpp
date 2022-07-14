@@ -6,6 +6,7 @@
 
 // O(n log n) builtin sorting based on custom comparator function
 // e.g., sort vector<array<int, 2>> by second element of array<int, 2> instead of first
+// some ppl just insert elements backwards or do weird stuff to avoid custom comparators, but please don't :/ -- it makes your code confusing
 void sort_by_second(vector<array<int, 2>> &v) {
 	auto cmp = [](const auto &a, const auto &b) { return a[1] < b[1]; }; // comparator function by second element
 	sort(begin(v), end(v), cmp);
