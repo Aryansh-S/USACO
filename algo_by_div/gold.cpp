@@ -79,7 +79,7 @@ using namespace __gnu_pbds;
 template<class T, class U = null_type, class cmp = less<T>> using oset = tree<T, U, cmp, rb_tree_tag, tree_order_statistics_node_update>;
 
 // O(n log n) count inversions using any update/query data structure (common base for many complex problems)
-int count_inv(const vector<int> &v) {
+int cnt_inv(const vector<int> &v) {
   // compress coordinates just in case
   auto v_ord = v; // order the unique elements in v
   sort(begin(v_ord), end(v_ord)); 
