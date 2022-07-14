@@ -15,6 +15,7 @@ void sort_by_second(vector<array<int, 2>> &v) {
 }
 
 // O(n) two pointer search to find pair of indices in sorted array that satisfy a condition
+// e.g., suppose we want to find pair of indices with elements that sum to a particular value
 array<int, 2> two_pointers(const vector<int> &v, int sum) {
 	int l = 0, r = size(v) - 1; 
 	while (l < r) {
