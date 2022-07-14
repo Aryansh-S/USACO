@@ -80,7 +80,7 @@ void sub_rec(const vector<int> &v, int idx = 0) {
 void sub_it(const vector<int> &v) {
 	// vector<int> subset; // uncomment to construct subset (don't have to)
 	for (int mask = 0; mask < (1 << size(v)); ++mask) {
-		for (int i = 0; i < size(v); ++i) if ((mask >> i) & 1) {
+		for (int i = 0; i < size(v); ++i) if (mask & (1 << i)) {
 			// subset.emplace_back(v[i]);
 			// process subset without construction
 		}
