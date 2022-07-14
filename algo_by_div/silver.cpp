@@ -9,7 +9,8 @@
 void sort_by_second(vector<array<int, 2>> &v) {
 	auto cmp = [](const auto &a, const auto &b) { return a[1] < b[1]; }; // comparator function by second element
 	sort(begin(v), end(v), cmp);
-	// you can also use cmp for a data structure; e.g., set<array<int, 2>, decltype(cmp)>
+	// you can also use cmp for a data structure, but the syntax is a bit trickier; e.g.: 
+	// set<array<int, 2>, decltype(cmp)> s(cmp); 
 }
 
 // O(n) two pointer search to find pair of indices in sorted array that satisfy a condition
