@@ -4,6 +4,12 @@
 // in practice, you may also use arrays of max variable size.
 // also, you may have to replace ints with long longs to prevent overflow in some cases
 
+// O(n log n) builtin sorting based on custom comparator function
+// e.g., sort vector<array<int, 2>> by second element of array<int, 2> instead of first
+void sort_by_second(vector<array<int, 2>> &v) {
+	sort(begin(v), end(v), [](auto a, auto b) { return a[1] < b[1]; }); 
+}
+
 // O(n) two pointer search to find pair of indices in sorted array that satisfy a condition
 array<int, 2> two_pointers(const vector<int> &v, int sum) {
 	int l = 0, r = size(v) - 1; 
