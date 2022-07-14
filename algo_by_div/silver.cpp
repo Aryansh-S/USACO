@@ -48,12 +48,10 @@ void get_compressed_idx(const vector<int> &compressed_v, int x) {
 // O(brute force each half * combine halves) meet in the middle 
 // signal: constraint seems small but ~ 2x allowed brute force
 // e.g., count num subsets of array with sum x
-// in this case, if n <= 20, a naive O(2^n) generate all subset sums would work
-// but if n <= 40, O(2^n) is too slow. meet in the middle speeds it up to O(n * 2^(n/2))
-// specifically, divide array in half and generate subsets sums of each half in O(2^(n/2))
+// specifically, divide array in half and generate subsets sums of each half
 // then, loop over all subset sums y of one of the halves and binary search to find the number of x - y subset sums in the other half
 // y + (x - y) = x, so we can combine these two sums to yield the desired sum x
-// this is O(2^(n/2) log(2^(n/2))) = O(n * 2^(n/2))
+// this is O(n * 2^(n/2)) overall
 int meet_in_the_middle(const vector<int> &v, int x) {
 	vector<int> v1, v2; // two halves
 	vector<int> sum1, sum2; // corresponding sums
