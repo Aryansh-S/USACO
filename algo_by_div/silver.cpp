@@ -54,6 +54,26 @@ void get_compressed_idx(const vector<int> &compressed_v, int x) {
 // then, loop over all subset sums y of one of the halves and binary search to find the number of x - y subset sums in the other half
 // y + (x - y) = x, so we can combine these two sums to yield the desired sum x
 // this is O(2^(n/2) log(2^(n/2))) = O(n * 2^(n/2))
+int meet_in_the_middle(const vector<int> &v, int x) {
+	vector<int> v1, v2; // two halves
+	vector<int> sum1, sum2; // corresponding sums
+	for (int i = 0; i < size(v); ++i) i < size(v) / 2 ? v1.emplace_back(v[i]) : v2.emplace_back(v[i]); 
+	// bitmask to generate subset sums for each half
+	for (int mask = 0; mask < (1 << size(v1)); ++mask) {
+		int tot = 0; 
+		for (int i = 0; i < size(v1); ++i) if (mask & (1 << i)) tot += v1[i]; 
+		sum1.emplace_back(tot);
+	}
+	for (int mask = 0; mask < (1 << size(v2)); ++mask) {
+		int tot = 0; 
+		for (int i = 0; i < size(v2); ++i) if (mask & (1 << i)) tot += v2[i]; 
+		sum2.emplace_back(tot); 
+	}
+	sort(begin(sum1), end(sum1)), sort(begin(sum2), end(sum2)); 
+	int ret = 0; 
+	for (int y: sum1) ret += upper_bound(begin(sum2), end(sum2), x - y) - lower_bound(begin(sum2), end(sum2), x - y); 
+	return ret;
+}
 
 // the below are essential for range query type problems involving sums (zero indexed, inclusive on both ends)
 
