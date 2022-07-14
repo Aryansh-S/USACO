@@ -89,7 +89,7 @@ void sub_it(const vector<int> &v) {
 	}
 }
 
-// O(n!) generate all permutations
+// O(n!) generate all permutations (yes, you can do this recursively like sub_rec but what's the point? it's built in)
 void perm(vector<int> v) {
 	sort(begin(v), end(v)); 
 	do {
