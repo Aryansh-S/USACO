@@ -84,7 +84,7 @@ int count_inv(const vector<int> &v) {
   auto v_ord = v; // order the unique elements in v
   sort(begin(v_ord), end(v_ord)); 
   v_ord.erase(unique(begin(v_ord), end(v_ord)), end(v_ord)); 
-  vector<int> v_comp;
+  vector<int> v_comp; // compress v based on v_ord
   for (int t: v) v_comp.emplace_back(lower_bound(begin(v_ord), end(v_ord), t) - begin(v_ord)); 
   // e.g., count inversions w/ fenwick
   int inv = 0; 
