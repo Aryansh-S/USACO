@@ -10,7 +10,7 @@ Study these thoroughly to do well! Don't just memorize the implementation -- see
 
 (07/11/22) Finished bronze.
 
-(07/13/22) Almost done with silver (just have meet in the middle and sweep line left). 
+(07/13/22) Almost finished silver (just sweep line left). 
 
 ## Note on Use
 
