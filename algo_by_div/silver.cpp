@@ -12,8 +12,6 @@ void sort_by_second(vector<array<int, 2>> &v) {
 	// you can also use cmp for a data structure; e.g., set<array<int, 2>, decltype(cmp)>
 }
 
-// 
-
 // O(n) two pointer search to find pair of indices in sorted array that satisfy a condition
 array<int, 2> two_pointers(const vector<int> &v, int sum) {
 	int l = 0, r = size(v) - 1; 
