@@ -187,7 +187,7 @@ int spfa(int start, int end) {
 int kruskal() {
   vector<array<int, 3>> edges; // (weight, start_node, end_node)
   for (int i = 0; i < n; ++i) for (auto [w, j]: adj[i]) edges.emplace_back(array{w, i, j});
-  sort(begin(edges), end(edges));
+  sort(begin(edges), end(edges)); // the slowest step (bottleneck), everything else is ~ O(m)
   dsu trees; trees.init(n); 
   int mst = 0;
   for (auto [w, i, j]: edges) if (trees.unite(i, j)) mst += w; 
