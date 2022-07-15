@@ -193,3 +193,8 @@ int kruskal() {
   for (auto [w, i, j]: edges) if (trees.unite(i, j)) mst += w; 
   return mst; 
 }
+
+// O(m log n) prim minimum spanning tree (mst) using a slight variation of dijkstra
+int prim() {
+  
+}
