@@ -134,6 +134,7 @@ template<class T, class U = null_type, class chash = hash<T>> using hset = gp_ha
 // for Codeforces, change chash to avoid getting hacked!
 
 // the below are optional but useful for the occasional bronze graph problems
+// be careful about repeating edges! manipulate input to avoid them before using these algorithms
 
 int n, m; // # nodes, # edges
 vector<vector<int>> adj; // store graph as adjacency list
