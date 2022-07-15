@@ -160,6 +160,18 @@ void flood_cc() {
 	for (int i = 0; i < n; ++i) if (!vis[i]) dfs_cc(i, id++); 
 }
 
+// O(n + m) iterative dfs (optional but instructive on the use of stacks and a parallel for how bfs will use queues later)
+void dfs_it(int start) {
+	stack<int> todo; 
+	todo.emplace(start); 
+	while (size(todo)) {
+		int v = todo.top(); todo.pop(); 
+		vis[v] = 1; 
+		// add code here to process v (remember that v + 1 is the actual node in problem bc we zero idx)
+		for (int u: adj[v]) if (!vis[u]) todo.emplace(u);
+	}
+}
+
 // O(row * col) dfs through a grid (grids suck, this makes your life easy)
 vector<vector<char>> g; 
 bool vis[2005][2005]; // put at least max row/col + 1 in []
@@ -173,16 +185,4 @@ void dfs_grid(int i, int j) {
 	// add code here to process cell (i, j)
 	for (int di: {-1, 0, 1}) for (int dj: {-1, 0, 1}) if (abs(di + dj) == 1)
 		if (can_visit(i + di, j + dj)) dfs_grid(i + di, j + dj);
-}
-
-// O(n + m) iterative dfs (optional but instructive on the use of stacks and a parallel for how bfs will use queues later)
-void dfs_it(int start) {
-	stack<int> todo; 
-	todo.emplace(start); 
-	while (size(todo)) {
-		int v = todo.top(); todo.pop(); 
-		vis[v] = 1; 
-		// add code here to process v (remember that v + 1 is the actual node in problem bc we zero idx)
-		for (int u: adj[v]) if (!vis[u]) todo.emplace(u);
-	}
 }
