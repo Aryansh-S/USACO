@@ -160,6 +160,21 @@ void flood_cc() {
 	for (int i = 0; i < n; ++i) if (!vis[i]) dfs_cc(i, id++); 
 }
 
+// O(row * col) dfs through a grid (grids suck, this makes your life easy)
+vector<vector<int>> g; 
+bool vis[2005][2005]; // put at least max row/col + 1 in []
+void can_visit(int i, int j) {
+	if (i < 0 || i >= size(g) || j < 0 || j >= size(g[0])) return 0; // out of bounds
+	// if (g[i][j] == 'x') return 0; // uncomment to check for grid obstacles
+	return !vis[i][j]; // if all else works, can visit if not yet visited
+}
+void dfs_grid(int i, int j) {
+	vis[i][j] = 1; 
+	// add code here to process cell (i, j)
+	for (int di: {-1, 0, 1}) for (int dj: {-1, 0, 1}) if (abs(di + dj) == 1)
+		if(can_visit(i + di, j + dj)) dfs_grid(i + di, j + dj);
+}
+
 // O(n + m) iterative dfs (optional but instructive on the use of stacks and a parallel for how bfs will use queues later)
 void dfs_it(int start) {
 	stack<int> todo; 
