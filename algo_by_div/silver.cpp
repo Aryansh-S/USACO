@@ -1,4 +1,4 @@
-// a comprehensive list of silver algorithm/data structure implementations 
+// a comprehensive list of silver algorithm/data structure implementations
 
 // note: because sizes are unknown, these implementations use vectors instead of arrays. (except for vector<bool>s. those are weird...)
 // in practice, you may also use arrays of max variable size.
