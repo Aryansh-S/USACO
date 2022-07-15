@@ -121,6 +121,7 @@ int qsum_2d(const vector<vector<int>> &psum, int from_row, int from_col, int to_
 
 // the below are essential for graph problems
 // all of these are for adjacency lists but can be easily modified for adjacency matrices if needed
+// be careful about repeating edges! manipulate input to avoid them before using these algorithms
 
 int n, m; // # nodes, # edges
 vector<vector<int>> adj; // store graph as adjacency list
