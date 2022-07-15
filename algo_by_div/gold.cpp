@@ -190,7 +190,7 @@ int kruskal() {
   sort(begin(edges), end(edges)); // the slowest step (bottleneck), everything else is ~ O(m)
   dsu trees; trees.init(n); 
   int mst = 0;
-  for (auto [w, i, j]: edges) if (trees.unite(i, j)) mst += w; 
+  for (auto [w, i, j]: edges) if (trees.unite(i, j)) mst += w; // if # times it goes into the if != n - 1 (# edges in mst), mst doesn't exist
   return mst; 
 }
 
@@ -206,6 +206,6 @@ int prim() {
     for (auto [w_next, v_next]: adj[v]) if (!vis[v_next] && edge[v_next] > w_next) todo.emplace(array{edge[v_next] = w_next, v_next});
   }
   int mst = 0; 
-  for (int t: edge) if (t < INF) mst += t; 
+  for (int i = 1; i < n; ++i) if (edge[i] < INF) mst += edge[i]; // if # times it goes into the if != n - 1 (# edges in mst), mst doesn't exist
   return mst;
 }
