@@ -206,6 +206,6 @@ int prim() {
     for (auto [w_next, v_next]: adj[v]) if (!vis[v_next] && edge[v_next] > w_next) todo.emplace(array{edge[v_next] = w_next, v_next});
   }
   int mst = 0; 
-  for (int t: edge) mst += (t < INF) * t; 
+  for (int t: edge) if (t < INF) mst += t; 
   return mst;
 }
