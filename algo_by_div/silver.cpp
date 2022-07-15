@@ -172,7 +172,7 @@ void dfs_grid(int i, int j) {
 	vis[i][j] = 1; 
 	// add code here to process cell (i, j)
 	for (int di: {-1, 0, 1}) for (int dj: {-1, 0, 1}) if (abs(di + dj) == 1)
-		if(can_visit(i + di, j + dj)) dfs_grid(i + di, j + dj);
+		if (can_visit(i + di, j + dj)) dfs_grid(i + di, j + dj);
 }
 
 // O(n + m) iterative dfs (optional but instructive on the use of stacks and a parallel for how bfs will use queues later)
