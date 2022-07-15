@@ -189,9 +189,9 @@ int kruskal() {
   for (int i = 0; i < n; ++i) for (auto [w, j]: adj[i]) edges.emplace_back(array{w, i, j});
   sort(begin(edges), end(edges)); // the slowest step (bottleneck), everything else is ~ O(m)
   dsu trees; trees.init(n); 
-  int mst = 0;
-  for (auto [w, i, j]: edges) if (trees.unite(i, j)) mst += w; // if # times it goes into the if != n - 1 (# edges in mst), mst doesn't exist
-  return mst; 
+  int mst = 0, cnt = 0; // # iterations of loop below must be n - 1 (# edges in mst) for mst to exist
+  for (auto [w, i, j]: edges) if (trees.unite(i, j)) mst += w, ++cnt;
+  return cnt == n - 1 ? mst : -1; 
 }
 
 // O(m log n) prim minimum spanning tree (mst) using a variation of dijkstra
@@ -205,7 +205,7 @@ int prim() {
     auto [w, v] = todo.top(); todo.pop(); vis[v] = 1; 
     for (auto [w_next, v_next]: adj[v]) if (!vis[v_next] && edge[v_next] > w_next) todo.emplace(array{edge[v_next] = w_next, v_next});
   }
-  int mst = 0; 
-  for (int i = 1; i < n; ++i) if (edge[i] < INF) mst += edge[i]; // if # times it goes into the if != n - 1 (# edges in mst), mst doesn't exist
-  return mst;
+  int mst = 0, cnt = 0; // # iterations of loop below must be n - 1 (# edges in mst) for mst to exist
+  for (int i = 1; i < n; ++i) if (edge[i] < INF) mst += edge[i], ++cnt;
+  return cnt == n - 1 ? mst : -1;
 }
