@@ -161,7 +161,7 @@ void flood_cc() {
 }
 
 // O(row * col) dfs through a grid (grids suck, this makes your life easy)
-vector<vector<int>> g; 
+vector<vector<char>> g; 
 bool vis[2005][2005]; // put at least max row/col + 1 in []
 void can_visit(int i, int j) {
 	if (i < 0 || i >= size(g) || j < 0 || j >= size(g[0])) return 0; // out of bounds
