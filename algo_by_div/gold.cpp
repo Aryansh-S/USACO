@@ -195,6 +195,16 @@ int kruskal() {
 }
 
 // O(m log n) prim minimum spanning tree (mst) using a slight variation of dijkstra
-int prim() {
-  
+int prim() { 
+  vector<int> best_edge(n, INF); // shortest edge to each node
+  priority_queue<array<int, 2>, vector<array<int, 2>>, greater<array<int, 2>>> todo; // min heap of arrays (weight, node)
+  todo.emplace(array{best_edge[0] = 0, 0}); 
+  while (size(todo)) {
+    auto [w, v] = todo.top(); todo.pop(); 
+    if (best_edge[v] < INF) continue;
+    for (auto [w_next, v_next]: adj[v]) if (best_edge[v_next] > w_next) todo.emplace(array{best_edge[v_next] = w_next, v_next});
+  }
+  int mst = 0;
+  for (int i = 0; i < n; ++i) if (best_edge[i] < INF) mst += best_edge[i]; 
+  return mst;
 }
