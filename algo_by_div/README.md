@@ -32,6 +32,10 @@ See "Note on Use" above.
 
 Please create an issue including your request. I'll get to it as soon as possible. Or, if you're willing to write the code yourself, please submit a pull request.
 
+> If you say you've finished a division, how come its file is still being updated? 
+
+Having finished a division just means I'm done with all the necessary implementations. I might update comments or reorder stuff, but the implementations will remain the same.
+
 > According to X, Y isn't in the Z division. Why do you have it there?
 
 X seems to be the problem. I'm using classifications from the [Unofficial USACO Syllabus](https://www.overleaf.com/read/fktckfprxyxn), which represents what I believe, not X.
