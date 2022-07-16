@@ -50,8 +50,18 @@ As much as I love metaprogramming, I do this to keep the implementations beginne
 
 > How do the implementations here differ from ones in other parts of the repository? 
 
-The other implementations, though functional, are generally longer and more disorganized, using an unnecessary amount of macros and templates to shorten code. The implementations here are equally (if not more) functional but also concise and organized, not resorting to macros and templates.
+> I've seen other repositories with implementations for algorithms and data structures. What's unique about this one?
+
+The other implementations, though functional, are generally longer and more disorganized, using an unnecessary amount of macros and templates to shorten code. The implementations here are equally (if not more) functional but also concise and organized, not resorting to macros and templates. A big part of the uniqueness also comes from the *classification* into divisions.
 
 > Why do you use the array class in your implementations instead of pairs or tuples?
 
 Pairs are limited to two elements and make you do ``.first`` and ``.second`` (and nesting them involves convoluted stuff like ``.second.first``), and tuples have something weird involving ``get``. On the other hand, arrays have indexing and convenient syntax. So, even if pairs and tuples are more popular, I prefer arrays.
+
+> Where do I go to actually learn the algorithms and data structures you've implemented here? 
+
+You're right: these are just implementations, and while they have some explanatory comments attached to them, they don't formally teach the concepts. A good starting point is googling the names of concepts to find relevant articles and videos. I would recommend steering clear of GeeksforGeeks -- they're infamous for bad explanations and faulty, verbose code. Check these out instead:
+* [USACO Guide modules to find links to articles that explain topics particularly well](https://usaco.guide/)
+* [CP Algorithms explanations](https://cp-algorithms.com/)
+* [Wikipedia pages on algorithms and data structures](https://www.wikipedia.org/)
+* [Codeforces blogs for niche explanations](https://codeforces.com/)
