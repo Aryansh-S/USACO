@@ -1,4 +1,5 @@
 // note that many of the below implementations are outdated 
+// also idk why i used defines in namespaces -- that's hella misleading but it was more for organization's sake
 
 #include <bits/stdc++.h>
 #include <ext/pb_ds/assoc_container.hpp>
