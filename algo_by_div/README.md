@@ -30,6 +30,10 @@ See "Note on Use" above.
 
 Please create an issue including your request. I'll get to it as soon as possible. Or, if you're willing to write the code yourself, please submit a pull request.
 
+> According to X, Y isn't in the Z division. Why do you have it there?
+
+X seems to be the problem. I'm using classifications from [Unofficial USACO Syllabus](https://www.overleaf.com/read/fktckfprxyxn), which represents what I believe, not X.
+
 > Why not use templates to make these implementations more generic?
 
 To keep them beginner-friendly. Templates may encourage blackboxing, because it's inconvenient to write templated code from scratch, and blackboxing is detrimental to beginners. Moreover, avoiding templates keeps the implementations simple and instructive.
