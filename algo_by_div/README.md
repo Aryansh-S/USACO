@@ -32,6 +32,10 @@ See "Note on Use" above.
 
 Please create an issue including your request. I'll get to it as soon as possible. Or, if you're willing to write the code yourself, please submit a pull request.
 
+> What versions of C++ are compatible with these implementations? 
+
+I guarantee compatibility with C++17 and above across all implementations, though some might also work with C++14 or C++11. 
+
 > If you say you've finished a division, how come its file is still being updated? 
 
 Having finished a division just means I'm done with all the necessary implementations. I might update comments or reorder stuff, but the implementations will remain the same.
@@ -44,6 +48,10 @@ X seems to be the problem. I'm using classifications from the [Unofficial USACO 
 
 As much as I love metaprogramming, I do this to keep the implementations beginner-friendly. Templates may encourage blackboxing, because it's inconvenient to write templated code from scratch, and blackboxing is detrimental to beginners. Moreover, avoiding templates keeps the implementations simple and instructive.
 
+> How do the implementations here differ from ones in other parts of the repository? 
+
+The other implementations, though functional, are generally longer and more disorganized, using an unnecessary amount of macros and templates to shorten code. The implementations here are equally (if not more) functional but also concise and organized, not resorting to macros and templates.
+
 > Why do you use the array class in your implementations instead of pairs or tuples?
 
-Pairs are limited to two elements and make you do ``.first`` and ``.second`` (and nesting them involves convoluted stuff like ``.second.first``), and tuples have something weird involving ``get``. On the other hand, arrays have indexing and convenient syntax.
+Pairs are limited to two elements and make you do ``.first`` and ``.second`` (and nesting them involves convoluted stuff like ``.second.first``), and tuples have something weird involving ``get``. On the other hand, arrays have indexing and convenient syntax. So, even if pairs and tuples are more popular, I prefer arrays.
