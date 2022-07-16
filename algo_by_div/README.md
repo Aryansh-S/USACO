@@ -58,6 +58,10 @@ The other implementations, though functional, are generally longer and more diso
 
 Pairs are limited to two elements and make you do ``.first`` and ``.second`` (and nesting them involves convoluted stuff like ``.second.first``), and tuples have something weird involving ``get``. On the other hand, arrays have indexing and convenient syntax. So, even if pairs and tuples are more popular, I prefer arrays.
 
+***
+
+And a final important one unrelated to implementations:
+
 > Where do I go to actually learn the algorithms and data structures you've implemented here? 
 
 You're right: these are just implementations, and while they have some explanatory comments attached to them, they don't formally teach the concepts. A good starting point is googling the names of concepts to find relevant articles and videos. I would recommend steering clear of GeeksforGeeks -- they're infamous for bad explanations and faulty, verbose code. Check these out instead:
