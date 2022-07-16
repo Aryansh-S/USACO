@@ -65,3 +65,4 @@ You're right: these are just implementations, and while they have some explanato
 * [CP Algorithms explanations](https://cp-algorithms.com/)
 * [Wikipedia pages on algorithms and data structures](https://www.wikipedia.org/)
 * [Codeforces blogs for niche explanations](https://codeforces.com/)
+* Free textbooks like [the CSES book](https://cses.fi/book/book.pdf) or [Darren's USACO textbook](https://darrenyao.com/usacobook/cpp.pdf), or another competitive programming textbook (such as [CP4](https://www.amazon.com/Book-1-Halim-Effendy/dp/B093G64LY2/ref=pd_bxgy_img_sccl_1/143-4553352-2969865?pd_rd_w=ZVzqJ&content-id=amzn1.sym.7757a8b5-874e-4a67-9d85-54ed32f01737&pf_rd_p=7757a8b5-874e-4a67-9d85-54ed32f01737&pf_rd_r=Q5W2JNW0VG2T9PED3MAG&pd_rd_wg=5wu3V&pd_rd_r=2d8e2bcf-dd6f-49e1-8697-ed70d93360ee&pd_rd_i=B093G64LY2&psc=1))
