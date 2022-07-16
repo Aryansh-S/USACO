@@ -26,7 +26,9 @@ USACO no longer allows prewritten code. As such, you may not directly copy and p
 
 See "Note on Use" above.
 
-> Can you add X, remove X, change X, etc.? 
+> Can you add X, remove X, change X, etc.?
+
+> I have a question/concern not answered by the FAQ. 
 
 Please create an issue including your request. I'll get to it as soon as possible. Or, if you're willing to write the code yourself, please submit a pull request.
 
