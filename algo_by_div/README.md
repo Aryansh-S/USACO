@@ -19,3 +19,21 @@ USACO no longer allows prewritten code. As such, you may not directly copy and p
 ```cpp
 // credit: https://github.com/Aryansh-S/USACO/blob/main/algo_by_div/silver.cpp (adjacency list and dfs implementations)
 ```
+
+## FAQ
+
+> Can I just copy and paste these whenever I want? 
+
+See "Note on Use" above.
+
+> Can you add X, remove X, change X, etc.? 
+
+Please create an issue including your request. I'll get to it as soon as possible. Or, if you're willing to write the code yourself, please submit a pull request.
+
+> Why not use templates to make these implementations more generic?
+
+To keep them beginner-friendly. Templates may encourage blackboxing, because it's inconvenient to write templated code from scratch, and blackboxing is detrimental to beginners. Moreover, avoiding templates keeps the implementations simple and instructive.
+
+> Why do you use the array class in your implementations instead of pairs or tuples?
+
+Pairs are limited to two elements and make you do ``.first`` and ``.second`` (and nesting them involves convoluted stuff like ``.second.first``), and tuples have something weird involving ``get``. On the other hand, arrays have indexing and convenient syntax.
