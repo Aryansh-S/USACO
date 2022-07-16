@@ -32,7 +32,7 @@ Please create an issue including your request. I'll get to it as soon as possibl
 
 > According to X, Y isn't in the Z division. Why do you have it there?
 
-X seems to be the problem. I'm using classifications from [Unofficial USACO Syllabus](https://www.overleaf.com/read/fktckfprxyxn), which represents what I believe, not X.
+X seems to be the problem. I'm using classifications from the [Unofficial USACO Syllabus](https://www.overleaf.com/read/fktckfprxyxn), which represents what I believe, not X.
 
 > Why not use templates to make these implementations more generic?
 
