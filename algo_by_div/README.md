@@ -42,7 +42,7 @@ X seems to be the problem. I'm using classifications from the [Unofficial USACO 
 
 > Why not use templates to make these implementations more generic?
 
-To keep them beginner-friendly. Templates may encourage blackboxing, because it's inconvenient to write templated code from scratch, and blackboxing is detrimental to beginners. Moreover, avoiding templates keeps the implementations simple and instructive.
+As much as I love metaprogramming, I do this to keep the implementations beginner-friendly. Templates may encourage blackboxing, because it's inconvenient to write templated code from scratch, and blackboxing is detrimental to beginners. Moreover, avoiding templates keeps the implementations simple and instructive.
 
 > Why do you use the array class in your implementations instead of pairs or tuples?
 
