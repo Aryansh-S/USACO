@@ -60,7 +60,12 @@ Pairs are limited to two elements and make you do ``.first`` and ``.second`` (an
 
 > I notice you use the auto keyword a lot. Why don't you also make the return type in each function signature auto?
 
-In these implementations, I use the auto keyword to save typing whenever the type being replaced is obvious and otherwise cumbersome to type, or when the type is meant to be generic (inferred). However, I generally want my function signatures to be intuitive, ideally such that the name, parameters, and return type alone make it fairly obvious what the function does and how it should be used. That's why I write out the return type instead of using the auto keyword.
+Some people use the auto keyword blindly whenever they can get away with it. However, these are the circumstances under which I use the auto keyword:
+
+* to save typing whenever the type being replaced is obvious and otherwise cumbersome to type
+* when the type is meant to be generic (inferred)
+
+I generally want my function signatures to be intuitive, ideally such that the name, parameters, and return type alone make it fairly obvious what the function does and how it should be used. That's why I write out the return type instead of using the auto keyword.
 
 ***
 
