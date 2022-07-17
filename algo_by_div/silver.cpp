@@ -213,8 +213,9 @@ double smallest_dist_bw_any_pair(vector<array<int, 2>> v) {
 	set<array<int, 2>, decltype(cmp)> active(cmp); // active set (sorted by second dimension)
 	double d = INF;
 	sort(begin(v), end(v)); 
+	int idx = 0; // track point index to erase next
 	for (auto [x, y]: v) {
-		for (int i = 0; x - v[i][0] >= d; ++i) active.erase(v[i]); // remove all points further than d to the left of (x, y)
+		for (; x - v[idx][0] >= d; ++idx) active.erase(v[idx]); // remove any points further than d to the left of (x, y)
 		for (auto it = active.lower_bound(array{x, y - (int)ceil(d)}); it != active.upper_bound(array{x, y + (int)ceil(d)}); ++it)
 			d = min(d, sqrt(((*it)[0] - x) * ((*it)[0] - x) + ((*it)[1] - y) * ((*it)[1] - y))); // update d using active set
 		active.emplace(array{x, y}); // update set with new point for next time
