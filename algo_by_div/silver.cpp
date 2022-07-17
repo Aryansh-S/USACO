@@ -187,3 +187,22 @@ void dfs_grid(int i, int j) {
 	for (int di: {-1, 0, 1}) for (int dj: {-1, 0, 1}) if (abs(di + dj) == 1)
 		if (can_visit(i + di, j + dj)) dfs_grid(i + di, j + dj);
 }
+
+// O(n log n) sweep line algorithms
+// suppose you have n geometric objects (most commonly line segments/points) that exist in some geometric space (most commonly a line/plane)
+// and you want to check some property among pairs of these objects 
+// (e.g., given a bunch of points, find the smallest distance between any pair of them; or, given a bunch of line segments, find the number of 
+// intersection points)
+// we can easily brute force these kinds of problems in O(n^2): naively check the property for each of the O(n^2) pairs of objects
+// however, in silver, typically n <= 10^5 for these kinds of problems, so we can afford O(n log n) at most. to achieve this, we use sweep line!
+// the idea at the crux of sweep line is to first sort the data (e.g., an array of the geometric objects) by one dimension in O(n log n)
+// and then take advantage of the sortedness as we process the data from left to right using some data structure 
+// in silver, this data structure is almost always a set with a custom comparator to account for the second dimension of the data
+// called the "active set"
+// in particular, processing will consist of O(log n) updates (adding/removing an object from the active set) 
+// and O(log n) queries (binary searching the active set to make decisions based on the second dimension of the data)
+// but in the processing part of our algorithm overall, each object will be added and removed from the active set exactly once, giving us O(n log n)
+// so because both the sorting and processing steps each take O(n log n) time, the overall algorithm is O(n log n) as desired
+// it seems impractical to generalize sweep line -- the processing part of the algorithm will be slightly different each time depending on the problem
+// -- so instead I've provided some implementations of common problems below
+// as you read them, make sure you can clearly trace out the logic described in the comments above
