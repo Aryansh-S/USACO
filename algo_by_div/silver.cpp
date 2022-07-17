@@ -212,7 +212,7 @@ double smallest_dist_bw_any_pair(vector<array<int, 2>> v) {
 	double d = INF;
 	int idx = 0; // track point index to erase next (so we only erase each point once)
 	for (auto [x, y]: v) {
-		for (; x - v[idx][0] >= d; ++idx) active.erase(v[idx]); // remove any points >= d to the left of (x, y) that remain in the active set
+		while (x - v[idx][0] >= d) active.erase(v[idx++]); // remove any points >= d to the left of (x, y) that remain in the active set
 		for (auto it = active.lower_bound(array{x, y - (int)ceil(d)}); it != active.upper_bound(array{x, y + (int)ceil(d)}); ++it)
 			// within the vertical window of points <= d above or below (x, y), try to minimize d
 			d = min(d, sqrt(((*it)[0] - x) * ((*it)[0] - x) + ((*it)[1] - y) * ((*it)[1] - y)));
