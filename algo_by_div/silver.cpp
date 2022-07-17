@@ -209,10 +209,10 @@ void dfs_grid(int i, int j) {
 
 // O(n log n) smallest distance between any pair of points
 double smallest_dist_bw_any_pair(vector<array<int, 2>> v) {
+	sort(begin(v), end(v)); 
 	auto cmp = [](const auto &a, const auto &b) { return a[1] < b[1]; };
 	set<array<int, 2>, decltype(cmp)> active(cmp); // active set (sorted by second dimension)
 	double d = INF;
-	sort(begin(v), end(v)); 
 	int idx = 0; // track point index to erase next (so we only erase each point once)
 	for (auto [x, y]: v) {
 		for (; x - v[idx][0] >= d; ++idx) active.erase(v[idx]); // remove any points >= d to the left of (x, y) that remain in the active set
