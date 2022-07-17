@@ -218,7 +218,7 @@ double smallest_dist_bw_any_pair(vector<array<int, 2>> v) {
 		for (; x - v[idx][0] >= d; ++idx) active.erase(v[idx]); // remove any points further than d to the left of (x, y)
 		for (auto it = active.lower_bound(array{x, y - (int)ceil(d)}); it != active.upper_bound(array{x, y + (int)ceil(d)}); ++it)
 			d = min(d, sqrt(((*it)[0] - x) * ((*it)[0] - x) + ((*it)[1] - y) * ((*it)[1] - y))); // update d using active set
-		active.emplace(array{x, y}); // update set with new point for next time
+		active.emplace(array{x, y}); // update active set with new point for next time
 	}
 	return d; 
 }
