@@ -206,3 +206,18 @@ void dfs_grid(int i, int j) {
 // it seems impractical to generalize sweep line -- the processing part of the algorithm will be slightly different each time depending on the problem
 // -- so instead I've provided some implementations of common problems below
 // as you read them, make sure you can clearly trace out the logic described in the comments above
+
+// O(n log n) smallest distance between any pair of points
+double smallest_dist_bw_any_pair(vector<array<int, 2>> v) {
+	auto cmp = [](const auto &a, const auto &b) { return a[1] < b[1]; };
+	set<array<int, 2>, decltype(cmp)> active(cmp); // active set (sorted by second dimension)
+	double d = INF;
+	sort(begin(v), end(v)); 
+	for (auto [x, y]: v) {
+		for (int i = 0; x - pts[i][0] >= d; ++i) active.erase(pts[i]); 
+		for (auto it = active.lower_bound(array{x, y - d}); it != active.upper_bound(array{x, y + d}); ++it)
+			d = min(d, sqrt((*it)[0] - x) * sqrt((*it)[0] - x) + sqrt((*it)[1] - y) * sqrt((*it)[1] - y));
+		active.emplace(array{x, y});
+	}
+	return d; 
+}
