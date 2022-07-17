@@ -189,7 +189,7 @@ void dfs_grid(int i, int j) {
 }
 
 // O(n log n) sweep line algorithms
-// suppose you have n geometric objects (most commonly line segments/points) that exist in some geometric space (most commonly a line/plane)
+// suppose you have n geometric objects (most commonly points/line segments) that exist in some geometric space (most commonly a line/plane)
 // and you want to check some property among pairs of these objects 
 // (e.g., given a bunch of points, find the smallest distance between any pair of them; or, given a bunch of line segments, find the number of 
 // intersection points)
