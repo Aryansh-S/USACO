@@ -34,7 +34,7 @@ Please create an issue including your request. I'll get to it as soon as possibl
 
 > What versions of C++ are compatible with these implementations? 
 
-I guarantee compatibility with C++17 and above across all implementations, though some might also work with C++14 or C++11. 
+I guarantee compatibility with C++17 and above across all implementations, though some might also work with C++14 or C++11. For the most part, if the implementation compiles, you should be fine. 
 
 > If you say you've finished a division, how come its file is still being updated? 
 
