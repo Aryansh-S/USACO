@@ -58,6 +58,10 @@ The other implementations, though functional, are generally longer and more diso
 
 Pairs are limited to two elements and make you do ``.first`` and ``.second`` (and nesting them involves convoluted stuff like ``.second.first``), and tuples have something weird involving ``get``. On the other hand, arrays have indexing and convenient syntax. So, even if pairs and tuples are more popular, I prefer arrays.
 
+> I notice you use the auto keyword a lot. Why don't you also make the return type in each function signature auto?
+
+In these implementations, I use the auto keyword to save typing whenever the type being replaced is obvious and otherwise cumbersome to type, or when the type is meant to be generic (inferred). However, I generally want my function signatures to be intuitive, ideally such that the name, parameters, and return type alone make it fairly obvious what the function does and how it should be used. That's why I write out the return type instead of using the auto keyword.
+
 ***
 
 And a final important one unrelated to implementations:
