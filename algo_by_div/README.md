@@ -38,7 +38,7 @@ This is where big $\mathcal{O}$ asymptotic time complexity analysis comes in. In
 
 As a rule of thumb for USACO, C++ can handle on the order of $10^8$ fundamental operations per second, so we can check whether a given time complexity is likely to run in time by substituting the maximum variable bounds into the function inside $\mathcal{O}.$ However, I'm sure you'll find it easier to familiarize yourself with the following common time complexities:
 
-| Bounds | Complexity | Example Implementation |
+| Bounds | Time Complexities | Example Implementations |
 | --- | --- | --- |
 | $n \leq 10$ | $\subseteq \mathcal{O}(n!), \mathcal{O}(n^6)$ | trying all permutations
 | $n \leq 18$ | $\subseteq \mathcal{O}(2^n \cdot n^2)$ |
