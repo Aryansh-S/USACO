@@ -44,6 +44,10 @@ Having finished a division just means I'm done with all the necessary implementa
 
 X seems to be the problem. I'm using classifications from the [Unofficial USACO Syllabus](https://www.overleaf.com/read/fktckfprxyxn), which represents what I believe, not X.
 
+> How can I tell if an implementation will run in time? 
+
+This is where big $\mathcal{O}$ time complexity analysis comes in. In the comment preceding each implementation, I've included that implementation's big $\mathcal{O}$ time complexity. As a rule of thumb for USACO, C++ can handle on the order of $10^8$ fundamental operations per second. Get familiar with some common time complexity bounds. For instance, if $n \leq 10^5,$ we want a solution $\leq \mathcal{O}(n \log n),$ or if $n \leq 20,$ we want one $\leq \mathcal{O}(2^n).$ 
+
 > Why not use templates to make these implementations more generic?
 
 As much as I love metaprogramming, I do this to keep the implementations beginner-friendly. Templates may encourage blackboxing, because it's inconvenient to write templated code from scratch, and blackboxing is detrimental to beginners. Moreover, avoiding templates keeps the implementations simple and instructive.
