@@ -45,8 +45,10 @@ This is where big $\mathcal{O}$ asymptotic time complexity analysis comes in. In
 | $n \leq 400$ | $\subseteq \mathcal{O}(n^3)$ | Floyd Warshall
 | $n \leq 2 \cdot 10^3$ | $\subseteq \mathcal{O}(n^2 \log n)$ | $\mathcal{O}(n^2)$ operations with a tree data structure
 | $n \leq 10^4$ | $\subseteq \mathcal{O}(n^2)$ | trying all pairs
-| $n \leq 2 \cdot 10^5$ | $\subseteq \mathcal{O}(n \log n)$ | sorting, binary searching, using a tree data structure (probably the most common one in USACO)
+| $n \leq 2 \cdot 10^5$ | $\subseteq \mathcal{O}(n \log n)$\* | sorting, binary searching, using a tree data structure
 | substantially large $n$ | $\subseteq \mathcal{O}(n), \mathcal{O}(\log n), \mathcal{O}(1)$ | deriving a closed form in $n$ by hand using math
+
+\* probably the most common one in USACO
 
 In some cases, asymptotic analysis won't cut it and your implementation may still exceed the time limit by a small margin. Then, we'll have to optimize the constant factor of the implementation. As a rule of thumb, more complex data structures produce higher constant factors. For instance, even though sorting an array of $n$ elements and adding $n$ elements to a set are both $\mathcal{O}(n \log n)$ procedures, the latter procedure will be slower (and require more memory) as sets are quite complex under the hood: they're actually binary search trees.
 
