@@ -46,7 +46,7 @@ X seems to be the problem. I'm using classifications from the [Unofficial USACO 
 
 > How can I tell if an implementation will run in time? 
 
-This is where big $\mathcal{O}$ time complexity analysis comes in. In the comment preceding each implementation, I've included that implementation's big $\mathcal{O}$ time complexity. As a rule of thumb for USACO, C++ can handle on the order of $10^8$ fundamental operations per second. Get familiar with some common time complexity bounds. For instance, if $n \leq 10^5,$ we want a solution $\leq \mathcal{O}(n \log n),$ or if $n \leq 20,$ we want one $\leq \mathcal{O}(2^n).$ 
+This is where big $\mathcal{O}$ time complexity analysis comes in. In the comment preceding each implementation, I've included that implementation's big $\mathcal{O}$ time complexity (basically an approximation for number of operations the implementations takes as a function of the variables it uses). As is common in computer science, the logarithm without a base ($\log$) denotes the binary logarithm $\log_2.$ As a rule of thumb for USACO, C++ can handle on the order of $10^8$ fundamental operations per second. Get familiar with some common time complexity bounds. For instance, if $n \leq 10^5,$ we want a solution $\leq \mathcal{O}(n \log n),$ or if $n \leq 20,$ we want one $\leq \mathcal{O}(2^n).$ 
 
 > Why not use templates to make these implementations more generic?
 
