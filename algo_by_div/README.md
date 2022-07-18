@@ -34,9 +34,11 @@ Please create an issue including your request. I'll get to it as soon as possibl
 
 > How can I tell if an implementation will run in time? 
 
-This is where big $\mathcal{O}$ asymptotic time complexity analysis comes in. In the comment preceding each implementation, I've included that implementation's big $\mathcal{O}$ time complexity (basically an approximation for the number of operations the implementation takes as a function of the variables it uses, accounting for only the highest order terms and ignoring constant factors). As is common in computer science, the logarithm without a base ($\log$) denotes the binary logarithm $\log_2.$ As a rule of thumb for USACO, C++ can handle on the order of $10^8$ fundamental operations per second. Accordingly, get familiar with some common time complexity bounds: 
+This is where big $\mathcal{O}$ asymptotic time complexity analysis comes in. In the comment preceding each implementation, I've included that implementation's big $\mathcal{O}$ time complexity (basically an approximation for the number of operations the implementation takes as a function of the variables it uses, accounting for only the highest order terms and ignoring constant factors). As is common in computer science, the logarithm without a base ($\log$), frequent in time complexity expressions, denotes the binary logarithm $\log_2.$ 
 
-| Bounds | Complexity | Example Algorithms |
+As a rule of thumb for USACO, C++ can handle on the order of $10^8$ fundamental operations per second, so we can check whether a given time complexity is likely to run in time by substituting the maximum variable bounds into the function inside $\mathcal{O}.$ However, I'm sure you'll find it easier to familiarize yourself with the following common time complexities:
+
+| Bounds | Complexity | Example Implementation |
 | --- | --- | --- |
 | $n \leq 10$ | $\subseteq \mathcal{O}(n!), \mathcal{O}(n^6)$ | trying all permutations
 | $n \leq 18$ | $\subseteq \mathcal{O}(2^n \cdot n^2)$ |
@@ -46,7 +48,7 @@ This is where big $\mathcal{O}$ asymptotic time complexity analysis comes in. In
 | $n \leq 2 \cdot 10^3$ | $\subseteq \mathcal{O}(n^2 \log n)$ | $\mathcal{O}(n^2)$ operations with a tree data structure
 | $n \leq 10^4$ | $\subseteq \mathcal{O}(n^2)$ | trying all pairs
 | $n \leq 2 \cdot 10^5$ | $\subseteq \mathcal{O}(n \log n)$\* | sorting, binary searching, using a tree data structure
-| substantially large $n$ | $\subseteq \mathcal{O}(n), \mathcal{O}(\log n), \mathcal{O}(1)$ | deriving a closed form in $n$ by hand using math
+| substantially large $n$ | $\subseteq \mathcal{O}(n), \mathcal{O}(\log n), \mathcal{O}(1)$ | linear scan, deriving a closed form in $n$ by hand using math
 
 \* probably the most common one in USACO
 
