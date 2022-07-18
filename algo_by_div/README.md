@@ -47,8 +47,8 @@ As a rule of thumb for USACO, C++ can handle on the order of $10^8$ fundamental 
 | $n \leq 400$ | $\subseteq \mathcal{O}(n^3)$ | Floyd Warshall
 | $n \leq 2 \cdot 10^3$ | $\subseteq \mathcal{O}(n^2 \log n)$ | $\mathcal{O}(n^2)$ operations with a tree data structure
 | $n \leq 10^4$ | $\subseteq \mathcal{O}(n^2)$ | trying all pairs
-| $n \leq 2 \cdot 10^5$ | $\subseteq \mathcal{O}(n \log n)$\* | sorting, binary searching, using a tree data structure
-| substantially large $n$ | $\subseteq \mathcal{O}(n), \mathcal{O}(\log n), \mathcal{O}(1)$ | linear scan, deriving a closed form in $n$ by hand using math
+| $n \leq 2 \cdot 10^5$ | $\subseteq \mathcal{O}(n \log n)$\* | sorting, binary searching, tree data structures
+| substantially large $n$ | $\subseteq \mathcal{O}(n), \mathcal{O}(\log n), \mathcal{O}(\log\mbox{*}(n)), \mathcal{O}(1)$ | linear scan, disjoint set union with path compression and union by size, deriving a closed form in $n$ by hand using math
 
 \* probably the most common one in USACO
 
