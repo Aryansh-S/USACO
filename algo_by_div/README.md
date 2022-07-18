@@ -46,9 +46,7 @@ X seems to be the problem. I'm using classifications from the [Unofficial USACO 
 
 > How can I tell if an implementation will run in time? 
 
-This is where big $\mathcal{O}$ asymptotic time complexity analysis comes in. In the comment preceding each implementation, I've included that implementation's big $\mathcal{O}$ time complexity (basically an approximation for number of operations the implementation takes as a function of the variables it uses). As is common in computer science, the logarithm without a base ($\log$) denotes the binary logarithm $\log_2.$ As a rule of thumb for USACO, C++ can handle on the order of $10^8$ fundamental operations per second. Get familiar with some common time complexity bounds. For instance, if $n \leq 10^5,$ we want a solution $\subseteq \mathcal{O}(n \log n),$ or if $n \leq 20,$ we want one $\subseteq \mathcal{O}(2^n).$ In some cases, though, asymptotic analysis won't cut it and your implementation may exceed the time limit by a small margin. Then, we'll have to be careful about the constant factor of the algorithm (constant factor optimization).
-
-but the abuse of notation here is to clarify that  
+This is where big $\mathcal{O}$ asymptotic time complexity analysis comes in. In the comment preceding each implementation, I've included that implementation's big $\mathcal{O}$ time complexity (basically an approximation for number of operations the implementation takes as a function of the variables it uses). As is common in computer science, the logarithm without a base ($\log$) denotes the binary logarithm $\log_2.$ As a rule of thumb for USACO, C++ can handle on the order of $10^8$ fundamental operations per second. Get familiar with some common time complexity bounds. For instance, if $n \leq 10^5,$ we want a solution $\subseteq \mathcal{O}(n \log n),$ or if $n \leq 20,$ we want one $\subseteq \mathcal{O}(2^n).$ In some cases, though, asymptotic analysis won't cut it and your implementation may exceed the time limit by a small margin. Then, we'll have to optimize the constant factor of the implementation.
 
 > Why not use templates to make these implementations more generic?
 
