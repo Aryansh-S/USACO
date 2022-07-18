@@ -32,6 +32,24 @@ See "Note on Use" above.
 
 Please create an issue including your request. I'll get to it as soon as possible. Or, if you're willing to write the code yourself, please submit a pull request.
 
+> How can I tell if an implementation will run in time? 
+
+This is where big $\mathcal{O}$ asymptotic time complexity analysis comes in. In the comment preceding each implementation, I've included that implementation's big $\mathcal{O}$ time complexity (basically an approximation for number of operations the implementation takes as a function of the variables it uses). As is common in computer science, the logarithm without a base ($\log$) denotes the binary logarithm $\log_2.$ As a rule of thumb for USACO, C++ can handle on the order of $10^8$ fundamental operations per second. Accordingly, get familiar with some common time complexity bounds: 
+
+| Bounds | Complexity | Example Algorithms |
+| --- | --- | --- |
+| $n \leq 10$ | $\subseteq \mathcal{O}(n!), \mathcal{O}(n^6)$ | trying all permutations
+| $n \leq 18$ | $\subseteq \mathcal{O}(2^n \cdot n^2)$ |
+| $n \leq 22$ | $\subseteq \mathcal{O}(2^n \cdot n)$ | trying all subsets
+| $n \leq 100$ | $\subseteq \mathcal{O}(n^4)$ |
+| $n \leq 400$ | $\subseteq \mathcal{O}(n^3)$ | Floyd Warshall
+| $n \leq 2 \cdot 10^3$ | $\subseteq \mathcal{O}(n^2 \log n)$ | $\mathcal{O}(n^2)$ operations with a tree data structure
+| $n \leq 10^4$ | $\subseteq \mathcal{O}(n^2)$ | trying all pairs
+| $n \leq 2 \cdot 10^5$ | $\subseteq \mathcal{O}(n \log n)$ | sorting, binary searching, using a tree data structure (probably the most common one in USACO)
+| substantially large $n$ | $\subseteq \mathcal{O}(n), \mathcal{O}(\log n), \mathcal{O}(1)$ | deriving a closed form in $n$ by hand using math
+
+In some cases, asymptotic analysis won't cut it and your implementation may still exceed the time limit by a small margin. Then, we'll have to optimize the constant factor of the implementation. As a rule of thumb, more complex data structures produce higher constant factors. For instance, even though sorting an array of $n$ elements and adding $n$ elements to a set are both $\mathcal{O}(n \log n)$ procedures, the latter procedure will be slower (and require more memory) as sets are quite complex under the hood: they're actually binary search trees.
+
 > What versions of C++ are compatible with these implementations? 
 
 I guarantee compatibility with C++17 and above across all implementations, though some might also work with C++14 or C++11. For the most part, if the implementation compiles, you should be fine. 
@@ -43,10 +61,6 @@ Having finished a division just means I'm done with all the necessary implementa
 > According to X, Y isn't in the Z division. Why do you have it there?
 
 X seems to be the problem. I'm using classifications from the [Unofficial USACO Syllabus](https://www.overleaf.com/read/fktckfprxyxn), which represents what I believe, not X.
-
-> How can I tell if an implementation will run in time? 
-
-This is where big $\mathcal{O}$ asymptotic time complexity analysis comes in. In the comment preceding each implementation, I've included that implementation's big $\mathcal{O}$ time complexity (basically an approximation for number of operations the implementation takes as a function of the variables it uses). As is common in computer science, the logarithm without a base ($\log$) denotes the binary logarithm $\log_2.$ As a rule of thumb for USACO, C++ can handle on the order of $10^8$ fundamental operations per second. Get familiar with some common time complexity bounds. For instance, if $n \leq 10^5,$ we want a solution $\subseteq \mathcal{O}(n \log n),$ or if $n \leq 20,$ we want one $\subseteq \mathcal{O}(2^n).$ In some cases, though, asymptotic analysis won't cut it and your implementation may exceed the time limit by a small margin. Then, we'll have to optimize the constant factor of the implementation.
 
 > Why not use templates to make these implementations more generic?
 
