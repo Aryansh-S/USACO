@@ -34,9 +34,9 @@ Please create an issue including your request. I'll get to it as soon as possibl
 
 > How can I tell if an implementation will run in time? 
 
-This is where big $\mathcal{O}$ asymptotic time complexity analysis comes in. In the comment preceding each implementation, I've included that implementation's big $\mathcal{O}$ time complexity (basically an approximation for the number of operations the implementation takes as a function of the variables it uses, accounting for only the highest order terms and ignoring constant factors). As is common in computer science, the logarithm without a base ($\log$), frequent in time complexity expressions, denotes the binary logarithm $\log_2.$ 
+This is where big $\mathcal{O}$ asymptotic time complexity analysis comes in. In the comment preceding each implementation, I've included that implementation's big $\mathcal{O}$ time complexity (basically an approximation for the number of operations the implementation takes as a function of the variables it uses, accounting for only the highest order terms and ignoring constant factors). As is common in computer science, the logarithm without a base ($\log$), frequent in time complexity expressions, denotes the binary logarithm $\log_2.$
 
-As a rule of thumb for USACO, C++ can handle on the order of $10^8$ fundamental operations per second, so we can check whether a given time complexity is likely to run in time by substituting the maximum variable bounds into the function inside $\mathcal{O}.$ However, I'm sure you'll find it easier to familiarize yourself with the following common time complexities:
+As a rule of thumb for USACO, C++ can handle on the order of $10^8$ fundamental operations per second, so we can check whether a given time complexity is likely to run in time by substituting the maximum variable bounds into the function inside $\mathcal{O}$ and comparing the result to $10^8.$ However, it's easier to familiarize yourself with the following common time complexities:
 
 | Bounds | Time Complexities | Example Implementations |
 | --- | --- | --- |
@@ -47,10 +47,13 @@ As a rule of thumb for USACO, C++ can handle on the order of $10^8$ fundamental 
 | $n \leq 400$ | $\subseteq \mathcal{O}(n^3)$ | Floyd Warshall
 | $n \leq 2 \cdot 10^3$ | $\subseteq \mathcal{O}(n^2 \log n)$ | using a tree data structure $\mathcal{O}(n^2)$ times
 | $n \leq 10^4$ | $\subseteq \mathcal{O}(n^2)$ | trying all pairs, grid problems
-| $n \leq 2 \cdot 10^5$ | $\subseteq \mathcal{O}(n \log n)$ $^\spadesuit$ | sorting, binary searching, tree data structures
-| substantially large $n$ | $\subseteq \mathcal{O}(n), \mathcal{O}(\log n), \mathcal{O}(\log\mbox{*}(n)), \mathcal{O}(1)$ | linear scan, disjoint set union with path compression and union by size, deriving a closed form in $n$ by hand using math
+| $n \leq 2 \cdot 10^5$ | $\subseteq \mathcal{O}(n \log n)^\spadesuit$ | sorting, binary searching, tree data structures
+| substantially large $n$ | $\subseteq \mathcal{O}(n), \mathcal{O}(\log n), \mathcal{O}(\log\mbox{*}(n))^\clubsuit, \mathcal{O}(1)$ | linear scan, disjoint set union with path compression and union by size, deriving a closed form in $n$ by hand using math
 
-$^\spadesuit$ probably the most common one in USACO
+$^\spadesuit$ This is the most common one in USACO.
+
+$^\clubsuit$ This denotes the [iterated logarithm](https://en.wikipedia.org/wiki/Iterated_logarithm), and 
+$\mathcal{O}(\log\mbox{*}(n)) \sim \mathcal{O}(1)$ for any $n$ we would encounter in competitive programming.
 
 In some cases, asymptotic analysis won't cut it and your implementation may still exceed the time limit by a small margin. Then, we'll have to optimize the constant factor of the implementation. As a rule of thumb, more complex data structures produce higher constant factors. For instance, even though sorting an array of $n$ elements and adding $n$ elements to a set are both $\mathcal{O}(n \log n)$ procedures, the latter procedure will be slower (and require more memory) as sets are quite complex under the hood: they're actually binary search trees.
 
