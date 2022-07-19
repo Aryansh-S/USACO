@@ -47,10 +47,10 @@ As a rule of thumb for USACO, C++ can handle on the order of $10^8$ fundamental 
 | $n \leq 400$ | $\subseteq \mathcal{O}(n^3)$ | Floyd Warshall
 | $n \leq 2 \cdot 10^3$ | $\subseteq \mathcal{O}(n^2 \log n)$ | using a tree data structure $\mathcal{O}(n^2)$ times
 | $n \leq 10^4$ | $\subseteq \mathcal{O}(n^2)$ | trying all pairs, grid problems
-| $n \leq 2 \cdot 10^5$ | $\subseteq \mathcal{O}(n \log n)$\* | sorting, binary searching, tree data structures
+| $n \leq 2 \cdot 10^5$ | $\subseteq \mathcal{O}(n \log n)$ $^\spadesuit$ | sorting, binary searching, tree data structures
 | substantially large $n$ | $\subseteq \mathcal{O}(n), \mathcal{O}(\log n), \mathcal{O}(\log\mbox{*}(n)), \mathcal{O}(1)$ | linear scan, disjoint set union with path compression and union by size, deriving a closed form in $n$ by hand using math
 
-\* probably the most common one in USACO
+$^\spadesuit$ probably the most common one in USACO
 
 In some cases, asymptotic analysis won't cut it and your implementation may still exceed the time limit by a small margin. Then, we'll have to optimize the constant factor of the implementation. As a rule of thumb, more complex data structures produce higher constant factors. For instance, even though sorting an array of $n$ elements and adding $n$ elements to a set are both $\mathcal{O}(n \log n)$ procedures, the latter procedure will be slower (and require more memory) as sets are quite complex under the hood: they're actually binary search trees.
 
