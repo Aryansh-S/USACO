@@ -48,20 +48,20 @@ As a rule of thumb for USACO, C++ can handle on the order of $10^8$ fundamental 
 
 | Bounds | Time Complexities | Example Implementations |
 | --- | --- | --- |
-| $n \leq 10$ | $\subseteq \mathcal{O}(n!), \mathcal{O}(n^6)$ | trying all permutations
-| $n \leq 18$ | $\subseteq \mathcal{O}(2^n \cdot n^2)$ |
-| $n \leq 22$ | $\subseteq \mathcal{O}(2^n \cdot n)$ | trying all subsets
-| $n \leq 100$ | $\subseteq \mathcal{O}(n^4)$ |
-| $n \leq 400$ | $\subseteq \mathcal{O}(n^3)$ | Floyd Warshall
-| $n \leq 2 \cdot 10^3$ | $\subseteq \mathcal{O}(n^2 \log n)$ | using a tree data structure $\mathcal{O}(n^2)$ times
-| $n \leq 10^4$ | $\subseteq \mathcal{O}(n^2)$ | trying all pairs, grid problems
+| $n \leq 10$ | $\subseteq \mathcal{O}(n!), \mathcal{O}\left(n^6\right)$ | trying all permutations
+| $n \leq 18$ | $\subseteq \mathcal{O}\left(2^n \cdot n^2\right)$ |
+| $n \leq 22$ | $\subseteq \mathcal{O}\left(2^n \cdot n\right)$ | trying all subsets
+| $n \leq 100$ | $\subseteq \mathcal{O}\left(n^4\right)$ |
+| $n \leq 400$ | $\subseteq \mathcal{O}\left(n^3\right)$ | Floyd Warshall
+| $n \leq 2 \cdot 10^3$ | $\subseteq \mathcal{O}\left(n^2 \log n\right)$ | using a tree data structure $\mathcal{O}\left(n^2\right)$ times
+| $n \leq 10^4$ | $\subseteq \mathcal{O}\left(n^2\right)$ | trying all pairs, grid problems
 | $n \leq 2 \cdot 10^5$ | $\subseteq \mathcal{O}(n \log n)^\spadesuit$ | sorting, binary searching, tree data structures
-| substantially large $n$ | $\subseteq \mathcal{O}(n), \mathcal{O}(\log n), \mathcal{O}(\log\mbox{*}(n))^\clubsuit, \mathcal{O}(1)$ | linear scan, disjoint set union with path compression and union by size, deriving a closed form in $n$ by hand using math
+| substantially large $n$ | $\subseteq \mathcal{O}(n), \mathcal{O}(\log n), \mathcal{O}\left(\log\mbox{*}(n)\right)^\clubsuit, \mathcal{O}(1)$ | linear scan, disjoint set union with path compression and union by size, deriving a closed form in $n$ by hand using math
 
 $^\spadesuit$ This is the most common one in USACO.
 
 $^\clubsuit$ This denotes the [iterated logarithm](https://en.wikipedia.org/wiki/Iterated_logarithm), and 
-$\mathcal{O}(\log\mbox{*}(n)) \sim \mathcal{O}(1)$ for any $n$ we would encounter in competitive programming.
+$\mathcal{O}\left(\log\mbox{*}(n)\right) \sim \mathcal{O}(1)$ for any $n$ we would encounter in competitive programming.
 
 In some cases, asymptotic analysis won't cut it and your implementation may still exceed the time limit by a small margin. Then, we'll have to optimize the constant factor of the implementation. As a rule of thumb, more complex data structures produce higher constant factors. For instance, even though sorting an array of $n$ elements and adding $n$ elements to a set are both $\mathcal{O}(n \log n)$ procedures, the latter procedure will be slower (and require more memory) as sets are quite complex under the hood: they're actually binary search trees.
 
@@ -104,7 +104,9 @@ I generally want my function signatures to be intuitive, ideally such that the n
 
 > When can using bitsets help speed up these implementations? 
 
-Yes, there are some implementations that could be optimized by at least a constant factor using bitsets, and other cases where bitsets have even allowed $\mathcal{O}(n^2)$ solutions to run in comparable time to $\mathcal{O}(n \log n)$ solutions. But, to keep things simple and beginner-friendly, I didn't use bitsets (bitsets are commonly seen as a more advanced technique in competitive programming, most prevalent in situations where constant factor optimization is important). However, if you'd like to learn about bitsets and modify some of these implementations using bitsets for your own use, [this](https://www.youtube.com/watch?v=jqJ5s077OKo) is a fantastic video. 
+Yes, there are some implementations that could be optimized by at least a constant factor using bitsets. In other cases, bitsets have even allowed $\mathcal{O}(n^2)$ solutions to run in comparable time to $\mathcal{O}(n \log n)$ solutions. This is because bitsets can sometimes turn $\mathcal{O}(n^2)$ solutions into $\mathcal{O}\left( \dfrac{n^2}{32} \right)$ ones, and even though $\mathcal{O}\left( \dfrac{n^2}{32} \right) \sim \mathcal{O}(n^2)$ asymptotically, $\dfrac{\left(10^5\right)^2}{32} = 3.125 \cdot 10^8,$ which is actually still on the order of $10^8$ and may thus pass. 
+
+But, to keep things simple and beginner-friendly, I didn't use bitsets (bitsets are commonly seen as a more advanced technique in competitive programming, most prevalent in situations where constant factor optimization is important). However, if you'd like to learn about bitsets and modify some of these implementations using bitsets for your own use, [this](https://www.youtube.com/watch?v=jqJ5s077OKo) is a fantastic video. 
 
 ***
 
