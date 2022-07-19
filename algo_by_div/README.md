@@ -4,9 +4,13 @@ Up-to-date, original, and comprehensive implementations of algorithms and data s
 
 Study these thoroughly to do well! Don't just memorize the implementation -- seek to understand why it works. The intuition behind why could be useful for problems where these implementations can't be applied directly. 
 
+A question to address immediately:
+
 > Why didn't you include platinum implementations? 
 
 The platinum division includes all topics from bronze to gold as well as anything on the IOI syllabus and sometimes even thought provoking concepts outside of it. This makes writing a file for exclusively platinum implementations very open ended and difficult. For the most part, though, other than some niche concepts, platinum just features more advanced versions of implementations from gold (e.g., advanced dynamic programming and segment trees), so this should be fine.
+
+See the FAQ below for more.
 
 ## Updates
 
