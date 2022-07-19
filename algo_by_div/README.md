@@ -57,6 +57,10 @@ $\mathcal{O}(\log\mbox{*}(n)) \sim \mathcal{O}(1)$ for any $n$ we would encounte
 
 In some cases, asymptotic analysis won't cut it and your implementation may still exceed the time limit by a small margin. Then, we'll have to optimize the constant factor of the implementation. As a rule of thumb, more complex data structures produce higher constant factors. For instance, even though sorting an array of $n$ elements and adding $n$ elements to a set are both $\mathcal{O}(n \log n)$ procedures, the latter procedure will be slower (and require more memory) as sets are quite complex under the hood: they're actually binary search trees.
 
+> Why didn't you include platinum implementations? 
+
+The platinum division includes all topics from bronze to gold as well as anything on the IOI syllabus and sometimes even thought provoking concepts outside of it. This makes writing a file for exclusively platinum implementations very open ended and difficult. For the most part, though, other than some niche concepts, platinum just features more advanced versions of implementations from gold (e.g., advanced dynamic programming and segment trees), so this should be fine.
+
 > What versions of C++ are compatible with these implementations? 
 
 I guarantee compatibility with C++17 and above across all implementations, though some might also work with C++14 or C++11. For the most part, if the implementation compiles, you should be fine. 
