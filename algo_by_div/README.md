@@ -53,7 +53,7 @@ As a rule of thumb for USACO, C++ can handle on the order of $10^8$ fundamental 
 $^\spadesuit$ This is the most common one in USACO.
 
 $^\clubsuit$ This denotes the [iterated logarithm](https://en.wikipedia.org/wiki/Iterated_logarithm), and 
-$\mathcal{O}(\log\mbox{*}(n)) \sim \mathcal{O}(1)$ for any $n$ we would encounter in competitive programming.
+$\mathcal{O}(\log\mbox{*}(n)) \approx \mathcal{O}(1)$ for any $n$ we would encounter in competitive programming.
 
 In some cases, asymptotic analysis won't cut it and your implementation may still exceed the time limit by a small margin. Then, we'll have to optimize the constant factor of the implementation. As a rule of thumb, more complex data structures produce higher constant factors. For instance, even though sorting an array of $n$ elements and adding $n$ elements to a set are both $\mathcal{O}(n \log n)$ procedures, the latter procedure will be slower (and require more memory) as sets are quite complex under the hood: they're actually binary search trees.
 
