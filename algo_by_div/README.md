@@ -34,7 +34,7 @@ Please create an issue including your request. I'll get to it as soon as possibl
 
 > How can I tell if an implementation will run in time? 
 
-This is where big $\mathcal{O}$ asymptotic time complexity analysis comes in. In the comment preceding each implementation, I've included that implementation's big $\mathcal{O}$ time complexity (basically an approximation for the number of operations the implementation takes as a function of the variables it uses, accounting for only the highest order terms and ignoring constant factors). As is common in computer science, the logarithm without a base ($\log$), frequent in time complexity expressions, denotes the binary logarithm $\log_2.$
+In the comment preceding each implementation, I've included that implementation's big $\mathcal{O}$ time complexity (basically an approximation for the number of operations the implementation takes as a function of the variables it uses, accounting for only the highest order terms and ignoring constant factors). As is common in computer science, the logarithm without a base ($\log$), frequent in time complexity expressions, denotes the binary logarithm $\log_2.$
 
 As a rule of thumb for USACO, C++ can handle on the order of $10^8$ fundamental operations per second, so we can check whether a given time complexity is likely to run in time by substituting the maximum variable bounds into the function inside $\mathcal{O}$ and comparing the result to $10^8.$ However, it's easier to familiarize yourself with the following common time complexities:
 
