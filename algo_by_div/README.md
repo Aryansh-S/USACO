@@ -8,7 +8,7 @@ A question to address immediately:
 
 > Why didn't you include platinum implementations? 
 
-The platinum division includes all topics from bronze to gold as well as anything on the IOI syllabus and sometimes even thought provoking concepts outside of it. This makes writing a file for exclusively platinum implementations very open ended and difficult. For the most part, though, other than some niche concepts, platinum just features more advanced versions of implementations from gold (e.g., advanced dynamic programming and segment trees), so this should be fine.
+The platinum division includes all topics from bronze to gold as well as anything on the [IOI syllabus](https://ioinformatics.org/files/ioi-syllabus-2020.pdf) and sometimes even thought provoking concepts outside of it. This makes writing a file for exclusively platinum implementations very open ended and difficult. For the most part, though, other than some niche concepts, platinum just features more advanced versions of implementations from gold (e.g., advanced dynamic programming and segment trees), so this should be fine.
 
 See the FAQ below for more.
 
