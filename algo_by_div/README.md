@@ -100,9 +100,9 @@ Some people use the auto keyword blindly whenever they can get away with it. How
 
 I generally want my function signatures to be intuitive, ideally such that the name, parameters, and return type alone make it fairly obvious what the function does and how it should be used. That's why I write out the return type instead of using the auto keyword.
 
-> Why don't you use bitsets?
-
 > When can using bitsets help speed up these implementations? 
+
+> Why don't you use bitsets?
 
 Yes, there are some implementations that could be optimized by at least a constant factor using bitsets. In other cases, bitsets have even allowed $\mathcal{O}(n^2)$ solutions to run in comparable time to $\mathcal{O}(n \log n)$ solutions. For example, bitsets can sometimes turn $\mathcal{O}(n^2)$ solutions into $\mathcal{O}\left( \dfrac{n^2}{32} \right)$ ones, and even though $\mathcal{O}\left( \dfrac{n^2}{32} \right) \sim \mathcal{O}(n^2)$ asymptotically, substituting in the maximum variable bound $n \leq 10^5$ gives us $\dfrac{\left(10^5\right)^2}{32} = 3.125 \cdot 10^8,$ which is actually still on the order of $10^8$ and may thus pass. 
 
