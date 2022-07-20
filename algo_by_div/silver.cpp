@@ -220,3 +220,7 @@ double smallest_dist_bw_any_pair(vector<array<int, 2>> v) {
 	}
 	return d; 
 }
+
+// O(n log n) count line segment intersections
+int cnt_line_seg_isect(vector<array<int, 4>> v) { // each segment array{x1, y1, x2, y2} is from point (x1, y1) to point (x2, y2)
+}
