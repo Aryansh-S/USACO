@@ -69,9 +69,11 @@ In some cases, asymptotic analysis won't cut it and your implementation may stil
 
 > Why don't you use bitsets?
 
-Yes, there are some implementations that could be optimized by at least a constant factor using bitsets. In other cases, bitsets have even allowed $\mathcal{O}\left(n^2\right)$ solutions to run in comparable time to $\mathcal{O}(n \log n)$ solutions. For example, bitsets can sometimes turn $\mathcal{O}\left(n^2\right)$ solutions into $\mathcal{O}\left( \dfrac{n^2}{32} \right)$ ones, and even though $\mathcal{O}\left( \dfrac{n^2}{32} \right) \sim \mathcal{O}\left(n^2\right)$ asymptotically, substituting in the maximum variable bound $n \leq 10^5$ gives us $\dfrac{\left(10^5\right)^2}{32} = 3.125 \cdot 10^8,$ which is actually still on the order of $10^8$ and may thus pass. Bitsets are never required in USACO, but this may lead to some unintentional loopholes (see [vectorization pragmas](https://usaco.guide/adv/vectorization?lang=cpp) for even more loopholes).
+Yes, there are some implementations that could be optimized by at least a constant factor using bitsets. In other cases, bitsets have even allowed $\mathcal{O}\left(n^2\right)$ solutions to run in comparable time to $\mathcal{O}(n \log n)$ solutions. For example, bitsets can sometimes turn $\mathcal{O}\left(n^2\right)$ solutions into $\mathcal{O}\left( \dfrac{n^2}{32} \right)$ ones, and even though $\mathcal{O}\left( \dfrac{n^2}{32} \right) \sim \mathcal{O}\left(n^2\right)$ asymptotically, substituting in the maximum variable bound $n \leq 10^5$ gives us $\dfrac{\left(10^5\right)^2}{32} = 3.125 \cdot 10^8,$ which is actually still on the order of $10^8$ and may thus pass. Bitsets are never required in USACO, but this may lead to some loopholes, such as [this](https://usaco.guide/plat/bitsets?lang=cpp#cowpatibility-gold).
 
 But, to keep things simple and beginner-friendly, I didn't use bitsets (bitsets are commonly seen as a more advanced technique in competitive programming, most prevalent in situations where constant factor optimization is important). However, if you'd like to learn about bitsets and modify some of these implementations using bitsets for your own use, [this](https://www.youtube.com/watch?v=jqJ5s077OKo) is a fantastic video. 
+
+As an aside, [vectorization pragmas](https://usaco.guide/adv/vectorization?lang=cpp) can also create similar loopholes, such as [this](http://www.usaco.org/current/data/sol_prob3_silver_open22.html).
 
 > What versions of C++ are compatible with these implementations? 
 
