@@ -65,6 +65,14 @@ $\mathcal{O}\left(\log\mbox{*}(n)\right) \sim \mathcal{O}(1)$ for any $n$ we wou
 
 In some cases, asymptotic analysis won't cut it and your implementation may still exceed the time limit by a small margin. Then, we'll have to optimize the constant factor of the implementation. As a rule of thumb, more complex data structures produce higher constant factors. For instance, even though sorting an array of $n$ elements and adding $n$ elements to a set are both $\mathcal{O}(n \log n)$ procedures, the latter procedure will be slower (and require more memory) as sets are quite complex under the hood: they're actually binary search trees.
 
+> When can using bitsets help speed up these implementations? 
+
+> Why don't you use bitsets?
+
+Yes, there are some implementations that could be optimized by at least a constant factor using bitsets. In other cases, bitsets have even allowed $\mathcal{O}\left(n^2\right)$ solutions to run in comparable time to $\mathcal{O}(n \log n)$ solutions. For example, bitsets can sometimes turn $\mathcal{O}\left(n^2\right)$ solutions into $\mathcal{O}\left( \dfrac{n^2}{32} \right)$ ones, and even though $\mathcal{O}\left( \dfrac{n^2}{32} \right) \sim \mathcal{O}\left(n^2\right)$ asymptotically, substituting in the maximum variable bound $n \leq 10^5$ gives us $\dfrac{\left(10^5\right)^2}{32} = 3.125 \cdot 10^8,$ which is actually still on the order of $10^8$ and may thus pass. 
+
+But, to keep things simple and beginner-friendly, I didn't use bitsets (bitsets are commonly seen as a more advanced technique in competitive programming, most prevalent in situations where constant factor optimization is important). However, if you'd like to learn about bitsets and modify some of these implementations using bitsets for your own use, [this](https://www.youtube.com/watch?v=jqJ5s077OKo) is a fantastic video. 
+
 > What versions of C++ are compatible with these implementations? 
 
 I guarantee compatibility with C++17 and above across all implementations, though some might also work with C++14 or C++11. For the most part, if the implementation compiles, you should be fine. 
@@ -99,14 +107,6 @@ Some people use the auto keyword blindly whenever they can get away with it. How
 * when the type is meant to be generic (inferred)
 
 I generally want my function signatures to be intuitive, ideally such that the name, parameters, and return type alone make it fairly obvious what the function does and how it should be used. That's why I write out the return type instead of using the auto keyword.
-
-> When can using bitsets help speed up these implementations? 
-
-> Why don't you use bitsets?
-
-Yes, there are some implementations that could be optimized by at least a constant factor using bitsets. In other cases, bitsets have even allowed $\mathcal{O}\left(n^2\right)$ solutions to run in comparable time to $\mathcal{O}(n \log n)$ solutions. For example, bitsets can sometimes turn $\mathcal{O}\left(n^2\right)$ solutions into $\mathcal{O}\left( \dfrac{n^2}{32} \right)$ ones, and even though $\mathcal{O}\left( \dfrac{n^2}{32} \right) \sim \mathcal{O}\left(n^2\right)$ asymptotically, substituting in the maximum variable bound $n \leq 10^5$ gives us $\dfrac{\left(10^5\right)^2}{32} = 3.125 \cdot 10^8,$ which is actually still on the order of $10^8$ and may thus pass. 
-
-But, to keep things simple and beginner-friendly, I didn't use bitsets (bitsets are commonly seen as a more advanced technique in competitive programming, most prevalent in situations where constant factor optimization is important). However, if you'd like to learn about bitsets and modify some of these implementations using bitsets for your own use, [this](https://www.youtube.com/watch?v=jqJ5s077OKo) is a fantastic video. 
 
 ***
 
