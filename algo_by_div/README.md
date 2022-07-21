@@ -48,14 +48,14 @@ As a rule of thumb for USACO, C++ can handle on the order of $10^8$ fundamental 
 
 | Bounds | Time Complexities | Example Implementations |
 | --- | --- | --- |
-| $n \leq 10$ | $\subseteq \mathcal{O}(n!), \mathcal{O}\left(n^6\right)$ | trying all permutations
+| $n \leq 10$ | $\subseteq \mathcal{O}(n!), \mathcal{O}\left(n^6\right)$ or "factorial" | trying all permutations
 | $n \leq 18$ | $\subseteq \mathcal{O}\left(2^n \cdot n^2\right)$ |
 | $n \leq 22$ | $\subseteq \mathcal{O}\left(2^n \cdot n\right)$ | trying all subsets
-| $n \leq 100$ | $\subseteq \mathcal{O}\left(n^4\right)$ |
-| $n \leq 400$ | $\subseteq \mathcal{O}\left(n^3\right)$ | Floyd Warshall
-| $n \leq 2 \cdot 10^3$ | $\subseteq \mathcal{O}\left(n^2 \log n\right)$ | using a tree data structure $\mathcal{O}\left(n^2\right)$ times
-| $n \leq 10^4$ | $\subseteq \mathcal{O}\left(n^2\right)$ | trying all pairs, grid problems
-| $n \leq 2 \cdot 10^5$ | $\subseteq \mathcal{O}(n \log n)^\spadesuit$ | sorting, binary searching, tree data structures
+| $n \leq 100$ | $\subseteq \mathcal{O}\left(n^4\right)$ or "quartic" |
+| $n \leq 400$ | $\subseteq \mathcal{O}\left(n^3\right)$ or "cubic" | Floyd Warshall
+| $n \leq 2 \cdot 10^3$ | $\subseteq \mathcal{O}\left(n^2 \log n\right)$ or "log quadratic" | using a tree data structure $\mathcal{O}\left(n^2\right)$ times
+| $n \leq 10^4$ | $\subseteq \mathcal{O}\left(n^2\right)$ or "quadratic" | trying all pairs, grid problems
+| $n \leq 2 \cdot 10^5$ | $\subseteq \mathcal{O}(n \log n)^\spadesuit$ or "log linear" | sorting, binary searching, tree data structures
 | substantially large $n$ | $\subseteq \mathcal{O}(n), \mathcal{O}(\log n), \mathcal{O}\left(\log\mbox{*}(n)\right)^\clubsuit, \mathcal{O}(1)$ | linear scan, disjoint set union with path compression and union by size, deriving a closed form in $n$ by hand [using math](https://usaco.guide/problems/usaco-946-i-would-walk-500-miles/solution#solution-3)
 
 $^\spadesuit$ This is the most common one in USACO.
