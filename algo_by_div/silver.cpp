@@ -50,7 +50,7 @@ void compress(vector<int> &v) {
 	sort(begin(v), end(v)); 
 	v.erase(unique(begin(v), end(v)), end(v)); 
 }
-void get_compressed_idx(const vector<int> &compressed_v, int x) {
+int get_compressed_idx(const vector<int> &compressed_v, int x) {
 	return lower_bound(begin(compressed_v), end(compressed_v), x) - begin(compressed_v); 
 }
 
