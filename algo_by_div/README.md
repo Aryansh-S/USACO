@@ -56,7 +56,7 @@ As a rule of thumb for USACO, C++ can handle on the order of $10^8$ fundamental 
 | $n \leq 2 \cdot 10^3$ | $\subseteq \mathcal{O}\left(n^2 \log n\right)$ or "log quadratic" | using a tree data structure $\mathcal{O}\left(n^2\right)$ times
 | $n \leq 10^4$ | $\subseteq \mathcal{O}\left(n^2\right)$ or "quadratic" | trying all pairs, grid problems
 | $n \leq 2 \cdot 10^5$ | $\subseteq \mathcal{O}(n \log n)^\spadesuit$ or "log linear" | sorting, binary searching, tree data structures
-| substantially large $n$ | $\subseteq \mathcal{O}(n), \mathcal{O}(\log n), \mathcal{O}\left(\log\mbox{*}(n)\right)^\clubsuit, \mathcal{O}(1)$ | linear scan, disjoint set union with path compression and union by size, deriving a closed form in $n$ by hand [using math](https://usaco.guide/problems/usaco-946-i-would-walk-500-miles/solution#solution-3)
+| substantially large $n$ | $\subseteq \mathcal{O}(n), \mathcal{O}(\log n), \mathcal{O}\left(\log\mbox{*}(n)\right)^\clubsuit, \mathcal{O}(1)$ or "linear" / "log" / "constant"| linear scan, disjoint set union with path compression and union by size, deriving a closed form in $n$ by hand [using math](https://usaco.guide/problems/usaco-946-i-would-walk-500-miles/solution#solution-3)
 
 $^\spadesuit$ This is the most common one in USACO.
 
