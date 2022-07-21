@@ -73,7 +73,7 @@ Yes, there are some implementations that could be optimized by at least a consta
 
 But, to keep things simple and beginner-friendly, I didn't use bitsets (bitsets are commonly seen as a more advanced technique in competitive programming, most prevalent in situations where constant factor optimization is important). However, if you'd like to learn about bitsets and modify some of these implementations using bitsets for your own use, [this](https://www.youtube.com/watch?v=jqJ5s077OKo) is a fantastic video. 
 
-As an aside, [vectorization pragmas](https://usaco.guide/adv/vectorization?lang=cpp) can also create similar loopholes, such as [this](http://www.usaco.org/current/data/sol_prob3_silver_open22.html).
+As an aside, [vectorization pragmas](https://usaco.guide/adv/vectorization?lang=cpp) can also create similar loopholes, such as quadratic time solution at the end of [this](http://www.usaco.org/current/data/sol_prob3_silver_open22.html).
 
 > What versions of C++ are compatible with these implementations? 
 
