@@ -31,12 +31,13 @@ int csearch(const vector<int> &v, const int x) {
 }
 
 // O(1) check min (sets a to min(a, b) and returns true if change), flip > to < for ckmax
+// useful if you actually want to detect changes
 bool ckmin(auto &a, const auto b) { return a > b ? a = b, 1 : 0; } 
 
 // O(n) running tally (e.g., min element overall)
 int rmin(const vector<int> &v) {
 	int m = INF; 
-	for (int t: v) ckmin(m, t); 
+	for (int t: v) m = min(m, t); 
 	return m;
 }
 
