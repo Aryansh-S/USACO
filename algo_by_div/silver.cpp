@@ -1,5 +1,7 @@
 // a comprehensive list of silver algorithm/data structure implementations
 
+const int INF = 0x3f3f3f3f;
+
 // note: because sizes are unknown, these implementations use vectors instead of arrays. (except for vector<bool>s. those are weird...)
 // in practice, you may also use arrays of max variable size.
 // also, you may have to replace ints with long longs to prevent overflow in some cases
