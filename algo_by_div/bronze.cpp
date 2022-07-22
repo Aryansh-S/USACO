@@ -1,5 +1,7 @@
 // a comprehensive list of bronze algorithm/data structure implementations 
 
+const int INF = 0x3f3f3f3f;
+
 // note: because sizes are unknown, these implementations use vectors instead of arrays. (except for vector<bool>s. those are weird...)
 // in practice, you may also use arrays of max variable size.
 // also, you may have to replace ints with long longs to prevent overflow in some cases
@@ -33,7 +35,7 @@ bool ckmin(auto &a, const auto b) { return a > b ? a = b, 1 : 0; }
 
 // O(n) running tally (e.g., min element overall)
 int rmin(const vector<int> &v) {
-	int m = v[0]; 
+	int m = INF; 
 	for (int t: v) ckmin(m, t); 
 	return m;
 }
