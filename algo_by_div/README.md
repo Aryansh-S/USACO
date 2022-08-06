@@ -67,6 +67,14 @@ $\mathcal{O}\left(\log\mbox{*}(n)\right) \sim \mathcal{O}(1)$ for any $n$ we wou
 
 In some cases, asymptotic analysis won't cut it and your implementation may still exceed the time limit by a small margin. Then, we'll have to optimize the constant factor of the implementation. As a rule of thumb, more complex data structures produce higher constant factors. For instance, even though sorting an array of $n$ elements and adding $n$ elements to a set are both $\mathcal{O}(n \log n)$ procedures, the latter procedure will be slower (and require more memory) as sets are quite complex under the hood: they're actually binary search trees.
 
+> How do constraints like "the sum of $n$ over all test cases does not exceed..." affect time complexity analysis?
+
+Suppose your implementation's worst case runtime for one case is $\mathcal{O}(f(n))$ for some function $f.$ Then, for $t$ test cases, it would be $$\sum_{i = 1}^{t} \mathcal{O}\left(f\left(n_i\right)\right) \sim \mathcal{O}\left(\sum_{i = 1}^{t} f\left(n_i \right)\right),$$ where each $n$ with a subscript denotes the particular $n$ for that test case. Now, if we had a fixed worst case bound on $n$ for all test cases, the sum inside would just become $t \cdot f(n),$ yielding $\mathcal{O}(t \cdot f(n)).$ 
+
+But if the problem just gives a worst case bound on the sum of $n$ over all test cases, such a strong statement cannot be made about each individual $n.$ Instead, observe that for most functions $f$ in competitive programming (such as the canonical $f(n) = n \log n$), we have that $$\mathcal{O}\left(\sum_{i = 1}^{t} f\left(n_i \right)\right) \subseteq \mathcal{O}\left(f\left(\sum_{i = 1}^{t} n_i\right)\right).$$ This means that the desired runtime can often be said to be bounded above by $$\mathcal{O}\left(f\left(\sum_{i = 1}^{t} n_i\right)\right).$$ This is [amortized analysis](https://en.wikipedia.org/wiki/Amortized_analysis). But note that this expression is really just $\mathcal{O}(f(n)),$ the runtime for one test case, where $n$ is assigned the "sum over all test cases" bound given in the problem. This means we can really just do worst case analysis for a single case to check if our algorithm works rather than worry about there being $t$ cases.
+
+The reason this sort of amortized bounding is commonly used by problem writers today is because it still allows them to test your code for very large values of $n$ and $t$ without blowing up the problem input limits. For the same reason, if the problem includes a "sum over all test cases" bound, you can probably assume that $$\mathcal{O}\left(\sum_{i = 1}^{t} f\left(n_i \right)\right) \subseteq \mathcal{O}\left(f\left(\sum_{i = 1}^{t} n_i\right)\right)$$ without proof ("proof by AC" if you will). 
+
 > When can using bitsets help speed up these implementations? 
 
 > Why don't you use bitsets?
