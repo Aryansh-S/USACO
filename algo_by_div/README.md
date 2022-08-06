@@ -20,6 +20,8 @@ See the [FAQ](https://github.com/Aryansh-S/USACO/tree/main/algo_by_div#faq) belo
 
 (07/13/22) Almost finished silver (just sweep line left). 
 
+(08/06/22) Finished README. 
+
 ## Note on Use
 
 USACO no longer allows prewritten code. As such, you may not directly copy and paste code from these files in contest. Instead, I recommend committing the important features of these implementations to memory through constant practice writing them from scratch. However, if you'd like to use this code on another platform that allows prewritten code (e.g., Codeforces), or just in your practice USACO submissions, please include a comment like the following near the top of the file:
@@ -42,7 +44,7 @@ Please create an issue including your request. I'll get to it as soon as possibl
 
 > How can I tell if an implementation will run in time? 
 
-In the comment preceding each implementation, I've included that implementation's asymptotic big $\mathcal{O}$ time complexity (basically an approximation for the number of operations the implementation takes as a function of the variables it uses, accounting for only the highest order terms and ignoring constant factors). As is common in computer science, the logarithm without a base ($\log$), frequent in time complexity expressions, denotes the binary logarithm $\log_2.$
+In the comment preceding each implementation, I've included that implementation's asymptotic big $\mathcal{O}$ time complexity (basically an approximation for the number of operations the implementation takes as a function of the variables it uses, accounting for only the highest order terms and ignoring constant factors). As is common in computer science, the logarithm without a base, $\log$, frequent in time complexity expressions, denotes the binary logarithm $\log_2.$
 
 As a rule of thumb for USACO, C++ can handle on the order of $10^8$ fundamental operations per second, so we can analyze whether a given time complexity is likely to run in time by substituting the maximum variable bounds into the function inside $\mathcal{O}$ and comparing the result to $10^8.$ However, it's easier to familiarize yourself with the following common time complexities:
 
