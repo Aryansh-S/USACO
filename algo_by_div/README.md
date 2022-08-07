@@ -46,6 +46,14 @@ Please create an issue including your request. I'll get to it as soon as possibl
 
 In the comment preceding each implementation, I've included that implementation's asymptotic big $\mathcal{O}$ time complexity (basically an approximation for the number of operations the implementation takes as a function of the variables it uses, accounting for only the highest order terms and ignoring constant factors). As is common in computer science, the logarithm without a base, $\log$, frequent in time complexity expressions, denotes the binary logarithm $\log_2.$
 
+Now, let's establish some notation to compare time complexities. 
+
+We use $\sim$ to denote that two time complexities are equivalent. Formally, $\mathcal{O}(f(n)) \sim \mathcal{O}(g(n))$ for functions $f, g$ if $$\lim_{n \to \infty} \dfrac{f(n)}{g(n)} \in (0, \infty).$$
+
+For instance, $\mathcal{O}(n^3 + 100mn + 4m + m \log n) \sim \mathcal{O}(n^3 + mn).$ This is because, neglecting all constant factors, as $n$ and $m$ approach $\infty,$ the highest order terms become $n^3$ and $mn.$ We include both in the final time complexity expression because we don't have enough information to compare $n$ and $m.$
+
+We use $\subseteq$ to denote that one time complexity is bounded above by (and possibly equivalent to) another. Formally, $\mathcal{O}(f(n)) \subseteq \mathcal{O}(g(n))$ for functions $f, g$ if $$\lim_{n \to \infty} \dfrac{f(n)}{g(n)} \in [0, \infty).$$ For instance, $\mathcal{O}(n \log n) \subseteq \mathcal{O}(n^3).$ This is because $n^3$ grows much faster than $n \log n.$
+
 As a rule of thumb for USACO, C++ can handle on the order of $10^8$ fundamental operations per second, so we can analyze whether a given time complexity is likely to run in time by substituting the maximum variable bounds into the function inside $\mathcal{O}$ and comparing the result to $10^8.$ However, it's easier to familiarize yourself with the following common time complexities:
 
 | Bounds | Time Complexities | Example Implementations |
