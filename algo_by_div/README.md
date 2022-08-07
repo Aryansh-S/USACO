@@ -46,7 +46,7 @@ Please create an issue including your request. I'll get to it as soon as possibl
 
 In the comment preceding each implementation, I've included that implementation's asymptotic big $\mathcal{O}$ time complexity (basically an approximation for the number of operations the implementation takes as a function of the variables it uses, accounting for only the highest order terms and ignoring constant factors). As is common in computer science, the logarithm without a base, $\log$, frequent in time complexity expressions, denotes the binary logarithm $\log_2.$
 
-Technically speaking, $\mathcal{O}(f(n)))$ for any function $f$ is the set of all functions $g$ such that $$\lim_{n \to \infty} \dfrac{f(n)}{g(n)} \in [0, \infty).$$
+Technically speaking, $\mathcal{O}(f(n))$ for any function $f$ is the set of all functions $g$ such that $$\lim_{n \to \infty} \dfrac{f(n)}{g(n)} \in [0, \infty).$$
 
 We use $\equiv$ to denote that two time complexities are equivalent (this notation is nonstandard but convenient). Formally, $\mathcal{O}(f(n)) \equiv \mathcal{O}(g(n))$ for functions $f, g$ if $f(n) \in \mathcal{O}(g(n))$$ and $g(n) \in \mathcal{O}(f(n)).$
 
