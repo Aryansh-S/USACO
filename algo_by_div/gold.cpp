@@ -12,7 +12,7 @@ void merge_sets(set<int> &a, set<int> &b) { // efficiently merges b into a
   for (int t: b) a.emplace(t);
 }
 
-// O(log*(n)) ~ O(1) get/unite disjoint set union (dsu) aka union find
+// O(log*(n)) get/unite disjoint set union (dsu) aka union find, essentially O(1)
 struct dsu {
   vector<int> par; // stores node parent or else negative comp size
   void init(int n) { par.assign(n, -1); }
