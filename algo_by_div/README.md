@@ -48,7 +48,7 @@ In the comment preceding each implementation, I've included that implementation'
 
 Technically speaking, $\mathcal{O}(f(n))$ for any function $f$ is the set of all functions $g$ such that $$\lim_{n \to \infty} \dfrac{f(n)}{g(n)} \in [0, \infty).$$
 
-We use $\equiv$ to denote that two time complexities are equivalent (this notation is nonstandard but convenient). Formally, $\mathcal{O}(f(n)) \equiv \mathcal{O}(g(n))$ for functions $f, g$ if $f(n) \in \mathcal{O}(g(n))$$ and $g(n) \in \mathcal{O}(f(n)).$
+We use $\equiv$ to denote that two time complexities are equivalent (this notation is nonstandard but convenient). Formally, $\mathcal{O}(f(n)) \equiv \mathcal{O}(g(n))$ for functions $f, g$ if $f(n) \in \mathcal{O}(g(n))$ and $g(n) \in \mathcal{O}(f(n)).$
 
 For instance, $\mathcal{O}(n^3 + 100mn + 4m + m \log n) \equiv \mathcal{O}(n^3 + mn).$ This is because, neglecting all constant factors, as $n$ and $m$ approach $\infty,$ the highest order terms become $n^3$ and $mn.$ We include both in the final time complexity expression because we don't have enough information to compare $n$ and $m.$
 
