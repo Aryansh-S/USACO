@@ -56,7 +56,7 @@ We use $\equiv$ to denote that two time complexities are equivalent (this notati
 
 For instance, $\mathcal{O}(n^3 + 100mn + 4m + m \log n) \equiv \mathcal{O}(n^3 + mn).$ This is because, neglecting all constant factors, as $n$ and $m$ approach $\infty,$ the highest order terms become $n^3$ and $mn.$ We include both in the final time complexity expression because we don't have enough information to compare $n$ and $m.$
 
-Furthermore, based on our knowledge of sets, we can define other symbols such as $\subseteq.$
+Furthermore, based on our knowledge of sets, we can define other symbols such as $\subseteq.$ (Sources that treat $\mathcal{O}$ informally as an "expression" rather than a set will tend to operate using $+,$ $\leq,$ etc. rather than $\cup,$ $\subseteq,$ etc., respectively.)
 
 As a rule of thumb for USACO, C++ can handle on the order of $10^8$ fundamental operations per second, so we can analyze whether a given time complexity is likely to run in time by substituting the maximum variable bounds into the function inside $\mathcal{O}$ and comparing the result to $10^8.$ However, it's easier to familiarize yourself with the following common time complexities:
 
