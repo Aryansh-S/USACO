@@ -48,7 +48,7 @@ In the comment preceding each implementation, I've included that implementation'
 
 Now, let's look at some formal definitions. These will be done for single variable functions but extend intuitively for multivariable ones. 
 
-Technically speaking, $\mathcal{O}(f(n))$ for any function $f$ is the set of all functions $g$ such that $$\lim_{n \to \infty} \dfrac{f(n)}{g(n)} \in [0, \infty).$$
+Technically speaking, $\mathcal{O}(f(n))$ for any function $f$ is the set of all functions $g$ such that $$\lim_{n \to \infty} \dfrac{f(n)}{g(n)} \in [0, \infty).$$ The calligraphic $\mathcal{O}$ emphasizes that we are indeed dealing with a set, but some sources also use $O(f(n)),$ especially if they intend to forgo the set definition and treat it more informally as an "expression."
 
 We use $\equiv$ to denote that two time complexities are equivalent (this notation is nonstandard but convenient). That is, $\mathcal{O}(f(n)) \equiv \mathcal{O}(g(n))$ for functions $f, g$ if $f(n) \in \mathcal{O}(g(n))$ and $g(n) \in \mathcal{O}(f(n)).$
 
