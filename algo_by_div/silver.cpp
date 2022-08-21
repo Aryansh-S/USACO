@@ -203,8 +203,8 @@ void dfs_grid(int i, int j) {
 // but in the processing part of our algorithm overall, each object will be added and removed from the active set exactly once, giving us O(n log n)
 // so because both the sorting and processing steps each take O(n log n) time, the overall algorithm is O(n log n) as desired
 // it seems impractical to generalize sweep line -- the processing part of the algorithm will be slightly different each time depending on the problem
-// -- so instead I've provided some implementations of common problems below
-// as you read them, make sure you can clearly trace out the logic described in the comments above
+// -- so instead I've provided an implementation of a common problem below
+// as you read it, make sure you can clearly trace out the logic described in the comments above
 
 // O(n log n) smallest distance between any pair of points
 double smallest_dist_bw_any_pair(vector<array<int, 2>> v) {
@@ -221,8 +221,4 @@ double smallest_dist_bw_any_pair(vector<array<int, 2>> v) {
 		active.emplace(array{x, y}); // update active set with new point for next time
 	}
 	return d; 
-}
-
-// O(n log n) count line segment intersections
-int cnt_line_seg_isect(vector<array<int, 4>> v) { // each segment array{x1, y1, x2, y2} is from point (x1, y1) to point (x2, y2)
 }
