@@ -18,9 +18,11 @@ See the [FAQ](https://github.com/Aryansh-S/USACO/tree/main/algo_by_div#faq) belo
 
 (07/11/22) Finished bronze.
 
-(07/13/22) Almost finished silver (just sweep line left). 
+(07/13/22) Finished silver.
 
-(08/06/22) Finished README. 
+(08/06/22) Finished README.
+
+(08/21/22) Got a little busy, but gold is still in progress. 
 
 ## Note on Use
 
