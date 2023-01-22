@@ -100,7 +100,9 @@ int cnt_inv(const vector<int> &v) {
 int n, m; // # nodes, # edges
 vector<vector<int>> u_adj; // use if graph unweighted
 vector<vector<pair<int, int>>> adj; // use if graph weighted, pairs (weight, node)
-// for shortest path algorithms, instead of maintaining a visited array, we can just check conditions in dist
+vector<vector<int>> dist; // use with floyd warshall
+
+// for shortest path algorithms, instead of maintaining a visited array, we can just check distance conditions
 
 // O(n + m) construct graph in unweighted adjacency list format from edges
 void read_u_adj_list() {
@@ -155,14 +157,11 @@ int dijkstra(int start, int end) {
 // O(n^3) floyd warshall to find shortest path in weighted graph with no negative cycles
 // never favorable over spfa but arguably easier to code, so...
 int floyd(int start, int end) {
-  vector<vector<int>> dist(n, vector<int>(n, INF));
-  for (int i = 0; i < n; ++i) {
-    dist[i][i] = 0;
-    for (auto [w, j]: adj[i]) dist[i][j] = w;
-  }
+  // initially, set up dist as a weighted adjecency matrix such that dist[i][j] = edge ij if adjacent, else INF
   for (int k = 0; k < n; ++k) for (int i = 0; i < n; ++i) for (int j = 0; j < n; ++j) { // kij order
     dist[i][j] = min(dist[i][j], dist[i][k] + dist[k][j]);
   }
+  // now, dist[i][j] is the shortest path between i and j for all i, j
   return dist[start][end];
 }
 
