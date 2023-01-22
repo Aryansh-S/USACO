@@ -120,10 +120,6 @@ As much as I love metaprogramming, I do this to keep the implementations beginne
 
 The other implementations, though functional, are generally longer and more disorganized, using an unnecessary amount of macros and templates to shorten code. The implementations here are equally (if not more) functional but also concise and organized, not resorting to macros and templates. A big part of the uniqueness also comes from the *classification* into divisions.
 
-> Why do you use the array class in your implementations instead of pairs or tuples?
-
-Pairs are limited to two elements and make you do ``.first`` and ``.second`` (and nesting them involves convoluted stuff like ``.second.first``), and tuples have something weird involving ``get``. On the other hand, arrays have indexing and convenient syntax. So, even if pairs and tuples are more popular, I prefer arrays.
-
 > I notice you use the auto keyword a lot. Why don't you also make the return type in each function signature auto?
 
 Some people use the auto keyword blindly whenever they can get away with it. However, these are the circumstances under which I use the auto keyword:
