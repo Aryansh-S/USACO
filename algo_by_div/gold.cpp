@@ -141,8 +141,8 @@ int bfs(int start, int end) {
 // O(m log n) dijkstra to find shortest path in weighted graph where all weights >= 0
 int dijkstra(int start, int end) {
   vector<int> dist(n, INF);
-  using pwn = pair<int, int>; // pwn: pairs (weight, node)
-  priority_queue<pwn, vector<pwn>, greater<pwn>> todo; // min heap of pwn
+  using pii = pair<int, int>; // pairs (weight, node)
+  priority_queue<pii, vector<pii>, greater<pii>> todo; // min heap of pwn
   todo.emplace(dist[start] = 0, start); 
   while (size(todo)) {
     auto [w, v] = todo.top(); todo.pop(); 
@@ -200,8 +200,8 @@ int kruskal() {
 int prim() {
   vector<int> edge(n, INF); // best edge for each node
   edge[0] = 0; // root at 0 (arbitrary)
-  using pwn = pair<int, int>; // pwn: pairs (weight, node)
-  priority_queue<pwn, vector<pwn>, greater<pwn>> todo; // min heap of pwn
+  using pii = pair<int, int>; // pairs (weight, node)
+  priority_queue<pii, vector<pii>, greater<pii>> todo;
   bool vis[(int)(2e5 + 5)] {}; // put at least max node + 1 in () 
   for (int i = 0; i < n; ++i) todo.emplace(edge[i], i);
   while (size(todo)) {
