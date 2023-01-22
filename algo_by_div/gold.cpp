@@ -99,7 +99,7 @@ int cnt_inv(const vector<int> &v) {
 
 int n, m; // # nodes, # edges
 vector<vector<int>> u_adj; // use if graph unweighted
-vector<vector<array<int, 2>>> adj; // use if graph weighted, where [0] is weight and [1] is adjacent node
+vector<vector<pair<int, int>>> adj; // use if graph weighted, pairs (weight, node)
 // for shortest path algorithms, instead of maintaining a visited array, we can just check conditions in dist
 
 // O(n + m) construct graph in unweighted adjacency list format from edges
@@ -121,8 +121,8 @@ void read_adj_list() {
     int a, b, w; // nodes in edge with weight
     cin >> a >> b >> w; 
     --a, --b; // zero idx nodes
-    adj[a].emplace_back(array{w, b}); // adds directed edge a->b with weight w
-    // adj[b].emplace_back(array{w, a}); // uncomment if undirected edge (adds directed edge b->a with weight w)
+    adj[a].emplace_back(w, b); // adds directed edge a->b with weight w
+    // adj[b].emplace_back(w, a); // uncomment if undirected edge (adds directed edge b->a with weight w)
   }
 }
 
@@ -141,12 +141,12 @@ int bfs(int start, int end) {
 // O(m log n) dijkstra to find shortest path in weighted graph where all weights >= 0
 int dijkstra(int start, int end) {
   vector<int> dist(n, INF); 
-  priority_queue<array<int, 2>, vector<array<int, 2>>, greater<array<int, 2>>> todo; // min heap of arrays (weight, node)
-  todo.emplace(array{dist[start] = 0, start}); 
+  priority_queue<pair<int, int>, vector<pair<int, int>>, greater<pair<int, int>>> todo; // min heap of pairs (weight, node)
+  todo.emplace(dist[start] = 0, start); 
   while (size(todo)) {
     auto [w, v] = todo.top(); todo.pop(); 
     if (dist[v] < w) continue; 
-    for (auto [w_next, v_next]: adj[v]) if (dist[v_next] > w + w_next) todo.emplace(array{dist[v_next] = w + w_next, v_next}); 
+    for (auto [w_next, v_next]: adj[v]) if (dist[v_next] > w + w_next) todo.emplace(dist[v_next] = w + w_next, v_next); 
   }
   return dist[end];
 }
@@ -186,8 +186,8 @@ int spfa(int start, int end) {
 
 // O(m log m) kruskal minimum spanning tree (mst) using dsu
 int kruskal() {
-  vector<array<int, 3>> edges; // (weight, start_node, end_node)
-  for (int i = 0; i < n; ++i) for (auto [w, j]: adj[i]) edges.emplace_back(array{w, i, j});
+  vector<tuple<int, int, int>> edges; // (weight, start_node, end_node)
+  for (int i = 0; i < n; ++i) for (auto [w, j]: adj[i]) edges.emplace_back(w, i, j);
   sort(begin(edges), end(edges)); // the slowest step (bottleneck), everything else is ~ O(m)
   dsu trees; trees.init(n); 
   int mst = 0, cnt = 0; // # iterations of loop below must be n - 1 (# edges in mst) for mst to exist
@@ -199,12 +199,12 @@ int kruskal() {
 int prim() {
   vector<int> edge(n, INF); // best edge for each node
   edge[0] = 0; // root at 0 (arbitrary)
-  priority_queue<array<int, 2>, vector<array<int, 2>>, greater<array<int, 2>>> todo; // min heap of arrays (weight, node)
+  priority_queue<pair<int, int>, vector<pair<int, int>>, greater<pair<int, int>>> todo; // min heap of pairs (weight, node)
   bool vis[(int)(2e5 + 5)] {}; // put at least max node + 1 in () 
-  for (int i = 0; i < n; ++i) todo.emplace(array{edge[i], i});
+  for (int i = 0; i < n; ++i) todo.emplace(edge[i], i);
   while (size(todo)) {
     auto [w, v] = todo.top(); todo.pop(); vis[v] = 1; 
-    for (auto [w_next, v_next]: adj[v]) if (!vis[v_next] && edge[v_next] > w_next) todo.emplace(array{edge[v_next] = w_next, v_next});
+    for (auto [w_next, v_next]: adj[v]) if (!vis[v_next] && edge[v_next] > w_next) todo.emplace(edge[v_next] = w_next, v_next);
   }
   int mst = 0, cnt = 0; // # iterations of loop below must be n - 1 (# edges in mst) for mst to exist
   for (int i = 1; i < n; ++i) if (edge[i] < INF) mst += edge[i], ++cnt;
