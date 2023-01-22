@@ -144,7 +144,7 @@ int bfs(int start, int end) {
 int dijkstra(int start, int end) {
   vector<int> dist(n, INF);
   using pii = pair<int, int>; // pairs (weight, node)
-  priority_queue<pii, vector<pii>, greater<pii>> todo; // min heap of pwn
+  priority_queue<pii, vector<pii>, greater<pii>> todo;
   todo.emplace(dist[start] = 0, start); 
   while (size(todo)) {
     auto [w, v] = todo.top(); todo.pop(); 
