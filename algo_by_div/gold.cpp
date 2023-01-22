@@ -157,7 +157,7 @@ int dijkstra(int start, int end) {
 // O(n^3) floyd warshall to find shortest path in weighted graph with no negative cycles
 // never favorable over spfa but arguably easier to code, so...
 int floyd(int start, int end) {
-  // initially, set up dist as a weighted adjecency matrix such that dist[i][j] = edge ij if adjacent, else INF
+  // initially, set up dist as a weighted adjacency matrix such that dist[i][j] = edge ij if adjacent, else INF
   for (int k = 0; k < n; ++k) for (int i = 0; i < n; ++i) for (int j = 0; j < n; ++j) { // kij order
     dist[i][j] = min(dist[i][j], dist[i][k] + dist[k][j]);
   }
