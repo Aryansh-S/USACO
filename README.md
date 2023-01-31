@@ -4,6 +4,10 @@
 
 Please consult the [Unofficial USACO Syllabus](https://www.overleaf.com/read/fktckfprxyxn), which I actively maintain based on problem trends. 
 
+## Authored USACO Problems
+
+See [here](https://github.com/Aryansh-S/Aryansh-S#readme) for the released list.
+
 ## Updates
 
 (07/11/22) As a huge update to this repo, the [algo_by_div](https://github.com/Aryansh-S/USACO/tree/main/algo_by_div) folder is under daily construction and should eventually contain up-to-date, original implementations of all algorithms and data structures from bronze to gold.
