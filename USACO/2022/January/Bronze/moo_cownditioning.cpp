@@ -5,6 +5,7 @@ int n, m;
 int stall[100]; // stall[i] = the maximum cooling requirement for stall i
 int ac[10][4]; // ac[i] = {a_i, b_i, p_i, m_i}
 
+// macro to make life easier for iterative subset generation w/o bitmasking
 #define FOR(x) for (x = 0; x <= 1; ++x)
 
 int b[10]; // b[i] = is ac i on or off?
@@ -31,7 +32,9 @@ int main() {
         for (int j = 0; j < 4; ++j) cin >> ac[i][j]; 
         --ac[i][0], --ac[i][1];
     }
-
+    
+    // turn all subsets of acs on: can use recursive subset generation (a bronze technique) or bitmasking for iterative (conventionally gold),
+    // but nested fors are a simple alternative 
     FOR(b[0]) FOR(b[1]) FOR(b[2]) FOR(b[3]) FOR(b[4]) FOR(b[5])
     FOR(b[6]) FOR(b[7]) FOR(b[8]) FOR(b[9]) if (works()) {
         int cost = 0;
