@@ -25,12 +25,12 @@ int main() {
     cin >> n >> m; 
     for (int i = 0; i < n; ++i) {
         int s, t, c; 
-        cin >> s >> t >> c, --s, --t; 
+        cin >> s >> t >> c, --s, --t; // zero idx stalls
         for (int j = s; j <= t; ++j) stall[j] = max(stall[j], c); 
     }
     for (int i = 0; i < m; ++i) {
         for (int j = 0; j < 4; ++j) cin >> ac[i][j]; 
-        --ac[i][0], --ac[i][1];
+        --ac[i][0], --ac[i][1]; // zero idx stalls
     }
     
     // turn all subsets of acs on: can use recursive subset generation (a bronze technique) or bitmasking for iterative (conventionally gold),
