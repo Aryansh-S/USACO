@@ -6,7 +6,7 @@ Please consult the [Unofficial USACO Syllabus](https://www.overleaf.com/read/fkt
 
 ## Authored USACO Problems
 
-See [here](https://github.com/Aryansh-S/Aryansh-S#readme) for the released list.
+See [here](https://github.com/Aryansh-S/Aryansh-S#authored-usaco-problems) for the released list.
 
 ## Updates
 
